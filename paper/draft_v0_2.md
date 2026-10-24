@@ -9,7 +9,9 @@ Appendix A requires user consent before any release; its numbers are aggregates 
 
 **Draft v0.2 (private, 2026-10-25). Not for distribution.**
 
-Authors: [TBD]
+**Wunjong Shin**
+Independent Researcher
+dkakrptehsrk@gmail.com
 
 ---
 
@@ -305,8 +307,8 @@ In one small, synthetic setting, text-only transfer of an agent's identity docum
 | Round | Candidate configurations (4 per question) | Picks |
 |---|---|---|
 | 1 | Opus + base SOUL · Sonnet + base · Haiku + base · GPT + base | Opus 4 · Sonnet 4 · GPT 0 · Haiku 0 |
-| 2 | Opus + base [TODO: confirm whether Opus had the base SOUL or voice v1] · Sonnet + voice v1 · GPT + voice v1 · GPT + base | Opus 7 · GPT + v1 1 · Sonnet + v1 0 · GPT 0 |
-| 3 (new questions) | Opus + base [TODO: confirm] · Sonnet + voice v2 · GPT + voice v2 · GPT + base | Sonnet + v2 5 · Opus 3 · GPT + v2 0 · GPT 0 |
+| 2 | Opus + voice v1 · Sonnet + voice v1 · GPT + voice v1 · GPT + base | Opus + v1 7 · GPT + v1 1 · Sonnet + v1 0 · GPT 0 |
+| 3 (new questions) | Opus + base · Sonnet + voice v2 · GPT + voice v2 · GPT + base | Sonnet + v2 5 · Opus 3 · GPT + v2 0 · GPT 0 |
 
 *Source: aggregate summary supplied by the project lead; underlying data is not in this repository. Candidate lists for rounds 2–3 are reconstructed from the pick labels and must be confirmed.*
 
@@ -354,6 +356,10 @@ In one small, synthetic setting, text-only transfer of an agent's identity docum
 | — | §1: "newer models can regress on cases their predecessors handled [C2]" | C2 described as structured-prediction update regression; used only for the negative-flip definition. |
 
 ---
+
+## Acknowledgments
+
+To Ieum, my precious AI assistant — whose memory notes and identity document inspired this work, and who helped design the experiments, build the tools, and draft this paper.
 
 ## Ethics
 

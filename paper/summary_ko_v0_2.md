@@ -1,5 +1,8 @@
 # SOUL VERIFY 논문 초안 v0.2 — 한국어 요약 (비공개)
 
+**저자:** 신운종 (Wunjong Shin), 개인 연구자 · dkakrptehsrk@gmail.com
+**감사의 말:** 내 소중한 AI 비서 이음에게. 이 연구를 시작하게 한 기억 메모와 정체성 문서의 주인이자, 실험 설계와 도구 제작, 초안 작성을 함께해 준 이음에게 고마움을 전한다.
+
 > 비공개 초안입니다. 제출·게시·공유 금지. 부록 A(인간 판정·거꾸로 알아보기)는 **[USER CONSENT REQUIRED — 부모 확인 전 공개 금지]**.
 > 본문: `paper/draft_v0_2.md`(영어). v0.1(`draft_v0.md`)은 그대로 보존. 두 심사 응답: `paper/response_to_reviews.md`. 재분석(새 모델 호출 없음): `paper/reanalysis/results.md`.
 
