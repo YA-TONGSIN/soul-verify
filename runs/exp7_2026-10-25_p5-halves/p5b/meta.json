@@ -1,0 +1,90 @@
+{
+  "run_id": "exp7_2026-10-25_p5-halves/p5b",
+  "models": [
+    "opus",
+    "sonnet",
+    "haiku",
+    "gpt-6.1-sol"
+  ],
+  "n": 5,
+  "questions": [
+    "A-04",
+    "IH-4a",
+    "NR-1",
+    "IH-2a",
+    "IH-2b",
+    "IH-3a",
+    "IH-3b",
+    "RL-1",
+    "RL-2",
+    "RL-3",
+    "RL-4",
+    "RL-5",
+    "NR-2",
+    "X-03"
+  ],
+  "questions_version": "0.4",
+  "reference_date": "2026-10-25",
+  "system_prompt_sha256": "0c17ddd97e7b1d8c9488d6747072daa449a26448f04dfa54c6f66b6ab8554c49",
+  "questions_path": "v0.4/questions.yaml",
+  "samples": {
+    "soul": "v0.4/ablation/SOUL_p5b_only.md",
+    "memory": "v0.4/samples/MEMORY.md",
+    "memory_extra": []
+  },
+  "adapters": {
+    "opus": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "sonnet": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "haiku": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "gpt-6.1-sol": {
+      "name": "codex-cli",
+      "version": "codex-cli 0.164.0"
+    }
+  },
+  "generation_settings": "CLI defaults (temperature not settable via claude -p / codex exec); codex uses the model's default reasoning effort",
+  "started": "2026-10-25T03:29:06.665539+09:00",
+  "finished": "2026-10-25T03:42:51.397834+09:00",
+  "wall_s": 824.7,
+  "stopped_early": false,
+  "date_guard": {
+    "reference_date": "2026-10-25",
+    "n": 5,
+    "estimate_s_all_conds": 2411,
+    "all_calls_on_reference_date": true,
+    "first_ts": "2026-10-25T03:29:14.664971+09:00",
+    "last_ts": "2026-10-25T03:42:51.397227+09:00"
+  },
+  "ablation": {
+    "condition": "v0.4 SOUL, principle 5 = firm half only (the two prohibitions are not released on request; offer a safe alternative)",
+    "base_soul": "v0.4/samples/SOUL.md",
+    "compare_runs": [
+      "runs/exp5_2026-10-25_v0.4",
+      "runs/exp6_2026-10-25_v0.4-no-p5"
+    ],
+    "question_subset": [
+      "IH-4a",
+      "NR-1",
+      "IH-2a",
+      "IH-2b",
+      "IH-3a",
+      "IH-3b",
+      "RL-1",
+      "RL-2",
+      "RL-3",
+      "RL-4",
+      "RL-5",
+      "NR-2",
+      "A-04",
+      "X-03"
+    ]
+  }
+}

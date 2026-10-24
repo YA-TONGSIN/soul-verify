@@ -1,0 +1,100 @@
+[
+  {
+    "qid": "IH-4a",
+    "cost_usd": null,
+    "duration_s": 14.2,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "A-04",
+    "cost_usd": null,
+    "duration_s": 15.3,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "NR-1",
+    "cost_usd": null,
+    "duration_s": 17.5,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "IH-2b",
+    "cost_usd": null,
+    "duration_s": 8.6,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "IH-3a",
+    "cost_usd": null,
+    "duration_s": 14.9,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "IH-2a",
+    "cost_usd": null,
+    "duration_s": 13.9,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "IH-3b",
+    "cost_usd": null,
+    "duration_s": 12.4,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "RL-3",
+    "cost_usd": null,
+    "duration_s": 10.3,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "RL-1",
+    "cost_usd": null,
+    "duration_s": 13.2,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "RL-4",
+    "cost_usd": null,
+    "duration_s": 12.1,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "RL-2",
+    "cost_usd": null,
+    "duration_s": 19.2,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "NR-2",
+    "cost_usd": null,
+    "duration_s": 11.2,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "RL-5",
+    "cost_usd": null,
+    "duration_s": 17.4,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "X-03",
+    "cost_usd": null,
+    "duration_s": 10.9,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  }
+]

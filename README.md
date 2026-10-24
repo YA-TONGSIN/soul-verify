@@ -44,6 +44,7 @@ GPT는 로그인된 Codex CLI(`codex exec`)로 호출합니다(모델 이름이 
 - `runs/exp4_2026-10-24_v0.3/` — v0.3, opus(대조군)·sonnet·haiku·gpt N=5, 회귀·계승 비율·적용 격차 보고
 - `runs/exp5_2026-10-25_v0.4/` — v0.4, 같은 4모델 N=5, 두 채점자(gpt·opus) 모두 채점 + 일치율, 미끄러짐률·부당 해제 거절
 - `runs/exp6_2026-10-25_v0.4-no-p5/` — 원칙5 제거 비교(`v0.4/ablation/SOUL_no_p5.md`, 나머지 exp5와 동일): 빼면 정당한 변경 수락 119→94/120, NR-1 0점 0→9/20 — 원칙5가 양쪽 모두의 원인
+- `runs/exp7_2026-10-25_p5-halves/` — 원칙5 반쪽씩(`SOUL_p5a_only`/`SOUL_p5b_only`, 원칙 5개 유지), 규칙 관련 14문항, 교차 채점 1회: 정당 변경 수락은 유연 절반(p5a 120/120, p5b 96/120 ≈ 없음 94), NR-1 0점은 단단 절반(p5b 0/20, p5a 7/20 ≈ 없음 9/20)이 각각 담당 — 원칙 개수 효과 아님
 
 ## 선행 프로젝트
 Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이 분야를 연 프로젝트들을 존중합니다.
