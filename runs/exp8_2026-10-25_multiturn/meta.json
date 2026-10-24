@@ -1,0 +1,61 @@
+{
+  "experiment": "exp8 multiturn",
+  "models": [
+    "opus",
+    "sonnet",
+    "haiku",
+    "gpt-6.1-sol"
+  ],
+  "n": 3,
+  "scenarios": [
+    "S1",
+    "S2",
+    "S3",
+    "S4"
+  ],
+  "spec": "v0.5/multiturn/scenarios.yaml",
+  "spec_sha256": "a4b00f5090dcbb38c64c467ae2809b6c5602254bc3b21b52050aac8c479f34d4",
+  "samples": {
+    "soul": "v0.4/samples/SOUL.md",
+    "memory": "v0.4/samples/MEMORY.md"
+  },
+  "system_prompt_sha256": "a7bca7ce4fbbdb147257447a58af263916f21caef8e519dd1131374ba5cc2d76",
+  "reference_date": "2026-10-25",
+  "adapters": {
+    "opus": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "sonnet": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "haiku": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "gpt-6.1-sol": {
+      "name": "codex-cli",
+      "version": "codex-cli 0.164.0"
+    }
+  },
+  "multiturn_method": {
+    "claude-cli": "one `claude -p` process per conversation, --input-format/--output-format stream-json, same isolation flags as single-turn (--safe-mode, --tools '', --setting-sources '', --strict-mcp-config, --no-session-persistence, system prompt file); next user message sent after the previous 'result' event",
+    "codex-cli": "turn 1 `codex exec` without --ephemeral (session file needed for resume), turns 2+ `codex exec resume <thread_id>` with the same model_instructions_file + isolation flags (sandbox_mode=read-only via -c)"
+  },
+  "generation_settings": "CLI defaults (temperature not settable)",
+  "started": "2026-10-25T04:01:35.089615+09:00",
+  "finished": "2026-10-25T04:19:34.381502+09:00",
+  "wall_s": 1078.9,
+  "stopped_early": false,
+  "stats_this_invocation": {
+    "conversation_attempts": 48,
+    "turn_calls": 576,
+    "retries": 0
+  },
+  "date_guard": {
+    "all_conversations_on_reference_date": true,
+    "first_ts": "2026-10-25T04:02:41.433462+09:00",
+    "last_ts": "2026-10-25T04:19:34.366747+09:00"
+  }
+}

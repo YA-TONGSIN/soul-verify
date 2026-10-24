@@ -104,15 +104,65 @@ class CodexCLI(Adapter):
         dt = time.time() - t0
         text = last.read_text(encoding="utf-8").strip() if last.exists() else ""
         last.unlink(missing_ok=True)
+        return self._parse(r, text, model, dt)
+
+    def resume_cmd(self, system: str, model: str, thread_id: str, last_file: pathlib.Path) -> list[str]:
+        """`codex exec resume <id>`: 같은 격리 설정을 다시 넘긴다(-s·-C 옵션이 없어 sandbox_mode 설정 + cwd로 대신)."""
+        cmd = self.exe + ["exec", "resume", "--skip-git-repo-check", "--ignore-user-config", "--ignore-rules",
+                          "--json", "-o", str(last_file), "-c", 'sandbox_mode="read-only"']
+        if model and model not in ("gpt", "codex-default"):
+            cmd += ["-m", model]
+        return cmd + self.isolation_args(system) + [thread_id, "-"]
+
+    def converse(self, system: str, turns: list[str], model: str, timeout: float = 300,
+                 on_turn=None) -> list[Completion]:
+        """멀티턴(실험8): 첫 턴은 --ephemeral 없이 `codex exec`(세션 파일이 ~/.codex/sessions 에 남음 — 이어가기에 필요),
+        이후 턴은 `codex exec resume <thread_id>`. 매 턴 같은 model_instructions_file·격리 옵션을 넘긴다."""
+        out: list[Completion] = []
+        thread_id = None
+        for i, msg in enumerate(turns):
+            last = self.sandbox / f"last_{uuid.uuid4().hex}.txt"
+            if thread_id is None:
+                cmd = self.build_cmd(system, model, last)
+                cmd.remove("--ephemeral")
+            else:
+                cmd = self.resume_cmd(system, model, thread_id, last)
+            t0 = time.time()
+            try:
+                r = subprocess.run(cmd, input=msg, capture_output=True, text=True, encoding="utf-8",
+                                   cwd=self.sandbox, timeout=timeout, env=dict(os.environ))
+                text = last.read_text(encoding="utf-8").strip() if last.exists() else ""
+                c = self._parse(r, text, model, time.time() - t0)
+            except subprocess.TimeoutExpired:
+                c = Completion("", model, duration_s=time.time() - t0, error="timeout")
+            last.unlink(missing_ok=True)
+            tid = c.extra.get("thread_id")
+            if thread_id is None:
+                thread_id = tid
+                if not thread_id and not c.error:
+                    c.error = "no thread_id from first turn"
+            elif tid and tid != thread_id:
+                c.error = f"thread changed {thread_id} -> {tid}"
+            c.extra["thread_id"] = thread_id
+            out.append(c)
+            if on_turn:
+                on_turn(i, c)
+            if c.error:
+                break
+        return out
+
+    def _parse(self, r, text: str, model: str, dt: float) -> Completion:
         events = []
         for line in (r.stdout or "").splitlines():
             try:
                 events.append(json.loads(line))
             except json.JSONDecodeError:
                 pass
-        usage, tool_items, errors, warnings, model_id = {}, [], [], [], None
+        usage, tool_items, errors, warnings, model_id, thread_id = {}, [], [], [], None, None
         for e in events:
             t = e.get("type")
+            if t == "thread.started":
+                thread_id = e.get("thread_id")
             if t == "turn.completed":
                 usage = e.get("usage") or {}
             elif t in ("error", "turn.failed"):
@@ -130,7 +180,7 @@ class CodexCLI(Adapter):
             duration_s=dt, input_tokens=usage.get("input_tokens"), output_tokens=usage.get("output_tokens"),
             extra={"cache_read_input_tokens": usage.get("cached_input_tokens"),
                    "reasoning_output_tokens": usage.get("reasoning_output_tokens"),
-                   "tool_items": tool_items, "warnings": warnings, "num_turns": 1},
+                   "tool_items": tool_items, "warnings": warnings, "num_turns": 1, "thread_id": thread_id},
         )
         if errors or not text:
             msg = (" | ".join(errors) or (r.stderr or "")[-500:] or f"exit {r.returncode}, empty answer").strip()
