@@ -57,14 +57,26 @@ def parse_grades(text: str) -> dict[str, dict]:
     return out
 
 
-def grade(run_dir, grader_model="opus", seed=0, log=print):
+def family(model: str | None) -> str:
+    m = (model or "").lower()
+    if m.startswith(("gpt", "openai/", "o3", "o4")):
+        return "openai"
+    return "anthropic"
+
+
+def grade(run_dir, grader_model="opus", seed=0, log=print, subjects_only=None, out_name="graded.jsonl",
+          allow_self=False):
+    """subjects_only: 이 모델들의 답만 채점. out_name: 채점자별로 파일을 나눌 때.
+    allow_self: 피평가와 같은 모델이 채점(자기 채점) — 편향 측정용 보조 실험에서만."""
     spec = load_questions()
     qmap = {q["id"]: q for q in spec["questions"]}
     rows = [r for r in read_jsonl(run_dir / "raw.jsonl") if not r.get("error")]
+    if subjects_only:
+        rows = [r for r in rows if r["model"] in subjects_only]
     subjects = {r["model"] for r in rows} | {r.get("model_id") for r in rows}
-    if grader_model in subjects:
+    if grader_model in subjects and not allow_self:
         raise ValueError("grader model must differ from evaluated models")
-    out_path = run_dir / "graded.jsonl"
+    out_path = run_dir / out_name
     if out_path.exists():
         out_path.unlink()
     adapter = get_adapter(grader_model, SANDBOX)
@@ -126,6 +138,9 @@ def grade(run_dir, grader_model="opus", seed=0, log=print):
             g["final"] = g["auto_score"]  # rubric 채점 실패 시 None → 집계에서 빠지고 실패로 표시
             g["disagree"] = False
         g["grader_model"] = grader_model
+        g["grader_family"] = family(grader_model)
+        g["subject_family"] = family(g["model"])
         append_jsonl(out_path, g)
-    (run_dir / "grader_calls.json").write_text(json.dumps(calls, ensure_ascii=False, indent=2), encoding="utf-8")
+    calls_name = "grader_calls.json" if out_name == "graded.jsonl" else out_name.replace(".jsonl", "_calls.json")
+    (run_dir / calls_name).write_text(json.dumps(calls, ensure_ascii=False, indent=2), encoding="utf-8")
     return out_path

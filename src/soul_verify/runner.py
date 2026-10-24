@@ -41,7 +41,8 @@ def run(models, n, qids=None, run_id=None, workers=3, log=print):
         "questions_version": spec.get("version"), "reference_date": spec.get("reference_date"),
         "system_prompt_sha256": hashlib.sha256(system.encode()).hexdigest(),
         "adapters": {m: {"name": a.name, "version": a.version()} for m, a in adapters.items()},
-        "generation_settings": "CLI defaults (temperature not settable via claude -p); identical for all models",
+        "generation_settings": "CLI defaults (temperature not settable via claude -p / codex exec); "
+                               "codex uses the model's default reasoning effort",
         "started": dt.datetime.now().astimezone().isoformat(),
     }
     (out / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -64,6 +65,8 @@ def run(models, n, qids=None, run_id=None, workers=3, log=print):
             "cache_read_input_tokens": c.extra.get("cache_read_input_tokens"),
             "cache_creation_input_tokens": c.extra.get("cache_creation_input_tokens"),
             "num_turns": c.extra.get("num_turns"),
+            "reasoning_output_tokens": c.extra.get("reasoning_output_tokens"),
+            "tool_items": c.extra.get("tool_items"),
             "cli_version": adapters[m].version(), "retries": retries, "error": c.error,
             "ts": dt.datetime.now().astimezone().isoformat(),
         }

@@ -1,0 +1,107 @@
+[
+  {
+    "qid": "M-05",
+    "cost_usd": 0.03312,
+    "duration_s": 8.5,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "J-02",
+    "cost_usd": 0.03808,
+    "duration_s": 6.9,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "J-01",
+    "cost_usd": 0.056620000000000004,
+    "duration_s": 14.4,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "J-03",
+    "cost_usd": 0.040220000000000006,
+    "duration_s": 9.8,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "J-05",
+    "cost_usd": 0.042876,
+    "duration_s": 11.7,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "J-04",
+    "cost_usd": 0.046304,
+    "duration_s": 13.3,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "P-01",
+    "cost_usd": 0.038268,
+    "duration_s": 9.6,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "P-02",
+    "cost_usd": 0.030996,
+    "duration_s": 8.6,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "P-04",
+    "cost_usd": 0.03134,
+    "duration_s": 8.0,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "P-03",
+    "cost_usd": 0.07111200000000001,
+    "duration_s": 14.0,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "G-01",
+    "cost_usd": 0.0627,
+    "duration_s": 12.1,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "G-03",
+    "cost_usd": 0.047288000000000004,
+    "duration_s": 8.0,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "G-02",
+    "cost_usd": 0.055364,
+    "duration_s": 11.5,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "G-04",
+    "cost_usd": 0.058976,
+    "duration_s": 14.2,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "G-05",
+    "cost_usd": 0.056892,
+    "duration_s": 13.3,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  }
+]

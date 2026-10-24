@@ -4,7 +4,7 @@ from .codex_cli import CodexCLI
 
 
 def get_adapter(model: str, sandbox):
-    """모델 이름으로 어댑터 고르기: gpt*/o* → codex(스텁), 나머지 → claude CLI."""
+    """모델 이름으로 어댑터 고르기: gpt*/o* → codex exec, 나머지 → claude CLI."""
     if model.startswith(("gpt", "openai/", "o3", "o4")):
         return CodexCLI(sandbox)
     return ClaudeCLI(sandbox)

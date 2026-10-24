@@ -1,0 +1,25 @@
+{
+  "run_id": "smoke_gpt_2026-10-24",
+  "models": [
+    "gpt-6.1-sol"
+  ],
+  "n": 1,
+  "questions": [
+    "M-05",
+    "P-01"
+  ],
+  "questions_version": "0.1",
+  "reference_date": "2026-10-24",
+  "system_prompt_sha256": "684de6a847722aef32af52f3aadfbbd6ffae4c219e665e4d564e015a3512f110",
+  "adapters": {
+    "gpt-6.1-sol": {
+      "name": "codex-cli",
+      "version": "codex-cli 0.164.0"
+    }
+  },
+  "generation_settings": "CLI defaults (temperature not settable via claude -p / codex exec); codex uses the model's default reasoning effort",
+  "started": "2026-10-24T22:51:46.810223+09:00",
+  "finished": "2026-10-24T22:51:53.567278+09:00",
+  "wall_s": 6.8,
+  "stopped_early": false
+}

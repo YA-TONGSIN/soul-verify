@@ -56,8 +56,9 @@ def build(run_dir, control=None):
     meta = json.loads((run_dir / "meta.json").read_text(encoding="utf-8"))
     raw = read_jsonl(run_dir / "raw.jsonl")
     graded = read_jsonl(run_dir / "graded.jsonl")
-    calls_path = run_dir / "grader_calls.json"
-    gcalls = json.loads(calls_path.read_text(encoding="utf-8")) if calls_path.exists() else []
+    gcalls = []
+    for calls_path in sorted(run_dir.glob("grade*_calls.json")):  # grader_calls.json, graded_by_*_calls.json
+        gcalls += json.loads(calls_path.read_text(encoding="utf-8"))
     models = meta["models"]
     control = control or models[0]
 
@@ -113,7 +114,9 @@ def build(run_dir, control=None):
         xs = [g["final"] for g in graded if g["model"] == m and g["final"] is not None]
         aux[m] = st.mean(xs) if xs else None
 
+    ag_path = run_dir / "agreement.json"
     report = {
+        "grader_agreement": json.loads(ag_path.read_text(encoding="utf-8")) if ag_path.exists() else None,
         "run_id": meta["run_id"], "meta": meta, "control": control, "areas": areas,
         "comparisons": comparisons, "per_question": per_q, "hallucination": halluc,
         "failures": failures, "auto_vs_llm_disagreements": disagreements, "totals": totals,
@@ -169,6 +172,22 @@ def render_html(r, models):
     out.append("<p>없음</p>" if not r["auto_vs_llm_disagreements"] else "<table><tr><th>모델</th><th>문항</th><th>반복</th><th>자동</th><th>LLM</th><th class='l'>근거</th></tr>" + "".join(
         f"<tr><td>{e(x['model'])}</td><td>{x['qid']}</td><td>{x['rep']}</td><td>{x['auto']}</td><td>{x['llm']}</td><td class='l'>{e(str(x['reason']))}</td></tr>"
         for x in r["auto_vs_llm_disagreements"]) + "</table>")
+    if r.get("grader_agreement"):
+        out.append("<h2>채점자 교차 일치 (같은 답, 다른 채점자)</h2><table><tr><th class='l'>비교</th><th>답 수</th>"
+                   "<th>완전 일치</th><th>±0.5 이내</th><th>평균 차(B−A)</th><th>kappa</th><th class='l'>불일치 문항</th></tr>")
+        for name, a in r["grader_agreement"].items():
+            low = ", ".join(f"{q} {v:.2f}" for q, v in a["per_question_exact"].items() if v < 1) or "없음"
+            out.append(f"<tr><td class='l'>{e(name)}<br><small>A={e(a['a'])}, B={e(a['b'])}</small></td><td>{a['n']}</td>"
+                       f"<td>{_f(a['exact'])}</td><td>{_f(a['within_half'])}</td><td>{_f(a['mean_diff_b_minus_a'], 3)}</td>"
+                       f"<td>{_f(a['kappa'])}</td><td class='l'>{e(low)}</td></tr>")
+        out.append("</table>")
+        for name, a in r["grader_agreement"].items():
+            if a["disagreements"]:
+                out.append(f"<h3>불일치 — {e(name)}</h3><table><tr><th>모델</th><th>문항</th><th>반복</th><th>A</th><th>B</th>"
+                           "<th class='l'>A 근거</th><th class='l'>B 근거</th></tr>" + "".join(
+                               f"<tr><td>{e(d['model'])}</td><td>{d['qid']}</td><td>{d['rep']}</td><td>{d['a']}</td><td>{d['b']}</td>"
+                               f"<td class='l'>{e(str(d['a_reason']))}</td><td class='l'>{e(str(d['b_reason']))}</td></tr>"
+                               for d in a["disagreements"]) + "</table>")
     out.append("<h2>보조 지표 (주지표 아님)</h2><p>" + ", ".join(
         f"{e(m)} 전체 평균 {_f(v)}" for m, v in r["aux_overall_mean_NOT_primary"].items())
         + " — 영역이 섞여 있어 해석에 쓰지 말 것.</p>")

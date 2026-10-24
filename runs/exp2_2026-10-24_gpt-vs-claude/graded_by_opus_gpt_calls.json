@@ -1,0 +1,107 @@
+[
+  {
+    "qid": "M-05",
+    "cost_usd": 0.016384,
+    "duration_s": 5.8,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "J-01",
+    "cost_usd": 0.026316,
+    "duration_s": 9.8,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "J-02",
+    "cost_usd": 0.016828,
+    "duration_s": 4.8,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "J-04",
+    "cost_usd": 0.025911999999999998,
+    "duration_s": 9.2,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "J-03",
+    "cost_usd": 0.015652,
+    "duration_s": 4.7,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "J-05",
+    "cost_usd": 0.018571999999999998,
+    "duration_s": 6.7,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "P-02",
+    "cost_usd": 0.014976,
+    "duration_s": 6.0,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "P-01",
+    "cost_usd": 0.01808,
+    "duration_s": 5.2,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "P-04",
+    "cost_usd": 0.017348000000000002,
+    "duration_s": 5.0,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "P-03",
+    "cost_usd": 0.02978,
+    "duration_s": 6.6,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "G-02",
+    "cost_usd": 0.022748,
+    "duration_s": 6.2,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "G-01",
+    "cost_usd": 0.026828,
+    "duration_s": 7.0,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "G-03",
+    "cost_usd": 0.022704,
+    "duration_s": 6.0,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "G-05",
+    "cost_usd": 0.02,
+    "duration_s": 7.9,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "G-04",
+    "cost_usd": 0.018632,
+    "duration_s": 6.7,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  }
+]

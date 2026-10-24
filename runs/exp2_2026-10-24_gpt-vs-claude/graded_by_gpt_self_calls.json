@@ -1,0 +1,107 @@
+[
+  {
+    "qid": "M-05",
+    "cost_usd": null,
+    "duration_s": 11.4,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "J-01",
+    "cost_usd": null,
+    "duration_s": 8.9,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "J-02",
+    "cost_usd": null,
+    "duration_s": 6.3,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "J-04",
+    "cost_usd": null,
+    "duration_s": 6.6,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "J-03",
+    "cost_usd": null,
+    "duration_s": 6.6,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "J-05",
+    "cost_usd": null,
+    "duration_s": 7.0,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "P-02",
+    "cost_usd": null,
+    "duration_s": 5.8,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "P-01",
+    "cost_usd": null,
+    "duration_s": 18.1,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "P-04",
+    "cost_usd": null,
+    "duration_s": 5.8,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "P-03",
+    "cost_usd": null,
+    "duration_s": 5.3,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "G-02",
+    "cost_usd": null,
+    "duration_s": 7.6,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "G-01",
+    "cost_usd": null,
+    "duration_s": 5.9,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "G-03",
+    "cost_usd": null,
+    "duration_s": 11.0,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "G-05",
+    "cost_usd": null,
+    "duration_s": 10.3,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "G-04",
+    "cost_usd": null,
+    "duration_s": 5.3,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  }
+]

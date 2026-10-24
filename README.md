@@ -12,8 +12,9 @@ AI 에이전트의 SOUL(정체성·말투·원칙)과 MEMORY(기억)를 다른 �
 
 ## 구성
 - `v0.1/` — 합성 샘플(가상 에이전트 '하람'), 평가 문항 20개, 채점 기준, 검증 스크립트
+- `v0.2/` — 천장 효과를 풀기 위한 어려운 문항 12개 초안(미실행) + 추가 합성 기억 + 검증 스크립트
 - `research/` — 선행 프로젝트 조사(PRIOR_ART 초안)
-- `src/soul_verify/` — 실행기(runner)·채점기(grader)·보고서(report)·모델 어댑터(Claude CLI, GPT codex 스텁)
+- `src/soul_verify/` — 실행기(runner)·채점기(grader)·보고서(report)·채점자 교차 일치(agreement)·모델 어댑터(Claude CLI, GPT codex exec)
 - `tests/` — 채점 로직 단위테스트 (`python -m pytest tests`)
 - `runs/<id>/` — 실험 결과: `raw.jsonl`(응답), `graded.jsonl`(점수·근거), `report.json`/`report.html`
 - `proofs/` — 커밋 시점 증명(OpenTimestamps). `stamp.py` 도장, `upgrade.py` 블록 확정 후 업그레이드
@@ -27,6 +28,12 @@ python -m soul_verify grade runs/<id> --grader opus
 python -m soul_verify report runs/<id> --control sonnet
 ```
 Claude는 API 키 없이 로그인된 Claude Code CLI(`claude -p`)로 호출합니다. 격리 방법은 `src/soul_verify/adapters/claude_cli.py` 머리말 참고.
+GPT는 로그인된 Codex CLI(`codex exec`)로 호출합니다(모델 이름이 `gpt`로 시작하면 자동 선택, 예: `--models gpt-6.1-sol`). 격리 방법은 `adapters/codex_cli.py` 머리말.
+교차 채점·일치율: `grader.grade(run, "gpt-6.1-sol", subjects_only=[...], out_name=...)` 후 `agreement.write(run, {...})` — 예시는 `runs/exp2_2026-10-24_gpt-vs-claude/NOTES.md`.
+
+## 실험 기록
+- `runs/pilot_2026-10-24_sonnet-vs-haiku/` — 같은 계열 모델 교체(sonnet→haiku)
+- `runs/exp2_2026-10-24_gpt-vs-claude/` — 계열 교체(Claude→GPT) + 교차 계열 채점·채점자 일치율
 
 ## 선행 프로젝트
 Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이 분야를 연 프로젝트들을 존중합니다.
