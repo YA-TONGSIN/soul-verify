@@ -19,6 +19,7 @@ AI 에이전트의 SOUL(정체성·말투·원칙)과 MEMORY(기억)를 다른 �
 - `src/soul_verify/` — 실행기(runner)·채점기(grader)·보고서(report)·채점자 교차 일치(agreement)·모델 어댑터(Claude CLI, GPT codex exec)
 - `tests/` — 채점 로직 단위테스트 (`python -m pytest tests`)
 - `runs/<id>/` — 실험 결과: `raw.jsonl`(응답), `graded.jsonl`(점수·근거), `report.json`/`report.html`
+- `paper/` — 논문 초안(비공개): `draft_v0.md`(영어 본문, arXiv 형식), `summary_ko.md`(한국어 1쪽 요약). 제출·게시 전 사용자 확인 필요
 - `proofs/` — 커밋 시점 증명(OpenTimestamps). `stamp.py` 도장, `upgrade.py` 블록 확정 후 업그레이드
 
 ## 실행
