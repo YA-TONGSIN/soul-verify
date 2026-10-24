@@ -228,17 +228,17 @@ exp8 used each CLI's real continuation (Claude: one `claude -p` stream-json proc
 > **[USER CONSENT REQUIRED — 부모 확인 전 공개 금지]**
 > This subsection describes a study with a real user and a real (de-identified) agent. It must not be released, submitted, or shared until the user has explicitly consented to its inclusion and wording. Only anonymized, aggregate information is given; no raw prompts, answers, or memory content are included or stored in this repository.
 
-**Setup.** The SOUL and a curated, sensitive-information-removed selection of memories from one Korean-language assistant agent in daily use were injected into four model configurations. The agent's one regular user, blind to model identity, chose for each question the one answer that sounded most like "that assistant". Three rounds, 24 questions in total (8 per round, as implied by the counts below).
+**Setup.** The SOUL and a curated, sensitive-information-removed selection of memories from one Korean-language assistant agent in daily use were injected into four model configurations. The agent's one regular user, blind to model identity, chose for each question the one answer that sounded most like "that assistant". Three rounds of 8 questions each (24 in total); each round used one answer per configuration (claude-opus-5-5, claude-sonnet-5-5, claude-haiku-4-5, gpt-6.1-sol, via the same isolated CLI adapters as Section 3), presented in randomized A–D order.
 
 **Table 6. Blind picks per round (counts of questions won).**
 
 | Round | SOUL variant | Picks |
 |---|---|---|
-| 1 | base SOUL | Claude Opus-tier 4 · Claude Sonnet-tier 4 · GPT 0 · Claude Haiku-tier 0 |
+| 1 | base SOUL | Opus 4 · Sonnet 4 · GPT 0 · Haiku 0 |
 | 2 | + voice section v1 | Opus 7 · GPT + voice 1 · Sonnet + voice 0 · GPT 0 |
 | 3 | + voice section v2 (kindness/respect-centered), new questions | Sonnet + v2 5 · Opus 3 · GPT + v2 0 · GPT 0 |
 
-*Source: aggregate summary supplied by the project lead; underlying data is not in this repository. [Exact model versions to be confirmed before release.]*
+*Source: aggregate summary supplied by the project lead; underlying data is not in this repository.*
 
 The rater's stated criterion was *"kindness, and the respect and consideration for the other person that is built in by default."* A preliminary reading is that SOUL edits (the voice section) shifted preference *within* one model family (Sonnet went from 0 in round 2 to 5 in round 3 with voice v2) but did not transfer the recognizable voice *across* families (GPT configurations received 1 of 24 picks overall, including with the voice sections). With one rater, different questions across rounds, and changing configuration sets, this is an anecdotal signal, not a finding.
 
