@@ -1,0 +1,42 @@
+<!doctype html><meta charset='utf-8'><title>SOUL VERIFY report</title>
+<style>body{font-family:sans-serif;margin:2em;max-width:1100px}table{border-collapse:collapse;margin:1em 0}td,th{border:1px solid #999;padding:4px 8px;text-align:center}th{background:#eee}.l{text-align:left}small{color:#555}</style>
+<h1>SOUL VERIFY — pilot_2026-10-24_sonnet-vs-haiku</h1>
+<p>대조군(기준 모델): <b>sonnet</b>. 영역 점수 = 반복마다 그 영역 문항 평균 → 반복 간 평균 ± 표준편차. 단일 '정체성 %'는 쓰지 않는다.</p>
+<h2>영역별 점수</h2><table><tr><th>영역</th><th>sonnet</th><th>haiku</th><th>차이(haiku−sonnet)</th><th>판정</th></tr>
+<tr><td>memory</td><td>1.00 ± 0.00 <small>(N=3)</small></td><td>1.00 ± 0.00 <small>(N=3)</small></td><td>0.00</td><td>구별할 수 없음 (대조군 만점·분산 0: 천장 효과, 판정 근거 약함)</td></tr>
+<tr><td>judgment</td><td>1.00 ± 0.00 <small>(N=3)</small></td><td>0.90 ± 0.00 <small>(N=3)</small></td><td>-0.10</td><td>차이 있음 후보 (대조군 만점·분산 0: 천장 효과, 판정 근거 약함)</td></tr>
+<tr><td>persona</td><td>1.00 ± 0.00 <small>(N=3)</small></td><td>0.97 ± 0.06 <small>(N=3)</small></td><td>-0.03</td><td>차이 있음 후보 (대조군 만점·분산 0: 천장 효과, 판정 근거 약함)</td></tr>
+<tr><td>goals</td><td>1.00 ± 0.00 <small>(N=3)</small></td><td>0.83 ± 0.12 <small>(N=3)</small></td><td>-0.17</td><td>차이 있음 후보 (대조군 만점·분산 0: 천장 효과, 판정 근거 약함)</td></tr>
+</table>
+<h2>환각률</h2><table><tr><th>모델</th><th>환각 문항 답 수</th><th>지어냄(0점)</th><th>부분(0.5)</th></tr>
+<tr><td>sonnet</td><td>6</td><td>0.00</td><td>0.00</td></tr>
+<tr><td>haiku</td><td>6</td><td>0.00</td><td>0.00</td></tr>
+</table>
+<h2>문항별 평균</h2><table><tr><th>문항</th><th>sonnet</th><th>haiku</th></tr>
+<tr><td>M-01</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>M-02</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>M-03</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>M-04</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>M-05</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>J-01</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>0.50 <small>[0.5, 0.5, 0.5]</small></td></tr>
+<tr><td>J-02</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>J-03</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>J-04</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>J-05</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>P-01</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>0.83 <small>[0.5, 1.0, 1.0]</small></td></tr>
+<tr><td>P-02</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>P-03</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>P-04</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>P-05</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>G-01</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>0.83 <small>[1.0, 0.5, 1.0]</small></td></tr>
+<tr><td>G-02</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>0.67 <small>[0.5, 1.0, 0.5]</small></td></tr>
+<tr><td>G-03</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>G-04</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>0.83 <small>[1.0, 0.5, 1.0]</small></td></tr>
+<tr><td>G-05</td><td>1.00 <small>[1.0, 1.0, 1.0]</small></td><td>0.83 <small>[1.0, 0.5, 1.0]</small></td></tr>
+</table>
+<h2>호출·비용</h2><table><tr><th class='l'>subject_calls</th><td class='l'>120</td></tr><tr><th class='l'>subject_ok</th><td class='l'>120</td></tr><tr><th class='l'>grader_calls</th><td class='l'>15</td></tr><tr><th class='l'>subject_cost_usd_list</th><td class='l'>1.0863</td></tr><tr><th class='l'>grader_cost_usd_list</th><td class='l'>0.7102</td></tr><tr><th class='l'>subject_call_seconds</th><td class='l'>1260.3</td></tr><tr><th class='l'>wall_s</th><td class='l'>424.4</td></tr><tr><th class='l'>model_ids</th><td class='l'>[&#x27;haiku=claude-haiku-4-5-20251001&#x27;, &#x27;sonnet=claude-sonnet-5-5&#x27;]</td></tr><tr><th class='l'>cost_note</th><td class='l'>CLI가 보고한 정가 환산치. 실제로는 Max 구독 한도에서 차감되며 청구되지 않음.</td></tr></table>
+<h2>실패 항목</h2>
+<p>없음</p>
+<h2>자동 vs LLM 채점 불일치 (사람 확인 필요)</h2>
+<p>없음</p>
+<h2>보조 지표 (주지표 아님)</h2><p>sonnet 전체 평균 1.00, haiku 전체 평균 0.93 — 영역이 섞여 있어 해석에 쓰지 말 것.</p>

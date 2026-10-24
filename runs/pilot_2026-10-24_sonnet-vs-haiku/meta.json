@@ -1,0 +1,48 @@
+{
+  "run_id": "pilot_2026-10-24_sonnet-vs-haiku",
+  "models": [
+    "sonnet",
+    "haiku"
+  ],
+  "n": 3,
+  "questions": [
+    "M-01",
+    "M-02",
+    "M-03",
+    "M-04",
+    "M-05",
+    "J-01",
+    "J-02",
+    "J-03",
+    "J-04",
+    "J-05",
+    "P-01",
+    "P-02",
+    "P-03",
+    "P-04",
+    "P-05",
+    "G-01",
+    "G-02",
+    "G-03",
+    "G-04",
+    "G-05"
+  ],
+  "questions_version": "0.1",
+  "reference_date": "2026-10-24",
+  "system_prompt_sha256": "684de6a847722aef32af52f3aadfbbd6ffae4c219e665e4d564e015a3512f110",
+  "adapters": {
+    "sonnet": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "haiku": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    }
+  },
+  "generation_settings": "CLI defaults (temperature not settable via claude -p); identical for all models",
+  "started": "2026-10-24T22:21:38.040836+09:00",
+  "finished": "2026-10-24T22:28:42.475179+09:00",
+  "wall_s": 424.4,
+  "stopped_early": false
+}

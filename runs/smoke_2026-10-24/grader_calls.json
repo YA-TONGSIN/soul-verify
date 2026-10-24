@@ -1,0 +1,9 @@
+[
+  {
+    "qid": "J-05",
+    "cost_usd": 0.01802,
+    "duration_s": 9.0,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  }
+]

@@ -7,6 +7,10 @@ research/soul-protocol/
 secrets/
 runs/private/
 
+# CLI sandbox (empty cwd for model calls)
+.sandbox/
+.pytest_cache/
+
 # python
 __pycache__/
 *.pyc

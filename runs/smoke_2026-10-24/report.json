@@ -1,0 +1,188 @@
+{
+  "run_id": "smoke_2026-10-24",
+  "meta": {
+    "run_id": "smoke_2026-10-24",
+    "models": [
+      "sonnet",
+      "haiku"
+    ],
+    "n": 1,
+    "questions": [
+      "M-02",
+      "J-05"
+    ],
+    "questions_version": "0.1",
+    "reference_date": "2026-10-24",
+    "system_prompt_sha256": "684de6a847722aef32af52f3aadfbbd6ffae4c219e665e4d564e015a3512f110",
+    "adapters": {
+      "sonnet": {
+        "name": "claude-cli",
+        "version": "2.1.289 (Claude Code)"
+      },
+      "haiku": {
+        "name": "claude-cli",
+        "version": "2.1.289 (Claude Code)"
+      }
+    },
+    "generation_settings": "CLI defaults (temperature not settable via claude -p); identical for all models",
+    "started": "2026-10-24T22:21:04.421258+09:00",
+    "finished": "2026-10-24T22:21:18.218790+09:00",
+    "wall_s": 13.8,
+    "stopped_early": false
+  },
+  "control": "sonnet",
+  "areas": {
+    "sonnet": {
+      "memory": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "n": 1,
+        "reps": [
+          1.0
+        ]
+      },
+      "judgment": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "n": 1,
+        "reps": [
+          1.0
+        ]
+      },
+      "persona": {
+        "mean": null,
+        "sd": null,
+        "n": 0,
+        "reps": []
+      },
+      "goals": {
+        "mean": null,
+        "sd": null,
+        "n": 0,
+        "reps": []
+      }
+    },
+    "haiku": {
+      "memory": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "n": 1,
+        "reps": [
+          1.0
+        ]
+      },
+      "judgment": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "n": 1,
+        "reps": [
+          1.0
+        ]
+      },
+      "persona": {
+        "mean": null,
+        "sd": null,
+        "n": 0,
+        "reps": []
+      },
+      "goals": {
+        "mean": null,
+        "sd": null,
+        "n": 0,
+        "reps": []
+      }
+    }
+  },
+  "comparisons": {
+    "haiku": {
+      "memory": {
+        "diff": 0.0,
+        "control_sd": 0.0,
+        "verdict": "구별할 수 없음 (대조군 만점·분산 0: 천장 효과, 판정 근거 약함) (N<3)"
+      },
+      "judgment": {
+        "diff": 0.0,
+        "control_sd": 0.0,
+        "verdict": "구별할 수 없음 (대조군 만점·분산 0: 천장 효과, 판정 근거 약함) (N<3)"
+      },
+      "persona": {
+        "diff": null,
+        "verdict": "데이터 없음"
+      },
+      "goals": {
+        "diff": null,
+        "verdict": "데이터 없음"
+      }
+    }
+  },
+  "per_question": {
+    "M-02": {
+      "sonnet": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "n": 1,
+        "scores": [
+          1.0
+        ]
+      },
+      "haiku": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "n": 1,
+        "scores": [
+          1.0
+        ]
+      }
+    },
+    "J-05": {
+      "sonnet": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "n": 1,
+        "scores": [
+          1.0
+        ]
+      },
+      "haiku": {
+        "mean": 1.0,
+        "sd": 0.0,
+        "n": 1,
+        "scores": [
+          1.0
+        ]
+      }
+    }
+  },
+  "hallucination": {
+    "sonnet": {
+      "n": 1,
+      "fabricated_rate": 0.0,
+      "partial_rate": 0.0
+    },
+    "haiku": {
+      "n": 1,
+      "fabricated_rate": 0.0,
+      "partial_rate": 0.0
+    }
+  },
+  "failures": [],
+  "auto_vs_llm_disagreements": [],
+  "totals": {
+    "subject_calls": 4,
+    "subject_ok": 4,
+    "grader_calls": 1,
+    "subject_cost_usd_list": 0.0452,
+    "grader_cost_usd_list": 0.018,
+    "subject_call_seconds": 27.9,
+    "wall_s": 13.8,
+    "model_ids": [
+      "haiku=claude-haiku-4-5-20251001",
+      "sonnet=claude-sonnet-5-5"
+    ],
+    "cost_note": "CLI가 보고한 정가 환산치. 실제로는 Max 구독 한도에서 차감되며 청구되지 않음."
+  },
+  "aux_overall_mean_NOT_primary": {
+    "sonnet": 1.0,
+    "haiku": 1.0
+  }
+}
