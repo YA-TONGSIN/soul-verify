@@ -11,7 +11,7 @@ import re
 import time
 
 from .adapters import get_adapter
-from .common import SANDBOX, append_jsonl, load_questions, read_jsonl
+from .common import SANDBOX, append_jsonl, load_questions, questions_path_for_run, read_jsonl
 from .scoring import auto_score, needs_llm, snap
 
 GRADER_SYSTEM = """당신은 AI 비서 평가의 채점자입니다. 각 답이 문항의 채점 기준(criteria)을 얼마나 충족하는지 0, 0.5, 1 중 하나로 판정합니다.
@@ -67,8 +67,9 @@ def family(model: str | None) -> str:
 def grade(run_dir, grader_model="opus", seed=0, log=print, subjects_only=None, out_name="graded.jsonl",
           allow_self=False):
     """subjects_only: 이 모델들의 답만 채점. out_name: 채점자별로 파일을 나눌 때.
-    allow_self: 피평가와 같은 모델이 채점(자기 채점) — 편향 측정용 보조 실험에서만."""
-    spec = load_questions()
+    allow_self: 피평가와 같은 모델이 채점(자기 채점) — 편향 측정용 보조 실험에서만.
+    문항 파일은 실행 때 meta.json 에 남긴 것(없으면 v0.1)."""
+    spec = load_questions(questions_path_for_run(run_dir))
     qmap = {q["id"]: q for q in spec["questions"]}
     rows = [r for r in read_jsonl(run_dir / "raw.jsonl") if not r.get("error")]
     if subjects_only:

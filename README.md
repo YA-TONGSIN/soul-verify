@@ -12,7 +12,7 @@ AI 에이전트의 SOUL(정체성·말투·원칙)과 MEMORY(기억)를 다른 �
 
 ## 구성
 - `v0.1/` — 합성 샘플(가상 에이전트 '하람'), 평가 문항 20개, 채점 기준, 검증 스크립트
-- `v0.2/` — 천장 효과를 풀기 위한 어려운 문항 12개 초안(미실행) + 추가 합성 기억 + 검증 스크립트
+- `v0.2/` — 천장 효과를 풀기 위한 어려운 문항 12개(실험 3에서 실행) + 추가 합성 기억 + 검증 스크립트
 - `research/` — 선행 프로젝트 조사(PRIOR_ART 초안)
 - `src/soul_verify/` — 실행기(runner)·채점기(grader)·보고서(report)·채점자 교차 일치(agreement)·모델 어댑터(Claude CLI, GPT codex exec)
 - `tests/` — 채점 로직 단위테스트 (`python -m pytest tests`)
@@ -24,6 +24,8 @@ AI 에이전트의 SOUL(정체성·말투·원칙)과 MEMORY(기억)를 다른 �
 set PYTHONPATH=src
 python -m soul_verify all --models sonnet haiku --n 3 --grader opus      # 실행 + 채점 + 보고서
 python -m soul_verify run --models sonnet --n 1 --questions M-02,J-05    # 일부 문항만
+python -m soul_verify run --models sonnet haiku --n 5 --preset v0.2      # v0.2 어려운 문항 + 추가 기억
+#   개별 지정: --questions-file F.yaml --soul S.md --memory M.md --memory-extra X.md (기본값 = v0.1)
 python -m soul_verify grade runs/<id> --grader opus
 python -m soul_verify report runs/<id> --control sonnet
 ```
@@ -34,6 +36,7 @@ GPT는 로그인된 Codex CLI(`codex exec`)로 호출합니다(모델 이름이 
 ## 실험 기록
 - `runs/pilot_2026-10-24_sonnet-vs-haiku/` — 같은 계열 모델 교체(sonnet→haiku)
 - `runs/exp2_2026-10-24_gpt-vs-claude/` — 계열 교체(Claude→GPT) + 교차 계열 채점·채점자 일치율
+- `runs/exp3_2026-10-24_v0.2-hard/` — v0.2 어려운 문항, sonnet·haiku·gpt N=5, 교차 계열 + opus 단일 채점자
 
 ## 선행 프로젝트
 Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이 분야를 연 프로젝트들을 존중합니다.

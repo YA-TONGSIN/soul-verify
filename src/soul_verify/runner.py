@@ -9,7 +9,8 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 
 from .adapters import get_adapter
-from .common import RUNS, SANDBOX, append_jsonl, load_questions, read_jsonl, subject_system_prompt
+from .common import (DEFAULT_MEMORY, DEFAULT_QUESTIONS, DEFAULT_SOUL, RUNS, SANDBOX, append_jsonl,
+                     load_questions, read_jsonl, rel, subject_system_prompt)
 
 MAX_RETRIES = 2
 
@@ -27,10 +28,13 @@ def call_with_retry(adapter, system, prompt, model, log=print):
     return c, MAX_RETRIES
 
 
-def run(models, n, qids=None, run_id=None, workers=3, log=print):
-    spec = load_questions()
+def run(models, n, qids=None, run_id=None, workers=3, log=print,
+        questions_file=None, soul=None, memory=None, memory_extra=()):
+    """questions_file/soul/memory 기본값 = v0.1. memory_extra = MEMORY 뒤에 붙일 추가 기억 파일들(v0.2)."""
+    questions_file = questions_file or DEFAULT_QUESTIONS
+    spec = load_questions(questions_file)
     qs = [q for q in spec["questions"] if not qids or q["id"] in qids]
-    system = subject_system_prompt()
+    system = subject_system_prompt(soul, memory, memory_extra)
     run_id = run_id or dt.datetime.now().strftime("%Y-%m-%d_%H%M%S")
     out = RUNS / run_id
     out.mkdir(parents=True, exist_ok=True)
@@ -40,6 +44,9 @@ def run(models, n, qids=None, run_id=None, workers=3, log=print):
         "run_id": run_id, "models": models, "n": n, "questions": [q["id"] for q in qs],
         "questions_version": spec.get("version"), "reference_date": spec.get("reference_date"),
         "system_prompt_sha256": hashlib.sha256(system.encode()).hexdigest(),
+        "questions_path": rel(questions_file),
+        "samples": {"soul": rel(soul or DEFAULT_SOUL), "memory": rel(memory or DEFAULT_MEMORY),
+                    "memory_extra": [rel(p) for p in memory_extra or ()]},
         "adapters": {m: {"name": a.name, "version": a.version()} for m, a in adapters.items()},
         "generation_settings": "CLI defaults (temperature not settable via claude -p / codex exec); "
                                "codex uses the model's default reasoning effort",

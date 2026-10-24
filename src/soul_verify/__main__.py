@@ -1,14 +1,39 @@
 """사용법:
   python -m soul_verify run --models sonnet haiku --n 3 [--questions M-01,P-02] [--run-id ID]
+  python -m soul_verify run --models sonnet --n 5 --preset v0.2            # v0.2 어려운 문항 + 추가 기억
+  python -m soul_verify run --models sonnet --questions-file F.yaml --soul S.md --memory M.md --memory-extra X.md
   python -m soul_verify grade runs/<id> --grader opus
   python -m soul_verify report runs/<id> [--control sonnet]
   python -m soul_verify all --models sonnet haiku --n 3 --grader opus
+문항·샘플 기본값은 v0.1 (옵션을 안 주면 예전 실행과 같은 시스템 프롬프트·문항).
+grade/report 는 실행 때 meta.json 에 남긴 문항 파일을 쓴다.
 """
 import argparse
 import pathlib
 import sys
 
 from . import grader, report, runner
+from .common import REPO
+
+PRESETS = {
+    "v0.1": {},
+    "v0.2": {"questions_file": REPO / "v0.2" / "questions_hard.yaml",
+             "memory_extra": [REPO / "v0.2" / "samples" / "synthetic_MEMORY_additions.md"]},
+}
+
+
+def sample_kwargs(a) -> dict:
+    """--preset 위에 개별 옵션을 덮어쓴다."""
+    kw = dict(PRESETS[a.preset])
+    if a.questions_file:
+        kw["questions_file"] = pathlib.Path(a.questions_file)
+    if a.soul:
+        kw["soul"] = pathlib.Path(a.soul)
+    if a.memory:
+        kw["memory"] = pathlib.Path(a.memory)
+    if a.memory_extra is not None:
+        kw["memory_extra"] = [pathlib.Path(x) for x in a.memory_extra]
+    return kw
 
 
 def main(argv=None):
@@ -21,6 +46,11 @@ def main(argv=None):
         s.add_argument("--questions", default="")
         s.add_argument("--run-id")
         s.add_argument("--workers", type=int, default=3)
+        s.add_argument("--preset", choices=sorted(PRESETS), default="v0.1")
+        s.add_argument("--questions-file")
+        s.add_argument("--soul")
+        s.add_argument("--memory")
+        s.add_argument("--memory-extra", nargs="*")
         if name == "all":
             s.add_argument("--grader", default="opus")
     g = sub.add_parser("grade")
@@ -35,7 +65,7 @@ def main(argv=None):
         if a.cmd == "all" and a.grader in a.models:
             sys.exit("grader must differ from evaluated models")
         qids = [x for x in a.questions.split(",") if x] or None
-        out = runner.run(a.models, a.n, qids, a.run_id, a.workers)
+        out = runner.run(a.models, a.n, qids, a.run_id, a.workers, **sample_kwargs(a))
         print("run dir:", out)
         if a.cmd == "all":
             grader.grade(out, a.grader)

@@ -7,7 +7,7 @@ import html
 import json
 import statistics as st
 
-from .common import load_questions, read_jsonl
+from .common import load_questions, questions_path_for_run, read_jsonl
 
 AREAS = ["memory", "judgment", "persona", "goals"]
 
@@ -51,7 +51,7 @@ def compare(control_scores, test_scores):
 
 
 def build(run_dir, control=None):
-    spec = load_questions()
+    spec = load_questions(questions_path_for_run(run_dir))
     qorder = [q["id"] for q in spec["questions"]]
     meta = json.loads((run_dir / "meta.json").read_text(encoding="utf-8"))
     raw = read_jsonl(run_dir / "raw.jsonl")

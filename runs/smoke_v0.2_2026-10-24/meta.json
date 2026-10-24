@@ -1,0 +1,43 @@
+{
+  "run_id": "smoke_v0.2_2026-10-24",
+  "models": [
+    "sonnet",
+    "haiku",
+    "gpt-6.1-sol"
+  ],
+  "n": 1,
+  "questions": [
+    "H-01",
+    "H-09"
+  ],
+  "questions_version": "0.2-draft",
+  "reference_date": "2026-10-24",
+  "system_prompt_sha256": "07fa19df7d9f0e0866aa9adf94d60af17798884b9354fe2d01f491314eff23ac",
+  "questions_path": "v0.2/questions_hard.yaml",
+  "samples": {
+    "soul": "v0.1/samples/synthetic_SOUL.md",
+    "memory": "v0.1/samples/synthetic_MEMORY.md",
+    "memory_extra": [
+      "v0.2/samples/synthetic_MEMORY_additions.md"
+    ]
+  },
+  "adapters": {
+    "sonnet": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "haiku": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "gpt-6.1-sol": {
+      "name": "codex-cli",
+      "version": "codex-cli 0.164.0"
+    }
+  },
+  "generation_settings": "CLI defaults (temperature not settable via claude -p / codex exec); codex uses the model's default reasoning effort",
+  "started": "2026-10-24T23:11:31.616558+09:00",
+  "finished": "2026-10-24T23:11:55.034225+09:00",
+  "wall_s": 23.4,
+  "stopped_early": false
+}
