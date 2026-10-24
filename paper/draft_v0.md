@@ -1,12 +1,12 @@
 <!--
 DRAFT v0 — PRIVATE. Do not submit, post, or share.
 Every number in this draft is copied from the run notes/analysis files cited under each table.
-Section 5.4 contains a placeholder that requires user consent before any release.
+Sections 5.4 and 5.5 require user consent before any release; their numbers are aggregates supplied by the project lead (not in this repository).
 -->
 
 # SOUL VERIFY: Measuring How Much of an Agent's Identity Survives a Model Swap
 
-**Draft v0 (private, 2026-10-25). Not for distribution.**
+**Draft v0.1 (private, 2026-10-25). Not for distribution.**
 
 Authors: [TBD]
 
@@ -14,7 +14,7 @@ Authors: [TBD]
 
 ## Abstract
 
-Assistant agents are increasingly defined by text the user owns: an identity document (persona, voice rules, principles, prohibitions, goals; here called **SOUL**) and a curated, dated memory file (**MEMORY**). When the underlying language model is replaced, the agent has to be rebuilt from these files alone. We ask a narrow, measurable question: *after a model swap, how much of the agent's recall, judgment, persona, and goal-directed behavior carries over, compared with re-running the original model?* We describe SOUL VERIFY, a small evaluation harness that injects the same synthetic SOUL+MEMORY into several models through their command-line interfaces, asks paired question types (direct recall vs. application of the same memory; rule-aligned vs. rule-conflicting requests; legitimate vs. illegitimate rule changes), and grades answers blind with a grader from the *other* model family. We report an **inheritance ratio** (swapped model / same-model control), an **application gap** (recall − application), a **slip rate** (reverting to an old rule after accepting a change), item-level **regressions**, and **hallucination** counts. Across eight small experiments (four models: three Claude tiers and one GPT model; N = 3–5 repetitions; single-turn and 12-turn conversations) we observe: (1) direct recall carried over fully for every model in every experiment, and differences appeared in *applying* memory (e.g., application gap 0.25 ± 0.15 for the smallest model vs. 0.00 for the others in exp5); (2) a single SOUL sentence distinguishing changeable preferences from non-negotiable prohibitions controlled two opposite failure modes, and an ablation of each half of that sentence separated the effects (legitimate-change acceptance 120/120 with only the flexible half vs. 96/120 with only the firm half; illegitimate-release zeros 7/20 vs. 0/20); (3) in multi-turn conversations changed rules persisted at 0.95 overall with no decay by turn distance, with slips concentrated in one vague style rule. A preliminary single-rater human recognizability study is included as a placeholder pending consent. The study is small, synthetic, Korean-only, and CLI-mediated; it measures behavioral carry-over and makes no claim about consciousness or personal identity.
+Assistant agents are increasingly defined by text the user owns: an identity document (persona, voice rules, principles, prohibitions, goals; here called **SOUL**) and a curated, dated memory file (**MEMORY**). When the underlying language model is replaced, the agent has to be rebuilt from these files alone. We ask a narrow, measurable question: *after a model swap, how much of the agent's recall, judgment, persona, and goal-directed behavior carries over, compared with re-running the original model?* We describe SOUL VERIFY, a small evaluation harness that injects the same synthetic SOUL+MEMORY into several models through their command-line interfaces, asks paired question types (direct recall vs. application of the same memory; rule-aligned vs. rule-conflicting requests; legitimate vs. illegitimate rule changes), and grades answers blind with a grader from the *other* model family. We report an **inheritance ratio** (swapped model / same-model control), an **application gap** (recall − application), a **slip rate** (reverting to an old rule after accepting a change), item-level **regressions**, and **hallucination** counts. Across eight small experiments (four models: three Claude tiers and one GPT model; N = 3–5 repetitions; single-turn and 12-turn conversations) we observe: (1) direct recall carried over fully for every model in every experiment, and differences appeared in *applying* memory (e.g., application gap 0.25 ± 0.15 for the smallest model vs. 0.00 for the others in exp5); (2) a single SOUL sentence distinguishing changeable preferences from non-negotiable prohibitions controlled two opposite failure modes, and an ablation of each half of that sentence separated the effects (legitimate-change acceptance 120/120 with only the flexible half vs. 96/120 with only the firm half; illegitimate-release zeros 7/20 vs. 0/20); (3) in multi-turn conversations changed rules persisted at 0.95 overall with no decay by turn distance, with slips concentrated in one vague style rule. Two preliminary single-user studies on a real agent are included pending consent: in a blind recognizability test, editing the SOUL's voice section changed how often a same-family model was picked as "that assistant" (Sonnet 0/8 → 5/8 across voice versions) but not a cross-family model (1/24 overall); in a reverse test, an agent given its SOUL and memory picked the user's real message out of four candidates (three imitations by Claude models) 7/10 times (chance 0.25, binomial p = 0.0035), suggesting identity continuity may be a two-way recognition problem. We also describe a tamper-evident SOUL history (local git commits, SHA-256 manifests, and OpenTimestamps Bitcoin anchoring of hashes only). The study is small, synthetic, Korean-only, and CLI-mediated; it measures behavioral carry-over and makes no claim about consciousness or personal identity.
 
 ---
 
@@ -33,7 +33,7 @@ SOUL VERIFY is a small harness for that measurement. Its design choices are:
 
 **Scope and non-claims.** This work measures *behavioral carry-over of a specified identity*. It does not test, and its results should not be read as evidence about, machine consciousness, personal identity, or whether a swapped model "is" the same agent in any metaphysical sense. All agents and memories in the automated experiments are synthetic.
 
-**Contributions.** (i) A set of carry-over metrics — inheritance ratio, application gap, slip rate, item-level regression, hallucination count — computed against a same-model control; (ii) eight small experiments on four models showing where carry-over breaks (application rather than recall; rule release in both directions); (iii) an ablation of a single SOUL sentence whose two halves causally separate "accepting legitimate changes" from "refusing illegitimate releases"; (iv) a multi-turn persistence test using each CLI's real conversation continuation; (v) practical guidance for writing SOUL documents that transfer.
+**Contributions.** (i) A set of carry-over metrics — inheritance ratio, application gap, slip rate, item-level regression, hallucination count — computed against a same-model control; (ii) eight small experiments on four models showing where carry-over breaks (application rather than recall; rule release in both directions); (iii) an ablation of a single SOUL sentence whose two halves causally separate "accepting legitimate changes" from "refusing illegitimate releases"; (iv) a multi-turn persistence test using each CLI's real conversation continuation; (v) practical guidance for writing SOUL documents that transfer; (vi) a tamper-evident SOUL version history that publishes only hashes, and two preliminary single-user studies (agent recognizability by the user, and user recognizability by the agent).
 
 ---
 
@@ -51,7 +51,7 @@ Our survey covered arXiv titles and abstracts (plus two web results); ACL Anthol
 
 **Instruction hierarchy and persona drift.** The Instruction Hierarchy [D1], IHEval [D2] (aligned vs. conflicting instructions), SysBench [D3], and ManyIH-Bench [D4] study system-prompt priority; Li et al. [D5] and ContextEcho [D6] measure persona/instruction drift over long dialogs; the Assistant Axis [D7] relates drift to an activation-space direction. We borrow the aligned/conflict pairing and add a multi-turn condition, but our axis of variation is the model, not dialog length alone.
 
-**Identity continuity.** The Narrative Continuity Test [E1] proposes five axes of identity persistence without an empirical instrument; Memory as Ontology [E2] proposes a governance memory architecture with the explicit premise that the model is a replaceable container; Ru [E3] gives a user-side theory of perceived continuity; Vasilenko [E4] studies identity documents in activation space of open-weight models. Soul Protocol (an MIT-licensed portable identity format) includes an "identity continuity" dimension that checks lossless export/import of its own file format with a heuristic engine, not behavior after swapping LLMs (`research/soul-protocol-analysis.md`).
+**Identity continuity.** The Narrative Continuity Test [E1] proposes five axes of identity persistence without an empirical instrument; Memory as Ontology [E2] proposes a governance memory architecture with the explicit premise that the model is a replaceable container; Ru [E3] gives a user-side theory of perceived continuity; Vasilenko [E4] studies identity documents in activation space of open-weight models. Soul Protocol (an MIT-licensed portable identity format) includes an "identity continuity" dimension that checks lossless export/import of its own file format with a heuristic engine, not behavior after swapping LLMs (`research/soul-protocol-analysis.md`). On-chain agent identity registries such as ERC-8004 register agent identities and attach reputation and validation records; they do not, as far as we know, measure behavioral carry-over of an identity document across models (see §3.6).
 
 **LLM-as-judge.** We follow evidence that judges show self-preference [F2, F4, F5], that panels from diverse families reduce bias [F3], and that rubric wording alone can drive scores [F6], by using cross-family graders and reporting agreement and rubric-ambiguity cases.
 
@@ -103,6 +103,20 @@ Keyword items are auto-graded. Rubric items are graded 0 / 0.5 / 1 by an LLM gra
 - **Regression**: for each item and repetition index, control = 1 and swapped model < 1 (negative flip, after [C2]); pairing by repetition index is arbitrary.
 - **Hallucination**: count of 0-scored answers on abstention / false-premise items.
 - **Multi-turn persistence** (exp8): fraction of post-change checkpoints at which a changed rule is still followed, by turn distance from the change.
+
+### 3.6 Tamper-evident SOUL history
+
+An inheritance score is only meaningful if one can show *which* SOUL was inherited. We therefore keep the identity document of the real agent (§5.4–5.5) under a lightweight, verifiable history:
+
+1. **Local git commit per version.** Every change to the SOUL document is committed in a private local repository, so the sequence of versions and their diffs is preserved.
+2. **SHA-256 manifest.** For each recorded state, a manifest lists the commit, tree, and the SHA-256 of every file (the same format as `proofs/` in this repository).
+3. **OpenTimestamps anchoring.** The manifest's hash is submitted to public OpenTimestamps calendars, which aggregate it into a Bitcoin transaction; the resulting `.ots` proof later shows that the manifest existed no later than that block.
+
+Only hashes leave the machine. A matching hash proves that a presented SOUL is byte-identical to the recorded one, and the anchor proves *when* that version existed; neither reveals its content. We deliberately do not put the content itself on a chain: a SOUL and its memories are private, describe a real person, and must remain editable and deletable, whereas on-chain data cannot be removed.
+
+In the operating agent, three versions have been recorded so far — a restored backup, the addition of principle 5 (§3.1), and the addition of a line identifying the user — and a scheduled job records the current state every midnight. This is a small deployment (one agent, three versions), not an evaluated system.
+
+**Relation to agent identity registries.** On-chain agent identity registries such as ERC-8004 ("Trustless Agents", a draft Ethereum standard) register an agent's identity and attach reputation/validation records. Our history is compatible with such schemes — a manifest hash or its anchor could be referenced from a registry entry — but addresses a different question. We propose *combining* two things: a verifiable change history of the identity document, and the carry-over scores of §3.5 measured against each recorded version, so that a claim such as "this agent, on model X, inherits SOUL version k with ratio r" can be checked. We do not claim this combination is new beyond the scope of our search (§2).
 
 ---
 
@@ -240,7 +254,36 @@ exp8 used each CLI's real continuation (Claude: one `claude -p` stream-json proc
 
 *Source: aggregate summary supplied by the project lead; underlying data is not in this repository.*
 
-The rater's stated criterion was *"kindness, and the respect and consideration for the other person that is built in by default."* A preliminary reading is that SOUL edits (the voice section) shifted preference *within* one model family (Sonnet went from 0 in round 2 to 5 in round 3 with voice v2) but did not transfer the recognizable voice *across* families (GPT configurations received 1 of 24 picks overall, including with the voice sections). With one rater, different questions across rounds, and changing configuration sets, this is an anecdotal signal, not a finding.
+The rater's stated criterion was *"kindness, and the respect and consideration for the other person that is built in by default."*
+
+**Within family, the SOUL tunes recognizability.** Following Sonnet across rounds: with the base SOUL it was picked 4/8 (tied with Opus); with voice section v1 it was picked 0/8, and in that round at least one Sonnet + v1 answer violated a correction rule the user had previously given; with voice section v2, rewritten around kindness and respect, Sonnet + v2 was picked 5/8 — more often than the original Opus configuration in the same round (3/8). The same model thus moved from tied, to never chosen, to most chosen, depending only on how the voice section was written.
+
+**Across families, it did not.** GPT configurations received 1 of 24 picks over the three rounds in total, with neither voice v1 nor v2 changing that (GPT + v1 1/8 in round 2; GPT + v2 0/8 in round 3).
+
+**A no-fabrication clause.** Voice v2 also added an explicit instruction not to invent facts. In round 3, GPT + v2 answers made 0/8 unsupported factual claims (automatic judgment, grader opus, one pass); because no comparable count was taken for earlier rounds, this shows only that the v2 answers were clean, not that the clause caused it.
+
+With one rater, different questions across rounds, and changing configuration sets, these are anecdotal signals, not findings.
+
+### 5.5 Reverse recognition: does the agent recognize its user? (n = 1 user, preliminary)
+
+> **[USER CONSENT REQUIRED — 부모 확인 전 공개 금지]**
+> Same conditions as §5.4. Only aggregate results are reported; no user messages, imitations, or memory content are included or stored in this repository.
+
+Sections 5.1–5.4 ask whether the user (or a grader) can recognize the agent after a swap. Identity in a long-running assistant relationship is, however, held on both sides, so we also ran the reverse question.
+
+**Setup.** Ten real messages written by the agent's one regular user within a 24-hour window were selected. For each, a short context summary (written by the researcher) and the preceding agent turn were given to three Claude models (sonnet, haiku, opus), which were asked to write the message the user would send next, imitating the user's style from 12 example user messages. Each question thus had four candidates (one real, three imitations) in random order. A judge (opus) was given the agent's SOUL and memory and asked to pick the real message. User messages were sent only to Claude models; none were sent to another provider.
+
+**Results.**
+
+- The judge picked the real message in **7/10** questions (chance 0.25; one-sided binomial p = 0.0035). With the same prompt, a sonnet judge also scored 7/10.
+- The most successful imitator was haiku, whose short, rough imitations accounted for most of the judge's wrong picks.
+- Cues cited by the judge: real messages did not smoothly pick up the agent's previous turn but abruptly raised a new topic; and they carried the user's habits such as run-together spacing and typos.
+- In 2 of the 10 questions the judge's memory of an event mentioned in the message helped, so the score likely overestimates recognition from style alone.
+- The user, asked the 3 questions the judge got wrong, identified their own message in 2/3.
+
+**Interpretation.** An agent given its identity document and memory recognized its user well above chance, from cues that were largely about conversational habit rather than content. This suggests that identity continuity in agent–user relationships may be a *two-way* recognition problem: a swapped model should be checked not only for whether the user still recognizes it, but also for whether it still recognizes the user.
+
+**Limitations.** n = 10 questions; context summaries were written by the researcher; one user; imitators were Claude models only and saw only 12 examples; partial leakage through remembered events (2/10).
 
 ---
 
@@ -255,7 +298,8 @@ The rater's stated criterion was *"kindness, and the respect and consideration f
 - **Midnight date contamination.** exp4 ran 23:46–00:06; some repetitions saw the CLI date change to the next day while the SOUL stated the previous date. Date-item means fell after midnight (e.g., sonnet 0.94 → 0.78), and pre-midnight-only sensitivity tables are reported. Later experiments set the SOUL date equal to the run date and checked that all calls fell on that date.
 - **Confounded changes across versions.** exp4 → exp5 changed both principle 5 and date wording; exp6/exp7 were added to separate them. exp7 reuses exp5/exp6 runs from earlier the same night; p5a and p5b differ in sentence length.
 - **Multi-turn scripts are fixed.** User turns do not react to the model's previous answer; the checkpoint grader saw a summary of rule changes, not the full transcript.
-- **Human study n = 1.** One rater, who is also the regular user of the agent, three rounds with partly different questions and configurations; no inter-rater agreement; consent pending.
+- **Human study n = 1.** One rater, who is also the regular user of the agent, three rounds with partly different questions and configurations; no inter-rater agreement; consent pending. The reverse-recognition test (§5.5) has n = 10, researcher-written context summaries, Claude-only imitators, and two questions aided by remembered events.
+- **SOUL history is a small deployment.** Three recorded versions of one agent; we have not evaluated the history mechanism beyond hash matching and anchoring.
 - **Search scope.** The related-work search was limited to arXiv titles and abstracts; we avoid priority claims accordingly.
 
 ---
@@ -272,12 +316,16 @@ These are suggestions supported by the experiments above, not validated design r
 6. **Put dates in one place.** Do not hard-code "today" in the SOUL when the runtime also injects a date.
 7. **Test application, not just recall.** All models recalled everything; the swapped-in smaller model failed at using a memory inside a date calculation. Include paired recall/application probes when checking a new model.
 8. **Re-run the old model as a control** before attributing a difference to the swap.
+9. **Write down both what may change and what never changes.** A SOUL that lists only fixed rules invites over-refusal; one that lists only flexibility invites leaks into prohibitions (Table 4). Both lists are part of the identity.
+10. **Say "do not invent facts" explicitly.** In the human study the voice section that stated it produced no unsupported factual claims in the cross-family model (§5.4); stating it costs one line.
+11. **Expect voice tuning to work within a model family only.** Editing the voice section changed how recognizable a same-family model was, but did not make a different family recognizable (§5.4). Budget for that when switching providers.
+12. **Version the SOUL and record its hash.** Keeping each version with a hash and timestamp (§3.6) makes it possible to say exactly which identity a carry-over score refers to, without publishing its content.
 
 ---
 
 ## 8 Conclusion
 
-In this small, synthetic setting, text-only transfer of an agent's identity and memory preserved *what the agent knows* across all tested models, while *how it applies that knowledge* and *how it handles rule changes* depended on the model and, strongly, on how the SOUL document was written. A one-sentence boundary between changeable preferences and non-negotiable prohibitions removed both over-refusal and under-refusal, and its two halves accounted separately for the two effects. Changed rules persisted across 12-turn conversations without distance decay when the rules were concrete. A preliminary, single-rater human study (pending consent) suggests that a recognizable voice may be tunable within a model family but not transplanted across families. Larger N, paraphrased items, more agents and languages, human raters, and grader panels are needed before any of these observations can be generalized.
+In this small, synthetic setting, text-only transfer of an agent's identity and memory preserved *what the agent knows* across all tested models, while *how it applies that knowledge* and *how it handles rule changes* depended on the model and, strongly, on how the SOUL document was written. A one-sentence boundary between changeable preferences and non-negotiable prohibitions removed both over-refusal and under-refusal, and its two halves accounted separately for the two effects. Changed rules persisted across 12-turn conversations without distance decay when the rules were concrete. A preliminary, single-rater human study (pending consent) suggests that a recognizable voice may be tunable within a model family but not transplanted across families, and a reverse test, in which the agent picked its user's real messages out of imitations 7/10 times, suggests that continuity should be checked in both directions. A tamper-evident SOUL history that publishes only hashes lets such scores be tied to an exact identity version. Larger N, paraphrased items, more agents and languages, human raters, and grader panels are needed before any of these observations can be generalized.
 
 ---
 
@@ -299,7 +347,7 @@ In this small, synthetic setting, text-only transfer of an agent's identity and 
 
 ## Ethics
 
-The automated experiments use only synthetic people and memories; no real user data, credentials, or personal information are stored in the repository (the `runs/private/` directory is excluded from version control). The pilot human study (§5.4) involved one adult user (consent for publication pending) rating answers about their own assistant; only aggregate pick counts are reported, and the section must not be published without the user's explicit consent. Model calls were made through the authors' own logged-in CLI accounts within normal usage. We make no claims about consciousness or moral status of the models.
+The automated experiments use only synthetic people and memories; no real user data, credentials, or personal information are stored in the repository (the `runs/private/` directory is excluded from version control). The pilot human study (§5.4) involved one adult user (consent for publication pending) rating answers about their own assistant; only aggregate pick counts are reported, and the section must not be published without the user's explicit consent. The reverse-recognition test (§5.5) used ten of the same user's real messages; they were sent only to Claude models (the provider the agent already runs on), are not stored in this repository, and are reported only in aggregate under the same consent condition. The SOUL history (§3.6) publishes hashes only, never content. Model calls were made through the authors' own logged-in CLI accounts within normal usage. We make no claims about consciousness or moral status of the models.
 
 ---
 
@@ -342,4 +390,6 @@ The automated experiments use only synthetic people and memories; no real user d
 - [F4] Self-Preference Bias in LLM-as-a-Judge. arXiv:2410.21819.
 - [F5] Mahbub, Feng. Mitigating Self-Preference by Authorship Obfuscation. arXiv:2512.05379.
 - [F6] Bagaria et al. Judging LLM-as-a-Judge: Concerning Rubric Artifacts. arXiv:2609.02942.
+- ERC-8004: Trustless Agents. Ethereum Improvement Proposal (draft). https://eips.ethereum.org/EIPS/eip-8004 (not re-checked for this draft).
+- OpenTimestamps. https://opentimestamps.org
 - Soul Protocol. qbtrix/soul-protocol (MIT), commit b6ab6ee. https://github.com/qbtrix/soul-protocol
