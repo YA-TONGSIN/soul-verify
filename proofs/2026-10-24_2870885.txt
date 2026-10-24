@@ -1,0 +1,16 @@
+SOUL VERIFY timestamp manifest
+repo: https://github.com/YA-TONGSIN/soul-verify
+commit: 2870885d6ace94ecfba7f3fe8d25fd15e39b763c
+tree: 27cfd3ef00c10a4cde1598c8d0f725c2998d24b0
+created: 2026-10-24T20:53:06.0547506+09:00
+
+sha256  path
+c7ed2c0af3de468390496deb03d20d96ca2ffcfb31afd86e5254afd8baa5ead7  .gitignore
+b9e9261b8524f5808b18b58b3f97af12d17057eaa5f33e977e37164521077916  README.md
+f6afde768a631f0184250bd0df9eb37678c334b32fde63bbf035f7c339ad9fe6  research/soul-protocol-analysis.md
+3bc7ef5b4d2b29c19044466ebaece755d6b3da47c6538f792a6d28e89898de29  v0.1/README.md
+f02c44081b5297e0716cc6e81a1d7bbafd4c93c0309d949682d2fabbcc467438  v0.1/SCORING.md
+d33aeae8be40021c83e90a8f5e12b9825d3b27dba23d9fb87ad0925b28c0eee3  v0.1/questions.yaml
+e3621db431bf34b347a1160e3bcbbfc3794986cc2a5c9f76974a6d518d5f9a1f  v0.1/samples/synthetic_MEMORY.md
+d23cc0bdef53fe71da2e2c027a3ab3c8ca9adb5367c846f2ca81208b18d6b2b0  v0.1/samples/synthetic_SOUL.md
+051c844b58c683ade7e146ebcc28c17cc417e67beb3109a41dfa7eaef95ada1b  v0.1/verify_questions.py
