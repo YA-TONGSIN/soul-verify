@@ -1,0 +1,13 @@
+# third-party clone (referenced, not vendored)
+research/soul-protocol/
+
+# secrets & local data
+.env
+*.key
+secrets/
+runs/private/
+
+# python
+__pycache__/
+*.pyc
+.venv/
