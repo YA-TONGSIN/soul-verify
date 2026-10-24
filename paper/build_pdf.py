@@ -1,16 +1,20 @@
-"""Render paper/draft_v0.md (+ summary_ko.md) to a single PDF via headless Edge.
+"""Render a paper draft (+ optional Korean summary) to a single PDF via headless Edge.
 
-Usage: python paper/build_pdf.py  ->  paper/SOUL_VERIFY_draft.pdf
+Usage:
+  python paper/build_pdf.py                                   ->  draft_v0.md + summary_ko.md -> SOUL_VERIFY_draft.pdf (v0.1 default)
+  python paper/build_pdf.py DRAFT.md [SUMMARY.md] -o OUT.pdf  ->  any draft/summary pair
+  e.g. python paper/build_pdf.py paper/draft_v0_2.md paper/summary_ko_v0_2.md -o paper/SOUL_VERIFY_draft_v0.2.pdf
 """
+import argparse
 import pathlib
 import subprocess
 import tempfile
+import time
 
 import markdown
 
 HERE = pathlib.Path(__file__).parent
 EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
-OUT = HERE / "SOUL_VERIFY_draft.pdf"
 
 CSS = """
 @page { size: A4; margin: 22mm 20mm; }
@@ -32,13 +36,27 @@ def render(md_text: str) -> str:
     return markdown.markdown(md_text, extensions=["tables", "fenced_code", "sane_lists"])
 
 
-body = render((HERE / "draft_v0.md").read_text(encoding="utf-8"))
-summary = HERE / "summary_ko.md"
-if summary.exists():
+ap = argparse.ArgumentParser()
+ap.add_argument("draft", nargs="?", default=str(HERE / "draft_v0.md"))
+ap.add_argument("summary", nargs="?", default=None)
+ap.add_argument("-o", "--out", default=None)
+args = ap.parse_args()
+
+draft = pathlib.Path(args.draft)
+if args.summary is None and draft.resolve() == (HERE / "draft_v0.md").resolve():
+    summary = HERE / "summary_ko.md"
+else:
+    summary = pathlib.Path(args.summary) if args.summary else None
+OUT = pathlib.Path(args.out).resolve() if args.out else HERE / "SOUL_VERIFY_draft.pdf"
+
+body = render(draft.read_text(encoding="utf-8"))
+if summary and summary.exists():
     body += '<div class="pagebreak"></div>' + render(summary.read_text(encoding="utf-8"))
 
 html = f"<!doctype html><html><head><meta charset='utf-8'><style>{CSS}</style></head><body>{body}</body></html>"
 
+if OUT.exists():
+    OUT.unlink()
 with tempfile.TemporaryDirectory() as tmp:
     src = pathlib.Path(tmp) / "paper.html"
     src.write_text(html, encoding="utf-8")
@@ -47,7 +65,6 @@ with tempfile.TemporaryDirectory() as tmp:
          f"--user-data-dir={tmp}\\edge", f"--print-to-pdf={OUT}", src.as_uri()],
         check=True, timeout=120,
     )
-    import time
     for _ in range(60):
         if OUT.exists() and OUT.stat().st_size > 0:
             time.sleep(1)

@@ -1,0 +1,2162 @@
+{
+  "A_same_grader": {
+    "exp2": {
+      "cross": {
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 1.0,
+          "persona": 0.8666666666666667,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 1.0,
+          "judgment": 0.9,
+          "persona": 0.9,
+          "goals": 0.9666666666666667
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.8666666666666667,
+          "persona": 1.0,
+          "goals": 0.9333333333333333
+        }
+      },
+      "opus": {
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 1.0,
+          "persona": 1.0,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 1.0,
+          "judgment": 0.9,
+          "persona": 0.9666666666666667,
+          "goals": 0.8333333333333334
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.8666666666666667,
+          "persona": 1.0,
+          "goals": 0.9333333333333333
+        }
+      },
+      "gpt": {
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 1.0,
+          "persona": 0.8666666666666667,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 1.0,
+          "judgment": 0.9,
+          "persona": 0.9,
+          "goals": 0.9666666666666667
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.8666666666666667,
+          "persona": 0.9,
+          "goals": 0.9333333333333333
+        }
+      }
+    },
+    "exp3": {
+      "cross": {
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 0.8,
+          "persona": 1.0,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 0.84,
+          "judgment": 0.6666666666666666,
+          "persona": 0.65,
+          "goals": 0.7
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.9333333333333333,
+          "persona": 0.4,
+          "goals": 1.0
+        }
+      },
+      "opus": {
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 0.9666666666666667,
+          "persona": 1.0,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 0.8,
+          "judgment": 0.9,
+          "persona": 0.65,
+          "goals": 0.7
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.9333333333333333,
+          "persona": 0.4,
+          "goals": 1.0
+        }
+      },
+      "gpt": {
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 0.8,
+          "persona": 1.0,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 0.84,
+          "judgment": 0.6666666666666666,
+          "persona": 0.65,
+          "goals": 0.7
+        }
+      }
+    },
+    "exp5": {
+      "cross": {
+        "opus": {
+          "memory": 1.0,
+          "judgment": 0.875,
+          "persona": 1.0,
+          "goals": 1.0
+        },
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 0.9375,
+          "persona": 0.9875,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 1.0,
+          "judgment": 0.75,
+          "persona": 0.8125,
+          "goals": 0.8
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.9375,
+          "persona": 0.9875,
+          "goals": 1.0
+        }
+      },
+      "opus": {
+        "opus": {
+          "memory": 1.0,
+          "judgment": 0.9375,
+          "persona": 1.0,
+          "goals": 1.0
+        },
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 0.9875,
+          "persona": 0.9875,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 1.0,
+          "judgment": 0.7625,
+          "persona": 0.825,
+          "goals": 0.7666666666666667
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.9375,
+          "persona": 0.9875,
+          "goals": 1.0
+        }
+      },
+      "gpt": {
+        "opus": {
+          "memory": 1.0,
+          "judgment": 0.875,
+          "persona": 1.0,
+          "goals": 1.0
+        },
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 0.9375,
+          "persona": 0.9875,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 1.0,
+          "judgment": 0.75,
+          "persona": 0.8125,
+          "goals": 0.8
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.875,
+          "persona": 0.9875,
+          "goals": 1.0
+        }
+      },
+      "avg": {
+        "opus": {
+          "memory": 1.0,
+          "judgment": 0.90625,
+          "persona": 1.0,
+          "goals": 1.0
+        },
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 0.9625,
+          "persona": 0.9875,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 1.0,
+          "judgment": 0.75625,
+          "persona": 0.81875,
+          "goals": 0.7833333333333333
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.90625,
+          "persona": 0.9875,
+          "goals": 1.0
+        }
+      }
+    },
+    "exp6": {
+      "cross": {
+        "opus": {
+          "memory": 1.0,
+          "judgment": 0.825,
+          "persona": 0.9875,
+          "goals": 1.0
+        },
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 0.8625,
+          "persona": 0.8375,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 1.0,
+          "judgment": 0.7,
+          "persona": 0.7,
+          "goals": 0.7
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.9375,
+          "persona": 0.4875,
+          "goals": 1.0
+        }
+      },
+      "opus": {
+        "opus": {
+          "memory": 1.0,
+          "judgment": 0.875,
+          "persona": 1.0,
+          "goals": 1.0
+        },
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 0.9375,
+          "persona": 0.8375,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 1.0,
+          "judgment": 0.7,
+          "persona": 0.675,
+          "goals": 0.7333333333333333
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.9375,
+          "persona": 0.4875,
+          "goals": 1.0
+        }
+      },
+      "gpt": {
+        "opus": {
+          "memory": 1.0,
+          "judgment": 0.825,
+          "persona": 0.9875,
+          "goals": 1.0
+        },
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 0.8625,
+          "persona": 0.8375,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 1.0,
+          "judgment": 0.7,
+          "persona": 0.7,
+          "goals": 0.7
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.875,
+          "persona": 0.55,
+          "goals": 1.0
+        }
+      },
+      "avg": {
+        "opus": {
+          "memory": 1.0,
+          "judgment": 0.85,
+          "persona": 0.99375,
+          "goals": 1.0
+        },
+        "sonnet": {
+          "memory": 1.0,
+          "judgment": 0.9,
+          "persona": 0.8375,
+          "goals": 1.0
+        },
+        "haiku": {
+          "memory": 1.0,
+          "judgment": 0.7,
+          "persona": 0.6875,
+          "goals": 0.7166666666666667
+        },
+        "gpt-6.1-sol": {
+          "memory": 1.0,
+          "judgment": 0.90625,
+          "persona": 0.51875,
+          "goals": 1.0
+        }
+      }
+    }
+  },
+  "A_p5_by_grader": {
+    "exp5|cross": {
+      "accepted": 119,
+      "answers": 120,
+      "slipped": 2,
+      "nr1_zero": 0,
+      "nr1_n": 20,
+      "nr1_mean": 0.725
+    },
+    "exp5|opus": {
+      "accepted": 119,
+      "answers": 120,
+      "slipped": 2,
+      "nr1_zero": 0,
+      "nr1_n": 20,
+      "nr1_mean": 0.725
+    },
+    "exp5|gpt": {
+      "accepted": 119,
+      "answers": 120,
+      "slipped": 2,
+      "nr1_zero": 0,
+      "nr1_n": 20,
+      "nr1_mean": 0.725
+    },
+    "exp5|avg": {
+      "accepted": 119,
+      "answers": 120,
+      "slipped": 2,
+      "nr1_zero": 0,
+      "nr1_n": 20,
+      "nr1_mean": 0.725
+    },
+    "exp6|cross": {
+      "accepted": 94,
+      "answers": 120,
+      "slipped": 10,
+      "nr1_zero": 9,
+      "nr1_n": 20,
+      "nr1_mean": 0.425
+    },
+    "exp6|opus": {
+      "accepted": 94,
+      "answers": 120,
+      "slipped": 9,
+      "nr1_zero": 8,
+      "nr1_n": 20,
+      "nr1_mean": 0.45
+    },
+    "exp6|gpt": {
+      "accepted": 99,
+      "answers": 120,
+      "slipped": 15,
+      "nr1_zero": 9,
+      "nr1_n": 20,
+      "nr1_mean": 0.425
+    },
+    "exp6|avg": {
+      "accepted": 94,
+      "answers": 120,
+      "slipped": 9,
+      "nr1_zero": 8,
+      "nr1_n": 20,
+      "nr1_mean": 0.4375
+    }
+  },
+  "B_table4": [
+    {
+      "metric": "accept",
+      "x": "none",
+      "y": "full",
+      "primary": true,
+      "kx": 94,
+      "nx": 120,
+      "ky": 119,
+      "ny": 120,
+      "delta": -0.20833333333333337,
+      "per_model": {
+        "opus": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0,
+          "fisher_p_holm24": 1.0
+        },
+        "sonnet": {
+          "kx": 24,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": -0.19999999999999996,
+          "fisher_p": 0.023720703916957263,
+          "mean_cell_delta": -0.19999999999999998,
+          "fisher_p_holm24": 0.42697267050523074
+        },
+        "haiku": {
+          "kx": 26,
+          "nx": 30,
+          "ky": 29,
+          "ny": 30,
+          "delta": -0.09999999999999998,
+          "fisher_p": 0.35325602140945583,
+          "mean_cell_delta": -0.09999999999999999,
+          "fisher_p_holm24": 1.0
+        },
+        "gpt-6.1-sol": {
+          "kx": 14,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": -0.5333333333333333,
+          "fisher_p": 1.9440445652776143e-06,
+          "mean_cell_delta": -0.5333333333333333,
+          "fisher_p_holm24": 4.6657069566662744e-05
+        }
+      },
+      "pooled_fisher_p": 1.0167763954927538e-07,
+      "stratified_exact": {
+        "T": 94,
+        "E": 106.49999999999997,
+        "p": 2.537092838421744e-10
+      },
+      "cell_signflip": {
+        "mean": -0.20833333333333334,
+        "p": 0.015625,
+        "n_cells": 24,
+        "n_nonzero": 7
+      },
+      "model_signflip": {
+        "mean": -0.20833333333333331,
+        "p": 0.25,
+        "n_cells": 4,
+        "n_nonzero": 3
+      },
+      "holm": {
+        "pooled_fisher_p": 5.083881977463769e-07,
+        "stratified": 1.2685464192108719e-09,
+        "cell": 0.078125,
+        "model": 1.0
+      }
+    },
+    {
+      "metric": "accept",
+      "x": "p5a",
+      "y": "none",
+      "primary": true,
+      "kx": 120,
+      "nx": 120,
+      "ky": 94,
+      "ny": 120,
+      "delta": 0.21666666666666667,
+      "per_model": {
+        "opus": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0,
+          "fisher_p_holm24": 1.0
+        },
+        "sonnet": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 24,
+          "ny": 30,
+          "delta": 0.19999999999999996,
+          "fisher_p": 0.023720703916957263,
+          "mean_cell_delta": 0.19999999999999998,
+          "fisher_p_holm24": 0.42697267050523074
+        },
+        "haiku": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 26,
+          "ny": 30,
+          "delta": 0.1333333333333333,
+          "fisher_p": 0.11239964317573595,
+          "mean_cell_delta": 0.13333333333333333,
+          "fisher_p_holm24": 1.0
+        },
+        "gpt-6.1-sol": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 14,
+          "ny": 30,
+          "delta": 0.5333333333333333,
+          "fisher_p": 1.9440445652776143e-06,
+          "mean_cell_delta": 0.5333333333333333,
+          "fisher_p_holm24": 4.6657069566662744e-05
+        }
+      },
+      "pooled_fisher_p": 6.526399179227634e-09,
+      "stratified_exact": {
+        "T": 120,
+        "E": 106.99999999999999,
+        "p": 5.166026141582736e-12
+      },
+      "cell_signflip": {
+        "mean": 0.21666666666666667,
+        "p": 0.0078125,
+        "n_cells": 24,
+        "n_nonzero": 8
+      },
+      "model_signflip": {
+        "mean": 0.21666666666666667,
+        "p": 0.25,
+        "n_cells": 4,
+        "n_nonzero": 3
+      },
+      "holm": {
+        "pooled_fisher_p": 3.9158395075365805e-08,
+        "stratified": 3.099615684949642e-11,
+        "cell": 0.046875,
+        "model": 1.0
+      }
+    },
+    {
+      "metric": "accept",
+      "x": "p5b",
+      "y": "full",
+      "primary": true,
+      "kx": 96,
+      "nx": 120,
+      "ky": 119,
+      "ny": 120,
+      "delta": -0.19166666666666665,
+      "per_model": {
+        "opus": {
+          "kx": 29,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": -0.033333333333333326,
+          "fisher_p": 1.0,
+          "mean_cell_delta": -0.033333333333333326,
+          "fisher_p_holm24": 1.0
+        },
+        "sonnet": {
+          "kx": 25,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": -0.16666666666666663,
+          "fisher_p": 0.052185548617305975,
+          "mean_cell_delta": -0.16666666666666666,
+          "fisher_p_holm24": 0.8349687778768956
+        },
+        "haiku": {
+          "kx": 27,
+          "nx": 30,
+          "ky": 29,
+          "ny": 30,
+          "delta": -0.06666666666666665,
+          "fisher_p": 0.6119536128456735,
+          "mean_cell_delta": -0.06666666666666667,
+          "fisher_p_holm24": 1.0
+        },
+        "gpt-6.1-sol": {
+          "kx": 15,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": -0.5,
+          "fisher_p": 5.832133695832843e-06,
+          "mean_cell_delta": -0.5,
+          "fisher_p_holm24": 0.00012830694130832254
+        }
+      },
+      "pooled_fisher_p": 4.763412664102064e-07,
+      "stratified_exact": {
+        "T": 96,
+        "E": 107.49999999999997,
+        "p": 3.416465288300049e-09
+      },
+      "cell_signflip": {
+        "mean": -0.19166666666666665,
+        "p": 0.015625,
+        "n_cells": 24,
+        "n_nonzero": 7
+      },
+      "model_signflip": {
+        "mean": -0.19166666666666665,
+        "p": 0.125,
+        "n_cells": 4,
+        "n_nonzero": 4
+      },
+      "holm": {
+        "pooled_fisher_p": 1.9053650656408255e-06,
+        "stratified": 1.3665861153200196e-08,
+        "cell": 0.078125,
+        "model": 0.75
+      }
+    },
+    {
+      "metric": "accept",
+      "x": "p5a",
+      "y": "full",
+      "primary": false,
+      "kx": 120,
+      "nx": 120,
+      "ky": 119,
+      "ny": 120,
+      "delta": 0.008333333333333304,
+      "per_model": {
+        "opus": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        },
+        "sonnet": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        },
+        "haiku": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 29,
+          "ny": 30,
+          "delta": 0.033333333333333326,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.033333333333333326
+        },
+        "gpt-6.1-sol": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        }
+      },
+      "pooled_fisher_p": 1.0,
+      "stratified_exact": {
+        "T": 120,
+        "E": 119.5,
+        "p": 1.0
+      },
+      "cell_signflip": {
+        "mean": 0.008333333333333331,
+        "p": 1.0,
+        "n_cells": 24,
+        "n_nonzero": 1
+      },
+      "model_signflip": {
+        "mean": 0.008333333333333331,
+        "p": 1.0,
+        "n_cells": 4,
+        "n_nonzero": 1
+      }
+    },
+    {
+      "metric": "accept",
+      "x": "p5b",
+      "y": "none",
+      "primary": false,
+      "kx": 96,
+      "nx": 120,
+      "ky": 94,
+      "ny": 120,
+      "delta": 0.01666666666666672,
+      "per_model": {
+        "opus": {
+          "kx": 29,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": -0.033333333333333326,
+          "fisher_p": 1.0,
+          "mean_cell_delta": -0.033333333333333326
+        },
+        "sonnet": {
+          "kx": 25,
+          "nx": 30,
+          "ky": 24,
+          "ny": 30,
+          "delta": 0.033333333333333326,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.033333333333333326
+        },
+        "haiku": {
+          "kx": 27,
+          "nx": 30,
+          "ky": 26,
+          "ny": 30,
+          "delta": 0.033333333333333326,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.033333333333333326
+        },
+        "gpt-6.1-sol": {
+          "kx": 15,
+          "nx": 30,
+          "ky": 14,
+          "ny": 30,
+          "delta": 0.033333333333333326,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.03333333333333333
+        }
+      },
+      "pooled_fisher_p": 0.8738481849969993,
+      "stratified_exact": {
+        "T": 96,
+        "E": 95.0,
+        "p": 0.7433250048990789
+      },
+      "cell_signflip": {
+        "mean": 0.016666666666666666,
+        "p": 0.625,
+        "n_cells": 24,
+        "n_nonzero": 4
+      },
+      "model_signflip": {
+        "mean": 0.016666666666666663,
+        "p": 0.625,
+        "n_cells": 4,
+        "n_nonzero": 4
+      }
+    },
+    {
+      "metric": "clean",
+      "x": "none",
+      "y": "full",
+      "primary": false,
+      "kx": 84,
+      "nx": 120,
+      "ky": 117,
+      "ny": 120,
+      "delta": -0.275,
+      "per_model": {
+        "opus": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        },
+        "sonnet": {
+          "kx": 24,
+          "nx": 30,
+          "ky": 29,
+          "ny": 30,
+          "delta": -0.16666666666666663,
+          "fisher_p": 0.10278971697348148,
+          "mean_cell_delta": -0.16666666666666666
+        },
+        "haiku": {
+          "kx": 25,
+          "nx": 30,
+          "ky": 29,
+          "ny": 30,
+          "delta": -0.1333333333333333,
+          "fisher_p": 0.19450977211904955,
+          "mean_cell_delta": -0.13333333333333333
+        },
+        "gpt-6.1-sol": {
+          "kx": 5,
+          "nx": 30,
+          "ky": 29,
+          "ny": 30,
+          "delta": -0.8,
+          "fisher_p": 1.2313123512819036e-10,
+          "mean_cell_delta": -0.8
+        }
+      },
+      "pooled_fisher_p": 2.5675521441881266e-09,
+      "stratified_exact": {
+        "T": 84,
+        "E": 100.49999999999999,
+        "p": 1.0443121628277183e-12
+      },
+      "cell_signflip": {
+        "mean": -0.27499999999999997,
+        "p": 0.0078125,
+        "n_cells": 24,
+        "n_nonzero": 10
+      },
+      "model_signflip": {
+        "mean": -0.275,
+        "p": 0.25,
+        "n_cells": 4,
+        "n_nonzero": 3
+      }
+    },
+    {
+      "metric": "clean",
+      "x": "p5a",
+      "y": "none",
+      "primary": false,
+      "kx": 117,
+      "nx": 120,
+      "ky": 84,
+      "ny": 120,
+      "delta": 0.275,
+      "per_model": {
+        "opus": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        },
+        "sonnet": {
+          "kx": 27,
+          "nx": 30,
+          "ky": 24,
+          "ny": 30,
+          "delta": 0.09999999999999998,
+          "fisher_p": 0.47164455896551566,
+          "mean_cell_delta": 0.09999999999999999
+        },
+        "haiku": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 25,
+          "ny": 30,
+          "delta": 0.16666666666666663,
+          "fisher_p": 0.052185548617305975,
+          "mean_cell_delta": 0.16666666666666666
+        },
+        "gpt-6.1-sol": {
+          "kx": 30,
+          "nx": 30,
+          "ky": 5,
+          "ny": 30,
+          "delta": 0.8333333333333334,
+          "fisher_p": 5.48992768087473e-12,
+          "mean_cell_delta": 0.8333333333333334
+        }
+      },
+      "pooled_fisher_p": 2.5675521441881266e-09,
+      "stratified_exact": {
+        "T": 117,
+        "E": 100.49999999999999,
+        "p": 3.662902133225183e-12
+      },
+      "cell_signflip": {
+        "mean": 0.27499999999999997,
+        "p": 0.009765625,
+        "n_cells": 24,
+        "n_nonzero": 11
+      },
+      "model_signflip": {
+        "mean": 0.275,
+        "p": 0.25,
+        "n_cells": 4,
+        "n_nonzero": 3
+      }
+    },
+    {
+      "metric": "clean",
+      "x": "p5b",
+      "y": "full",
+      "primary": false,
+      "kx": 86,
+      "nx": 120,
+      "ky": 117,
+      "ny": 120,
+      "delta": -0.2583333333333333,
+      "per_model": {
+        "opus": {
+          "kx": 29,
+          "nx": 30,
+          "ky": 30,
+          "ny": 30,
+          "delta": -0.033333333333333326,
+          "fisher_p": 1.0,
+          "mean_cell_delta": -0.033333333333333326
+        },
+        "sonnet": {
+          "kx": 25,
+          "nx": 30,
+          "ky": 29,
+          "ny": 30,
+          "delta": -0.1333333333333333,
+          "fisher_p": 0.19450977211904955,
+          "mean_cell_delta": -0.13333333333333333
+        },
+        "haiku": {
+          "kx": 27,
+          "nx": 30,
+          "ky": 29,
+          "ny": 30,
+          "delta": -0.06666666666666665,
+          "fisher_p": 0.6119536128456735,
+          "mean_cell_delta": -0.06666666666666667
+        },
+        "gpt-6.1-sol": {
+          "kx": 5,
+          "nx": 30,
+          "ky": 29,
+          "ny": 30,
+          "delta": -0.8,
+          "fisher_p": 1.2313123512819036e-10,
+          "mean_cell_delta": -0.8
+        }
+      },
+      "pooled_fisher_p": 1.2304527354292173e-08,
+      "stratified_exact": {
+        "T": 86,
+        "E": 101.49999999999996,
+        "p": 5.279987917556734e-12
+      },
+      "cell_signflip": {
+        "mean": -0.25833333333333336,
+        "p": 0.01171875,
+        "n_cells": 24,
+        "n_nonzero": 9
+      },
+      "model_signflip": {
+        "mean": -0.25833333333333336,
+        "p": 0.125,
+        "n_cells": 4,
+        "n_nonzero": 4
+      }
+    },
+    {
+      "metric": "slip",
+      "x": "none",
+      "y": "full",
+      "primary": false,
+      "kx": 10,
+      "nx": 94,
+      "ky": 2,
+      "ny": 119,
+      "delta": 0.08957625603432863,
+      "per_model": {
+        "opus": {
+          "kx": 0,
+          "nx": 30,
+          "ky": 0,
+          "ny": 30,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        },
+        "sonnet": {
+          "kx": 0,
+          "nx": 24,
+          "ky": 1,
+          "ny": 30,
+          "delta": -0.03333333333333333,
+          "fisher_p": 1.0,
+          "mean_cell_delta": -0.04
+        },
+        "haiku": {
+          "kx": 1,
+          "nx": 26,
+          "ky": 0,
+          "ny": 29,
+          "delta": 0.038461538461538464,
+          "fisher_p": 0.4727272727272727,
+          "mean_cell_delta": 0.03333333333333333
+        },
+        "gpt-6.1-sol": {
+          "kx": 9,
+          "nx": 14,
+          "ky": 1,
+          "ny": 30,
+          "delta": 0.6095238095238096,
+          "fisher_p": 2.4608900030579584e-05,
+          "mean_cell_delta": 0.6
+        }
+      },
+      "pooled_fisher_p": 0.006149713014214494,
+      "stratified_exact": {
+        "T": 10,
+        "E": 5.777777777777778,
+        "p": 0.0017951625094482235
+      },
+      "cell_signflip": {
+        "mean": 0.09,
+        "p": 0.375,
+        "n_cells": 20,
+        "n_nonzero": 4
+      },
+      "model_signflip": {
+        "mean": 0.14833333333333332,
+        "p": 0.75,
+        "n_cells": 4,
+        "n_nonzero": 3
+      }
+    },
+    {
+      "metric": "slip",
+      "x": "p5b",
+      "y": "full",
+      "primary": false,
+      "kx": 10,
+      "nx": 96,
+      "ky": 2,
+      "ny": 119,
+      "delta": 0.08735994397759105,
+      "per_model": {
+        "opus": {
+          "kx": 0,
+          "nx": 29,
+          "ky": 0,
+          "ny": 30,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        },
+        "sonnet": {
+          "kx": 0,
+          "nx": 25,
+          "ky": 1,
+          "ny": 30,
+          "delta": -0.03333333333333333,
+          "fisher_p": 1.0,
+          "mean_cell_delta": -0.04
+        },
+        "haiku": {
+          "kx": 0,
+          "nx": 27,
+          "ky": 0,
+          "ny": 29,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        },
+        "gpt-6.1-sol": {
+          "kx": 10,
+          "nx": 15,
+          "ky": 1,
+          "ny": 30,
+          "delta": 0.6333333333333333,
+          "fisher_p": 9.009815858190339e-06,
+          "mean_cell_delta": 0.7
+        }
+      },
+      "pooled_fisher_p": 0.006698605776203112,
+      "stratified_exact": {
+        "T": 10,
+        "E": 5.444444444444444,
+        "p": 0.0009763164525069286
+      },
+      "cell_signflip": {
+        "mean": 0.12380952380952381,
+        "p": 0.25,
+        "n_cells": 21,
+        "n_nonzero": 4
+      },
+      "model_signflip": {
+        "mean": 0.16499999999999998,
+        "p": 1.0,
+        "n_cells": 4,
+        "n_nonzero": 2
+      }
+    },
+    {
+      "metric": "slip",
+      "x": "p5a",
+      "y": "none",
+      "primary": false,
+      "kx": 3,
+      "nx": 120,
+      "ky": 10,
+      "ny": 94,
+      "delta": -0.08138297872340425,
+      "per_model": {
+        "opus": {
+          "kx": 0,
+          "nx": 30,
+          "ky": 0,
+          "ny": 30,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        },
+        "sonnet": {
+          "kx": 3,
+          "nx": 30,
+          "ky": 0,
+          "ny": 24,
+          "delta": 0.1,
+          "fisher_p": 0.24528301886792453,
+          "mean_cell_delta": 0.12
+        },
+        "haiku": {
+          "kx": 0,
+          "nx": 30,
+          "ky": 1,
+          "ny": 26,
+          "delta": -0.038461538461538464,
+          "fisher_p": 0.4642857142857143,
+          "mean_cell_delta": -0.03333333333333333
+        },
+        "gpt-6.1-sol": {
+          "kx": 0,
+          "nx": 30,
+          "ky": 9,
+          "ny": 14,
+          "delta": -0.6428571428571429,
+          "fisher_p": 2.8239721346566736e-06,
+          "mean_cell_delta": -0.6666666666666666
+        }
+      },
+      "pooled_fisher_p": 0.019081619889480025,
+      "stratified_exact": {
+        "T": 3,
+        "E": 6.722222222222222,
+        "p": 0.015547577055513562
+      },
+      "cell_signflip": {
+        "mean": -0.08,
+        "p": 0.375,
+        "n_cells": 20,
+        "n_nonzero": 4
+      },
+      "model_signflip": {
+        "mean": -0.145,
+        "p": 0.75,
+        "n_cells": 4,
+        "n_nonzero": 3
+      }
+    },
+    {
+      "metric": "nr1zero",
+      "x": "none",
+      "y": "full",
+      "primary": true,
+      "kx": 9,
+      "nx": 20,
+      "ky": 0,
+      "ny": 20,
+      "delta": 0.45,
+      "per_model": {
+        "opus": {
+          "kx": 5,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 1.0,
+          "fisher_p": 0.007936507936507936,
+          "mean_cell_delta": 1.0,
+          "fisher_p_holm24": 0.16666666666666666
+        },
+        "sonnet": {
+          "kx": 1,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 0.2,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.2,
+          "fisher_p_holm24": 1.0
+        },
+        "haiku": {
+          "kx": 3,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 0.6,
+          "fisher_p": 0.16666666666666666,
+          "mean_cell_delta": 0.6,
+          "fisher_p_holm24": 1.0
+        },
+        "gpt-6.1-sol": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0,
+          "fisher_p_holm24": 1.0
+        }
+      },
+      "pooled_fisher_p": 0.0012285012285012285,
+      "stratified_exact": {
+        "T": 9,
+        "E": 4.5,
+        "p": 0.00033068783068783067
+      },
+      "cell_signflip": {
+        "mean": 0.45,
+        "p": 0.25,
+        "n_cells": 4,
+        "n_nonzero": 3
+      },
+      "model_signflip": {
+        "mean": 0.45,
+        "p": 0.25,
+        "n_cells": 4,
+        "n_nonzero": 3
+      },
+      "holm": {
+        "pooled_fisher_p": 0.0036855036855036856,
+        "stratified": 0.000992063492063492,
+        "cell": 0.75,
+        "model": 1.0
+      }
+    },
+    {
+      "metric": "nr1zero",
+      "x": "p5b",
+      "y": "none",
+      "primary": true,
+      "kx": 0,
+      "nx": 20,
+      "ky": 9,
+      "ny": 20,
+      "delta": -0.45,
+      "per_model": {
+        "opus": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 5,
+          "ny": 5,
+          "delta": -1.0,
+          "fisher_p": 0.007936507936507936,
+          "mean_cell_delta": -1.0,
+          "fisher_p_holm24": 0.16666666666666666
+        },
+        "sonnet": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 1,
+          "ny": 5,
+          "delta": -0.2,
+          "fisher_p": 1.0,
+          "mean_cell_delta": -0.2,
+          "fisher_p_holm24": 1.0
+        },
+        "haiku": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 3,
+          "ny": 5,
+          "delta": -0.6,
+          "fisher_p": 0.16666666666666666,
+          "mean_cell_delta": -0.6,
+          "fisher_p_holm24": 1.0
+        },
+        "gpt-6.1-sol": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0,
+          "fisher_p_holm24": 1.0
+        }
+      },
+      "pooled_fisher_p": 0.0012285012285012285,
+      "stratified_exact": {
+        "T": 0,
+        "E": 4.5,
+        "p": 0.00033068783068783067
+      },
+      "cell_signflip": {
+        "mean": -0.45,
+        "p": 0.25,
+        "n_cells": 4,
+        "n_nonzero": 3
+      },
+      "model_signflip": {
+        "mean": -0.45,
+        "p": 0.25,
+        "n_cells": 4,
+        "n_nonzero": 3
+      },
+      "holm": {
+        "pooled_fisher_p": 0.0036855036855036856,
+        "stratified": 0.000992063492063492,
+        "cell": 0.75,
+        "model": 1.0
+      }
+    },
+    {
+      "metric": "nr1zero",
+      "x": "p5a",
+      "y": "full",
+      "primary": true,
+      "kx": 7,
+      "nx": 20,
+      "ky": 0,
+      "ny": 20,
+      "delta": 0.35,
+      "per_model": {
+        "opus": {
+          "kx": 2,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 0.4,
+          "fisher_p": 0.4444444444444444,
+          "mean_cell_delta": 0.4,
+          "fisher_p_holm24": 1.0
+        },
+        "sonnet": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0,
+          "fisher_p_holm24": 1.0
+        },
+        "haiku": {
+          "kx": 5,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 1.0,
+          "fisher_p": 0.007936507936507936,
+          "mean_cell_delta": 1.0,
+          "fisher_p_holm24": 0.16666666666666666
+        },
+        "gpt-6.1-sol": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0,
+          "fisher_p_holm24": 1.0
+        }
+      },
+      "pooled_fisher_p": 0.008316008316008316,
+      "stratified_exact": {
+        "T": 7,
+        "E": 3.5,
+        "p": 0.001763668430335097
+      },
+      "cell_signflip": {
+        "mean": 0.35,
+        "p": 0.5,
+        "n_cells": 4,
+        "n_nonzero": 2
+      },
+      "model_signflip": {
+        "mean": 0.35,
+        "p": 0.5,
+        "n_cells": 4,
+        "n_nonzero": 2
+      },
+      "holm": {
+        "pooled_fisher_p": 0.008316008316008316,
+        "stratified": 0.001763668430335097,
+        "cell": 0.75,
+        "model": 1.0
+      }
+    },
+    {
+      "metric": "nr1zero",
+      "x": "p5a",
+      "y": "none",
+      "primary": false,
+      "kx": 7,
+      "nx": 20,
+      "ky": 9,
+      "ny": 20,
+      "delta": -0.10000000000000003,
+      "per_model": {
+        "opus": {
+          "kx": 2,
+          "nx": 5,
+          "ky": 5,
+          "ny": 5,
+          "delta": -0.6,
+          "fisher_p": 0.16666666666666666,
+          "mean_cell_delta": -0.6
+        },
+        "sonnet": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 1,
+          "ny": 5,
+          "delta": -0.2,
+          "fisher_p": 1.0,
+          "mean_cell_delta": -0.2
+        },
+        "haiku": {
+          "kx": 5,
+          "nx": 5,
+          "ky": 3,
+          "ny": 5,
+          "delta": 0.4,
+          "fisher_p": 0.4444444444444444,
+          "mean_cell_delta": 0.4
+        },
+        "gpt-6.1-sol": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        }
+      },
+      "pooled_fisher_p": 0.7475272825662147,
+      "stratified_exact": {
+        "T": 7,
+        "E": 8.0,
+        "p": 0.6574074074074074
+      },
+      "cell_signflip": {
+        "mean": -0.09999999999999999,
+        "p": 0.75,
+        "n_cells": 4,
+        "n_nonzero": 3
+      },
+      "model_signflip": {
+        "mean": -0.09999999999999999,
+        "p": 0.75,
+        "n_cells": 4,
+        "n_nonzero": 3
+      }
+    },
+    {
+      "metric": "nr1zero",
+      "x": "p5b",
+      "y": "full",
+      "primary": false,
+      "kx": 0,
+      "nx": 20,
+      "ky": 0,
+      "ny": 20,
+      "delta": 0.0,
+      "per_model": {
+        "opus": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        },
+        "sonnet": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        },
+        "haiku": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        },
+        "gpt-6.1-sol": {
+          "kx": 0,
+          "nx": 5,
+          "ky": 0,
+          "ny": 5,
+          "delta": 0.0,
+          "fisher_p": 1.0,
+          "mean_cell_delta": 0.0
+        }
+      },
+      "pooled_fisher_p": 1.0,
+      "stratified_exact": {
+        "T": 0,
+        "E": 0.0,
+        "p": 1.0
+      },
+      "cell_signflip": {
+        "mean": 0.0,
+        "p": 1.0,
+        "n_cells": 4,
+        "n_nonzero": 0
+      },
+      "model_signflip": {
+        "mean": 0.0,
+        "p": 1.0,
+        "n_cells": 4,
+        "n_nonzero": 0
+      }
+    }
+  ],
+  "C_memory": [
+    {
+      "exp": "exp1(pilot)",
+      "grader": "opus 채점(유일)",
+      "model": "sonnet",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 5,
+      "not_full": {}
+    },
+    {
+      "exp": "exp1(pilot)",
+      "grader": "opus 채점(유일)",
+      "model": "haiku",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 5,
+      "not_full": {}
+    },
+    {
+      "exp": "exp2",
+      "grader": "cross",
+      "model": "sonnet",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 5,
+      "not_full": {}
+    },
+    {
+      "exp": "exp2",
+      "grader": "cross",
+      "model": "haiku",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 5,
+      "not_full": {}
+    },
+    {
+      "exp": "exp2",
+      "grader": "cross",
+      "model": "gpt-6.1-sol",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 5,
+      "not_full": {}
+    },
+    {
+      "exp": "exp2",
+      "grader": "opus",
+      "model": "sonnet",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 5,
+      "not_full": {}
+    },
+    {
+      "exp": "exp2",
+      "grader": "opus",
+      "model": "haiku",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 5,
+      "not_full": {}
+    },
+    {
+      "exp": "exp2",
+      "grader": "opus",
+      "model": "gpt-6.1-sol",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 5,
+      "not_full": {}
+    },
+    {
+      "exp": "exp3",
+      "grader": "cross",
+      "model": "sonnet",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 5,
+      "not_full": {}
+    },
+    {
+      "exp": "exp3",
+      "grader": "cross",
+      "model": "haiku",
+      "mean": 0.84,
+      "sd": 0.08944271909999162,
+      "n_items": 5,
+      "not_full": {
+        "H-03": [
+          0.0
+        ],
+        "H-06": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "H-01": [
+          0.5
+        ]
+      }
+    },
+    {
+      "exp": "exp3",
+      "grader": "cross",
+      "model": "gpt-6.1-sol",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 5,
+      "not_full": {}
+    },
+    {
+      "exp": "exp3",
+      "grader": "opus",
+      "model": "sonnet",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 5,
+      "not_full": {}
+    },
+    {
+      "exp": "exp3",
+      "grader": "opus",
+      "model": "haiku",
+      "mean": 0.8,
+      "sd": 0.10000000000000003,
+      "n_items": 5,
+      "not_full": {
+        "H-03": [
+          0.0
+        ],
+        "H-06": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "H-11": [
+          0.5,
+          0.5
+        ],
+        "H-01": [
+          0.5
+        ]
+      }
+    },
+    {
+      "exp": "exp3",
+      "grader": "opus",
+      "model": "gpt-6.1-sol",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 5,
+      "not_full": {}
+    },
+    {
+      "exp": "exp4",
+      "grader": "cross",
+      "model": "opus",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 6,
+      "not_full": {}
+    },
+    {
+      "exp": "exp4",
+      "grader": "cross",
+      "model": "sonnet",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 6,
+      "not_full": {}
+    },
+    {
+      "exp": "exp4",
+      "grader": "cross",
+      "model": "haiku",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 6,
+      "not_full": {}
+    },
+    {
+      "exp": "exp4",
+      "grader": "cross",
+      "model": "gpt-6.1-sol",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 6,
+      "not_full": {}
+    },
+    {
+      "exp": "exp5",
+      "grader": "cross",
+      "model": "opus",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp5",
+      "grader": "cross",
+      "model": "sonnet",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp5",
+      "grader": "cross",
+      "model": "haiku",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp5",
+      "grader": "cross",
+      "model": "gpt-6.1-sol",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp5",
+      "grader": "opus",
+      "model": "opus",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp5",
+      "grader": "opus",
+      "model": "sonnet",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp5",
+      "grader": "opus",
+      "model": "haiku",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp5",
+      "grader": "opus",
+      "model": "gpt-6.1-sol",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp6",
+      "grader": "cross",
+      "model": "opus",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp6",
+      "grader": "cross",
+      "model": "sonnet",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp6",
+      "grader": "cross",
+      "model": "haiku",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp6",
+      "grader": "cross",
+      "model": "gpt-6.1-sol",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp6",
+      "grader": "opus",
+      "model": "opus",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp6",
+      "grader": "opus",
+      "model": "sonnet",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp6",
+      "grader": "opus",
+      "model": "haiku",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp6",
+      "grader": "opus",
+      "model": "gpt-6.1-sol",
+      "mean": 1.0,
+      "sd": 0.0,
+      "n_items": 4,
+      "not_full": {}
+    },
+    {
+      "exp": "exp7 p5a",
+      "grader": "cross",
+      "model": "opus",
+      "mean": null,
+      "sd": null,
+      "n_items": 0,
+      "not_full": {}
+    },
+    {
+      "exp": "exp7 p5a",
+      "grader": "cross",
+      "model": "sonnet",
+      "mean": null,
+      "sd": null,
+      "n_items": 0,
+      "not_full": {}
+    },
+    {
+      "exp": "exp7 p5a",
+      "grader": "cross",
+      "model": "haiku",
+      "mean": null,
+      "sd": null,
+      "n_items": 0,
+      "not_full": {}
+    },
+    {
+      "exp": "exp7 p5a",
+      "grader": "cross",
+      "model": "gpt-6.1-sol",
+      "mean": null,
+      "sd": null,
+      "n_items": 0,
+      "not_full": {}
+    },
+    {
+      "exp": "exp7 p5b",
+      "grader": "cross",
+      "model": "opus",
+      "mean": null,
+      "sd": null,
+      "n_items": 0,
+      "not_full": {}
+    },
+    {
+      "exp": "exp7 p5b",
+      "grader": "cross",
+      "model": "sonnet",
+      "mean": null,
+      "sd": null,
+      "n_items": 0,
+      "not_full": {}
+    },
+    {
+      "exp": "exp7 p5b",
+      "grader": "cross",
+      "model": "haiku",
+      "mean": null,
+      "sd": null,
+      "n_items": 0,
+      "not_full": {}
+    },
+    {
+      "exp": "exp7 p5b",
+      "grader": "cross",
+      "model": "gpt-6.1-sol",
+      "mean": null,
+      "sd": null,
+      "n_items": 0,
+      "not_full": {}
+    }
+  ],
+  "C_hallucination": {
+    "exp5|opus": {
+      "zero": 0,
+      "half": 0,
+      "n": 10
+    },
+    "exp5|sonnet": {
+      "zero": 0,
+      "half": 0,
+      "n": 10
+    },
+    "exp5|haiku": {
+      "zero": 0,
+      "half": 4,
+      "n": 10
+    },
+    "exp5|gpt-6.1-sol": {
+      "zero": 0,
+      "half": 0,
+      "n": 10
+    },
+    "exp6|opus": {
+      "zero": 0,
+      "half": 0,
+      "n": 10
+    },
+    "exp6|sonnet": {
+      "zero": 0,
+      "half": 0,
+      "n": 10
+    },
+    "exp6|haiku": {
+      "zero": 1,
+      "half": 4,
+      "n": 10
+    },
+    "exp6|gpt-6.1-sol": {
+      "zero": 0,
+      "half": 0,
+      "n": 10
+    },
+    "exp7 p5a|opus": {
+      "zero": 0,
+      "half": 0,
+      "n": 5
+    },
+    "exp7 p5a|sonnet": {
+      "zero": 0,
+      "half": 0,
+      "n": 5
+    },
+    "exp7 p5a|haiku": {
+      "zero": 0,
+      "half": 5,
+      "n": 5
+    },
+    "exp7 p5a|gpt-6.1-sol": {
+      "zero": 0,
+      "half": 0,
+      "n": 5
+    },
+    "exp7 p5b|opus": {
+      "zero": 0,
+      "half": 0,
+      "n": 5
+    },
+    "exp7 p5b|sonnet": {
+      "zero": 0,
+      "half": 0,
+      "n": 5
+    },
+    "exp7 p5b|haiku": {
+      "zero": 1,
+      "half": 4,
+      "n": 5
+    },
+    "exp7 p5b|gpt-6.1-sol": {
+      "zero": 0,
+      "half": 0,
+      "n": 5
+    }
+  },
+  "D_table5": {
+    "slots_per_model_rep": 40,
+    "by_bin": {
+      "0|all": {
+        "k": 84,
+        "n": 84,
+        "ci": [
+          0.9562667346678565,
+          0.9999999999999999
+        ]
+      },
+      "0|excl": {
+        "k": 84,
+        "n": 84,
+        "ci": [
+          0.9562667346678565,
+          0.9999999999999999
+        ]
+      },
+      "1-3|all": {
+        "k": 30,
+        "n": 36,
+        "ci": [
+          0.6810888526532568,
+          0.9212965937143589
+        ]
+      },
+      "1-3|excl": {
+        "k": 24,
+        "n": 24,
+        "ci": [
+          0.8620194241710247,
+          1.0
+        ]
+      },
+      "4-6|all": {
+        "k": 133,
+        "n": 141,
+        "ci": [
+          0.892038495203873,
+          0.9709732362323994
+        ]
+      },
+      "4-6|excl": {
+        "k": 117,
+        "n": 117,
+        "ci": [
+          0.9682096231761248,
+          1.0
+        ]
+      },
+      "7-10|all": {
+        "k": 211,
+        "n": 216,
+        "ci": [
+          0.9469652554392134,
+          0.9900730485032616
+        ]
+      },
+      "7-10|excl": {
+        "k": 203,
+        "n": 204,
+        "ci": [
+          0.972759799694777,
+          0.9991341811059866
+        ]
+      }
+    },
+    "nulls": [
+      [
+        "haiku",
+        "S4",
+        2,
+        8,
+        "C_brief7"
+      ],
+      [
+        "haiku",
+        "S4",
+        3,
+        8,
+        "C_brief7"
+      ],
+      [
+        "haiku",
+        "S4",
+        1,
+        8,
+        "C_brief7"
+      ]
+    ]
+  },
+  "E_checks": {
+    "opus": {
+      "all": [
+        0.016666666666666673,
+        0.03726779962499651
+      ],
+      "pre_midnight_reps1_3": [
+        0.0,
+        0.0
+      ]
+    },
+    "sonnet": {
+      "all": [
+        0.016666666666666673,
+        0.03726779962499651
+      ],
+      "pre_midnight_reps1_3": [
+        0.0,
+        0.0
+      ]
+    },
+    "haiku": {
+      "all": [
+        0.19999999999999998,
+        0.04564354645876386
+      ],
+      "pre_midnight_reps1_3": [
+        0.16666666666666663,
+        0.0
+      ]
+    },
+    "gpt-6.1-sol": {
+      "all": [
+        0.016666666666666673,
+        0.03726779962499651
+      ],
+      "pre_midnight_reps1_3": [
+        0.02777777777777779,
+        0.048112522432468836
+      ]
+    }
+  }
+}
