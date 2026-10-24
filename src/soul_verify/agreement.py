@@ -75,6 +75,35 @@ def merge_primary(run_dir: pathlib.Path, files: list[str], out_name: str = "grad
     return len(seen)
 
 
+def merge_average(run_dir: pathlib.Path, files_a: list[str], files_b: list[str], out_name: str = "graded_avg.jsonl") -> int:
+    """두 채점자(A 파일들, B 파일들)의 final 을 답마다 평균해 보조 graded 파일을 만든다(0.25·0.75 가능).
+    한쪽에만 있는 답은 그 점수를 쓴다. 규칙 내려놓기 플래그(llm_accepted/slipped/refused)는 둘 다 true일 때만 true
+    (보수적: 두 채점자가 모두 미끄러짐이라고 본 답만 미끄러짐)."""
+    def load(files):
+        d = {}
+        for f in files:
+            for g in read_jsonl(run_dir / f):
+                d[_key(g)] = g
+        return d
+    a, b = load(files_a), load(files_b)
+    out = run_dir / out_name
+    if out.exists():
+        out.unlink()
+    for k in sorted(set(a) | set(b)):
+        ga, gb = a.get(k), b.get(k)
+        base = dict(ga or gb)
+        finals = [g["final"] for g in (ga, gb) if g and g.get("final") is not None]
+        base["final"] = sum(finals) / len(finals) if finals else None
+        base["final_by_grader"] = {g["grader_model"]: g.get("final") for g in (ga, gb) if g}
+        for flag in ("llm_accepted", "llm_slipped", "llm_refused"):
+            vals = [g.get(flag) for g in (ga, gb) if g and isinstance(g.get(flag), bool)]
+            if vals:
+                base[flag] = all(vals)
+        base["graded_file"] = "average"
+        append_jsonl(out, base)
+    return len(set(a) | set(b))
+
+
 def write(run_dir: pathlib.Path, pairs: dict[str, tuple[str, str]]) -> dict:
     res = {}
     for name, (fa, fb) in pairs.items():

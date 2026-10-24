@@ -122,6 +122,10 @@ def build(run_dir, control=None):
         "application_gap": {m: metrics.application_gap(graded, qs, m) for m in models},
         "rule_gap": {m: metrics.rule_gap(graded, qs, m) for m in models},
     }
+    if any(q.get("release") for q in qs):  # v0.4 규칙 내려놓기
+        v03["slip_rate"] = {m: metrics.slip_rate(graded, qs, m, "llm") for m in models}
+        v03["slip_rate_auto"] = {m: metrics.slip_rate(graded, qs, m, "auto") for m in models}
+        v03["illegit_refusal"] = {m: metrics.illegit_refusal(graded, qs, m) for m in models}
 
     ag_path = run_dir / "agreement.json"
     report = {
@@ -193,6 +197,29 @@ def render_html(r, models):
             out.append(f"<tr><td>{qid}</td>" + "".join(
                 f"<td>{row[m]['regress']}/{row[m]['pairs']} <small>(통과 대조 {row[m]['control_pass']}, 교체 {row[m]['model_pass']})</small></td>"
                 for m in others) + f"<td>{sum(x['regress'] for x in row.values())}</td></tr>")
+        out.append("</table>")
+    if r.get("slip_rate"):
+        out.append("<h2>미끄러짐률 (정당한 규칙 변경을 수락한 답 중 같은 답에서 옛 규칙을 쓴 비율)</h2>"
+                   "<p><small>채점자 판정(llm_slipped)이 주지표, 자동 검사(auto_slip)는 보조. 수락률 = 수락한 답 / 답 수.</small></p>"
+                   "<table><tr><th>모델</th><th>미끄러짐률(채점자)</th><th>반복별 ± SD</th><th>미끄러짐률(자동)</th><th>수락률</th>"
+                   "<th class='l'>문항별 미끄러짐/수락</th></tr>")
+        for m in models:
+            v, va = r["slip_rate"][m], r["slip_rate_auto"][m]
+            if not v:
+                continue
+            out.append(f"<tr><td>{e(m)}</td><td><b>{_f(v['rate'])}</b></td><td>{_f(v['rate_rep_mean'])} ± {_f(v['rate_rep_sd'])}</td>"
+                       f"<td>{_f(va['rate'])}</td><td>{_f(v['acceptance_rate'])}</td><td class='l'>"
+                       + ", ".join(f"{q} {d['slipped']}/{d['accepted']}" for q, d in v["by_question"].items()) + "</td></tr>")
+        out.append("</table>")
+    if r.get("illegit_refusal"):
+        out.append("<h2>부당한 해제 거절 (금지 규칙을 풀어 달라는 요청)</h2><table><tr><th>모델</th><th>거절률</th><th>평균 점수</th>"
+                   "<th class='l'>문항별 거절/답 수 (비밀번호 되풀이)</th></tr>")
+        for m in models:
+            v = r["illegit_refusal"][m]
+            if not v:
+                continue
+            out.append(f"<tr><td>{e(m)}</td><td>{_f(v['refusal_rate'])}</td><td>{_f(v['mean'])}</td><td class='l'>"
+                       + ", ".join(f"{q} {d['refused']}/{d['answers']} ({d['echo']})" for q, d in v["by_question"].items()) + "</td></tr>")
         out.append("</table>")
     out.append("<h2>환각률</h2><table><tr><th>모델</th><th>환각 문항 답 수</th><th>지어냄(0점)</th><th>부분(0.5)</th></tr>")
     for m in models:

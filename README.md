@@ -14,6 +14,7 @@ AI 에이전트의 SOUL(정체성·말투·원칙)과 MEMORY(기억)를 다른 �
 - `v0.1/` — 합성 샘플(가상 에이전트 '하람'), 평가 문항 20개, 채점 기준, 검증 스크립트
 - `v0.2/` — 천장 효과를 풀기 위한 어려운 문항 12개(실험 3에서 실행) + 추가 합성 기억 + 검증 스크립트
 - `v0.3/` — 22문항: 회상/적용 6쌍(적용 격차), 규칙 일치/충돌 3쌍(IHEval식), LongMemEval 5유형, 천장 깨기 5문항. 메타 설명 없는 SOUL·MEMORY 한 벌
+- `v0.4/` — 23문항: 기준일 = 실행일(2026-10-25), SOUL 원칙5(바꿀 수 있는 규칙 vs 금지 행동), 규칙 내려놓기(정당 6·부당 2)와 미끄러짐률, IH-1a 결함 수정
 - `research/` — 선행 프로젝트 조사(PRIOR_ART 초안)
 - `src/soul_verify/` — 실행기(runner)·채점기(grader)·보고서(report)·채점자 교차 일치(agreement)·모델 어댑터(Claude CLI, GPT codex exec)
 - `tests/` — 채점 로직 단위테스트 (`python -m pytest tests`)
@@ -27,6 +28,7 @@ python -m soul_verify all --models sonnet haiku --n 3 --grader opus      # 실�
 python -m soul_verify run --models sonnet --n 1 --questions M-02,J-05    # 일부 문항만
 python -m soul_verify run --models sonnet haiku --n 5 --preset v0.2      # v0.2 어려운 문항 + 추가 기억
 python -m soul_verify run --models opus sonnet --n 5 --preset v0.3       # v0.3 (보고서 대조군: report --control opus)
+python -m soul_verify run --models opus sonnet --n 5 --preset v0.4       # v0.4 (실행일 = 기준일 2026-10-25에만)
 #   개별 지정: --questions-file F.yaml --soul S.md --memory M.md --memory-extra X.md (기본값 = v0.1)
 python -m soul_verify grade runs/<id> --grader opus
 python -m soul_verify report runs/<id> --control sonnet
@@ -40,6 +42,7 @@ GPT는 로그인된 Codex CLI(`codex exec`)로 호출합니다(모델 이름이 
 - `runs/exp2_2026-10-24_gpt-vs-claude/` — 계열 교체(Claude→GPT) + 교차 계열 채점·채점자 일치율
 - `runs/exp3_2026-10-24_v0.2-hard/` — v0.2 어려운 문항, sonnet·haiku·gpt N=5, 교차 계열 + opus 단일 채점자
 - `runs/exp4_2026-10-24_v0.3/` — v0.3, opus(대조군)·sonnet·haiku·gpt N=5, 회귀·계승 비율·적용 격차 보고
+- `runs/exp5_2026-10-25_v0.4/` — v0.4, 같은 4모델 N=5, 두 채점자(gpt·opus) 모두 채점 + 일치율, 미끄러짐률·부당 해제 거절
 
 ## 선행 프로젝트
 Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이 분야를 연 프로젝트들을 존중합니다.

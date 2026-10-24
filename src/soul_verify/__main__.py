@@ -24,6 +24,11 @@ PRESETS = {
              "soul": REPO / "v0.3" / "samples" / "SOUL.md",
              "memory": REPO / "v0.3" / "samples" / "MEMORY.md",
              "memory_extra": []},
+    # v0.4: 기준일 2026-10-25(일) = 실행일, 원칙5(바꿀 수 있는 규칙 vs 금지 행동), 규칙 내려놓기 문항, 23문항
+    "v0.4": {"questions_file": REPO / "v0.4" / "questions.yaml",
+             "soul": REPO / "v0.4" / "samples" / "SOUL.md",
+             "memory": REPO / "v0.4" / "samples" / "MEMORY.md",
+             "memory_extra": []},
 }
 
 

@@ -1,0 +1,142 @@
+[
+  {
+    "qid": "A-04",
+    "cost_usd": 0.116816,
+    "duration_s": 16.5,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "A-03",
+    "cost_usd": 0.10697200000000001,
+    "duration_s": 13.3,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "R-05",
+    "cost_usd": 0.09504,
+    "duration_s": 12.8,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "A-05",
+    "cost_usd": 0.15666,
+    "duration_s": 13.5,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "IH-4a",
+    "cost_usd": 0.10492,
+    "duration_s": 17.2,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "A-06",
+    "cost_usd": 0.161052,
+    "duration_s": 16.4,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "IH-2b",
+    "cost_usd": 0.101904,
+    "duration_s": 12.0,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "NR-1",
+    "cost_usd": 0.153244,
+    "duration_s": 22.0,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "IH-3a",
+    "cost_usd": 0.086028,
+    "duration_s": 11.2,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "IH-3b",
+    "cost_usd": 0.101828,
+    "duration_s": 14.8,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "IH-2a",
+    "cost_usd": 0.11483600000000001,
+    "duration_s": 13.5,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "RL-1",
+    "cost_usd": 0.13445600000000002,
+    "duration_s": 18.1,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "RL-3",
+    "cost_usd": 0.08805199999999999,
+    "duration_s": 15.8,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "RL-4",
+    "cost_usd": 0.113484,
+    "duration_s": 15.5,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "RL-5",
+    "cost_usd": 0.167428,
+    "duration_s": 26.3,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "RL-2",
+    "cost_usd": 0.201312,
+    "duration_s": 29.3,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "NR-2",
+    "cost_usd": 0.132992,
+    "duration_s": 13.4,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "X-04",
+    "cost_usd": 0.114456,
+    "duration_s": 14.5,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "X-02",
+    "cost_usd": 0.124756,
+    "duration_s": 18.2,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  },
+  {
+    "qid": "X-03",
+    "cost_usd": 0.132644,
+    "duration_s": 21.5,
+    "model_id": "claude-opus-5-5",
+    "error": null
+  }
+]
