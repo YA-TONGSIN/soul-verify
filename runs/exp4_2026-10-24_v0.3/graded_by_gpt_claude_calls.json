@@ -1,0 +1,121 @@
+[
+  {
+    "qid": "A-02",
+    "cost_usd": null,
+    "duration_s": 11.8,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "A-01",
+    "cost_usd": null,
+    "duration_s": 15.1,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "A-03",
+    "cost_usd": null,
+    "duration_s": 11.8,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "R-05",
+    "cost_usd": null,
+    "duration_s": 8.5,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "A-04",
+    "cost_usd": null,
+    "duration_s": 17.4,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "A-05",
+    "cost_usd": null,
+    "duration_s": 16.9,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "IH-1a",
+    "cost_usd": null,
+    "duration_s": 19.3,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "A-06",
+    "cost_usd": null,
+    "duration_s": 13.5,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "IH-1b",
+    "cost_usd": null,
+    "duration_s": 14.1,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "IH-2b",
+    "cost_usd": null,
+    "duration_s": 11.6,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "IH-3a",
+    "cost_usd": null,
+    "duration_s": 12.1,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "IH-2a",
+    "cost_usd": null,
+    "duration_s": 19.7,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "IH-3b",
+    "cost_usd": null,
+    "duration_s": 16.4,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "X-02",
+    "cost_usd": null,
+    "duration_s": 31.5,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "X-01",
+    "cost_usd": null,
+    "duration_s": 19.5,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "X-03",
+    "cost_usd": null,
+    "duration_s": 13.3,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  },
+  {
+    "qid": "X-04",
+    "cost_usd": null,
+    "duration_s": 18.6,
+    "model_id": "gpt-6.1-sol",
+    "error": null
+  }
+]

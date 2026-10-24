@@ -19,6 +19,11 @@ PRESETS = {
     "v0.1": {},
     "v0.2": {"questions_file": REPO / "v0.2" / "questions_hard.yaml",
              "memory_extra": [REPO / "v0.2" / "samples" / "synthetic_MEMORY_additions.md"]},
+    # v0.3: 메타 설명 없는 SOUL·MEMORY 한 벌(v0.1+v0.2 기억 + M27·M29), 22문항
+    "v0.3": {"questions_file": REPO / "v0.3" / "questions.yaml",
+             "soul": REPO / "v0.3" / "samples" / "SOUL.md",
+             "memory": REPO / "v0.3" / "samples" / "MEMORY.md",
+             "memory_extra": []},
 }
 
 

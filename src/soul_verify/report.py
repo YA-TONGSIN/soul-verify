@@ -7,6 +7,7 @@ import html
 import json
 import statistics as st
 
+from . import metrics
 from .common import load_questions, questions_path_for_run, read_jsonl
 
 AREAS = ["memory", "judgment", "persona", "goals"]
@@ -114,8 +115,17 @@ def build(run_dir, control=None):
         xs = [g["final"] for g in graded if g["model"] == m and g["final"] is not None]
         aux[m] = st.mean(xs) if xs else None
 
+    qs = spec["questions"]
+    v03 = {
+        "regressions": metrics.regressions(graded, control, models, qorder),
+        "inheritance_ratio": metrics.inheritance(areas, control, models),
+        "application_gap": {m: metrics.application_gap(graded, qs, m) for m in models},
+        "rule_gap": {m: metrics.rule_gap(graded, qs, m) for m in models},
+    }
+
     ag_path = run_dir / "agreement.json"
     report = {
+        **v03,
         "grader_agreement": json.loads(ag_path.read_text(encoding="utf-8")) if ag_path.exists() else None,
         "run_id": meta["run_id"], "meta": meta, "control": control, "areas": areas,
         "comparisons": comparisons, "per_question": per_q, "hallucination": halluc,
@@ -152,6 +162,38 @@ def render_html(r, models):
             row += f"<td>{_f(c['diff'], 2)}</td><td>{e(c['verdict'])}</td>"
         out.append(row + "</tr>")
     out.append("</table>")
+    others = [m for m in models if m != r["control"]]
+    if others:
+        out.append(f"<h2>계승 비율 (모델 평균 / {e(r['control'])} 평균, 영역별)</h2><table><tr><th>영역</th>"
+                   + "".join(f"<th>{e(m)}</th>" for m in others) + "</tr>")
+        for a in AREAS:
+            out.append(f"<tr><td>{a}</td>" + "".join(f"<td>{_f(r['inheritance_ratio'][m][a])}</td>" for m in others) + "</tr>")
+        out.append("</table>")
+    for key, title, hi, lo in (("application_gap", "적용 격차 (직접 회상 − 판단 적용, 같은 기억 짝)", "recall", "apply"),
+                               ("rule_gap", "규칙 격차 (규칙-요청 일치 − 충돌)", "aligned", "conflict")):
+        if not any(r[key].values()):
+            continue
+        out.append(f"<h2>{title}</h2><p><small>반복마다 짝 평균 차이를 구해 반복 간 평균 ± SD. 양수 = {hi} 쪽이 높음.</small></p>"
+                   f"<table><tr><th>모델</th><th>{hi}</th><th>{lo}</th><th>격차</th>")
+        groups = sorted(next(v for v in r[key].values() if v)["groups"])
+        out.append("".join(f"<th>{g}</th>" for g in groups) + "</tr>")
+        for m in models:
+            v = r[key][m]
+            if not v:
+                continue
+            out.append(f"<tr><td>{e(m)}</td><td>{_f(v[hi])} ± {_f(v[hi + '_sd'])}</td><td>{_f(v[lo])} ± {_f(v[lo + '_sd'])}</td>"
+                       f"<td><b>{_f(v['gap'])} ± {_f(v['gap_sd'])}</b></td>"
+                       + "".join(f"<td>{_f(v['groups'][g][hi])}/{_f(v['groups'][g][lo])}</td>" for g in groups) + "</tr>")
+        out.append("</table>")
+    if others:
+        out.append(f"<h2>문항별 회귀 (같은 반복 번호에서 {e(r['control'])} 만점 & 교체 모델 만점 아님)</h2>"
+                   "<table><tr><th>문항</th>" + "".join(f"<th>{e(m)}</th>" for m in others) + "<th>합</th></tr>")
+        rows = sorted(r["regressions"].items(), key=lambda kv: -sum(x["regress"] for x in kv[1].values()))
+        for qid, row in rows:
+            out.append(f"<tr><td>{qid}</td>" + "".join(
+                f"<td>{row[m]['regress']}/{row[m]['pairs']} <small>(통과 대조 {row[m]['control_pass']}, 교체 {row[m]['model_pass']})</small></td>"
+                for m in others) + f"<td>{sum(x['regress'] for x in row.values())}</td></tr>")
+        out.append("</table>")
     out.append("<h2>환각률</h2><table><tr><th>모델</th><th>환각 문항 답 수</th><th>지어냄(0점)</th><th>부분(0.5)</th></tr>")
     for m in models:
         h = r["hallucination"][m]

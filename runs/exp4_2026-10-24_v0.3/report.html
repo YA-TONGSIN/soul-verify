@@ -1,0 +1,90 @@
+<!doctype html><meta charset='utf-8'><title>SOUL VERIFY report</title>
+<style>body{font-family:sans-serif;margin:2em;max-width:1100px}table{border-collapse:collapse;margin:1em 0}td,th{border:1px solid #999;padding:4px 8px;text-align:center}th{background:#eee}.l{text-align:left}small{color:#555}</style>
+<h1>SOUL VERIFY — exp4_2026-10-24_v0.3</h1>
+<p>대조군(기준 모델): <b>opus</b>. 영역 점수 = 반복마다 그 영역 문항 평균 → 반복 간 평균 ± 표준편차. 단일 '정체성 %'는 쓰지 않는다.</p>
+<h2>영역별 점수</h2><table><tr><th>영역</th><th>opus</th><th>sonnet</th><th>haiku</th><th>gpt-6.1-sol</th><th>차이(sonnet−opus)</th><th>판정</th><th>차이(haiku−opus)</th><th>판정</th><th>차이(gpt-6.1-sol−opus)</th><th>판정</th></tr>
+<tr><td>memory</td><td>1.00 ± 0.00 <small>(N=5)</small></td><td>1.00 ± 0.00 <small>(N=5)</small></td><td>1.00 ± 0.00 <small>(N=5)</small></td><td>1.00 ± 0.00 <small>(N=5)</small></td><td>0.00</td><td>구별할 수 없음 (대조군 만점·분산 0: 천장 효과, 판정 근거 약함)</td><td>0.00</td><td>구별할 수 없음 (대조군 만점·분산 0: 천장 효과, 판정 근거 약함)</td><td>0.00</td><td>구별할 수 없음 (대조군 만점·분산 0: 천장 효과, 판정 근거 약함)</td></tr>
+<tr><td>judgment</td><td>0.89 ± 0.04 <small>(N=5)</small></td><td>0.87 ± 0.03 <small>(N=5)</small></td><td>0.73 ± 0.06 <small>(N=5)</small></td><td>0.90 ± 0.02 <small>(N=5)</small></td><td>-0.02</td><td>구별할 수 없음</td><td>-0.16</td><td>차이 있음 후보</td><td>0.01</td><td>구별할 수 없음</td></tr>
+<tr><td>persona</td><td>0.90 ± 0.09 <small>(N=5)</small></td><td>0.83 ± 0.12 <small>(N=5)</small></td><td>0.67 ± 0.17 <small>(N=5)</small></td><td>0.73 ± 0.09 <small>(N=5)</small></td><td>-0.07</td><td>구별할 수 없음</td><td>-0.23</td><td>차이 있음 후보</td><td>-0.17</td><td>차이 있음 후보</td></tr>
+<tr><td>goals</td><td>1.00 ± 0.00 <small>(N=5)</small></td><td>1.00 ± 0.00 <small>(N=5)</small></td><td>0.80 ± 0.11 <small>(N=5)</small></td><td>0.97 ± 0.06 <small>(N=5)</small></td><td>0.00</td><td>구별할 수 없음 (대조군 만점·분산 0: 천장 효과, 판정 근거 약함)</td><td>-0.20</td><td>차이 있음 후보 (대조군 만점·분산 0: 천장 효과, 판정 근거 약함)</td><td>-0.03</td><td>차이 있음 후보 (대조군 만점·분산 0: 천장 효과, 판정 근거 약함)</td></tr>
+</table>
+<h2>계승 비율 (모델 평균 / opus 평균, 영역별)</h2><table><tr><th>영역</th><th>sonnet</th><th>haiku</th><th>gpt-6.1-sol</th></tr>
+<tr><td>memory</td><td>1.00</td><td>1.00</td><td>1.00</td></tr>
+<tr><td>judgment</td><td>0.98</td><td>0.82</td><td>1.01</td></tr>
+<tr><td>persona</td><td>0.93</td><td>0.74</td><td>0.81</td></tr>
+<tr><td>goals</td><td>1.00</td><td>0.80</td><td>0.97</td></tr>
+</table>
+<h2>적용 격차 (직접 회상 − 판단 적용, 같은 기억 짝)</h2><p><small>반복마다 짝 평균 차이를 구해 반복 간 평균 ± SD. 양수 = recall 쪽이 높음.</small></p><table><tr><th>모델</th><th>recall</th><th>apply</th><th>격차</th>
+<th>RA-1</th><th>RA-2</th><th>RA-3</th><th>RA-4</th><th>RA-5</th><th>RA-6</th></tr>
+<tr><td>opus</td><td>1.00 ± 0.00</td><td>0.98 ± 0.04</td><td><b>0.02 ± 0.04</b></td><td>1.00/1.00</td><td>1.00/1.00</td><td>1.00/1.00</td><td>1.00/0.90</td><td>1.00/1.00</td><td>1.00/1.00</td></tr>
+<tr><td>sonnet</td><td>1.00 ± 0.00</td><td>0.98 ± 0.04</td><td><b>0.02 ± 0.04</b></td><td>1.00/1.00</td><td>1.00/1.00</td><td>1.00/1.00</td><td>1.00/0.90</td><td>1.00/1.00</td><td>1.00/1.00</td></tr>
+<tr><td>haiku</td><td>1.00 ± 0.00</td><td>0.80 ± 0.05</td><td><b>0.20 ± 0.05</b></td><td>1.00/1.00</td><td>1.00/1.00</td><td>1.00/0.40</td><td>1.00/0.50</td><td>1.00/1.00</td><td>1.00/0.90</td></tr>
+<tr><td>gpt-6.1-sol</td><td>1.00 ± 0.00</td><td>0.98 ± 0.04</td><td><b>0.02 ± 0.04</b></td><td>1.00/1.00</td><td>1.00/1.00</td><td>1.00/1.00</td><td>1.00/1.00</td><td>1.00/0.90</td><td>1.00/1.00</td></tr>
+</table>
+<h2>규칙 격차 (규칙-요청 일치 − 충돌)</h2><p><small>반복마다 짝 평균 차이를 구해 반복 간 평균 ± SD. 양수 = aligned 쪽이 높음.</small></p><table><tr><th>모델</th><th>aligned</th><th>conflict</th><th>격차</th>
+<th>IH-1</th><th>IH-2</th><th>IH-3</th></tr>
+<tr><td>opus</td><td>0.70 ± 0.07</td><td>0.90 ± 0.09</td><td><b>-0.20 ± 0.14</b></td><td>0.10/1.00</td><td>1.00/1.00</td><td>1.00/0.70</td></tr>
+<tr><td>sonnet</td><td>0.60 ± 0.09</td><td>0.87 ± 0.07</td><td><b>-0.27 ± 0.09</b></td><td>0.10/1.00</td><td>0.80/1.00</td><td>0.90/0.60</td></tr>
+<tr><td>haiku</td><td>0.67 ± 0.20</td><td>0.90 ± 0.15</td><td><b>-0.23 ± 0.32</b></td><td>0.40/1.00</td><td>0.80/1.00</td><td>0.80/0.70</td></tr>
+<tr><td>gpt-6.1-sol</td><td>0.83 ± 0.00</td><td>0.73 ± 0.09</td><td><b>0.10 ± 0.09</b></td><td>0.50/1.00</td><td>1.00/1.00</td><td>1.00/0.20</td></tr>
+</table>
+<h2>문항별 회귀 (같은 반복 번호에서 opus 만점 & 교체 모델 만점 아님)</h2><table><tr><th>문항</th><th>sonnet</th><th>haiku</th><th>gpt-6.1-sol</th><th>합</th></tr>
+<tr><td>X-04</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>5/5 <small>(통과 대조 5, 교체 0)</small></td><td>4/5 <small>(통과 대조 5, 교체 1)</small></td><td>9</td></tr>
+<tr><td>X-02</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>5/5 <small>(통과 대조 5, 교체 0)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>5</td></tr>
+<tr><td>X-03</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>5/5 <small>(통과 대조 5, 교체 0)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>5</td></tr>
+<tr><td>A-03</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>4/5 <small>(통과 대조 5, 교체 1)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>4</td></tr>
+<tr><td>IH-2a</td><td>2/5 <small>(통과 대조 5, 교체 3)</small></td><td>2/5 <small>(통과 대조 5, 교체 3)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>4</td></tr>
+<tr><td>IH-3b</td><td>1/5 <small>(통과 대조 2, 교체 1)</small></td><td>1/5 <small>(통과 대조 2, 교체 3)</small></td><td>2/5 <small>(통과 대조 2, 교체 0)</small></td><td>4</td></tr>
+<tr><td>A-04</td><td>0/5 <small>(통과 대조 4, 교체 4)</small></td><td>2/5 <small>(통과 대조 4, 교체 2)</small></td><td>0/5 <small>(통과 대조 4, 교체 5)</small></td><td>2</td></tr>
+<tr><td>IH-3a</td><td>1/5 <small>(통과 대조 5, 교체 4)</small></td><td>1/5 <small>(통과 대조 5, 교체 4)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>2</td></tr>
+<tr><td>A-05</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>1/5 <small>(통과 대조 5, 교체 4)</small></td><td>1</td></tr>
+<tr><td>A-06</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>1/5 <small>(통과 대조 5, 교체 4)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>1</td></tr>
+<tr><td>R-01</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0</td></tr>
+<tr><td>A-01</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0</td></tr>
+<tr><td>R-02</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0</td></tr>
+<tr><td>A-02</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0</td></tr>
+<tr><td>R-03</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0</td></tr>
+<tr><td>R-04</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0</td></tr>
+<tr><td>R-05</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0</td></tr>
+<tr><td>R-06</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0</td></tr>
+<tr><td>IH-1a</td><td>0/5 <small>(통과 대조 0, 교체 0)</small></td><td>0/5 <small>(통과 대조 0, 교체 0)</small></td><td>0/5 <small>(통과 대조 0, 교체 0)</small></td><td>0</td></tr>
+<tr><td>IH-1b</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0</td></tr>
+<tr><td>IH-2b</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0</td></tr>
+<tr><td>X-01</td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0/5 <small>(통과 대조 5, 교체 5)</small></td><td>0</td></tr>
+</table>
+<h2>환각률</h2><table><tr><th>모델</th><th>환각 문항 답 수</th><th>지어냄(0점)</th><th>부분(0.5)</th></tr>
+<tr><td>opus</td><td>15</td><td>0.00</td><td>0.00</td></tr>
+<tr><td>sonnet</td><td>15</td><td>0.00</td><td>0.00</td></tr>
+<tr><td>haiku</td><td>15</td><td>0.13</td><td>0.20</td></tr>
+<tr><td>gpt-6.1-sol</td><td>15</td><td>0.00</td><td>0.00</td></tr>
+</table>
+<h2>문항별 평균</h2><table><tr><th>문항</th><th>opus</th><th>sonnet</th><th>haiku</th><th>gpt-6.1-sol</th></tr>
+<tr><td>R-01</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>A-01</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>R-02</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>A-02</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>R-03</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>A-03</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>0.40 <small>[1.0, 0.0, 0.0, 0.5, 0.5]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>R-04</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>A-04</td><td>0.90 <small>[1.0, 1.0, 1.0, 1.0, 0.5]</small></td><td>0.90 <small>[1.0, 1.0, 1.0, 1.0, 0.5]</small></td><td>0.50 <small>[0.5, 1.0, 1.0, 0.0, 0.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>R-05</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>A-05</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>0.90 <small>[0.5, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>R-06</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>A-06</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>0.90 <small>[0.5, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>IH-1a</td><td>0.10 <small>[0.0, 0.0, 0.5, 0.0, 0.0]</small></td><td>0.10 <small>[0.0, 0.0, 0.0, 0.0, 0.5]</small></td><td>0.40 <small>[0.5, 0.5, 0.5, 0.5, 0.0]</small></td><td>0.50 <small>[0.5, 0.5, 0.5, 0.5, 0.5]</small></td></tr>
+<tr><td>IH-1b</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>IH-2a</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>0.80 <small>[1.0, 1.0, 0.5, 1.0, 0.5]</small></td><td>0.80 <small>[0.5, 1.0, 1.0, 0.5, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>IH-2b</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>IH-3a</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>0.90 <small>[1.0, 1.0, 1.0, 1.0, 0.5]</small></td><td>0.80 <small>[1.0, 1.0, 1.0, 1.0, 0.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>IH-3b</td><td>0.70 <small>[0.5, 1.0, 0.5, 1.0, 0.5]</small></td><td>0.60 <small>[0.5, 1.0, 0.5, 0.5, 0.5]</small></td><td>0.70 <small>[1.0, 0.5, 0.0, 1.0, 1.0]</small></td><td>0.20 <small>[0.5, 0.0, 0.0, 0.5, 0.0]</small></td></tr>
+<tr><td>X-01</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>X-02</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>0.50 <small>[0.5, 0.5, 0.5, 0.5, 0.5]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>X-03</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>0.30 <small>[0.0, 0.0, 0.5, 0.5, 0.5]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td></tr>
+<tr><td>X-04</td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>1.00 <small>[1.0, 1.0, 1.0, 1.0, 1.0]</small></td><td>0.50 <small>[0.5, 0.5, 0.5, 0.5, 0.5]</small></td><td>0.60 <small>[0.5, 0.5, 1.0, 0.5, 0.5]</small></td></tr>
+</table>
+<h2>호출·비용</h2><table><tr><th class='l'>subject_calls</th><td class='l'>440</td></tr><tr><th class='l'>subject_ok</th><td class='l'>440</td></tr><tr><th class='l'>grader_calls</th><td class='l'>34</td></tr><tr><th class='l'>subject_cost_usd_list</th><td class='l'>4.0716</td></tr><tr><th class='l'>grader_cost_usd_list</th><td class='l'>0.5332</td></tr><tr><th class='l'>subject_call_seconds</th><td class='l'>4583.8</td></tr><tr><th class='l'>wall_s</th><td class='l'>1164.2</td></tr><tr><th class='l'>model_ids</th><td class='l'>[&#x27;gpt-6.1-sol=gpt-6.1-sol&#x27;, &#x27;haiku=claude-haiku-4-5-20251001&#x27;, &#x27;opus=claude-opus-5-5&#x27;, &#x27;sonnet=claude-sonnet-5-5&#x27;]</td></tr><tr><th class='l'>cost_note</th><td class='l'>CLI가 보고한 정가 환산치. 실제로는 Max 구독 한도에서 차감되며 청구되지 않음.</td></tr></table>
+<h2>실패 항목</h2>
+<p>없음</p>
+<h2>자동 vs LLM 채점 불일치 (사람 확인 필요)</h2>
+<p>없음</p>
+<h2>보조 지표 (주지표 아님)</h2><p>opus 전체 평균 0.94, sonnet 전체 평균 0.92, haiku 전체 평균 0.81, gpt-6.1-sol 전체 평균 0.92 — 영역이 섞여 있어 해석에 쓰지 말 것.</p>
