@@ -15,3 +15,5 @@ runs/private/
 __pycache__/
 *.pyc
 .venv/
+
+external_souls/_work/

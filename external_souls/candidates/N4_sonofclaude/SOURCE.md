@@ -1,0 +1,11 @@
+﻿# SOURCE (our header; SOUL.md in this folder is the verbatim, unmodified original)
+- Repository: https://github.com/asarnaout/son-of-claude
+- Path: SOUL.md
+- Commit SHA (pinned): 332d9f09db6d819bb775cbbfc0edb0877c7ff8ec
+- Commit date: 2026-03-22T15:01:56Z
+- Permalink: https://github.com/asarnaout/son-of-claude/blob/332d9f09db6d819bb775cbbfc0edb0877c7ff8ec/SOUL.md
+- License: MIT (see LICENSE.txt, copied from the repository; copyright notice retained)
+- Word count (whitespace split): 336
+- SOUL.md SHA-256: 46a40d07a77119c965971833e6f4f1abc0578c7a11177980c5e1aaa10f840e1a
+- Retrieved: 2026-10-25 via gh api contents?ref=<SHA>
+- Use: research experiment (SOUL VERIFY). Keep this notice with any redistribution.

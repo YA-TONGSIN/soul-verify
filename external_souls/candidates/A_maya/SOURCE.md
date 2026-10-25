@@ -1,0 +1,11 @@
+﻿# SOURCE (our header; SOUL.md in this folder is the verbatim, unmodified original)
+- Repository: https://github.com/cvander/Maya
+- Path: SOUL.md
+- Commit SHA (pinned): a246e42d15c2c111eaebff4b4e720cf5f410cd5e
+- Commit date: 2026-05-31T06:52:17Z
+- Permalink: https://github.com/cvander/Maya/blob/a246e42d15c2c111eaebff4b4e720cf5f410cd5e/SOUL.md
+- License: MIT (see LICENSE.txt, copied from the repository; copyright notice retained)
+- Word count (whitespace split): 1075
+- SOUL.md SHA-256: 87e5006163217f71365d4febac81e3402a884d7ba2b36c8b382fca0436622c7f
+- Retrieved: 2026-10-25 via gh api contents?ref=<SHA>
+- Use: research experiment (SOUL VERIFY). Keep this notice with any redistribution.

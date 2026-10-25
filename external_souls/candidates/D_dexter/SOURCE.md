@@ -1,0 +1,11 @@
+﻿# SOURCE (our header; SOUL.md in this folder is the verbatim, unmodified original)
+- Repository: https://github.com/edinetdb/dexter-jp
+- Path: SOUL.md
+- Commit SHA (pinned): dfb0fd92537a6004c587ee9d70baa8a4aad89a88
+- Commit date: 2026-10-08T23:11:35Z
+- Permalink: https://github.com/edinetdb/dexter-jp/blob/dfb0fd92537a6004c587ee9d70baa8a4aad89a88/SOUL.md
+- License: MIT (see LICENSE.txt, copied from the repository; copyright notice retained)
+- Word count (whitespace split): 854
+- SOUL.md SHA-256: 0c75c0d7c0c6bbfe91f6ea3c449b9e1efac5b3114f31cdaf85145947d103807c
+- Retrieved: 2026-10-25 via gh api contents?ref=<SHA>
+- Use: research experiment (SOUL VERIFY). Keep this notice with any redistribution.

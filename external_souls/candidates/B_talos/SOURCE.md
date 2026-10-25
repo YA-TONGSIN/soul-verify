@@ -1,0 +1,11 @@
+﻿# SOURCE (our header; SOUL.md in this folder is the verbatim, unmodified original)
+- Repository: https://github.com/talos-kernel/Talos
+- Path: SOUL.md
+- Commit SHA (pinned): 2b020942aa77ab327ae78d7a8cd429c8fd9c9b11
+- Commit date: 2026-10-25T09:26:03Z
+- Permalink: https://github.com/talos-kernel/Talos/blob/2b020942aa77ab327ae78d7a8cd429c8fd9c9b11/SOUL.md
+- License: MIT (see LICENSE.txt, copied from the repository; copyright notice retained)
+- Word count (whitespace split): 1204
+- SOUL.md SHA-256: 2d4cb9f05380103b2d8ac73bc0a8d79090db68251c54f12b6c22f4a82879a00e
+- Retrieved: 2026-10-25 via gh api contents?ref=<SHA>
+- Use: research experiment (SOUL VERIFY). Keep this notice with any redistribution.

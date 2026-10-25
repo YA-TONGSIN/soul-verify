@@ -1,0 +1,11 @@
+﻿# SOURCE (our header; SOUL.md in this folder is the verbatim, unmodified original)
+- Repository: https://github.com/FujiwaraChoki/kairo
+- Path: SOUL.md
+- Commit SHA (pinned): 6101deaf147a928f934c64db897ca5790248faaa
+- Commit date: 2026-02-15T22:33:45Z
+- Permalink: https://github.com/FujiwaraChoki/kairo/blob/6101deaf147a928f934c64db897ca5790248faaa/SOUL.md
+- License: MIT (see LICENSE.txt, copied from the repository; copyright notice retained)
+- Word count (whitespace split): 457
+- SOUL.md SHA-256: b28997e0a454f527a5bd88a4a13406adfd43e689849be35a8220121ec691fddd
+- Retrieved: 2026-10-25 via gh api contents?ref=<SHA>
+- Use: research experiment (SOUL VERIFY). Keep this notice with any redistribution.

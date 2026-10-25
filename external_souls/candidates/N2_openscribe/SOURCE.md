@@ -1,0 +1,11 @@
+﻿# SOURCE (our header; SOUL.md in this folder is the verbatim, unmodified original)
+- Repository: https://github.com/streichsbaer/openscribe
+- Path: SOUL.md
+- Commit SHA (pinned): 847133f6a12bd5fae513fc09ac78f45e1ec0cda5
+- Commit date: 2026-09-30T03:50:38Z
+- Permalink: https://github.com/streichsbaer/openscribe/blob/847133f6a12bd5fae513fc09ac78f45e1ec0cda5/SOUL.md
+- License: MIT (see LICENSE.txt, copied from the repository; copyright notice retained)
+- Word count (whitespace split): 856
+- SOUL.md SHA-256: a1cda18dd15e2b02d1a271f3270b83a3590e4f4af898a7d327fbacb6345bcacc
+- Retrieved: 2026-10-25 via gh api contents?ref=<SHA>
+- Use: research experiment (SOUL VERIFY). Keep this notice with any redistribution.

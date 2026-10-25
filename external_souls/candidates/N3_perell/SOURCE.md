@@ -1,0 +1,11 @@
+﻿# SOURCE (our header; SOUL.md in this folder is the verbatim, unmodified original)
+- Repository: https://github.com/AlonMichael/How-I-Write-Skills
+- Path: SOUL.md
+- Commit SHA (pinned): 02dfb7ec9c52cba0eeee587ebc9379df9e7966f2
+- Commit date: 2026-04-04T20:29:03Z
+- Permalink: https://github.com/AlonMichael/How-I-Write-Skills/blob/02dfb7ec9c52cba0eeee587ebc9379df9e7966f2/SOUL.md
+- License: MIT (see LICENSE.txt, copied from the repository; copyright notice retained)
+- Word count (whitespace split): 867
+- SOUL.md SHA-256: eb1835a48a73119178121ae00d1828408c5fb872222f04ceb26d105561d680dd
+- Retrieved: 2026-10-25 via gh api contents?ref=<SHA>
+- Use: research experiment (SOUL VERIFY). Keep this notice with any redistribution.

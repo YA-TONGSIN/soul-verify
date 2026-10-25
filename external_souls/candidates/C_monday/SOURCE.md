@@ -1,0 +1,11 @@
+﻿# SOURCE (our header; SOUL.md in this folder is the verbatim, unmodified original)
+- Repository: https://github.com/elliotbonneville/bareclaw
+- Path: SOUL.md
+- Commit SHA (pinned): 1b48366bcddfb65c6b9983dbdc6764e4326cd2fe
+- Commit date: 2026-02-25T19:40:08Z
+- Permalink: https://github.com/elliotbonneville/bareclaw/blob/1b48366bcddfb65c6b9983dbdc6764e4326cd2fe/SOUL.md
+- License: MIT (see LICENSE.txt, copied from the repository; copyright notice retained)
+- Word count (whitespace split): 594
+- SOUL.md SHA-256: b3d86a0ec5d37eb3ad2ac856f5ed5cc1178fef59b5d16880773bfe5d83c5339b
+- Retrieved: 2026-10-25 via gh api contents?ref=<SHA>
+- Use: research experiment (SOUL VERIFY). Keep this notice with any redistribution.
