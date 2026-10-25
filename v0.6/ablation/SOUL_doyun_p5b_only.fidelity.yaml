@@ -1,0 +1,5 @@
+# SOUL fidelity 명세 — v0.6/ablation/SOUL_doyun_p5b_only.md (원칙5 단단한 절반만). 실험10 사전등록.
+extends: ../samples/SOUL_doyun.fidelity.yaml
+name: doyun-v0.6-p5b
+soul: v0.6/ablation/SOUL_doyun_p5b_only.md
+changeable: false   # 변경 허락 문장이 없음

@@ -1,0 +1,5 @@
+# SOUL fidelity 명세 — v0.6/ablation/SOUL_doyun_no_p5.md (원칙5 없음). 도윤 명세를 물려받고 변경 허락 여부만 다르다. 실험10 사전등록.
+extends: ../samples/SOUL_doyun.fidelity.yaml
+name: doyun-v0.6-no-p5
+soul: v0.6/ablation/SOUL_doyun_no_p5.md
+changeable: false   # 변경 허락 문장이 없음 → 정당한 변경 문항의 바뀐 표지는 채점하지 않음

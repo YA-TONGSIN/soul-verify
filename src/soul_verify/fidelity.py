@@ -68,6 +68,21 @@ def last_line(text: str) -> str:
     return re.sub(r"^[*_>#\s-]+", "", ls[-1]).replace(" ", "") if ls else ""
 
 
+def first_line(text: str) -> str:
+    """첫 줄(앞의 마크다운 기호 제거, 공백 제거). v0.6 도윤 '한 줄 답:' 표지."""
+    ls = _lines(text)
+    return re.sub(r"^[*_>#\s-]+", "", ls[0]).replace(" ", "") if ls else ""
+
+
+def ends_with_question(text: str) -> bool:
+    """마지막 줄이 물음표로 끝나는가(끝의 이모지·공백·마크다운 기호·닫는 따옴표/괄호는 무시). v0.6 도윤 말투 4."""
+    ls = _lines(text)
+    if not ls:
+        return False
+    s = re.sub(r"[\s*_~`'\"”’)\]」』>]+$", "", _EMOJI.sub("", ls[-1]).replace("️", ""))
+    return s.endswith(("?", "？"))
+
+
 def address_used(text: str, forms) -> list[str]:
     n = normalize(strip_quotes(text))
     return [f for f in forms if normalize(f) in n]
@@ -120,6 +135,12 @@ def run_check(check: dict, text: str, flags: dict | None = None) -> bool | float
         return not address_used(text, p["forms"])
     if d == "last_line_prefix":
         has = last_line(text).startswith(p["prefix"].replace(" ", ""))
+        return has if exp == "present" else not has
+    if d == "first_line_prefix":
+        has = first_line(text).startswith(p["prefix"].replace(" ", ""))
+        return has if exp == "present" else not has
+    if d == "last_line_question":
+        has = ends_with_question(text)
         return has if exp == "present" else not has
     if d == "summary_top":
         has = summary_top(text)
