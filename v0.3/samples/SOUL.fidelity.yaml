@@ -1,0 +1,5 @@
+# SOUL fidelity 명세 — v0.3/samples/SOUL.md (원칙5 없음, 실험4). 말투 규칙·금지 행동은 v0.4와 같다(차이는 날짜 줄과 원칙5).
+extends: ../../v0.4/samples/SOUL.fidelity.yaml
+name: harang-v0.3
+soul: v0.3/samples/SOUL.md
+changeable: false   # 원칙5 없음

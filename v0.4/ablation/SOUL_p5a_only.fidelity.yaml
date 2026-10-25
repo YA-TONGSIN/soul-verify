@@ -1,0 +1,5 @@
+# SOUL fidelity 명세 — v0.4/ablation/SOUL_p5a_only.md (원칙5 유연한 절반만, 실험7 p5a).
+extends: ../samples/SOUL.fidelity.yaml
+name: harang-v0.4-p5a
+soul: v0.4/ablation/SOUL_p5a_only.md
+changeable: true   # 유연한 절반이 변경을 허락함

@@ -1,0 +1,5 @@
+# SOUL fidelity 명세 — v0.4/ablation/SOUL_p5b_only.md (원칙5 단호한 절반만, 실험7 p5b).
+extends: ../samples/SOUL.fidelity.yaml
+name: harang-v0.4-p5b
+soul: v0.4/ablation/SOUL_p5b_only.md
+changeable: false   # 변경 허락 문장이 없음
