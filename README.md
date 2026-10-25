@@ -19,7 +19,7 @@ AI 에이전트의 SOUL(정체성·말투·원칙)과 MEMORY(기억)를 다른 �
 - `src/soul_verify/` — 실행기(runner)·채점기(grader)·보고서(report)·채점자 교차 일치(agreement)·모델 어댑터(Claude CLI, GPT codex exec)
 - `tests/` — 채점 로직 단위테스트 (`python -m pytest tests`)
 - `runs/<id>/` — 실험 결과: `raw.jsonl`(응답), `graded.jsonl`(점수·근거), `report.json`/`report.html`
-- `paper/` — 논문 초안(비공개): `draft_v0.md`(영어 본문, arXiv 형식), `summary_ko.md`(한국어 1쪽 요약). 제출·게시 전 사용자 확인 필요
+- `paper/` — 논문: 최신 `draft_v0_7.md` / `SOUL_VERIFY_v0.7.pdf`(영어 본문), `summary_ko_v0_7.md`(한국어 요약), 이전 판 `draft_v0*.md`, 심사 의견 `reviews/`, 재분석 `reanalysis/`, arXiv 제출용 LaTeX `arxiv/`
 - `proofs/` — 커밋 시점 증명(OpenTimestamps). `stamp.py` 도장, `upgrade.py` 블록 확정 후 업그레이드
 
 ## 실행
@@ -57,3 +57,19 @@ Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이
 ## 원칙
 - 실제 사용자 기억·API 키·개인정보는 이 저장소에 올리지 않습니다. 샘플은 모두 합성 데이터입니다.
 - "세계 최초" 같은 검증되지 않은 주장은 하지 않습니다.
+
+## 라이선스
+- **코드** (`src/`, `tests/`, 각 폴더의 `*.py`·`*.ps1` 스크립트): MIT — [LICENSE](LICENSE)
+- **논문·문서·데이터** (`paper/`, `runs/`, `v0.1/`…`v0.7/`의 합성 SOUL·MEMORY·문항·사전등록, `research/`, `proofs/`, 이 README 등): CC BY 4.0 — [LICENSE-DOCS](LICENSE-DOCS)
+- **예외 — 다른 사람이 쓴 문서는 각자 원 라이선스를 따릅니다.**
+  - `external_souls/` — 다른 사람이 자기 에이전트용으로 쓴 SOUL.md 원본(바이트 그대로). 각 폴더의 `LICENSE.txt`(모두 MIT, 저작권 표시 유지)와 `SOURCE.md`(저장소·커밋·SHA-256) 참고.
+  - `v0.7/souls/` — 위 SOUL에서 파생한 문서(원칙 문단 덧붙임, 말투 반대 대조 SOUL). 원본 SOUL의 라이선스와 저작권 표시를 그대로 따르며, 바꾼 내용은 각 폴더 `NOTICE.md`에 적었습니다.
+
+## 인용
+[CITATION.cff](CITATION.cff) 참고 (GitHub의 "Cite this repository"). arXiv 번호는 제출 후 추가합니다.
+
+## 참고: 한글 파일 인코딩
+저장소의 모든 텍스트 파일은 BOM 없는 UTF-8입니다. Windows PowerShell 5.1에서 `Get-Content`를 `-Encoding utf8` 없이 쓰면 한글이 깨져 보이지만(예: `v0.3/samples/MEMORY.md`), 파일 자체는 정상입니다(2026-10-26 엄격 UTF-8 디코딩으로 확인). 이 파일들의 해시는 OpenTimestamps 증명에 들어 있으므로 다시 저장하지 않습니다.
+
+## English summary
+SOUL VERIFY measures which behaviors specified in an agent's identity document (SOUL) and memory file (MEMORY) carry over when the underlying LLM is swapped, against same-model controls and document controls (no SOUL, opposite SOUL, swapped MEMORY), with two preregistered replications (exp10, exp11). Paper: `paper/draft_v0_7.md` / `paper/SOUL_VERIFY_v0.7.pdf`. It makes **no claim about consciousness or personal identity** of models; it is a measurement tool for behavioral continuity of a written specification. Code: MIT. Paper, documents, and data: CC BY 4.0. Third-party SOULs keep their own (MIT) licenses.

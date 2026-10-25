@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software, data, or paper, please cite the paper below."
+title: "SOUL VERIFY"
+type: software
+authors:
+  - family-names: Shin
+    given-names: Wunjong
+    affiliation: "Independent researcher"
+repository-code: "https://github.com/YA-TONGSIN/soul-verify"
+license: MIT
+version: "0.7"
+date-released: "2026-10-26"
+keywords:
+  - large language models
+  - agents
+  - persona consistency
+  - model swap
+  - identity document
+  - evaluation
+abstract: >-
+  A small harness and data set for measuring which behaviors specified in an
+  agent's identity document (SOUL) and memory file (MEMORY) carry over when the
+  underlying language model is replaced, with same-model controls, document
+  controls, and two preregistered replications. Code is MIT; paper, documents,
+  and data are CC BY 4.0 (see LICENSE-DOCS).
+preferred-citation:
+  type: article
+  title: "SOUL VERIFY: Measuring Document-Based Behavioral Carry-Over Across Model Swaps with Document Controls and Two Preregistered Replications"
+  authors:
+    - family-names: Shin
+      given-names: Wunjong
+      affiliation: "Independent researcher"
+  year: 2026
+  status: preprint
+  url: "https://github.com/YA-TONGSIN/soul-verify"
+  notes: "Preprint, version 0.7. arXiv identifier to be added after submission."
