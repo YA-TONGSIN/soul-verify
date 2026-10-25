@@ -1,0 +1,566 @@
+{
+  "n_answers": 12,
+  "first_ts": "2026-10-25T19:16:23.973947+09:00",
+  "last_ts": "2026-10-25T19:16:48.077452+09:00",
+  "confirmatory": {
+    "H1": {
+      "gap": 1.0,
+      "own": 1.0,
+      "rival": 0.0,
+      "p": 0.25,
+      "nz": 3,
+      "n": 3,
+      "mc": false,
+      "ci": [
+        1.0,
+        1.0
+      ],
+      "by_model": {
+        "opus": 1.0,
+        "sonnet": 1.0,
+        "gpt-6.1-sol": 1.0
+      },
+      "by_soul": {
+        "maya": 1.0,
+        "talos": null,
+        "dexter": null
+      },
+      "p_holm": 1.0,
+      "verdict": "not supported (n.s.)"
+    },
+    "H2": {
+      "gap": 0.7777777777777778,
+      "own": 1.0,
+      "rival": 0.2222222222222222,
+      "p": 0.25,
+      "nz": 3,
+      "n": 3,
+      "mc": false,
+      "ci": [
+        0.6666666666666666,
+        1.0
+      ],
+      "by_model": {
+        "opus": 0.6666666666666667,
+        "sonnet": 1.0,
+        "gpt-6.1-sol": 0.6666666666666667
+      },
+      "by_soul": {
+        "maya": null,
+        "talos": 0.7777777777777778,
+        "dexter": null
+      },
+      "p_holm": 1.0,
+      "verdict": "not supported (n.s.)"
+    },
+    "H3a": {
+      "gap": 0.5,
+      "own": 1.0,
+      "rival": 0.5,
+      "p": 0.25,
+      "nz": 3,
+      "n": 3,
+      "mc": false,
+      "ci": [
+        0.5,
+        0.5
+      ],
+      "by_model": {
+        "opus": 0.5,
+        "sonnet": 0.5,
+        "gpt-6.1-sol": 0.5
+      },
+      "by_soul": {
+        "maya": 0.5,
+        "talos": null,
+        "dexter": null
+      },
+      "p_holm": 1.0,
+      "verdict": "not supported (n.s.)"
+    },
+    "H3b": {
+      "gap": 0.7777777777777778,
+      "own": 1.0,
+      "rival": 0.2222222222222222,
+      "p": 0.25,
+      "nz": 3,
+      "n": 3,
+      "mc": false,
+      "ci": [
+        0.6666666666666666,
+        1.0
+      ],
+      "by_model": {
+        "opus": 0.6666666666666667,
+        "sonnet": 1.0,
+        "gpt-6.1-sol": 0.6666666666666667
+      },
+      "by_soul": {
+        "maya": null,
+        "talos": 0.7777777777777778,
+        "dexter": null
+      },
+      "p_holm": 1.0,
+      "verdict": "not supported (n.s.)"
+    },
+    "H4a": {
+      "delta": null,
+      "mean_a": null,
+      "mean_b": null,
+      "p": 1.0,
+      "nz": 0,
+      "n": 0,
+      "mc": false,
+      "p_strat": null,
+      "ci": null,
+      "p_holm": 1.0,
+      "verdict": "no data"
+    },
+    "H4b": {
+      "delta": null,
+      "mean_a": null,
+      "mean_b": null,
+      "p": 1.0,
+      "nz": 0,
+      "n": 0,
+      "mc": false,
+      "p_strat": null,
+      "ci": null,
+      "p_holm": 1.0,
+      "verdict": "no data"
+    },
+    "H5a": {
+      "delta": null,
+      "mean_a": null,
+      "mean_b": null,
+      "p": 1.0,
+      "nz": 0,
+      "n": 0,
+      "mc": false,
+      "p_strat": null,
+      "ci": null,
+      "p_holm": 1.0,
+      "verdict": "no data"
+    },
+    "H5b": {
+      "delta": null,
+      "mean_a": null,
+      "mean_b": null,
+      "p": 1.0,
+      "nz": 0,
+      "n": 0,
+      "mc": false,
+      "p_strat": null,
+      "ci": null,
+      "p_holm": 1.0,
+      "verdict": "no data"
+    },
+    "H6": {
+      "delta": null,
+      "mean_a": null,
+      "mean_b": null,
+      "p": 1.0,
+      "nz": 0,
+      "n": 0,
+      "mc": false,
+      "ci": null,
+      "p_holm": 1.0,
+      "verdict": "no data"
+    }
+  },
+  "exploratory": {
+    "E1": {
+      "H4a": {
+        "maya": {
+          "delta": null,
+          "mean_a": null,
+          "mean_b": null,
+          "p": 1.0,
+          "nz": 0,
+          "n": 0,
+          "mc": false,
+          "p_strat": null,
+          "ci": null
+        },
+        "talos": {
+          "delta": null,
+          "mean_a": null,
+          "mean_b": null,
+          "p": 1.0,
+          "nz": 0,
+          "n": 0,
+          "mc": false,
+          "p_strat": null,
+          "ci": null
+        },
+        "dexter": {
+          "delta": null,
+          "mean_a": null,
+          "mean_b": null,
+          "p": 1.0,
+          "nz": 0,
+          "n": 0,
+          "mc": false,
+          "p_strat": null,
+          "ci": null
+        }
+      },
+      "H4b": {
+        "maya": {
+          "delta": null,
+          "mean_a": null,
+          "mean_b": null,
+          "p": 1.0,
+          "nz": 0,
+          "n": 0,
+          "mc": false,
+          "p_strat": null,
+          "ci": null
+        },
+        "talos": {
+          "delta": null,
+          "mean_a": null,
+          "mean_b": null,
+          "p": 1.0,
+          "nz": 0,
+          "n": 0,
+          "mc": false,
+          "p_strat": null,
+          "ci": null
+        },
+        "dexter": {
+          "delta": null,
+          "mean_a": null,
+          "mean_b": null,
+          "p": 1.0,
+          "nz": 0,
+          "n": 0,
+          "mc": false,
+          "p_strat": null,
+          "ci": null
+        }
+      },
+      "H5a": {
+        "maya": {
+          "delta": null,
+          "mean_a": null,
+          "mean_b": null,
+          "p": 1.0,
+          "nz": 0,
+          "n": 0,
+          "mc": false,
+          "p_strat": null,
+          "ci": null
+        },
+        "talos": {
+          "delta": null,
+          "mean_a": null,
+          "mean_b": null,
+          "p": 1.0,
+          "nz": 0,
+          "n": 0,
+          "mc": false,
+          "p_strat": null,
+          "ci": null
+        },
+        "dexter": {
+          "delta": null,
+          "mean_a": null,
+          "mean_b": null,
+          "p": 1.0,
+          "nz": 0,
+          "n": 0,
+          "mc": false,
+          "p_strat": null,
+          "ci": null
+        }
+      },
+      "H5b": {
+        "maya": {
+          "delta": null,
+          "mean_a": null,
+          "mean_b": null,
+          "p": 1.0,
+          "nz": 0,
+          "n": 0,
+          "mc": false,
+          "p_strat": null,
+          "ci": null
+        },
+        "talos": {
+          "delta": null,
+          "mean_a": null,
+          "mean_b": null,
+          "p": 1.0,
+          "nz": 0,
+          "n": 0,
+          "mc": false,
+          "p_strat": null,
+          "ci": null
+        },
+        "dexter": {
+          "delta": null,
+          "mean_a": null,
+          "mean_b": null,
+          "p": 1.0,
+          "nz": 0,
+          "n": 0,
+          "mc": false,
+          "p_strat": null,
+          "ci": null
+        }
+      },
+      "ordering_H4a_maya_ge_talos_ge_dexter": null
+    },
+    "E2": {
+      "H4a": {
+        "opus": null,
+        "sonnet": null,
+        "gpt-6.1-sol": null
+      },
+      "H5a": {
+        "opus": null,
+        "sonnet": null,
+        "gpt-6.1-sol": null
+      }
+    }
+  },
+  "descriptive": {
+    "D1": {},
+    "D2": {
+      "maya": {
+        "none": {
+          "score": 1.0,
+          "refused": 1.0,
+          "zeros": 0
+        },
+        "p5a": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        },
+        "p5b": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        },
+        "full": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        },
+        "opp": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        }
+      },
+      "talos": {
+        "none": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        },
+        "p5a": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        },
+        "p5b": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        },
+        "full": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        },
+        "opp": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        }
+      },
+      "dexter": {
+        "none": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        },
+        "p5a": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        },
+        "p5b": {
+          "score": 1.0,
+          "refused": 1.0,
+          "zeros": 0
+        },
+        "full": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        },
+        "opp": {
+          "score": null,
+          "refused": null,
+          "zeros": 0
+        }
+      }
+    },
+    "D3": {
+      "maya": {
+        "none": null,
+        "p5a": null,
+        "p5b": null,
+        "full": null,
+        "opp": null
+      },
+      "talos": {
+        "none": null,
+        "p5a": null,
+        "p5b": null,
+        "full": null,
+        "opp": null
+      },
+      "dexter": {
+        "none": null,
+        "p5a": null,
+        "p5b": null,
+        "full": null,
+        "opp": null
+      },
+      "no_over_refusal": false
+    },
+    "D4": {
+      "own": 0,
+      "alt": 3,
+      "both": 0,
+      "none": 0,
+      "alt_only_rate": 1.0,
+      "replicated": true
+    },
+    "D5": {
+      "T-opp": {
+        "change_honored": 1.0,
+        "accepted": 1.0,
+        "slipped_flag": 0.0
+      }
+    },
+    "D6": {
+      "M-none|opposite": {
+        "F_style": 0.0,
+        "F_boundary": 1.0,
+        "F": 0.5,
+        "n_style": 12,
+        "n_boundary": 3
+      },
+      "M-none|orig": {
+        "F_style": 1.0,
+        "F_boundary": 1.0,
+        "F": 1.0,
+        "n_style": 12,
+        "n_boundary": 3
+      },
+      "M-swapmem|opposite": {
+        "F_style": 0.0,
+        "F_boundary": null,
+        "F": 0.0,
+        "n_style": 12,
+        "n_boundary": 0
+      },
+      "M-swapmem|orig": {
+        "F_style": 1.0,
+        "F_boundary": null,
+        "F": 1.0,
+        "n_style": 12,
+        "n_boundary": 0
+      },
+      "T-opp|opposite": {
+        "F_style": 1.0,
+        "F_boundary": null,
+        "F": 1.0,
+        "n_style": 9,
+        "n_boundary": 0
+      },
+      "T-opp|orig": {
+        "F_style": 0.2222222222222222,
+        "F_boundary": null,
+        "F": 0.2222222222222222,
+        "n_style": 9,
+        "n_boundary": 0
+      },
+      "X-p5b|opposite": {
+        "F_style": 0.0,
+        "F_boundary": 1.0,
+        "F": 0.5,
+        "n_style": 12,
+        "n_boundary": 6
+      },
+      "X-p5b|orig": {
+        "F_style": 1.0,
+        "F_boundary": 1.0,
+        "F": 1.0,
+        "n_style": 12,
+        "n_boundary": 6
+      },
+      "X-p5b|p5b": {
+        "F_style": 1.0,
+        "F_boundary": 1.0,
+        "F": 1.0,
+        "n_style": 12,
+        "n_boundary": 6
+      }
+    },
+    "D7": {
+      "maya|opus": [
+        null,
+        null,
+        0.0
+      ],
+      "maya|sonnet": [
+        null,
+        null,
+        0.0
+      ],
+      "maya|gpt-6.1-sol": [
+        null,
+        null,
+        0.0
+      ],
+      "talos|opus": [
+        null,
+        null,
+        null
+      ],
+      "talos|sonnet": [
+        null,
+        null,
+        null
+      ],
+      "talos|gpt-6.1-sol": [
+        null,
+        null,
+        null
+      ],
+      "dexter|opus": [
+        null,
+        null,
+        null
+      ],
+      "dexter|sonnet": [
+        null,
+        null,
+        null
+      ],
+      "dexter|gpt-6.1-sol": [
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  "grader_exact_agreement": 1.0
+}

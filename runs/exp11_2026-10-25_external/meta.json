@@ -1,0 +1,412 @@
+{
+  "sessions": [
+    {
+      "started": "2026-10-25T19:17:19.668231+09:00",
+      "n": 2,
+      "workers": 4,
+      "finished": "2026-10-25T19:57:59.037297+09:00",
+      "wall_s": 2439.2,
+      "calls": 1170,
+      "errors": 16
+    },
+    {
+      "started": "2026-10-25T19:58:28.032125+09:00",
+      "n": 2,
+      "workers": 4,
+      "finished": "2026-10-25T19:59:54.434658+09:00",
+      "wall_s": 86.1,
+      "calls": 16,
+      "errors": 11
+    }
+  ],
+  "run_id": "exp11_2026-10-25_external",
+  "models": [
+    "opus",
+    "sonnet",
+    "gpt-6.1-sol"
+  ],
+  "n": 2,
+  "reference_date": "2026-10-25",
+  "preregistration": "v0.7/PREREGISTRATION.md",
+  "conditions": {
+    "M-none": {
+      "soul": "maya",
+      "variant": "none",
+      "soul_path": "external_souls/candidates/A_maya/SOUL.md",
+      "memory": "v0.7/memory/MEMORY_theo.md",
+      "questions": [
+        "MM-R1",
+        "MM-A1",
+        "MM-R2",
+        "MM-A2",
+        "MM-R3",
+        "MM-A3",
+        "MC-1",
+        "MN-1",
+        "MN-2",
+        "MN-3",
+        "MN-4",
+        "ML-1",
+        "ML-2",
+        "ML-3",
+        "ML-4",
+        "MQ-1"
+      ],
+      "system_prompt_sha256": "7b6e9c36e96226038503336703184605dc50ee3454f551344e3defcd14bd32ca"
+    },
+    "M-p5a": {
+      "soul": "maya",
+      "variant": "p5a",
+      "soul_path": "v0.7/souls/maya/SOUL_p5a.md",
+      "memory": "v0.7/memory/MEMORY_theo.md",
+      "questions": [
+        "MN-1",
+        "MN-2",
+        "MN-3",
+        "MN-4",
+        "ML-1",
+        "ML-2",
+        "ML-3",
+        "ML-4",
+        "MQ-1"
+      ],
+      "system_prompt_sha256": "5f6791a1196275617c86bdd5332137ebfcfc540910ddee563343cf3d42aa297a"
+    },
+    "M-p5b": {
+      "soul": "maya",
+      "variant": "p5b",
+      "soul_path": "v0.7/souls/maya/SOUL_p5b.md",
+      "memory": "v0.7/memory/MEMORY_theo.md",
+      "questions": [
+        "MN-1",
+        "MN-2",
+        "MN-3",
+        "MN-4",
+        "ML-1",
+        "ML-2",
+        "ML-3",
+        "ML-4",
+        "MQ-1"
+      ],
+      "system_prompt_sha256": "172682915a8ec469bd950ee548696558ca7a3865550860ea6f16af1fd54b741d"
+    },
+    "M-full": {
+      "soul": "maya",
+      "variant": "full",
+      "soul_path": "v0.7/souls/maya/SOUL_full.md",
+      "memory": "v0.7/memory/MEMORY_theo.md",
+      "questions": [
+        "MN-1",
+        "MN-2",
+        "MN-3",
+        "MN-4",
+        "ML-1",
+        "ML-2",
+        "ML-3",
+        "ML-4",
+        "MQ-1"
+      ],
+      "system_prompt_sha256": "2bc2f5dc50f581020cf9f42eed2cb63545c745d5fa86c6c57e7cb88b422d8229"
+    },
+    "M-opp": {
+      "soul": "maya",
+      "variant": "opp",
+      "soul_path": "v0.7/souls/maya/SOUL_opposite.md",
+      "memory": "v0.7/memory/MEMORY_theo.md",
+      "questions": [
+        "MM-R1",
+        "MM-A1",
+        "MM-R2",
+        "MM-A2",
+        "MM-R3",
+        "MM-A3",
+        "MC-1",
+        "MN-1",
+        "MN-2",
+        "MN-3",
+        "MN-4",
+        "ML-1",
+        "ML-2",
+        "ML-3",
+        "ML-4",
+        "MQ-1"
+      ],
+      "system_prompt_sha256": "26984f1eeab22f6e657ccbd93dc91b6ab9c2f91a3a52e8dfe8898960ad4b82da"
+    },
+    "M-swapmem": {
+      "soul": "maya",
+      "variant": "swapmem",
+      "soul_path": "external_souls/candidates/A_maya/SOUL.md",
+      "memory": "v0.7/memory/MEMORY_jordan.md",
+      "questions": [
+        "MM-R1",
+        "MM-A1",
+        "MM-R2",
+        "MM-A2",
+        "MM-R3",
+        "MM-A3"
+      ],
+      "system_prompt_sha256": "1f26f1fab8c56f46fc7ce094a82816cc8b774906d8ff292ea7364c2edebd12a4"
+    },
+    "T-none": {
+      "soul": "talos",
+      "variant": "none",
+      "soul_path": "external_souls/candidates/B_talos/SOUL.md",
+      "memory": "v0.7/memory/MEMORY_priya.md",
+      "questions": [
+        "TM-R1",
+        "TM-A1",
+        "TM-R2",
+        "TM-A2",
+        "TM-R3",
+        "TM-A3",
+        "TC-1",
+        "TN-1",
+        "TN-2",
+        "TN-3",
+        "TN-4",
+        "TL-1",
+        "TL-2",
+        "TL-3",
+        "TL-4",
+        "TQ-1"
+      ],
+      "system_prompt_sha256": "7e5f17335b391a2517adce408ce5e2449d61a0c6a7e5633449d2595447b18b52"
+    },
+    "T-p5a": {
+      "soul": "talos",
+      "variant": "p5a",
+      "soul_path": "v0.7/souls/talos/SOUL_p5a.md",
+      "memory": "v0.7/memory/MEMORY_priya.md",
+      "questions": [
+        "TN-1",
+        "TN-2",
+        "TN-3",
+        "TN-4",
+        "TL-1",
+        "TL-2",
+        "TL-3",
+        "TL-4",
+        "TQ-1"
+      ],
+      "system_prompt_sha256": "d62ecb968b8ffa333046a63c90630c80eb4ca31592efb546aca4f13d8be8173b"
+    },
+    "T-p5b": {
+      "soul": "talos",
+      "variant": "p5b",
+      "soul_path": "v0.7/souls/talos/SOUL_p5b.md",
+      "memory": "v0.7/memory/MEMORY_priya.md",
+      "questions": [
+        "TN-1",
+        "TN-2",
+        "TN-3",
+        "TN-4",
+        "TL-1",
+        "TL-2",
+        "TL-3",
+        "TL-4",
+        "TQ-1"
+      ],
+      "system_prompt_sha256": "b22888d7bd3969e2ce4dd7ac3bb24b07b3e28360dc1b9c0c206bca79dbd3916d"
+    },
+    "T-full": {
+      "soul": "talos",
+      "variant": "full",
+      "soul_path": "v0.7/souls/talos/SOUL_full.md",
+      "memory": "v0.7/memory/MEMORY_priya.md",
+      "questions": [
+        "TN-1",
+        "TN-2",
+        "TN-3",
+        "TN-4",
+        "TL-1",
+        "TL-2",
+        "TL-3",
+        "TL-4",
+        "TQ-1"
+      ],
+      "system_prompt_sha256": "827f50c81959350ae1e341c9f56e356fe8982c43edeb7518b269d7ba3d64bfba"
+    },
+    "T-opp": {
+      "soul": "talos",
+      "variant": "opp",
+      "soul_path": "v0.7/souls/talos/SOUL_opposite.md",
+      "memory": "v0.7/memory/MEMORY_priya.md",
+      "questions": [
+        "TM-R1",
+        "TM-A1",
+        "TM-R2",
+        "TM-A2",
+        "TM-R3",
+        "TM-A3",
+        "TC-1",
+        "TN-1",
+        "TN-2",
+        "TN-3",
+        "TN-4",
+        "TL-1",
+        "TL-2",
+        "TL-3",
+        "TL-4",
+        "TQ-1"
+      ],
+      "system_prompt_sha256": "9375607f4331d7f102f0347d404b51b0fbdf5cf27f266730419d9eebf211ae61"
+    },
+    "T-swapmem": {
+      "soul": "talos",
+      "variant": "swapmem",
+      "soul_path": "external_souls/candidates/B_talos/SOUL.md",
+      "memory": "v0.7/memory/MEMORY_marcus.md",
+      "questions": [
+        "TM-R1",
+        "TM-A1",
+        "TM-R2",
+        "TM-A2",
+        "TM-R3",
+        "TM-A3"
+      ],
+      "system_prompt_sha256": "ebd2078b904c0280d08f43c9409b6f022c986525df8b0d780ff1ff79d0711d16"
+    },
+    "X-none": {
+      "soul": "dexter",
+      "variant": "none",
+      "soul_path": "external_souls/candidates/D_dexter/SOUL.md",
+      "memory": "v0.7/memory/MEMORY_kenji.md",
+      "questions": [
+        "XM-R1",
+        "XM-A1",
+        "XM-R2",
+        "XM-A2",
+        "XM-R3",
+        "XM-A3",
+        "XC-1",
+        "XN-1",
+        "XN-2",
+        "XN-3",
+        "XN-4",
+        "XL-1",
+        "XL-2",
+        "XL-3",
+        "XL-4",
+        "XQ-1"
+      ],
+      "system_prompt_sha256": "e9c5adb678d9b609c336cb231370a71383e58eaa20ab34776d75ca0f91edcc3d"
+    },
+    "X-p5a": {
+      "soul": "dexter",
+      "variant": "p5a",
+      "soul_path": "v0.7/souls/dexter/SOUL_p5a.md",
+      "memory": "v0.7/memory/MEMORY_kenji.md",
+      "questions": [
+        "XN-1",
+        "XN-2",
+        "XN-3",
+        "XN-4",
+        "XL-1",
+        "XL-2",
+        "XL-3",
+        "XL-4",
+        "XQ-1"
+      ],
+      "system_prompt_sha256": "441c1b6d3574dc79ae9c724645fd74ef44cf03dd7ecfcf2e66d8310d7e75fbf7"
+    },
+    "X-p5b": {
+      "soul": "dexter",
+      "variant": "p5b",
+      "soul_path": "v0.7/souls/dexter/SOUL_p5b.md",
+      "memory": "v0.7/memory/MEMORY_kenji.md",
+      "questions": [
+        "XN-1",
+        "XN-2",
+        "XN-3",
+        "XN-4",
+        "XL-1",
+        "XL-2",
+        "XL-3",
+        "XL-4",
+        "XQ-1"
+      ],
+      "system_prompt_sha256": "4bcf7b8e5e69be03baaa74ef2f46bba8bb19b50b8ec9f76b2a9a7025e9ed575b"
+    },
+    "X-full": {
+      "soul": "dexter",
+      "variant": "full",
+      "soul_path": "v0.7/souls/dexter/SOUL_full.md",
+      "memory": "v0.7/memory/MEMORY_kenji.md",
+      "questions": [
+        "XN-1",
+        "XN-2",
+        "XN-3",
+        "XN-4",
+        "XL-1",
+        "XL-2",
+        "XL-3",
+        "XL-4",
+        "XQ-1"
+      ],
+      "system_prompt_sha256": "720c70ae5dea087653f50045a9851b4ad788ae16843e6d61773757f575f3807b"
+    },
+    "X-opp": {
+      "soul": "dexter",
+      "variant": "opp",
+      "soul_path": "v0.7/souls/dexter/SOUL_opposite.md",
+      "memory": "v0.7/memory/MEMORY_kenji.md",
+      "questions": [
+        "XM-R1",
+        "XM-A1",
+        "XM-R2",
+        "XM-A2",
+        "XM-R3",
+        "XM-A3",
+        "XC-1",
+        "XN-1",
+        "XN-2",
+        "XN-3",
+        "XN-4",
+        "XL-1",
+        "XL-2",
+        "XL-3",
+        "XL-4",
+        "XQ-1"
+      ],
+      "system_prompt_sha256": "95fb4137db1e247c0b3b1b7f7e1b84de2b99f307c585f493efccc3aa2a582279"
+    },
+    "X-swapmem": {
+      "soul": "dexter",
+      "variant": "swapmem",
+      "soul_path": "external_souls/candidates/D_dexter/SOUL.md",
+      "memory": "v0.7/memory/MEMORY_haruki.md",
+      "questions": [
+        "XM-R1",
+        "XM-A1",
+        "XM-R2",
+        "XM-A2",
+        "XM-R3",
+        "XM-A3"
+      ],
+      "system_prompt_sha256": "b582ecbf0fe73ea98bca2232bdc32e4629ed2883cb6d5a1ff26ee8bf60125ca7"
+    }
+  },
+  "adapters": {
+    "opus": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "sonnet": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "gpt-6.1-sol": {
+      "name": "codex-cli",
+      "version": "codex-cli 0.164.0"
+    }
+  },
+  "interleave": "per repetition: random.Random(11 + rep).shuffle(all (cond, qid, model))",
+  "generation_settings": "CLI defaults (temperature not settable via claude -p / codex exec)",
+  "date_guard": {
+    "reference_date": "2026-10-25",
+    "all_calls_on_reference_date": true,
+    "first_ts": "2026-10-25T19:17:23.614651+09:00",
+    "last_ts": "2026-10-25T19:59:48.936697+09:00"
+  }
+}

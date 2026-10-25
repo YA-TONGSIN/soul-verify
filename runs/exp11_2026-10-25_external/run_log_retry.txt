@@ -1,0 +1,45 @@
+﻿now 19:58:28, N=2, cells 195, subject calls 1170, estimate 78 min, minutes to midnight 242
+jobs to run: 16 (already done 1154)
+  retry 1/2 after error: success/is_error=True: API Error: Sonnet 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Th
+  retry 1/2 after error: success/is_error=True: API Error: Sonnet 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Th
+  retry 1/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+  retry 1/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+  retry 2/2 after error: success/is_error=True: API Error: Sonnet 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Th
+  retry 2/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+  retry 2/2 after error: success/is_error=True: API Error: Sonnet 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Th
+  retry 2/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+[1/16] X-none     sonnet      XL-2   r1 ERR success/is_error=True: API Error: Sonnet 5.5's safeguards fl 3.7s
+[2/16] X-p5b      sonnet      XL-2   r1 ERR success/is_error=True: API Error: Sonnet 5.5's safeguards fl 3.7s
+[3/16] X-none     opus        XL-2   r1 ERR success/is_error=True: API Error: Opus 5.5's safeguards flag 4.5s
+[4/16] X-full     opus        XL-2   r1 ERR success/is_error=True: API Error: Opus 5.5's safeguards flag 3.2s
+  retry 1/2 after error: success/is_error=True: API Error: Sonnet 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Th
+  retry 1/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+  retry 1/2 after error: success/is_error=True: API Error: Sonnet 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Th
+  retry 1/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+  retry 2/2 after error: success/is_error=True: API Error: Sonnet 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Th
+  retry 2/2 after error: success/is_error=True: API Error: Sonnet 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Th
+  retry 2/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+  retry 2/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+[5/16] X-p5a      sonnet      XL-2   r1 ERR success/is_error=True: API Error: Sonnet 5.5's safeguards fl 3.7s
+[6/16] X-p5a      opus        XL-2   r1 ERR success/is_error=True: API Error: Opus 5.5's safeguards flag 3.6s
+[7/16] X-p5b      opus        XL-2   r1 ERR success/is_error=True: API Error: Opus 5.5's safeguards flag 4.5s
+[8/16] X-full     sonnet      XL-2   r1 ERR success/is_error=True: API Error: Sonnet 5.5's safeguards fl 6.4s
+  retry 1/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+  retry 1/2 after error: success/is_error=True: API Error: Sonnet 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Th
+  retry 1/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+  retry 1/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+  retry 2/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+  retry 2/2 after error: success/is_error=True: API Error: Sonnet 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). Th
+  retry 2/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+  retry 2/2 after error: success/is_error=True: API Error: Opus 5.5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This
+[9/16] X-p5b      opus        XL-2   r2 ERR success/is_error=True: API Error: Opus 5's safeguards flagge 3.7s
+[10/16] X-full     sonnet      XL-2   r2 ERR success/is_error=True: API Error: Sonnet 5.5's safeguards fl 4.0s
+  retry 1/2 after error: success/is_error=True: API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This s
+[11/16] X-p5b      sonnet      XL-2   r2 ok 4.4s
+[12/16] X-none     sonnet      XL-2   r2 ok 5.0s
+[13/16] X-p5a      opus        XL-2   r2 ok 14.4s
+[14/16] X-full     opus        XL-2   r2 ok 13.0s
+  retry 2/2 after error: success/is_error=True: API Error: Opus 5's safeguards flagged this message (https://www.anthropic.com/legal/aup). This s
+[15/16] X-p5a      sonnet      XL-2   r2 ok 5.4s
+[16/16] X-none     opus        XL-2   r2 ERR success/is_error=True: API Error: Opus 5's safeguards flagge 3.6s
+done: ok rows 1159, errors this session 11, {'reference_date': '2026-10-25', 'all_calls_on_reference_date': True, 'first_ts': '2026-10-25T19:17:23.614651+09:00', 'last_ts': '2026-10-25T19:59:48.936697+09:00'}
