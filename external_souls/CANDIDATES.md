@@ -79,3 +79,18 @@ OpenClaw 패키지: `package.json` license=MIT, LICENSE "Copyright (c) 2026 Open
 **미리 고정할 것(도장 전)**: ① 후보 목록과 SHA ② 영어 문항 파일 해시 ③ 합성 MEMORY 파일 ④ fidelity 표지 정의(위 '말투 표지' 2~3개씩) ⑤ 가설 표 ⑥ N·호출 수 예상(후보 4개 × 조건 5 × 문항 ~20 × 모델 3 × N2 ≈ 2,400 호출 — **너무 많음** → 후보 3개로 줄이거나 N=1 + 문항 압축 필요). ⑦ 실행 전 날짜 확인(자정 넘기지 않기).
 
 **미리 정해 둘 해석 규칙**: 외부 SOUL은 금지가 SOUL마다 달라 'refused 플래그'를 SOUL별로 정의(예: Maya Hard Stops 위반 요청 = '앱 만들자고 해 줘' 류). 기준 바꾸기 금지, 사후 분석은 따로 표기.
+
+
+## 6. 추가 메모 (사용자 제공, 2026-10-25 저녁)
+
+### 6-1. 한국어 외부 SOUL 후보 — **라이선스 불명, 허락 받으면 쓸 수 있음** (저장소에 원문 복사 안 함)
+- URL: https://claw-node.com/blog/soul-md-guide (블로그 글 "SOUL.md 작성법", 제3자 작성, 라이선스·저작권 표시 없음)
+- 글 속 예시 SOUL.md는 약 100단어(300단어 기준 미달). 특징: 첫 줄에 "결론부터 말한다", 반말, 틀리면 돌려 말하지 않음, 위트는 앞뒤 한 문장, 수치 없는 주장은 추정 표시, **금지 3개**(말투 문구 2개 + 장황한 서론)뿐이고 행동 금지는 없음 → 성격으로는 Monday·Dexter류(금지 약함).
+- 말투 표지 후보: ① 첫 문장이 결론 ② 반말 ③ "경우에 따라 다릅니다"·"도움이 되셨으면 좋겠습니다" 미사용.
+- 쓰려면 작성자(claw-node.com)의 허락이 필요. 지금은 '한국어 외부 SOUL이 있다'는 사실과 URL만 기록. 글 본문 원문은 `_work`에도 저장하지 않음.
+- 글의 작성 조언(금지보다 행동 지침, 첫 줄에 핵심, SOUL·USER 충돌 금지)은 우리 결과와 맞닿음: exp10에서 MEMORY의 교정이 SOUL 규칙을 이긴 것과 "SOUL·USER 충돌" 조언이 같은 현상.
+
+### 6-2. 논문 관련·한계(하네스 오염)에 인용할 OpenClaw 이슈 (gh api로 직접 확인)
+- **#43562** https://github.com/openclaw/openclaw/issues/43562 — "Make agent identity preamble configurable (replace hardcoded 'personal assistant')". 2026-03-12 열림. 시스템 프롬프트 맨 앞에 고정된 "You are a personal assistant running inside OpenClaw."가 SOUL.md(뒤쪽 `# Project Context`에 주입)의 정체성보다 우선해, SOUL에 다른 역할을 써도 모델이 "personal assistant"라 답한다는 보고(댓글 1건이 같은 현상 확인). 제안: preamble 설정화. **상태: 2026-10-15 비활동으로 자동 종료(stale bot), 수정 병합 아님**(연결된 구현 PR 3개는 병합 없이 닫힘, ClawSweeper 코멘트). → 이 PC의 시스템 프롬프트에도 같은 문장이 있음을 확인함. 인용 문장 초안: "In the harness we used, a fixed preamble precedes the SOUL document (openclaw/openclaw#43562, closed unresolved), so SOUL-induced identity effects are lower bounds."
+- **#27038** https://github.com/openclaw/openclaw/issues/27038 — "Incorrect documentation: Soul.md is injected in sub-agents". 2026-02-26 열림. 문서는 서브에이전트에 AGENTS.md·TOOLS.md만 주입된다고 했으나, 보고자가 설치 코드(`MINIMAL_BOOTSTRAP_ALLOWLIST`)를 확인해 SOUL·IDENTITY·USER도 주입됨을 지적. 2026-03-31 비활동으로 닫힘(문서/코드 정합 수정 여부는 이슈에서 확인 안 됨, 담당 표명 댓글 1건뿐). → 서브에이전트·크론 실행이 SOUL·USER를 상속하므로, 서브에이전트를 쓰는 평가·채점에서 SOUL이 의도치 않게 섞일 수 있음.
+- 논문 연결: 우리 하네스 오염 문제(agy가 시스템 프롬프트를 못 바꿈, 실험10 gemini 부록)와 같은 종류. "claude -p 격리 플래그로 SOUL을 우리가 직접 주입했다"는 설계가 이 오염을 피한다는 점을 한계 절에 같이 적을 것. 이슈는 둘 다 **블로그 글 경유로 알게 된 것을 gh로 직접 재확인**한 것이며 상태는 2026-10-25 기준.
