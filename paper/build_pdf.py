@@ -6,7 +6,9 @@ Usage:
   e.g. python paper/build_pdf.py paper/draft_v0_2.md paper/summary_ko_v0_2.md -o paper/SOUL_VERIFY_draft_v0.2.pdf
 """
 import argparse
+import base64
 import pathlib
+import re
 import subprocess
 import tempfile
 import time
@@ -33,7 +35,11 @@ blockquote { border-left: 3px solid #c33; margin: 8pt 0; padding: 2pt 8pt; color
 
 
 def render(md_text: str) -> str:
-    return markdown.markdown(md_text, extensions=["tables", "fenced_code", "sane_lists"])
+    html = markdown.markdown(md_text, extensions=["tables", "fenced_code", "sane_lists"])
+    # local images (e.g. <img src="fig1_halves.png">) are inlined, because the HTML is printed from a temp folder
+    return re.sub(r'src="([\w.-]+\.png)"',
+                  lambda m: 'src="data:image/png;base64,' + base64.b64encode((HERE / m.group(1)).read_bytes()).decode() + '"',
+                  html)
 
 
 ap = argparse.ArgumentParser()
