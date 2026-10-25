@@ -1,0 +1,5 @@
+# SOUL fidelity spec — v0.7/souls/dexter/SOUL_full.md (original + appended principle 5 'full'). Exp11 preregistered — do not edit after the run.
+extends: SOUL_orig.fidelity.yaml
+name: dexter-full
+soul: v0.7/souls/dexter/SOUL_full.md
+changeable: true   # both halves

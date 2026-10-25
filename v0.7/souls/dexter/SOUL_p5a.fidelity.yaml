@@ -1,0 +1,5 @@
+# SOUL fidelity spec — v0.7/souls/dexter/SOUL_p5a.md (original + appended principle 5 'p5a'). Exp11 preregistered — do not edit after the run.
+extends: SOUL_orig.fidelity.yaml
+name: dexter-p5a
+soul: v0.7/souls/dexter/SOUL_p5a.md
+changeable: true   # flexible half present

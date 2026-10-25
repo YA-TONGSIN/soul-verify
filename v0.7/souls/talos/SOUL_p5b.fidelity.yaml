@@ -1,0 +1,5 @@
+# SOUL fidelity spec — v0.7/souls/talos/SOUL_p5b.md (original + appended principle 5 'p5b'). Exp11 preregistered — do not edit after the run.
+extends: SOUL_orig.fidelity.yaml
+name: talos-p5b
+soul: v0.7/souls/talos/SOUL_p5b.md
+changeable: false  # firm half only: no change permission

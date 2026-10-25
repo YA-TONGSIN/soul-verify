@@ -112,6 +112,66 @@ def contains_any(text: str, keywords) -> bool:
     return any(normalize(k) in n for k in keywords)
 
 
+# ── v0.7 (exp11, English external SOULs) detectors ──
+def _en(text: str) -> str:
+    """English text for detectors: drop fenced code blocks, unify curly apostrophes."""
+    t = re.sub(r"```.*?```", " ", text or "", flags=re.S)
+    return t.replace("’", "'").replace("‘", "'")
+
+
+def phrase_hits(text: str, phrases) -> list[str]:
+    """Case-insensitive whole-phrase matches (word boundaries at both ends, inner spaces flexible)."""
+    t = _en(text)
+    out = []
+    for p in phrases:
+        pat = r"(?<![A-Za-z0-9'])" + r"\s+".join(re.escape(w) for w in p.replace("’", "'").split()) + r"(?![A-Za-z0-9])"
+        if re.search(pat, t, re.I):
+            out.append(p)
+    return out
+
+
+def en_sentences(text: str) -> list[list[str]]:
+    """Sentences (split on . ! ? and line breaks) as word lists; markdown markers and table rows ignored."""
+    out = []
+    for line in _en(text).splitlines():
+        line = line.strip()
+        if not line or line.startswith("|"):
+            continue
+        line = re.sub(r"^\s*(?:[-*+>#]+|\d+[.)])\s*", "", line)
+        for s in re.split(r"(?<=[.!?])\s+", line):
+            ws = [w for w in s.split() if re.search(r"[A-Za-z0-9]", w)]
+            if ws:
+                out.append(ws)
+    return out
+
+
+def mean_sentence_words(text: str) -> float | None:
+    """Mean words per sentence over sentences of 3+ words (one- and two-word fragments such as "No." or "Certainly!" are skipped)."""
+    ss = [s for s in en_sentences(text) if len(s) >= 3]
+    return sum(len(s) for s in ss) / len(ss) if ss else None
+
+
+def word_count(text: str) -> int:
+    return sum(len(s) for s in en_sentences(text))
+
+
+def _plain_line(line: str) -> str:
+    return re.sub(r"^[\s*_>#\"'“-]+", "", _en(line)).strip().lower()
+
+
+def first_line_starts(text: str, prefixes) -> bool:
+    ls = _lines(text)
+    if not ls:
+        return False
+    first = _plain_line(ls[0])
+    return any(re.match(re.escape(p.lower()) + r"(?![a-z])", first) for p in prefixes)
+
+
+def last_line_has(text: str, phrases) -> bool:
+    ls = _lines(re.sub(r"```.*?```", " ", text or "", flags=re.S))
+    return bool(ls) and bool(phrase_hits(ls[-1], phrases))
+
+
 def _range_ok(x, exp: dict) -> bool | None:
     if x is None:
         return None
@@ -150,6 +210,24 @@ def run_check(check: dict, text: str, flags: dict | None = None) -> bool | float
     if d == "contains_any":
         hit = contains_any(text, p["keywords"])
         return hit if exp is True else not hit
+    if d == "phrase_any":
+        hit = bool(phrase_hits(text, p["phrases"]))
+        return hit if exp is True else not hit
+    if d == "char_count":
+        return _range_ok(sum((text or "").count(ch) for ch in p["chars"]), exp)
+    if d == "mean_sentence_words":
+        return _range_ok(mean_sentence_words(text), exp)
+    if d == "word_count":
+        return _range_ok(word_count(text), exp)
+    if d == "first_line_startswith_any":
+        has = first_line_starts(text, p["prefixes"])
+        return has if exp == "present" else not has
+    if d == "last_line_contains_any":
+        has = last_line_has(text, p["phrases"])
+        return has if exp == "present" else not has
+    if d == "has_list":
+        has = has_list(text)
+        return has if exp == "present" else not has
     if d == "grader_refused":
         v = (flags or {}).get("refused")  # bool 또는 채점자별 bool 목록(→ 일치 비율)
         if v is None or v == []:
