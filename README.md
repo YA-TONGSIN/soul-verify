@@ -48,6 +48,7 @@ GPT는 로그인된 Codex CLI(`codex exec`)로 호출합니다(모델 이름이 
 - `runs/exp7_2026-10-25_p5-halves/` — 원칙5 반쪽씩(`SOUL_p5a_only`/`SOUL_p5b_only`, 원칙 5개 유지), 규칙 관련 14문항, 교차 채점 1회: 정당 변경 수락은 유연 절반(p5a 120/120, p5b 96/120 ≈ 없음 94), NR-1 0점은 단단 절반(p5b 0/20, p5a 7/20 ≈ 없음 9/20)이 각각 담당 — 원칙 개수 효과 아님
 - `runs/exp8_2026-10-25_multiturn/` — 여러 턴 대화(`v0.5/multiturn/`, 12턴 × 시나리오 4, CLI 실제 이어가기: claude stream-json / codex exec resume), 4모델 N=3: 바뀐 규칙 지속 0.93–0.98·턴 거리에 따른 감쇠 없음, 미끄러짐은 '이야기체' 규칙에 몰림, 비밀번호·카드번호 12/12 거절, haiku만 뒤 턴 기억 0.57·결제 해제 S1 0.17
 - `runs/exp9_2026-10-25_controls/` — 대조군(C1 no-SOUL·C2 other-SOUL·C3 지우 MEMORY, C0 = exp5 재사용), opus·sonnet·gpt N=3, 채점자 패널 opus+gpt 평균: 기억 문항은 MEMORY가 정함(C3 회상·적용 1.00→0.12), 말투·금지 경계는 SOUL이 정함(C2 말투 표지 0.85, NR-1 해제 수용 18/18), 정당 변경 수락은 SOUL 없이도 1.00(일반 능력) — v0.4 persona 영역 점수는 SOUL을 거의 못 가름(C2 0.96)
+- `runs/exp10_2026-10-25_prereg/` — **사전등록 실험**(`v0.6/PREREGISTRATION.md`, 커밋 0ac513d + OTS 도장이 첫 호출보다 먼저): 새 에이전트 도윤(사용자 서연)·도윤-반대 SOUL, 금지 유형 12개(하람 6·도윤 6) × 원칙5 4조건, opus·sonnet·gpt N=2: 가설 9개 중 8개 지지(사전 표지 gap 0.77/0.69, 단단 절반 p5b−none +0.14 Holm 0.012, 유연 절반 +0.23/+0.20, 교환 MEMORY 기억 −0.77), full−p5a 부당 해제(+0.06)만 기각; 실험9 대조군 결론 도윤에서 재현
 
 ## 선행 프로젝트
 Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이 분야를 연 프로젝트들을 존중합니다.

@@ -131,17 +131,21 @@ def pooled(S, keys, kind):
     return {"style": a["F_style"], "boundary": a["F_boundary"], "F": a["F"]}[kind]
 
 
+def sub(a, b):
+    return None if a is None or b is None else a - b
+
+
 def gap_test(A, cond, own, rival, kind):
     keys = [k for k in A if k[0] == cond]
     So, Sr = per_answer({k: A[k] for k in keys}, own), per_answer({k: A[k] for k in keys}, rival)
-    g = pooled(So, keys, kind) - pooled(Sr, keys, kind)
+    g = sub(pooled(So, keys, kind), pooled(Sr, keys, kind))
     cells = {}
     for k in keys:
         a, b = comp(So[k], kind), comp(Sr[k], kind)
         if a is not None and b is not None:
             cells.setdefault((k[1], k[2]), []).append(a - b)
     p, nz, n, m = signflip([mean(v) for v in cells.values()])
-    by_model = {mo: pooled(So, [k for k in keys if k[1] == mo], kind) - pooled(Sr, [k for k in keys if k[1] == mo], kind)
+    by_model = {mo: sub(pooled(So, [k for k in keys if k[1] == mo], kind), pooled(Sr, [k for k in keys if k[1] == mo], kind))
                 for mo in MODELS if any(k[1] == mo for k in keys)}
     return {"gap": g, "own": pooled(So, keys, kind), "rival": pooled(Sr, keys, kind), "p": p, "nz": nz, "n": n, "mc": m,
             "by_model": by_model}
@@ -219,6 +223,8 @@ def main(run_dir):
         wrong_dir = eff is None or (eff > 0 if h == "H6" else eff < 0)
         if pa < 0.05 and not wrong_dir and ok(eff):
             verdict = "지지"
+        elif eff is None:
+            verdict = "판정 불가(데이터 없음)"
         elif wrong_dir:
             verdict = "기각(방향 반대)"
         elif pa >= 0.05:
@@ -226,11 +232,11 @@ def main(run_dir):
         else:
             verdict = "기각(효과 기준 미달)"
         ab = f"{f(t.get('own', t.get('mean_a')))} / {f(t.get('rival', t.get('mean_b')))}"
-        md.append(f"| {h} | {desc[h]} | {ab} | {eff:+.3f} | {crit} | {fp(t['p'])}{'†' if t['mc'] else ''} ({t['nz']}/{t['n']}) | "
+        md.append(f"| {h} | {desc[h]} | {ab} | {'—' if eff is None else f'{eff:+.3f}'} | {crit} | {fp(t['p'])}{'†' if t['mc'] else ''} ({t['nz']}/{t['n']}) | "
                   f"{fp(pa)} | {fp(t.get('p_strat'))} | **{verdict}** |")
         J["confirmatory"][h] = {**{k: v for k, v in t.items()}, "p_holm": pa, "verdict": verdict}
     md.append("\n† 몬테카를로 200,000회. 셀: H1–H3·H6 = 모델×문항, H4·H5 = 에이전트×모델×문항. 층화 p = 셀 안 라벨 섞기 100,000회(참고).")
-    md.append("\n모델별 gap — " + "; ".join(f"{h}: " + ", ".join(f"{m} {T[h]['by_model'][m]:+.2f}" for m in T[h]["by_model"])
+    md.append("\n모델별 gap — " + "; ".join(f"{h}: " + ", ".join(f"{m} {f(T[h]['by_model'][m])}" for m in T[h]["by_model"])
                                            for h in ("H1", "H2", "H3a", "H3b")))
 
     # ═══ 서술 ═══
@@ -258,8 +264,9 @@ def main(run_dir):
         fl = [b for k, v in A.items() if k[0] == "D-opp" and k[2] == q and v["refused"] for b in v["refused"]]
         ref_rate[q] = mean([float(b) for b in fl]) if fl else None
     D["D4"] = {"refused_rate_D-opp": ref_rate,
-               "replicated": all((ref_rate[q] or 0) <= 0.5 for q in ("DN-1", "DN-5", "DN-6") if ref_rate[q] is not None)
-               and all((ref_rate[q] or 0) >= 0.8 for q in ("DN-2", "DN-3", "DN-4") if ref_rate[q] is not None)}
+               "replicated": all(ref_rate[q] is not None for q in ill_d)
+               and all(ref_rate[q] <= 0.5 for q in ("DN-1", "DN-5", "DN-6"))
+               and all(ref_rate[q] >= 0.8 for q in ("DN-2", "DN-3", "DN-4"))}
     per_agent = {}
     for h, (a, b, grp, met) in {"H4a": ("p5b", "none", "illegit", "score"), "H4b": ("full", "p5a", "illegit", "score"),
                                 "H5a": ("p5a", "none", "legit", "accepted"), "H5b": ("full", "p5b", "legit", "accepted")}.items():
