@@ -1,0 +1,297 @@
+{
+  "sessions": [
+    {
+      "started": "2026-10-25T15:38:13.528748+09:00",
+      "n": 1,
+      "workers": 4,
+      "finished": "2026-10-25T15:38:32.324602+09:00",
+      "wall_s": 18.4,
+      "calls": 4,
+      "errors": 0
+    }
+  ],
+  "run_id": "smoke_exp10_gemini_2026-10-25",
+  "models": [
+    "gemini-4-argon-medium"
+  ],
+  "n": 1,
+  "reference_date": "2026-10-25",
+  "preregistration": "v0.6/PREREGISTRATION.md",
+  "addendum": "v0.6/ADDENDUM_gemini.md",
+  "conditions": {
+    "H-full": {
+      "agent": "harang",
+      "soul": "v0.4/samples/SOUL.md",
+      "memory": "v0.4/samples/MEMORY.md",
+      "questions": [
+        "NR-1",
+        "NR-2",
+        "RL-1",
+        "RL-2",
+        "RL-3",
+        "RL-4",
+        "RL-5",
+        "IH-3b",
+        "HN-3",
+        "HN-4",
+        "HN-5",
+        "HN-6"
+      ],
+      "system_prompt_sha256": "a7bca7ce4fbbdb147257447a58af263916f21caef8e519dd1131374ba5cc2d76"
+    },
+    "H-p5a": {
+      "agent": "harang",
+      "soul": "v0.4/ablation/SOUL_p5a_only.md",
+      "memory": "v0.4/samples/MEMORY.md",
+      "questions": [
+        "NR-1",
+        "NR-2",
+        "RL-1",
+        "RL-2",
+        "RL-3",
+        "RL-4",
+        "RL-5",
+        "IH-3b",
+        "HN-3",
+        "HN-4",
+        "HN-5",
+        "HN-6"
+      ],
+      "system_prompt_sha256": "3fb97e7e1a478ab42e33a86e5725b7445ec1a4f7d91d530d80bac595170f00e8"
+    },
+    "H-p5b": {
+      "agent": "harang",
+      "soul": "v0.4/ablation/SOUL_p5b_only.md",
+      "memory": "v0.4/samples/MEMORY.md",
+      "questions": [
+        "NR-1",
+        "NR-2",
+        "RL-1",
+        "RL-2",
+        "RL-3",
+        "RL-4",
+        "RL-5",
+        "IH-3b",
+        "HN-3",
+        "HN-4",
+        "HN-5",
+        "HN-6"
+      ],
+      "system_prompt_sha256": "0c17ddd97e7b1d8c9488d6747072daa449a26448f04dfa54c6f66b6ab8554c49"
+    },
+    "H-none": {
+      "agent": "harang",
+      "soul": "v0.4/ablation/SOUL_no_p5.md",
+      "memory": "v0.4/samples/MEMORY.md",
+      "questions": [
+        "NR-1",
+        "NR-2",
+        "RL-1",
+        "RL-2",
+        "RL-3",
+        "RL-4",
+        "RL-5",
+        "IH-3b",
+        "HN-3",
+        "HN-4",
+        "HN-5",
+        "HN-6"
+      ],
+      "system_prompt_sha256": "2aae5c74ae26c4cb4cb7e01b540bf1428407efab4709113f93217e086c6770c5"
+    },
+    "D-full": {
+      "agent": "doyun",
+      "soul": "v0.6/samples/SOUL_doyun.md",
+      "memory": "v0.6/samples/MEMORY_seoyeon.md",
+      "questions": [
+        "DM-R1",
+        "DM-A1",
+        "DM-R2",
+        "DM-A2",
+        "DM-R3",
+        "DM-A3",
+        "DM-R4",
+        "DM-A4",
+        "DM-R5",
+        "DM-A5",
+        "DN-1",
+        "DN-2",
+        "DN-3",
+        "DN-4",
+        "DN-5",
+        "DN-6",
+        "DL-1",
+        "DL-2",
+        "DL-3",
+        "DL-4",
+        "DL-5",
+        "DL-6",
+        "DQ-1",
+        "DQ-2"
+      ],
+      "system_prompt_sha256": "51376ec1920a171f6b1f9f558f4160895ed275c3f87c2248de9dbde5c28f8edc"
+    },
+    "D-p5a": {
+      "agent": "doyun",
+      "soul": "v0.6/ablation/SOUL_doyun_p5a_only.md",
+      "memory": "v0.6/samples/MEMORY_seoyeon.md",
+      "questions": [
+        "DN-1",
+        "DN-2",
+        "DN-3",
+        "DN-4",
+        "DN-5",
+        "DN-6",
+        "DL-1",
+        "DL-2",
+        "DL-3",
+        "DL-4",
+        "DL-5",
+        "DL-6",
+        "DQ-1",
+        "DQ-2"
+      ],
+      "system_prompt_sha256": "c9742432e2906d927b3c098ffad712edbfe3a60de11316a2f24822b33fd3e547"
+    },
+    "D-p5b": {
+      "agent": "doyun",
+      "soul": "v0.6/ablation/SOUL_doyun_p5b_only.md",
+      "memory": "v0.6/samples/MEMORY_seoyeon.md",
+      "questions": [
+        "DN-1",
+        "DN-2",
+        "DN-3",
+        "DN-4",
+        "DN-5",
+        "DN-6",
+        "DL-1",
+        "DL-2",
+        "DL-3",
+        "DL-4",
+        "DL-5",
+        "DL-6",
+        "DQ-1",
+        "DQ-2"
+      ],
+      "system_prompt_sha256": "a8c8e6168047e35150e7e773b7a2ac98a6e27c02cc054acaf009fa85bf943dce"
+    },
+    "D-none": {
+      "agent": "doyun",
+      "soul": "v0.6/ablation/SOUL_doyun_no_p5.md",
+      "memory": "v0.6/samples/MEMORY_seoyeon.md",
+      "questions": [
+        "DN-1",
+        "DN-2",
+        "DN-3",
+        "DN-4",
+        "DN-5",
+        "DN-6",
+        "DL-1",
+        "DL-2",
+        "DL-3",
+        "DL-4",
+        "DL-5",
+        "DL-6",
+        "DQ-1",
+        "DQ-2"
+      ],
+      "system_prompt_sha256": "abb37f10253b0051d97578981d79b41972bd6576e031b82ee35f1e85f9f776eb"
+    },
+    "D-nosoul": {
+      "agent": "doyun",
+      "soul": "v0.6/controls/SOUL_doyun_minimal.md",
+      "memory": "v0.6/samples/MEMORY_seoyeon.md",
+      "questions": [
+        "DM-R1",
+        "DM-A1",
+        "DM-R2",
+        "DM-A2",
+        "DM-R3",
+        "DM-A3",
+        "DM-R4",
+        "DM-A4",
+        "DM-R5",
+        "DM-A5",
+        "DN-1",
+        "DN-2",
+        "DN-3",
+        "DN-4",
+        "DN-5",
+        "DN-6",
+        "DL-1",
+        "DL-2",
+        "DL-3",
+        "DL-4",
+        "DL-5",
+        "DL-6",
+        "DQ-1",
+        "DQ-2"
+      ],
+      "system_prompt_sha256": "fb884ec7e316f9df650368a910ea14ad3bd8ca44448f76466e753f3ebacab6b4"
+    },
+    "D-opp": {
+      "agent": "doyun",
+      "soul": "v0.6/controls/SOUL_doyun_opposite.md",
+      "memory": "v0.6/samples/MEMORY_seoyeon.md",
+      "questions": [
+        "DM-R1",
+        "DM-A1",
+        "DM-R2",
+        "DM-A2",
+        "DM-R3",
+        "DM-A3",
+        "DM-R4",
+        "DM-A4",
+        "DM-R5",
+        "DM-A5",
+        "DN-1",
+        "DN-2",
+        "DN-3",
+        "DN-4",
+        "DN-5",
+        "DN-6",
+        "DL-1",
+        "DL-2",
+        "DL-3",
+        "DL-4",
+        "DL-5",
+        "DL-6",
+        "DQ-1",
+        "DQ-2"
+      ],
+      "system_prompt_sha256": "9cbbb6eccc1ebcb3d46f2c4916c94f1f6eeed8032ca0b09efefd177d99c080b7"
+    },
+    "D-swapmem": {
+      "agent": "doyun",
+      "soul": "v0.6/samples/SOUL_doyun.md",
+      "memory": "v0.6/controls/MEMORY_haeun.md",
+      "questions": [
+        "DM-R1",
+        "DM-A1",
+        "DM-R2",
+        "DM-A2",
+        "DM-R3",
+        "DM-A3",
+        "DM-R4",
+        "DM-A4",
+        "DM-R5",
+        "DM-A5"
+      ],
+      "system_prompt_sha256": "833c72ae9bfc6dc9e0cec04d2131354878e78e4020ab6b5a54750415e3ab3896"
+    }
+  },
+  "adapters": {
+    "gemini-4-argon-medium": {
+      "name": "agy-cli",
+      "version": "1.4.7"
+    }
+  },
+  "interleave": "per repetition: random.Random(10 + rep).shuffle(all (cond, qid, model))",
+  "generation_settings": "CLI defaults (temperature not settable via claude -p / codex exec)",
+  "date_guard": {
+    "reference_date": "2026-10-25",
+    "all_calls_on_reference_date": true,
+    "first_ts": "2026-10-25T15:38:25.397177+09:00",
+    "last_ts": "2026-10-25T15:38:32.314434+09:00"
+  }
+}
