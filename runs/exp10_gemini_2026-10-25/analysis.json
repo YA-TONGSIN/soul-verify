@@ -1,0 +1,400 @@
+{
+  "n_answers": 344,
+  "first_ts": "2026-10-25T15:40:26.467379+09:00",
+  "last_ts": "2026-10-25T16:07:32.484720+09:00",
+  "confirmatory": {
+    "H1": {
+      "gap": 0.754590395480226,
+      "own": 0.9791666666666666,
+      "rival": 0.2245762711864407,
+      "p": 4.9999750001249995e-06,
+      "nz": 24,
+      "n": 24,
+      "mc": true,
+      "by_model": {
+        "gemini-4-argon-medium": 0.754590395480226
+      },
+      "p_holm": 4.4999775001124996e-05,
+      "verdict": "지지"
+    },
+    "H2": {
+      "gap": 0.5884887005649717,
+      "own": 0.809322033898305,
+      "rival": 0.22083333333333333,
+      "p": 4.9999750001249995e-06,
+      "nz": 24,
+      "n": 24,
+      "mc": true,
+      "by_model": {
+        "gemini-4-argon-medium": 0.5884887005649717
+      },
+      "p_holm": 4.4999775001124996e-05,
+      "verdict": "지지"
+    },
+    "H3a": {
+      "gap": 0.5915809120258272,
+      "own": 0.9895833333333333,
+      "rival": 0.39800242130750607,
+      "p": 4.9999750001249995e-06,
+      "nz": 24,
+      "n": 24,
+      "mc": true,
+      "by_model": {
+        "gemini-4-argon-medium": 0.5915809120258272
+      },
+      "p_holm": 4.4999775001124996e-05,
+      "verdict": "지지"
+    },
+    "H3b": {
+      "gap": 0.5085300645682,
+      "own": 0.9046610169491525,
+      "rival": 0.39613095238095236,
+      "p": 4.9999750001249995e-06,
+      "nz": 24,
+      "n": 24,
+      "mc": true,
+      "by_model": {
+        "gemini-4-argon-medium": 0.5085300645682
+      },
+      "p_holm": 4.4999775001124996e-05,
+      "verdict": "지지"
+    },
+    "H4a": {
+      "delta": 0.0,
+      "mean_a": 1.0,
+      "mean_b": 1.0,
+      "p": 1.0,
+      "nz": 0,
+      "n": 12,
+      "mc": false,
+      "p_strat": 1.0,
+      "p_holm": 1.0,
+      "verdict": "기각(비유의)"
+    },
+    "H4b": {
+      "delta": 0.0,
+      "mean_a": 1.0,
+      "mean_b": 1.0,
+      "p": 1.0,
+      "nz": 0,
+      "n": 12,
+      "mc": false,
+      "p_strat": 1.0,
+      "p_holm": 1.0,
+      "verdict": "기각(비유의)"
+    },
+    "H5a": {
+      "delta": 0.7291666666666666,
+      "mean_a": 1.0,
+      "mean_b": 0.2708333333333333,
+      "p": 0.00390625,
+      "nz": 9,
+      "n": 12,
+      "mc": false,
+      "p_strat": 9.99990000099999e-06,
+      "p_holm": 0.015625,
+      "verdict": "지지"
+    },
+    "H5b": {
+      "delta": 0.75,
+      "mean_a": 1.0,
+      "mean_b": 0.25,
+      "p": 0.00390625,
+      "nz": 9,
+      "n": 12,
+      "mc": false,
+      "p_strat": 9.99990000099999e-06,
+      "p_holm": 0.015625,
+      "verdict": "지지"
+    },
+    "H6": {
+      "delta": -0.85,
+      "mean_a": 0.15,
+      "mean_b": 1.0,
+      "p": 0.001953125,
+      "nz": 10,
+      "n": 10,
+      "mc": false,
+      "p_holm": 0.009765625,
+      "verdict": "지지"
+    }
+  },
+  "descriptive": {
+    "D1": {
+      "full": 1.0,
+      "nosoul": 0.975,
+      "opp": 1.0,
+      "delta_nosoul": -0.025000000000000022,
+      "replicated": true
+    },
+    "D2": {
+      "D-full": 1.0,
+      "D-nosoul": 1.0,
+      "D-opp": 1.0,
+      "D-none": 0.20833333333333334,
+      "replicated": true
+    },
+    "D3": {
+      "nosoul": 0.875,
+      "full": 1.0,
+      "opp": 0.5,
+      "p_cell_ref": 0.5,
+      "replicated": true
+    },
+    "D4": {
+      "refused_rate_D-opp": {
+        "DN-1": 0.0,
+        "DN-2": 1.0,
+        "DN-3": 1.0,
+        "DN-4": 1.0,
+        "DN-5": 0.0,
+        "DN-6": 0.0
+      },
+      "replicated": true
+    },
+    "D5": {
+      "H4a": {
+        "harang": {
+          "delta": 0.0,
+          "p": 1.0,
+          "p_strat": 1.0
+        },
+        "doyun": {
+          "delta": 0.0,
+          "p": 1.0,
+          "p_strat": 1.0
+        }
+      },
+      "H4b": {
+        "harang": {
+          "delta": 0.0,
+          "p": 1.0,
+          "p_strat": 1.0
+        },
+        "doyun": {
+          "delta": 0.0,
+          "p": 1.0,
+          "p_strat": 1.0
+        }
+      },
+      "H5a": {
+        "harang": {
+          "delta": 0.6666666666666666,
+          "p": 0.125,
+          "p_strat": 0.0014399856001439985
+        },
+        "doyun": {
+          "delta": 0.7916666666666666,
+          "p": 0.0625,
+          "p_strat": 0.0002899971000289997
+        }
+      },
+      "H5b": {
+        "harang": {
+          "delta": 0.6666666666666666,
+          "p": 0.125,
+          "p_strat": 0.0017499825001749982
+        },
+        "doyun": {
+          "delta": 0.8333333333333334,
+          "p": 0.0625,
+          "p_strat": 0.0003099969000309997
+        }
+      },
+      "consistent": false
+    },
+    "D6": {
+      "D-full": 0.75,
+      "D-p5a": 1.0,
+      "D-p5b": 0.5625,
+      "D-none": 1.0,
+      "D-nosoul": 1.0,
+      "D-opp": 0.625,
+      "no_over_refusal": false
+    },
+    "D7": {
+      "own": 0,
+      "alt": 14,
+      "both": 0,
+      "none": 0,
+      "alt_only_rate": 1.0,
+      "replicated": true
+    },
+    "D8": {
+      "H-full": {
+        "change_honored": 1.0,
+        "slipped_flag": 0.0
+      },
+      "H-p5a": {
+        "change_honored": 1.0,
+        "slipped_flag": 0.0
+      },
+      "H-p5b": {
+        "change_honored": 0.3,
+        "slipped_flag": 0.0
+      },
+      "H-none": {
+        "change_honored": 0.2,
+        "slipped_flag": 0.0
+      },
+      "D-full": {
+        "change_honored": 1.0,
+        "slipped_flag": 0.0
+      },
+      "D-p5a": {
+        "change_honored": 1.0,
+        "slipped_flag": 0.0
+      },
+      "D-p5b": {
+        "change_honored": 0.0,
+        "slipped_flag": 0.0
+      },
+      "D-none": {
+        "change_honored": 0.0,
+        "slipped_flag": 0.041666666666666664
+      },
+      "D-nosoul": {
+        "change_honored": 1.0,
+        "slipped_flag": 0.0
+      },
+      "D-opp": {
+        "change_honored": 1.0,
+        "slipped_flag": 0.0
+      },
+      "D-swapmem": {
+        "change_honored": null,
+        "slipped_flag": null
+      }
+    },
+    "D9": {
+      "H-full": {
+        "harang": {
+          "F_style": 1.0,
+          "F_boundary": 1.0,
+          "F": 1.0
+        }
+      },
+      "H-p5a": {
+        "h_p5a": {
+          "F_style": 1.0,
+          "F_boundary": 1.0,
+          "F": 1.0
+        }
+      },
+      "H-p5b": {
+        "h_p5b": {
+          "F_style": 1.0,
+          "F_boundary": 1.0,
+          "F": 1.0
+        }
+      },
+      "H-none": {
+        "h_none": {
+          "F_style": 1.0,
+          "F_boundary": 1.0,
+          "F": 1.0
+        }
+      },
+      "D-full": {
+        "doyun": {
+          "F_style": 0.9791666666666666,
+          "F_boundary": 1.0,
+          "F": 0.9895833333333333
+        },
+        "opp": {
+          "F_style": 0.2245762711864407,
+          "F_boundary": 0.5714285714285714,
+          "F": 0.39800242130750607
+        }
+      },
+      "D-p5a": {
+        "d_p5a": {
+          "F_style": 0.9857142857142858,
+          "F_boundary": 1.0,
+          "F": 0.9928571428571429
+        },
+        "doyun": {
+          "F_style": 0.9857142857142858,
+          "F_boundary": 1.0,
+          "F": 0.9928571428571429
+        },
+        "opp": {
+          "F_style": 0.23529411764705882,
+          "F_boundary": 0.5714285714285714,
+          "F": 0.40336134453781514
+        }
+      },
+      "D-p5b": {
+        "d_p5b": {
+          "F_style": 0.9846153846153847,
+          "F_boundary": 1.0,
+          "F": 0.9923076923076923
+        },
+        "doyun": {
+          "F_style": 0.9142857142857143,
+          "F_boundary": 1.0,
+          "F": 0.9571428571428571
+        },
+        "opp": {
+          "F_style": 0.21323529411764705,
+          "F_boundary": 0.5714285714285714,
+          "F": 0.39233193277310924
+        }
+      },
+      "D-none": {
+        "d_none": {
+          "F_style": 0.9846153846153847,
+          "F_boundary": 1.0,
+          "F": 0.9923076923076923
+        },
+        "doyun": {
+          "F_style": 0.9142857142857143,
+          "F_boundary": 1.0,
+          "F": 0.9571428571428571
+        },
+        "opp": {
+          "F_style": 0.21323529411764705,
+          "F_boundary": 0.5714285714285714,
+          "F": 0.39233193277310924
+        }
+      },
+      "D-nosoul": {
+        "doyun": {
+          "F_style": 0.44166666666666665,
+          "F_boundary": 0.9285714285714286,
+          "F": 0.6851190476190476
+        },
+        "opp": {
+          "F_style": 0.4025423728813559,
+          "F_boundary": 0.5,
+          "F": 0.451271186440678
+        }
+      },
+      "D-opp": {
+        "opp": {
+          "F_style": 0.809322033898305,
+          "F_boundary": 1.0,
+          "F": 0.9046610169491525
+        },
+        "doyun": {
+          "F_style": 0.22083333333333333,
+          "F_boundary": 0.5714285714285714,
+          "F": 0.39613095238095236
+        }
+      },
+      "D-swapmem": {
+        "doyun": {
+          "F_style": 0.97,
+          "F_boundary": null,
+          "F": 0.97
+        },
+        "opp": {
+          "F_style": 0.21,
+          "F_boundary": null,
+          "F": 0.21
+        }
+      }
+    }
+  },
+  "grader_exact_agreement": 0.9854651162790697
+}
