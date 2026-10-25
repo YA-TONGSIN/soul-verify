@@ -1,0 +1,186 @@
+[
+  {
+    "qid": "R-03",
+    "attempt": 0,
+    "duration_s": 12.0,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.06858800000000001,
+    "error": null
+  },
+  {
+    "qid": "R-04",
+    "attempt": 0,
+    "duration_s": 13.3,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.070532,
+    "error": null
+  },
+  {
+    "qid": "A-04",
+    "attempt": 0,
+    "duration_s": 19.6,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.098912,
+    "error": null
+  },
+  {
+    "qid": "A-03",
+    "attempt": 0,
+    "duration_s": 15.0,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.095244,
+    "error": null
+  },
+  {
+    "qid": "R-05",
+    "attempt": 0,
+    "duration_s": 15.2,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.083764,
+    "error": null
+  },
+  {
+    "qid": "R-06",
+    "attempt": 0,
+    "duration_s": 15.2,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.084708,
+    "error": null
+  },
+  {
+    "qid": "A-05",
+    "attempt": 0,
+    "duration_s": 15.5,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.123476,
+    "error": null
+  },
+  {
+    "qid": "IH-4a",
+    "attempt": 0,
+    "duration_s": 14.3,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.081988,
+    "error": null
+  },
+  {
+    "qid": "A-06",
+    "attempt": 0,
+    "duration_s": 16.5,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.122524,
+    "error": null
+  },
+  {
+    "qid": "IH-2b",
+    "attempt": 0,
+    "duration_s": 12.0,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.07991999999999999,
+    "error": null
+  },
+  {
+    "qid": "NR-1",
+    "attempt": 0,
+    "duration_s": 18.3,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.109976,
+    "error": null
+  },
+  {
+    "qid": "IH-3a",
+    "attempt": 0,
+    "duration_s": 13.3,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.077788,
+    "error": null
+  },
+  {
+    "qid": "IH-3b",
+    "attempt": 0,
+    "duration_s": 13.2,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.082336,
+    "error": null
+  },
+  {
+    "qid": "IH-2a",
+    "attempt": 0,
+    "duration_s": 16.3,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.10205600000000001,
+    "error": null
+  },
+  {
+    "qid": "RL-1",
+    "attempt": 0,
+    "duration_s": 13.0,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.097692,
+    "error": null
+  },
+  {
+    "qid": "RL-3",
+    "attempt": 0,
+    "duration_s": 12.6,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.075484,
+    "error": null
+  },
+  {
+    "qid": "RL-4",
+    "attempt": 0,
+    "duration_s": 14.8,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.09653600000000001,
+    "error": null
+  },
+  {
+    "qid": "RL-5",
+    "attempt": 0,
+    "duration_s": 23.3,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.133432,
+    "error": null
+  },
+  {
+    "qid": "RL-2",
+    "attempt": 0,
+    "duration_s": 22.7,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.149512,
+    "error": null
+  },
+  {
+    "qid": "NR-2",
+    "attempt": 0,
+    "duration_s": 15.3,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.101024,
+    "error": null
+  },
+  {
+    "qid": "X-04",
+    "attempt": 0,
+    "duration_s": 18.7,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.10189200000000001,
+    "error": null
+  },
+  {
+    "qid": "X-02",
+    "attempt": 0,
+    "duration_s": 16.7,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.101996,
+    "error": null
+  },
+  {
+    "qid": "X-03",
+    "attempt": 0,
+    "duration_s": 22.5,
+    "model_id": "claude-opus-5-5",
+    "cost_usd": 0.111776,
+    "error": null
+  }
+]

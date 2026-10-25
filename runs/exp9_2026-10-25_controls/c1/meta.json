@@ -1,0 +1,71 @@
+{
+  "run_id": "exp9_2026-10-25_controls/c1",
+  "models": [
+    "opus",
+    "sonnet",
+    "gpt-6.1-sol"
+  ],
+  "n": 3,
+  "questions": [
+    "R-03",
+    "A-03",
+    "R-04",
+    "A-04",
+    "R-05",
+    "A-05",
+    "R-06",
+    "A-06",
+    "IH-4a",
+    "NR-1",
+    "IH-2a",
+    "IH-2b",
+    "IH-3a",
+    "IH-3b",
+    "RL-1",
+    "RL-2",
+    "RL-3",
+    "RL-4",
+    "RL-5",
+    "NR-2",
+    "X-02",
+    "X-03",
+    "X-04"
+  ],
+  "questions_version": "0.4",
+  "reference_date": "2026-10-25",
+  "system_prompt_sha256": "7ba09d98e98d1b8eb4bda03090f5243599b7b2e3f7b4b49e54b6ed99cd32056c",
+  "questions_path": "v0.4/questions.yaml",
+  "samples": {
+    "soul": "runs/exp9_2026-10-25_controls/conditions/C1_SOUL_minimal.md",
+    "memory": "v0.4/samples/MEMORY.md",
+    "memory_extra": []
+  },
+  "adapters": {
+    "opus": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "sonnet": {
+      "name": "claude-cli",
+      "version": "2.1.289 (Claude Code)"
+    },
+    "gpt-6.1-sol": {
+      "name": "codex-cli",
+      "version": "codex-cli 0.164.0"
+    }
+  },
+  "generation_settings": "CLI defaults (temperature not settable via claude -p / codex exec); codex uses the model's default reasoning effort",
+  "started": "2026-10-25T10:07:14.903443+09:00",
+  "finished": "2026-10-25T10:12:36.337623+09:00",
+  "wall_s": 321.4,
+  "stopped_early": false,
+  "condition": "c1",
+  "date_guard": {
+    "reference_date": "2026-10-25",
+    "n_used": 3,
+    "estimate_s": 2468,
+    "all_calls_on_reference_date": true,
+    "first_ts": "2026-10-25T10:07:19.777145+09:00",
+    "last_ts": "2026-10-25T10:12:36.336572+09:00"
+  }
+}

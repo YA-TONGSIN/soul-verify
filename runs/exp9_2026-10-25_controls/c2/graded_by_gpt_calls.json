@@ -1,0 +1,186 @@
+[
+  {
+    "qid": "R-03",
+    "attempt": 0,
+    "duration_s": 11.8,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "R-04",
+    "attempt": 0,
+    "duration_s": 14.1,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "A-03",
+    "attempt": 0,
+    "duration_s": 16.1,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "A-04",
+    "attempt": 0,
+    "duration_s": 15.6,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "R-05",
+    "attempt": 0,
+    "duration_s": 18.1,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "R-06",
+    "attempt": 0,
+    "duration_s": 12.2,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "IH-4a",
+    "attempt": 0,
+    "duration_s": 11.2,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "A-05",
+    "attempt": 0,
+    "duration_s": 22.0,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "A-06",
+    "attempt": 0,
+    "duration_s": 20.0,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "NR-1",
+    "attempt": 0,
+    "duration_s": 14.2,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "IH-2a",
+    "attempt": 0,
+    "duration_s": 13.8,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "IH-3a",
+    "attempt": 0,
+    "duration_s": 14.0,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "IH-2b",
+    "attempt": 0,
+    "duration_s": 15.3,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "IH-3b",
+    "attempt": 0,
+    "duration_s": 16.2,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "RL-1",
+    "attempt": 0,
+    "duration_s": 11.0,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "RL-3",
+    "attempt": 0,
+    "duration_s": 13.6,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "RL-4",
+    "attempt": 0,
+    "duration_s": 17.8,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "RL-2",
+    "attempt": 0,
+    "duration_s": 19.5,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "RL-5",
+    "attempt": 0,
+    "duration_s": 15.3,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "X-02",
+    "attempt": 0,
+    "duration_s": 17.4,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "NR-2",
+    "attempt": 0,
+    "duration_s": 14.4,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "X-04",
+    "attempt": 0,
+    "duration_s": 15.4,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  },
+  {
+    "qid": "X-03",
+    "attempt": 0,
+    "duration_s": 17.7,
+    "model_id": "gpt-6.1-sol",
+    "cost_usd": null,
+    "error": null
+  }
+]
