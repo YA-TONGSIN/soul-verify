@@ -8,8 +8,16 @@ authors:
     affiliation: "Independent researcher"
 repository-code: "https://github.com/YA-TONGSIN/soul-verify"
 license: MIT
-version: "0.7"
+version: "0.7.1"
 date-released: "2026-10-26"
+doi: "10.5281/zenodo.23653775"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.23653775"
+    description: "Zenodo concept DOI (all versions)"
+  - type: doi
+    value: "10.5281/zenodo.23653776"
+    description: "Zenodo version DOI, v0.7.1"
 keywords:
   - large language models
   - agents
@@ -33,4 +41,5 @@ preferred-citation:
   year: 2026
   status: preprint
   url: "https://github.com/YA-TONGSIN/soul-verify"
-  notes: "Preprint, version 0.7. arXiv identifier to be added after submission."
+  doi: "10.5281/zenodo.23653775"
+  notes: "Preprint, version 0.7.1, published on Zenodo. arXiv identifier to be added after submission."

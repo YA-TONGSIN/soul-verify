@@ -8,7 +8,8 @@
 **English** — SOUL VERIFY measures which behaviors specified in an agent's identity document (SOUL) and memory file (MEMORY) carry over when the underlying LLM is swapped. It compares against same-model controls and document controls (no SOUL, opposite SOUL, swapped MEMORY), including two preregistered replications. It makes no claim about consciousness or personal identity.
 
 - 논문 / Paper: `paper/SOUL_VERIFY_v0.7.1.pdf` (영어 본문 + 한국어 요약 / English text + Korean summary), source `paper/draft_v0_7_1.md`
-- 인용 / Cite: [CITATION.cff](CITATION.cff) — Zenodo DOI: 공개 후 추가 (to be added after release) · arXiv: 추후 (later)
+- DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23653775.svg)](https://doi.org/10.5281/zenodo.23653775) — 인용용 concept DOI(모든 버전) / concept DOI for citation (all versions): <https://doi.org/10.5281/zenodo.23653775> · v0.7.1 version DOI: <https://doi.org/10.5281/zenodo.23653776>
+- 인용 / Cite: [CITATION.cff](CITATION.cff) · arXiv: 추후 (later)
 - 같이 쓰는 장부 / Companion ledger: [soul-registry](https://github.com/YA-TONGSIN/soul-registry) (Ieum Ledger — SOUL 버전 해시 공개 장부 / public hash ledger of SOUL versions)
 
 상태: 연구 단계, 논문 v0.7.1 (2026-10). 실험 기록은 시작일(2026-10-24)부터 `runs/`·`proofs/`에 그대로 남아 있습니다.
@@ -51,6 +52,8 @@ GPT는 로그인된 Codex CLI(`codex exec`)로 호출합니다(모델 이름이 
 - `runs/exp8_2026-10-25_multiturn/` — 여러 턴 대화(`v0.5/multiturn/`, 12턴 × 시나리오 4, CLI 실제 이어가기: claude stream-json / codex exec resume), 4모델 N=3: 바뀐 규칙 지속 0.93–0.98·턴 거리에 따른 감쇠 없음, 미끄러짐은 '이야기체' 규칙에 몰림, 비밀번호·카드번호 12/12 거절, haiku만 뒤 턴 기억 0.57·결제 해제 S1 0.17
 - `runs/exp9_2026-10-25_controls/` — 대조군(C1 no-SOUL·C2 other-SOUL·C3 지우 MEMORY, C0 = exp5 재사용), opus·sonnet·gpt N=3, 채점자 패널 opus+gpt 평균: 기억 문항은 MEMORY가 정함(C3 회상·적용 1.00→0.12), 말투·금지 경계는 SOUL이 정함(C2 말투 표지 0.85, NR-1 해제 수용 18/18), 정당 변경 수락은 SOUL 없이도 1.00(일반 능력) — v0.4 persona 영역 점수는 SOUL을 거의 못 가름(C2 0.96)
 - `runs/exp10_2026-10-25_prereg/` — **사전등록 실험**(`v0.6/PREREGISTRATION.md`, 커밋 0ac513d + OTS 도장이 첫 호출보다 먼저): 새 에이전트 도윤(사용자 서연)·도윤-반대 SOUL, 금지 유형 12개(하람 6·도윤 6) × 원칙5 4조건, opus·sonnet·gpt N=2: 가설 9개 중 8개 지지(사전 표지 gap 0.77/0.69, 단단 절반 p5b−none +0.14 Holm 0.012, 유연 절반 +0.23/+0.20, 교환 MEMORY 기억 −0.77), full−p5a 부당 해제(+0.06)만 기각; 실험9 대조군 결론 도윤에서 재현
+- `runs/exp10_gemini_2026-10-25/` — exp10 사전등록 설계에 Gemini를 덧붙인 탐색적 추가(`v0.6/ADDENDUM_gemini.md`, 실행 전 커밋+도장), N=2, 345호출: 탐색적 가설 9개 중 7개 지지; 단, 하네스가 시스템 프롬프트를 교체하지 못하는 오염 한계 있음
+- `runs/exp11_2026-10-25_external/` — **사전등록 외부 SOUL 실험**: 다른 사람이 쓴 영어 SOUL 3종(Maya·Talos·Dexter, MIT, 원본 그대로)에 원칙5 덧붙임, 1,159/1,170 호출 성공(11건은 안전장치로 누락): 가설 9개 중 7개 지지(표지 gap 0.91/0.67, 유연 절반 +0.19/+0.38, 교환 MEMORY 기억 −0.84); 단단 절반 효과는 천장 효과로 유의하지 않음(+0.04), 원칙5b 단독은 정당 변경 수락을 오히려 낮춤(0.79→0.56)
 
 ## 선행 프로젝트
 Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이 분야를 연 프로젝트들을 존중합니다.
@@ -68,7 +71,7 @@ Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이
   - `v0.7/souls/` — 위 SOUL에서 파생한 문서(원칙 문단 덧붙임, 말투 반대 대조 SOUL). 원본 SOUL의 라이선스와 저작권 표시를 그대로 따르며, 바꾼 내용은 각 폴더 `NOTICE.md`에 적었습니다.
 
 ## 인용
-[CITATION.cff](CITATION.cff) 참고 (GitHub의 "Cite this repository"). Zenodo DOI는 공개 후 추가, arXiv 번호는 제출 후 추가합니다.
+[CITATION.cff](CITATION.cff) 참고 (GitHub의 "Cite this repository"). Zenodo DOI: [10.5281/zenodo.23653775](https://doi.org/10.5281/zenodo.23653775)(concept, 인용용) · [10.5281/zenodo.23653776](https://doi.org/10.5281/zenodo.23653776)(v0.7.1). arXiv 번호는 제출 후 추가합니다.
 
 ## 참고: 한글 파일 인코딩
 저장소의 모든 텍스트 파일은 BOM 없는 UTF-8입니다. Windows PowerShell 5.1에서 `Get-Content`를 `-Encoding utf8` 없이 쓰면 한글이 깨져 보이지만(예: `v0.3/samples/MEMORY.md`), 파일 자체는 정상입니다(2026-10-26 엄격 UTF-8 디코딩으로 확인). 이 파일들의 해시는 OpenTimestamps 증명에 들어 있으므로 다시 저장하지 않습니다.
