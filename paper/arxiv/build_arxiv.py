@@ -1,6 +1,6 @@
 """Build the arXiv LaTeX source of the paper from the Markdown draft (English only).
 
-Usage:  python paper/arxiv/build_arxiv.py [--draft paper/draft_v0_7.md] [--compile]
+Usage:  python paper/arxiv/build_arxiv.py [--draft paper/draft_v0_7_1.md] [--compile]
 Writes  paper/arxiv/src/main.tex (+ fig1_halves.png) and, with --compile,
         paper/arxiv/build/main.pdf (tectonic = XeLaTeX engine) and paper/arxiv/soul_verify_arxiv_src.zip.
 
@@ -76,13 +76,15 @@ def md_to_latex(md: str) -> str:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--draft", default=str(PAPER / "draft_v0_7.md"))
+    ap.add_argument("--draft", default=str(PAPER / "draft_v0_7_1.md"))
     ap.add_argument("--compile", action="store_true")
     args = ap.parse_args()
 
     text = pathlib.Path(args.draft).read_text(encoding="utf-8")
     lines = text.split("\n")
     title = lines[0].lstrip("# ").strip()
+    # "**Preprint, version 0.7.1 (2026-10-26).**" -> "Preprint, version 0.7.1 (2026-10-26)"
+    version = re.search(r"^\*\*(Preprint, version [^*]+?)\.?\*\*\s*$", text, flags=re.M).group(1)
 
     # split: front matter / abstract / body
     abs_start = text.index("## Abstract")
@@ -110,7 +112,7 @@ def main():
     head = (PREAMBLE +
             "\\title{" + pypandoc.convert_text(title, "latex", format="markdown").strip() + "}\n"
             "\\author{Wunjong Shin\\\\ Independent Researcher\\\\ \\texttt{dkakrptehsrk@gmail.com}}\n"
-            "\\date{Preprint, version 0.7 (2026-10-25)}\n"
+            "\\date{" + version + "}\n"
             "\\begin{document}\n\\maketitle\n\\begin{abstract}\n" + abstract_tex + "\n\\end{abstract}\n")
     tex = head + body_tex + "\n\\end{document}\n"
 
