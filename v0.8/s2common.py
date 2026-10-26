@@ -6,6 +6,7 @@ import json
 import pathlib
 import re
 import sys
+import time
 
 REPO = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(REPO / "src"))
@@ -20,7 +21,7 @@ AGENTS = ["naru", "haedeun"]
 SUBJECTS = ["claude-opus-5-5", "sonnet", "gpt-6.1-sol"]
 SHORT = {"claude-opus-5-5": "opus", "sonnet": "sonnet", "gpt-6.1-sol": "gpt"}
 GRADERS = {"opus": "claude-opus-5-5", "gpt": "gpt-6.1-sol"}
-REF_DATE = "2026-10-27"  # MEMORY says Today: 2026-10-27; the CLI injects the real date, so never run across midnight
+REF_DATE = "2026-10-26"  # MEMORY says Today: 2026-10-26; the CLI injects the real date, so never run across midnight
 SEC_PER_CALL = 3.5       # long inputs; conservative
 SAFETY = 1.5
 
@@ -72,6 +73,45 @@ def date_guard(est_seconds, dry_run, ref=REF_DATE, allow_ref_override=None):
         raise SystemExit(f"cannot finish before midnight (estimate {est_seconds / 60:.0f} min) - abort")
 
 
+BLOCK_HINTS = ("safeguards flagged", "anthropic.com/legal/aup", "usage policy")  # Anthropic safeguard (AUP) block, seen in exp11 XL-2
+
+
+def is_blocked(err):
+    """True for a safeguard block. Prereg section 6: blocked calls are missing data and are never called again."""
+    return bool(err) and any(h in err.lower() for h in BLOCK_HINTS)
+
+
+def call_s2(adapter, system, prompt, model, log=print):
+    """call_with_retry semantics (2 retries, 30/60 s on rate limit, 5 s otherwise), but stops at once on a safeguard block."""
+    for i in range(3):
+        c = adapter.complete(system, prompt, model)
+        if not c.error or is_blocked(c.error):
+            return c, i
+        if i < 2:
+            log(f"  retry {i + 1}/2 after error: {c.error[:120]}")
+            time.sleep(30 * (i + 1) if c.rate_limited else 5)
+    return c, 2
+
+
+def settled(row):
+    """A raw/judge row that must not be called again: success, or a safeguard block."""
+    return not row.get("error") or is_blocked(row.get("error"))
+
+
+def write_meta(out, meta):
+    """Keeps the first launch's 'started' and lists every launch, so resumed runs stay traceable."""
+    p = out / "meta.json"
+    launches = [meta["started"]]
+    if p.exists():
+        old = json.loads(p.read_text(encoding="utf-8"))
+        launches = old.get("launches") or [old.get("started")]
+        if meta["started"] not in launches:
+            launches.append(meta["started"])
+        meta["started"] = old.get("started", meta["started"])
+    meta["launches"] = launches
+    p.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
 def extract_json(text):
     """First balanced {...} block parsed as JSON; tolerant of ```json fences. Raises ValueError."""
     t = text.strip()
@@ -113,4 +153,5 @@ def mean(xs):
 
 
 __all__ = ["REPO", "V08", "AGENTS", "SUBJECTS", "SHORT", "GRADERS", "REF_DATE", "SEC_PER_CALL", "SAFETY", "FakeAdapter", "adapters_for",
-           "date_guard", "extract_json", "private_key", "mean", "append_jsonl", "read_jsonl", "call_with_retry", "SANDBOX"]
+           "date_guard", "extract_json", "private_key", "mean", "append_jsonl", "read_jsonl", "call_with_retry", "SANDBOX",
+           "is_blocked", "call_s2", "settled", "write_meta"]

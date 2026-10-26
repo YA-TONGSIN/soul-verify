@@ -59,7 +59,7 @@ def main():
                          "by_model": {SHORT[m]: mean([v for k, v in cell.items() if k[0] == t and k[2] == m]) for m in SUBJECTS},
                          "by_variant": {f"{k[1]}:{k[3]}": v for k, v in cell.items() if k[0] == t}}
     P = {"H2": boot_p_below([v for k, v in cell.items() if k[0] == "C"], 0.8), "H3": boot_p_below([v for k, v in cell.items() if k[0] == "D"], 0.8)}
-    adj = dict(zip(P, holm(list(P.values()))))
+    adj = dict(zip(P, holm([p if p is not None else 1.0 for p in P.values()])))  # same None handling as analyze4
     J["H2"] = {"detect_C": J["types"]["C"]["detect"], "p": P["H2"], "holm": adj["H2"]}
     J["H3"] = {"detect_D": J["types"]["D"]["detect"], "p": P["H3"], "holm": adj["H3"]}
     # exploratory: related vs unrelated probe flag rates (both judges), either-judge rule, thresholds k=1..3

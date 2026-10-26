@@ -19,8 +19,8 @@ from concurrent.futures import ThreadPoolExecutor
 HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
 sys.path.insert(0, str(HERE))
-from s2common import (AGENTS, REPO, SAFETY, SEC_PER_CALL, SUBJECTS, adapters_for, append_jsonl, call_with_retry, date_guard,  # noqa: E402
-                      read_jsonl)
+from s2common import (AGENTS, REPO, SAFETY, SEC_PER_CALL, SUBJECTS, adapters_for, append_jsonl, call_s2, date_guard,  # noqa: E402
+                      read_jsonl, settled, write_meta)
 import prompts  # noqa: E402
 
 CONDS = ["zones", "plain"]
@@ -45,7 +45,6 @@ if __name__ == "__main__":
     a = ap.parse_args()
     n = 1 if a.smoke else a.n
     total = len(cells(a.smoke)) * len(SUBJECTS) * n
-    date_guard(total * SEC_PER_CALL * SAFETY, a.dry_run, allow_ref_override=a.ref_date)
     name = "dryrun_s2w1_exp4" if a.dry_run else ("smoke_s2w1_exp4" if a.smoke else "s2w1_exp4")
     out = REPO / "runs" / (a.out or name)
     out.mkdir(parents=True, exist_ok=True)
@@ -58,19 +57,20 @@ if __name__ == "__main__":
             "user_prompt_sha256": {f"{ag}|set{k}": hashlib.sha256(u.encode()).hexdigest() for (ag, k), u in users.items()},
             "interleave": "per repetition: random.Random(12 + rep).shuffle(all (agent, set, cond, model))",
             "generation_settings": "CLI defaults", "started": dt.datetime.now().astimezone().isoformat()}
-    (out / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
-    done = {(r["agent"], r["set"], r["cond"], r["model"], r["rep"]) for r in read_jsonl(raw) if not r.get("error")}
+    done = {(r["agent"], r["set"], r["cond"], r["model"], r["rep"]) for r in read_jsonl(raw) if settled(r)}
     jobs = []
     for rep in range(1, n + 1):
         block = [(ag, k, c, m) for ag, k, c in cells(a.smoke) for m in SUBJECTS]
         random.Random(12 + rep).shuffle(block)
         jobs += [(rep, ag, k, c, m) for ag, k, c, m in block if (ag, k, c, m, rep) not in done]
+    date_guard(len(jobs) * SEC_PER_CALL * SAFETY, a.dry_run, allow_ref_override=a.ref_date)  # remaining calls (resume-aware)
+    write_meta(out, meta)
     print(f"calls planned {total}, to run {len(jobs)}", flush=True)
     lock, cnt = threading.Lock(), {"n": 0, "err": 0}
 
     def work(job):
         rep, ag, k, c, m = job
-        call, retries = call_with_retry(adapters[m], systems[(ag, c)], users[(ag, k)], m, log=lambda s: print(s, flush=True))
+        call, retries = call_s2(adapters[m], systems[(ag, c)], users[(ag, k)], m, log=lambda s: print(s, flush=True))
         row = {"agent": ag, "set": k, "cond": c, "model": m, "model_id": call.model_id, "rep": rep, "response": call.text,
                "duration_s": round(call.duration_s, 2), "cost_usd": call.cost_usd, "input_tokens": call.input_tokens,
                "output_tokens": call.output_tokens, "retries": retries, "error": call.error,
@@ -85,5 +85,5 @@ if __name__ == "__main__":
     with ThreadPoolExecutor(max_workers=a.workers) as ex:
         list(ex.map(work, jobs))
     meta.update({"finished": dt.datetime.now().astimezone().isoformat(), "wall_s": round(time.time() - t0, 1), "errors": cnt["err"]})
-    (out / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_meta(out, meta)
     print(f"done: {cnt['n']} calls, {cnt['err']} errors -> {out}", flush=True)

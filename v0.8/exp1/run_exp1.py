@@ -20,8 +20,8 @@ import yaml
 
 HERE = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE.parent))
-from s2common import (AGENTS, REPO, SAFETY, SEC_PER_CALL, SUBJECTS, V08, adapters_for, append_jsonl, call_with_retry, date_guard,  # noqa: E402
-                      read_jsonl)
+from s2common import (AGENTS, REPO, SAFETY, SEC_PER_CALL, SUBJECTS, V08, adapters_for, append_jsonl, call_s2, date_guard,  # noqa: E402
+                      read_jsonl, settled, write_meta)
 from soul_verify.common import subject_system_prompt  # noqa: E402
 
 N_VARIANT, N_ORIG = 2, 6
@@ -64,7 +64,6 @@ if __name__ == "__main__":
     a = ap.parse_args()
     base = job_list(a.smoke)
     total = len(base) * len(SUBJECTS)
-    date_guard(total * SEC_PER_CALL * SAFETY, a.dry_run, allow_ref_override=a.ref_date)
     name = "dryrun_s2w1_exp1" if a.dry_run else ("smoke_s2w1_exp1" if a.smoke else "s2w1_exp1")
     out = REPO / "runs" / (a.out or name)
     out.mkdir(parents=True, exist_ok=True)
@@ -80,16 +79,18 @@ if __name__ == "__main__":
             "system_prompt_sha256": {f"{ag}|{vid}": hashlib.sha256(s.encode()).hexdigest() for (ag, vid), s in systems.items()},
             "interleave": "random.Random(13).shuffle(all (agent, variant, probe, rep, model))", "generation_settings": "CLI defaults",
             "started": dt.datetime.now().astimezone().isoformat()}
-    (out / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
-    done = {(r["agent"], r["variant"], r["probe"], r["rep"], r["model"]) for r in read_jsonl(raw) if not r.get("error")}
+    done = {(r["agent"], r["variant"], r["probe"], r["rep"], r["model"]) for r in read_jsonl(raw) if settled(r)}
     jobs = [(ag, vid, pid, rep, m) for ag, vid, pid, rep in base for m in SUBJECTS if (ag, vid, pid, rep, m) not in done]
     random.Random(13).shuffle(jobs)
+    # remaining calls (resume-aware); calls run in parallel, so the serial estimate is already conservative
+    date_guard(len(jobs) * SEC_PER_CALL * SAFETY / max(1, a.workers // 2), a.dry_run, allow_ref_override=a.ref_date)
+    write_meta(out, meta)
     print(f"calls planned {total}, to run {len(jobs)}", flush=True)
     lock, cnt = threading.Lock(), {"n": 0, "err": 0}
 
     def work(job):
         ag, vid, pid, rep, m = job
-        call, retries = call_with_retry(adapters[m], systems[(ag, vid)], prompts_[(ag, pid)], m, log=lambda s: print(s, flush=True))
+        call, retries = call_s2(adapters[m], systems[(ag, vid)], prompts_[(ag, pid)], m, log=lambda s: print(s, flush=True))
         row = {"agent": ag, "variant": vid, "probe": pid, "rep": rep, "model": m, "model_id": call.model_id, "response": call.text,
                "duration_s": round(call.duration_s, 2), "input_tokens": call.input_tokens, "output_tokens": call.output_tokens,
                "retries": retries, "error": call.error, "ts": dt.datetime.now().astimezone().isoformat()}
@@ -104,5 +105,5 @@ if __name__ == "__main__":
     with ThreadPoolExecutor(max_workers=a.workers) as ex:
         list(ex.map(work, jobs))
     meta.update({"finished": dt.datetime.now().astimezone().isoformat(), "wall_s": round(time.time() - t0, 1), "errors": cnt["err"]})
-    (out / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_meta(out, meta)
     print(f"done: {cnt['n']} calls, {cnt['err']} errors -> {out}", flush=True)

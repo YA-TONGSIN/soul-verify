@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Builds the blind human-grading sheets (author-graded) from finished runs. No model calls.
-  python v0.8/human/build_human_sheets.py --exp4 runs/s2w1_exp4 --exp1 runs/s2w1_exp1 --out runs/s2w1_human [--dry-run-ok]
+  python v0.8/human/build_human_sheets.py --exp4 runs/s2w1_exp4 --exp1 runs/s2w1_exp1 --out runs/s2w1_human
 Outputs in --out:  SHEET_exp4.md  SHEET_exp1.md  (phone-friendly, no model/condition/variant names)
                    items_exp4.csv items_exp1.csv   (blank answer templates)
                    HUMAN_KEY.json                  (item -> source ids; keep out of the grader's sight; gitignored)

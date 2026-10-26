@@ -8,7 +8,7 @@ import pathlib
 
 REPO = pathlib.Path(__file__).resolve().parents[1]
 V08 = REPO / "v0.8"
-SKIP = {"FREEZE_MANIFEST.txt", "PREREGISTRATION_DRAFT.md"}  # the prereg text itself is committed, hashed by git; manifest cannot contain itself
+SKIP = {"FREEZE_MANIFEST.txt", "PREREGISTRATION_DRAFT.md", "PREREGISTRATION.md", "DEVIATIONS.md", "NOTES.md"}  # the prereg text itself is committed, hashed by git; manifest cannot contain itself
 
 
 def files():
