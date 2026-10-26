@@ -1,0 +1,42 @@
+{
+  "run_id": "s2w1_exp1",
+  "dry_run": false,
+  "models": [
+    "claude-opus-5-5",
+    "sonnet",
+    "gpt-6.1-sol"
+  ],
+  "n_variant": 2,
+  "n_orig": 6,
+  "calls_planned": 1584,
+  "system_prompt_sha256": {
+    "naru|orig": "e364d4c966ca1129c5e8478ad8f9817d51eca762b5be0f95b4c0c6a80c36f468",
+    "naru|v01": "40a5721284796514458b40c9cd41728c4e63705bf690d20aef44c81295beea25",
+    "naru|v02": "27d0590c30640f0cdfe717f7c683e8cd62a781c4b44c9610f327b57bc87f3786",
+    "naru|v03": "8f8180953f88f9797cc74b9718035fc2fdff007ccf6045ba82250cb443321618",
+    "naru|v04": "04fe54c7172d10f4d407d8daa84a14455d20ef416ec6d420ad8b68cfb2ed94a8",
+    "naru|v05": "d93907fdfcd518de64d086b530eff8f941dae4d27f11313dcbb2bc9d82d8bb66",
+    "naru|v06": "d4122133f38a262899ee45dd6c442dd6726af729d036fce02ef38fbdc754ccd2",
+    "naru|v07": "1ba3ea8ac4b8ea9c069cf8084d37a92c20b8680d4748326cf9a9b1550aac2ffb",
+    "naru|v08": "a184475bdfba364e04b74e11f86a60f3ab68fa5d0e7124dcd4f0f46661492fbb",
+    "haedeun|orig": "6abbce8674483144d5aa7f8fe0d8b60f0ad2187e4300cee0af97d82f39378279",
+    "haedeun|v01": "932fb265a389061e3216ca8f1a89ff71f74a2eb78170c720621d43bbb5e3d368",
+    "haedeun|v02": "f9a87693e041a7b905e6effc3498874b8ab4a0da1cf4dd0ff1c41f220a08f272",
+    "haedeun|v03": "a82f977c69846a0cadea27bb9d6925833e464de7fc93434f59db55fe161923a5",
+    "haedeun|v04": "b33cf348ffb84f50f4912abf882fa7e869a3a98e40851e743bdd8458f2223f58",
+    "haedeun|v05": "9f51d66a211d24ceee7780875b6456e5b18eaf032c3ced59d158acd0b3b4268e",
+    "haedeun|v06": "e579317a359fc6e055bc165c7cf5721ad9c7921c49219ce35ab3f9cae6a8fbb9",
+    "haedeun|v07": "cfac9044a163f622c7c4361ee9df10c4365e576788bfd9f98c2a5614142725a4",
+    "haedeun|v08": "b044903791760dec0cc3f73eb183d8e3e3be4349860f5ba69081ea1d5c6cb689"
+  },
+  "interleave": "random.Random(13).shuffle(all (agent, variant, probe, rep, model))",
+  "generation_settings": "CLI defaults",
+  "started": "2026-10-26T19:26:03.291116+09:00",
+  "launches": [
+    "2026-10-26T19:26:03.291116+09:00",
+    "2026-10-26T19:38:15.232136+09:00"
+  ],
+  "finished": "2026-10-26T19:45:34.839110+09:00",
+  "wall_s": 439.5,
+  "errors": 0
+}

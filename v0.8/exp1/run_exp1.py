@@ -61,6 +61,7 @@ if __name__ == "__main__":
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--out", default=None)
     ap.add_argument("--ref-date", default=None)
+    ap.add_argument("--models", nargs="*", default=None, help="run only these subject models now (D4: gpt outage)")
     a = ap.parse_args()
     base = job_list(a.smoke)
     total = len(base) * len(SUBJECTS)
@@ -82,6 +83,8 @@ if __name__ == "__main__":
     done = {(r["agent"], r["variant"], r["probe"], r["rep"], r["model"]) for r in read_jsonl(raw) if settled(r)}
     jobs = [(ag, vid, pid, rep, m) for ag, vid, pid, rep in base for m in SUBJECTS if (ag, vid, pid, rep, m) not in done]
     random.Random(13).shuffle(jobs)
+    if a.models:  # D4: gpt outage - run only these models now, keeping the shuffled order
+        jobs = [j for j in jobs if j[4] in a.models]
     # remaining calls (resume-aware); calls run in parallel, so the serial estimate is already conservative
     date_guard(len(jobs) * SEC_PER_CALL * SAFETY / max(1, a.workers // 2), a.dry_run, allow_ref_override=a.ref_date)
     write_meta(out, meta)

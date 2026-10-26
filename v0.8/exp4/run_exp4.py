@@ -42,6 +42,7 @@ if __name__ == "__main__":
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--out", default=None)
     ap.add_argument("--ref-date", default=None)
+    ap.add_argument("--models", nargs="*", default=None, help="run only these subject models now (D4: gpt outage); order is unchanged")
     a = ap.parse_args()
     n = 1 if a.smoke else a.n
     total = len(cells(a.smoke)) * len(SUBJECTS) * n
@@ -62,7 +63,7 @@ if __name__ == "__main__":
     for rep in range(1, n + 1):
         block = [(ag, k, c, m) for ag, k, c in cells(a.smoke) for m in SUBJECTS]
         random.Random(12 + rep).shuffle(block)
-        jobs += [(rep, ag, k, c, m) for ag, k, c, m in block if (ag, k, c, m, rep) not in done]
+        jobs += [(rep, ag, k, c, m) for ag, k, c, m in block if (ag, k, c, m, rep) not in done and (not a.models or m in a.models)]
     date_guard(len(jobs) * SEC_PER_CALL * SAFETY, a.dry_run, allow_ref_override=a.ref_date)  # remaining calls (resume-aware)
     write_meta(out, meta)
     print(f"calls planned {total}, to run {len(jobs)}", flush=True)

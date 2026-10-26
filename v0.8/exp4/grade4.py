@@ -178,6 +178,7 @@ if __name__ == "__main__":
     ap.add_argument("--run", default="runs/s2w1_exp4")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--graders", nargs="*", default=list(GRADERS), help="judge with these graders now (D4: gpt outage)")
     a = ap.parse_args()
     run = REPO / a.run
     key = private_key("exp4_key.json")
@@ -187,7 +188,7 @@ if __name__ == "__main__":
         by_unit.setdefault((r["agent"], r["set"], r["cond"]), []).append(r)
     adapters = {g: a_ for g, a_ in zip(GRADERS, adapters_for(list(GRADERS.values()), a.dry_run, "grade4").values())}
     jobs = []
-    for g in GRADERS:
+    for g in a.graders:
         done = {(u["agent"], u["set"], u["cond"]) for u in read_jsonl(run / f"units_{g}.jsonl") if u["ok"] or is_blocked(u.get("error"))}
         jobs += [(ag, k, c, g) for (ag, k, c) in sorted(by_unit) if (ag, k, c) not in done]
     random.Random(0).shuffle(jobs)

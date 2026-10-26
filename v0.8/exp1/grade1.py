@@ -93,6 +93,7 @@ if __name__ == "__main__":
     ap.add_argument("--run", default="runs/s2w1_exp1")
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--graders", nargs="*", default=list(GRADERS), help="judge with these graders now (D4: gpt outage)")
     a = ap.parse_args()
     run = REPO / a.run
     rows = [r for r in read_jsonl(run / "raw.jsonl") if not r.get("error")]
@@ -101,7 +102,7 @@ if __name__ == "__main__":
         sessions.setdefault((r["agent"], r["model"], r["variant"], r["rep"]), {})[r["probe"]] = r["response"]
     adapters = dict(zip(GRADERS, adapters_for(list(GRADERS.values()), a.dry_run, "judge1").values()))
     jobs = []
-    for g in GRADERS:
+    for g in a.graders:
         done = {(u["agent"], u["model"], u["variant"], u["rep"]) for u in read_jsonl(run / f"units_{g}.jsonl") if u["ok"] or is_blocked(u.get("error"))}
         jobs += [(s, g) for s in sorted(sessions) if s not in done]
     random.Random(0).shuffle(jobs)

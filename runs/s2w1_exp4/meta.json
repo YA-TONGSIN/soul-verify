@@ -1,0 +1,37 @@
+{
+  "run_id": "s2w1_exp4",
+  "dry_run": false,
+  "models": [
+    "claude-opus-5-5",
+    "sonnet",
+    "gpt-6.1-sol"
+  ],
+  "n": 3,
+  "calls_planned": 144,
+  "prompt_sha256": {
+    "naru|zones": "abe5e68c3ec3d615d00fe780cf5bb3d100f41d92753671cecc7c9fcd258d46ae",
+    "naru|plain": "4aaf2fe42cc77455bf49b2cefca3a226dede7134d0a03e484bb0a1a130b56b6b",
+    "haedeun|zones": "6b60ddc8e3817264f4dd22d84523007ce1ccc1c700587e402080dff32e6c10ee",
+    "haedeun|plain": "4aaf2fe42cc77455bf49b2cefca3a226dede7134d0a03e484bb0a1a130b56b6b"
+  },
+  "user_prompt_sha256": {
+    "naru|set1": "9f711867c7c78af4268d9cf749753d287bf5afd67e325450d2e27654e5809d89",
+    "naru|set2": "413168b88f02fbeb43604e2f9e1d4b192f2c11084a94d4ef634b760af5ecbbf7",
+    "naru|set3": "ef569b71950dc112c2aa93f8461a59e16caf143cbc897bb33b02a557afe06918",
+    "naru|set4": "9565e08de22c9134ab3054619e5174481e78a6d5fdc5db2a1dfdfd630c3b6a04",
+    "haedeun|set1": "dbc92cce6d670011f0779a6fbdd293e734fba93d4b87e479d48d0ba0af1cd18f",
+    "haedeun|set2": "a51a33a4fef7352c110e0daef0220a780bcfafc533e1d68d0a4db4f7f57521ff",
+    "haedeun|set3": "3ec6e3cfa1f42fcb1060a36027b6b7d0e77c5ceeaf4b3347539b469b0f665b8e",
+    "haedeun|set4": "e60698d00a0e5fba90445fcb12846a6398b98b01af1444e68f058c9c34423f35"
+  },
+  "interleave": "per repetition: random.Random(12 + rep).shuffle(all (agent, set, cond, model))",
+  "generation_settings": "CLI defaults",
+  "started": "2026-10-26T18:55:49.755142+09:00",
+  "launches": [
+    "2026-10-26T18:55:49.755142+09:00",
+    "2026-10-26T19:23:50.860032+09:00"
+  ],
+  "finished": "2026-10-26T19:25:57.812648+09:00",
+  "wall_s": 126.9,
+  "errors": 0
+}

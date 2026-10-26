@@ -1,0 +1,84 @@
+﻿calls planned 1584, to run 1056
+[25/1056] errors so far 0
+[50/1056] errors so far 0
+[75/1056] errors so far 0
+[100/1056] errors so far 0
+[125/1056] errors so far 0
+[150/1056] errors so far 0
+[175/1056] errors so far 0
+[200/1056] errors so far 0
+[225/1056] errors so far 0
+[250/1056] errors so far 0
+[275/1056] errors so far 0
+[300/1056] errors so far 0
+[325/1056] errors so far 0
+[350/1056] errors so far 0
+[375/1056] errors so far 0
+[400/1056] errors so far 0
+[425/1056] errors so far 0
+[450/1056] errors so far 0
+[475/1056] errors so far 0
+[500/1056] errors so far 0
+[525/1056] errors so far 0
+python : Traceback (most recent call last):
+At line:1 char:338
++ ... oul-verify; python v0.8/exp1/run_exp1.py --workers 8 --models claude- ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "D:\openclaw-outputs\soul-verify\v0.8\exp1\run_exp1.py", line 109, in <module>
+    list(ex.map(work, jobs))
+    ~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\신운종\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 619, in result_iter
+ator
+    yield _result_or_cancel(fs.pop())
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\신운종\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 317, in _result_or_
+cancel
+    return fut.result(timeout)
+           ~~~~~~~~~~^^^^^^^^^
+  File "C:\Users\신운종\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\신운종\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\_base.py", line 401, in __get_resul
+t
+    raise self._exception
+  File "C:\Users\신운종\AppData\Local\Programs\Python\Python313\Lib\concurrent\futures\thread.py", line 59, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "D:\openclaw-outputs\soul-verify\v0.8\exp1\run_exp1.py", line 96, in work
+    call, retries = call_s2(adapters[m], systems[(ag, vid)], prompts_[(ag, pid)], m, log=lambda s: print(s, flush=True)
+)
+                    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^
+  File "D:\openclaw-outputs\soul-verify\v0.8\s2common.py", line 87, in call_s2
+    c = adapter.complete(system, prompt, model)
+  File "D:\openclaw-outputs\soul-verify\src\soul_verify\adapters\claude_cli.py", line 168, in complete
+    r = subprocess.run(
+        self.build_cmd(system, model), input=prompt, capture_output=True, text=True,
+        encoding="utf-8", cwd=self.sandbox, env=self.env(), timeout=timeout,
+    )
+  File "C:\Users\신운종\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 554, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\신운종\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1039, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\신운종\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 1554, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+PermissionError: [WinError 5] 액세스가 거부되었습니다

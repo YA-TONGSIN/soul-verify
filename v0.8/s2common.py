@@ -84,7 +84,10 @@ def is_blocked(err):
 def call_s2(adapter, system, prompt, model, log=print):
     """call_with_retry semantics (2 retries, 30/60 s on rate limit, 5 s otherwise), but stops at once on a safeguard block."""
     for i in range(3):
-        c = adapter.complete(system, prompt, model)
+        try:
+            c = adapter.complete(system, prompt, model)
+        except OSError as e:  # D5: a transient CreateProcess 'access denied' crashed the whole exp1 run at 19:34
+            c = Completion(text="", model=model, duration_s=0.0, error=f"launch: {e}")
         if not c.error or is_blocked(c.error):
             return c, i
         if i < 2:

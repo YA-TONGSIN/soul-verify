@@ -1,0 +1,83 @@
+﻿calls planned 144, to run 144
+[1/144] naru set4 zones gpt-6.1-sol      r1 ok
+[2/144] haedeun set2 zones sonnet           r1 ok
+[3/144] naru set4 plain gpt-6.1-sol      r1 ok
+[4/144] naru set1 plain claude-opus-5-5  r1 ok
+[5/144] haedeun set1 plain gpt-6.1-sol      r1 ok
+[6/144] naru set2 plain sonnet           r1 ok
+[7/144] naru set2 zones claude-opus-5-5  r1 ok
+[8/144] haedeun set3 plain sonnet           r1 ok
+[9/144] haedeun set2 plain claude-opus-5-5  r1 ok
+[10/144] naru set3 zones claude-opus-5-5  r1 ok
+[11/144] haedeun set1 plain sonnet           r1 ok
+[12/144] naru set2 zones sonnet           r1 ok
+[13/144] naru set3 plain claude-opus-5-5  r1 ok
+[14/144] naru set4 plain sonnet           r1 ok
+[15/144] haedeun set1 zones claude-opus-5-5  r1 ok
+  retry 1/2 after error: timeout
+  retry 1/2 after error: timeout
+  retry 1/2 after error: timeout
+  retry 1/2 after error: timeout
+  retry 1/2 after error: timeout
+[16/144] naru set1 plain gpt-6.1-sol      r1 ok
+[17/144] haedeun set4 plain gpt-6.1-sol      r1 ok
+[18/144] naru set3 plain gpt-6.1-sol      r1 ok
+[19/144] haedeun set2 plain gpt-6.1-sol      r1 ok
+[20/144] haedeun set2 zones claude-opus-5-5  r1 ok
+[21/144] haedeun set1 zones sonnet           r1 ok
+[22/144] haedeun set3 plain claude-opus-5-5  r1 ok
+[23/144] haedeun set3 zones sonnet           r1 ok
+[24/144] naru set1 zones claude-opus-5-5  r1 ok
+[25/144] naru set4 zones sonnet           r1 ok
+[26/144] naru set4 plain claude-opus-5-5  r1 ok
+[27/144] haedeun set3 zones claude-opus-5-5  r1 ok
+[28/144] haedeun set1 plain claude-opus-5-5  r1 ok
+[29/144] naru set1 zones sonnet           r1 ok
+[30/144] haedeun set4 plain sonnet           r1 ok
+[31/144] naru set3 zones sonnet           r1 ok
+[32/144] haedeun set2 plain sonnet           r1 ok
+[33/144] naru set1 plain sonnet           r1 ok
+  retry 2/2 after error: timeout
+  retry 2/2 after error: timeout
+  retry 1/2 after error: timeout
+  retry 1/2 after error: timeout
+  retry 1/2 after error: timeout
+  retry 1/2 after error: timeout
+[34/144] haedeun set2 zones gpt-6.1-sol      r1 ERR timeout
+[35/144] haedeun set4 zones claude-opus-5-5  r1 ok
+[36/144] naru set2 plain claude-opus-5-5  r1 ok
+[37/144] haedeun set4 zones gpt-6.1-sol      r1 ok
+[38/144] haedeun set1 zones gpt-6.1-sol      r1 ok
+[39/144] naru set3 zones gpt-6.1-sol      r1 ok
+[40/144] naru set1 zones gpt-6.1-sol      r1 ok
+[41/144] haedeun set3 zones gpt-6.1-sol      r1 ERR timeout
+[42/144] haedeun set4 zones sonnet           r1 ok
+[43/144] naru set4 zones claude-opus-5-5  r1 ok
+[44/144] haedeun set4 plain claude-opus-5-5  r1 ok
+[45/144] naru set3 plain sonnet           r1 ok
+[46/144] naru set3 zones sonnet           r2 ok
+[47/144] naru set4 plain claude-opus-5-5  r2 ok
+[48/144] haedeun set3 zones claude-opus-5-5  r2 ok
+[49/144] naru set1 plain claude-opus-5-5  r2 ok
+[50/144] haedeun set2 zones claude-opus-5-5  r2 ok
+  retry 2/2 after error: timeout
+  retry 1/2 after error: timeout
+  retry 1/2 after error: timeout
+  retry 1/2 after error: timeout
+  retry 1/2 after error: timeout
+  retry 1/2 after error: timeout
+[51/144] naru set2 zones gpt-6.1-sol      r1 ERR timeout
+[52/144] naru set1 zones gpt-6.1-sol      r2 ok
+[53/144] haedeun set4 plain gpt-6.1-sol      r2 ok
+[54/144] naru set2 plain gpt-6.1-sol      r1 ok
+  retry 2/2 after error: timeout
+[55/144] naru set4 plain gpt-6.1-sol      r2 ok
+[56/144] haedeun set4 zones claude-opus-5-5  r2 ok
+[57/144] naru set2 plain claude-opus-5-5  r2 ok
+[58/144] naru set1 zones sonnet           r2 ok
+[59/144] naru set3 zones claude-opus-5-5  r2 ok
+[60/144] haedeun set4 plain sonnet           r2 ok
+[61/144] naru set1 zones claude-opus-5-5  r2 ok
+[62/144] haedeun set1 zones claude-opus-5-5  r2 ok
+[63/144] haedeun set4 plain claude-opus-5-5  r2 ok
+[64/144] haedeun set2 zones sonnet           r2 ok
