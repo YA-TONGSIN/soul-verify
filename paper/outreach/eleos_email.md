@@ -18,7 +18,7 @@ I'm an independent researcher. I'm writing to share a short preprint that may be
 **What it is not.** It makes **no claim that models are conscious, have souls, or persist as persons** across a swap. "SOUL" is just the file's name. What we measure is the behavioral continuity of a written specification. We thought it might still be useful to people who think about continuity under uncertainty: if anyone ever cares whether an agent "survives" a model change, it helps to know which parts of the specification actually carry over, and that this can be measured.
 
 **Openness.** Code, synthetic data, both preregistrations (each timestamped before the first model call with OpenTimestamps), deviation reports and all raw answers are public under MIT / CC BY 4.0:
-- Preprint: [arXiv link]
+- Preprint: [Zenodo DOI 자리] (arXiv: 추후)
 - Code and data: [https://github.com/YA-TONGSIN/soul-verify]
 - Optional hash-only ledger prototype for SOUL versions (testnet): [https://github.com/YA-TONGSIN/soul-registry]
 

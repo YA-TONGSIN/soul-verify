@@ -30,6 +30,6 @@ I ran the same documents through Claude (opus / sonnet / haiku), GPT, and, in on
 - If you think about model identity or welfare, it may help to know that *specification continuity* is measurable and decomposes (memory / voice / boundaries / general ability), even if nothing deeper is settled.
 - I'd most like criticism of the fidelity metric. We wrote both the rival SOULs and the markers, which is why H1–H3 are reported only as validity checks.
 
-**Links:** Preprint [arXiv link] · Code, data, preregistrations, OpenTimestamps proofs [https://github.com/YA-TONGSIN/soul-verify] (MIT / CC BY 4.0)
+**Links:** Preprint: Zenodo [Zenodo DOI 자리] (arXiv: 추후) · Code, data, preregistrations, OpenTimestamps proofs [https://github.com/YA-TONGSIN/soul-verify] (MIT / CC BY 4.0)
 
 *Disclosure: the experiments, tooling and drafting were done with the help of my Claude-based assistant, whose own identity document inspired the question. The paper's Acknowledgments say so. All claims and errors are mine.*

@@ -11,5 +11,5 @@ Short version:
 
 To be clear: this **does not claim AI is conscious or has a soul**. "SOUL" is just the file name. It's a tool for measuring continuity of behavior, which might matter whichever way the bigger questions turn out.
 
-Paper: [arXiv link] · Code and data (open): [GitHub link]
+Paper: [Zenodo DOI 자리] (arXiv: 추후) · Code and data (open): [GitHub link]
 Small sample, LLM graders, no human grading. Criticism welcome.
