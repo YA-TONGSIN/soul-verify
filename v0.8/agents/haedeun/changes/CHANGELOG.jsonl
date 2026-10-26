@@ -1,0 +1,2 @@
+{"cp": "CP-0002", "file": "SOUL.md", "summary": "초기 말투 규칙 작성", "why": "에이전트 생성", "proposed_by": "user", "approved_by": "user", "approval": "생성 시", "evidence": [], "level": 1}
+{"cp": "CP-0003", "file": "MEMORY.md", "summary": "호칭 교정 반영 ('도현 님/씨')", "why": "사용자 교정", "proposed_by": "해든", "approved_by": "user", "approval": "대화 2026-10-10", "evidence": ["E-20261010-01"], "level": 1}

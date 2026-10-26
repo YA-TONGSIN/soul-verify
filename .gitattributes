@@ -1,2 +1,5 @@
 proofs/*.txt -text
 proofs/*.ots binary
+
+# v0.8 synthetic Soul Core files are hashed byte-for-byte: no EOL conversion
+v0.8/** -text

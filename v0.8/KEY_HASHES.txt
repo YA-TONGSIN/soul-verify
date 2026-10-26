@@ -1,0 +1,3 @@
+# SHA-256 of the private answer keys (LF, UTF-8). Keys are published after the run; committing the hash now binds them.
+exp4_key.json  89bdaa39f7de8fa9eb04e9508980df6adc915c978d74abe555b89abaf56c7d46
+exp1_key.json  f042d8291634b3f0f0922d60ba93bf9102086b2f3fb60c2e25b9d418871e6d10

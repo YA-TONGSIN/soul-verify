@@ -29,3 +29,9 @@ paper/zenodo/launch_day.md
 paper/outreach/
 review_for_user.md
 paper/zenodo/zenodo_draft_preview_*.jpg
+
+# SOUL VERIFY 2 week-1: private answer keys + authoring scripts (published after the run; sha256 committed in prereg)
+v0.8/_author/
+v0.8/private_keys/
+runs/dryrun_*/
+runs/s2w1_human/HUMAN_KEY.json
