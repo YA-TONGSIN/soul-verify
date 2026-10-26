@@ -1,0 +1,6 @@
+﻿calls planned 1584, to run 528
+  retry 1/2 after error: {"type": "error", "message": "Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)"}
+  retry 1/2 after error: {"type": "error", "message": "Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)"}
+  retry 1/2 after error: {"type": "error", "message": "Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)"}
+  retry 1/2 after error: {"type": "error", "message": "Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)"} | {"type"
+  retry 2/2 after error: {"type": "error", "message": "Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)"}

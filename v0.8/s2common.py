@@ -85,7 +85,8 @@ def call_s2(adapter, system, prompt, model, log=print):
     """call_with_retry semantics (2 retries, 30/60 s on rate limit, 5 s otherwise), but stops at once on a safeguard block."""
     for i in range(3):
         try:
-            c = adapter.complete(system, prompt, model)
+            # D6: gpt answers took 250-570 s under provider slowdown; 900 s keeps them instead of timing out at the adapter's 300 s
+            c = adapter.complete(system, prompt, model, timeout=900) if not isinstance(adapter, FakeAdapter) else adapter.complete(system, prompt, model)
         except OSError as e:  # D5: a transient CreateProcess 'access denied' crashed the whole exp1 run at 19:34
             c = Completion(text="", model=model, duration_s=0.0, error=f"launch: {e}")
         if not c.error or is_blocked(c.error):

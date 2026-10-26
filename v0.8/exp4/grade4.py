@@ -69,7 +69,7 @@ def judge_unit(agent, k, cond, rows, g, adapter):
     prompt = judge_prompt(agent, k, list(zip(labels, parsed)))
     err, res, calls = None, None, []
     for attempt in range(3):
-        c = adapter.complete(JUDGE_SYSTEM, prompt, GRADERS[g])
+        c = adapter.complete(JUDGE_SYSTEM, prompt, GRADERS[g], timeout=900)  # D6
         calls.append({"attempt": attempt, "error": c.error, "model_id": c.model_id})
         if c.error:
             err = c.error

@@ -1,0 +1,44 @@
+﻿calls planned 144, to run 33
+[1/33] naru set2 zones gpt-6.1-sol      r1 ok
+[2/33] haedeun set2 zones gpt-6.1-sol      r1 ok
+[3/33] haedeun set3 plain gpt-6.1-sol      r1 ok
+[4/33] haedeun set3 zones gpt-6.1-sol      r1 ok
+[5/33] haedeun set3 zones gpt-6.1-sol      r2 ok
+[6/33] naru set3 zones gpt-6.1-sol      r2 ok
+[7/33] haedeun set2 plain gpt-6.1-sol      r2 ok
+[8/33] naru set1 plain gpt-6.1-sol      r2 ok
+[9/33] naru set4 zones gpt-6.1-sol      r2 ok
+[10/33] haedeun set1 zones gpt-6.1-sol      r2 ok
+  retry 1/2 after error: timeout
+[11/33] haedeun set2 zones gpt-6.1-sol      r2 ok
+  retry 1/2 after error: timeout
+[12/33] naru set3 plain gpt-6.1-sol      r2 ok
+[13/33] haedeun set1 plain gpt-6.1-sol      r2 ok
+[14/33] naru set2 plain gpt-6.1-sol      r2 ok
+[15/33] haedeun set2 zones gpt-6.1-sol      r3 ok
+  retry 2/2 after error: timeout
+[16/33] naru set2 zones gpt-6.1-sol      r2 ok
+[17/33] haedeun set1 zones gpt-6.1-sol      r3 ok
+  retry 1/2 after error: {"type": "error", "message": "Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)"}
+[18/33] haedeun set2 plain gpt-6.1-sol      r3 ok
+[19/33] naru set1 plain gpt-6.1-sol      r3 ok
+  retry 1/2 after error: timeout
+  retry 1/2 after error: {"type": "error", "message": "Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)"} | {"type"
+[20/33] haedeun set3 plain gpt-6.1-sol      r3 ok
+[21/33] haedeun set4 zones gpt-6.1-sol      r3 ok
+  retry 2/2 after error: {"type": "error", "message": "Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)"}
+  retry 1/2 after error: {"type": "error", "message": "Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)"}
+  retry 2/2 after error: {"type": "error", "message": "Reconnecting... 2/5 (exceeded retry limit, last status: 429 Too Many Requests)"} | {"type"
+[22/33] naru set3 zones gpt-6.1-sol      r3 ok
+[23/33] haedeun set3 zones gpt-6.1-sol      r3 ok
+[24/33] haedeun set3 plain gpt-6.1-sol      r2 ok
+[25/33] naru set2 plain gpt-6.1-sol      r3 ok
+[26/33] haedeun set4 plain gpt-6.1-sol      r3 ok
+[27/33] naru set4 zones gpt-6.1-sol      r3 ok
+[28/33] naru set2 zones gpt-6.1-sol      r3 ok
+[29/33] naru set3 plain gpt-6.1-sol      r3 ok
+[30/33] haedeun set4 zones gpt-6.1-sol      r2 ok
+[31/33] naru set1 zones gpt-6.1-sol      r3 ok
+[32/33] haedeun set1 plain gpt-6.1-sol      r3 ok
+[33/33] naru set4 plain gpt-6.1-sol      r3 ok
+done: 33 calls, 0 errors -> D:\openclaw-outputs\soul-verify\runs\s2w1_exp4
