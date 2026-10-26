@@ -2,7 +2,7 @@
 
 - 조사일: 2026-10-24 / 읽기 전용 조사 (가입·게시 없음)
 - 대상: https://github.com/qbtrix/soul-protocol (존재 확인, 공식 저장소로 판단)
-- 로컬 복제본: `D:\openclaw-outputs\soul-verify\research\soul-protocol` (`git clone --depth 1`, 커밋 b6ab6ee3bb644a6e27f08af551a155b37c7925c2)
+- 로컬 복제본: `research/soul-protocol/` (저장소에는 포함하지 않음, .gitignore) (`git clone --depth 1`, 커밋 b6ab6ee3bb644a6e27f08af551a155b37c7925c2)
 - 표기: **[확인]** = 파일/API에서 직접 읽음, **[추측]** = 추론, **[미확인]** = 확인 못 함
 
 ## 1. 한 줄 결론

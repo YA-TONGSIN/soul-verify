@@ -1,6 +1,6 @@
 # arXiv submission checklist — SOUL VERIFY v0.7.1 (prepared 2026-10-26; rebuilt for v0.7.1 the same day)
 
-Status: **source prepared and compiled locally; NOT submitted.** Repositories are still private.
+Status: **source prepared and compiled locally; NOT submitted.** Repository visibility is switched at release time (see launch plan).
 
 ## Package
 | Item | State |

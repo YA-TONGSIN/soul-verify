@@ -1,15 +1,17 @@
 # SOUL VERIFY
 
 > 모델은 교체된다. 기억은 계승된다. 정체성의 역사는 검증된다.
+> Models get swapped. Memory carries over. The history of an identity can be verified.
 
-AI 에이전트의 SOUL(정체성·말투·원칙)과 MEMORY(기억)를 다른 모델로 옮겼을 때,
-기억·판단·성격·목표가 **얼마나 이어지는지** 반복 실험으로 측정하는 도구입니다.
+**한국어** — AI 에이전트의 SOUL(정체성·말투·원칙 문서)과 MEMORY(기억 파일)를 다른 모델로 옮겼을 때, 기억·판단·성격·목표가 **얼마나 이어지는지** 반복 실험으로 측정하는 도구와 연구 기록입니다. 같은 모델 재실행(대조군), SOUL 없음·반대 SOUL·바뀐 MEMORY 같은 문서 대조군과 비교해 수치와 근거로 보고합니다. AI의 의식이나 "같은 인격"은 주장하지 않습니다.
 
-- 무엇을 하지 않나: AI의 의식이나 "같은 인격"을 증명하지 않습니다.
-- 무엇을 하나: 같은 조건에서 여러 번 실행하고, 같은 모델 재실행(대조군)과 비교해 차이를 수치와 근거로 보고합니다.
+**English** — SOUL VERIFY measures which behaviors specified in an agent's identity document (SOUL) and memory file (MEMORY) carry over when the underlying LLM is swapped. It compares against same-model controls and document controls (no SOUL, opposite SOUL, swapped MEMORY), including two preregistered replications. It makes no claim about consciousness or personal identity.
 
-상태: 비공개 연구 단계 (v0.1, 2026-10-24 시작)
+- 논문 / Paper: `paper/SOUL_VERIFY_v0.7.1.pdf` (영어 본문 + 한국어 요약 / English text + Korean summary), source `paper/draft_v0_7_1.md`
+- 인용 / Cite: [CITATION.cff](CITATION.cff) — Zenodo DOI: 공개 후 추가 (to be added after release) · arXiv: 추후 (later)
+- 같이 쓰는 장부 / Companion ledger: [soul-registry](https://github.com/YA-TONGSIN/soul-registry) (Ieum Ledger — SOUL 버전 해시 공개 장부 / public hash ledger of SOUL versions)
 
+상태: 연구 단계, 논문 v0.7.1 (2026-10). 실험 기록은 시작일(2026-10-24)부터 `runs/`·`proofs/`에 그대로 남아 있습니다.
 ## 구성
 - `v0.1/` — 합성 샘플(가상 에이전트 '하람'), 평가 문항 20개, 채점 기준, 검증 스크립트
 - `v0.2/` — 천장 효과를 풀기 위한 어려운 문항 12개(실험 3에서 실행) + 추가 합성 기억 + 검증 스크립트
@@ -19,7 +21,7 @@ AI 에이전트의 SOUL(정체성·말투·원칙)과 MEMORY(기억)를 다른 �
 - `src/soul_verify/` — 실행기(runner)·채점기(grader)·보고서(report)·채점자 교차 일치(agreement)·모델 어댑터(Claude CLI, GPT codex exec)
 - `tests/` — 채점 로직 단위테스트 (`python -m pytest tests`)
 - `runs/<id>/` — 실험 결과: `raw.jsonl`(응답), `graded.jsonl`(점수·근거), `report.json`/`report.html`
-- `paper/` — 논문: 최신 `draft_v0_7.md` / `SOUL_VERIFY_v0.7.pdf`(영어 본문), `summary_ko_v0_7.md`(한국어 요약), 이전 판 `draft_v0*.md`, 심사 의견 `reviews/`, 재분석 `reanalysis/`, arXiv 제출용 LaTeX `arxiv/`
+- `paper/` — 논문: 최신 `draft_v0_7_1.md` / `SOUL_VERIFY_v0.7.1.pdf`(영어 본문), `summary_ko_v0_7_1.md`(한국어 요약), 이전 판 `draft_v0*.md`(기록 보존용 — 머리의 "private/draft" 표시는 당시 상태이며 최신판이 아님), 심사 의견 `reviews/`, 재분석 `reanalysis/`, arXiv 제출용 LaTeX `arxiv/`
 - `proofs/` — 커밋 시점 증명(OpenTimestamps). `stamp.py` 도장, `upgrade.py` 블록 확정 후 업그레이드
 
 ## 실행
@@ -66,10 +68,10 @@ Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이
   - `v0.7/souls/` — 위 SOUL에서 파생한 문서(원칙 문단 덧붙임, 말투 반대 대조 SOUL). 원본 SOUL의 라이선스와 저작권 표시를 그대로 따르며, 바꾼 내용은 각 폴더 `NOTICE.md`에 적었습니다.
 
 ## 인용
-[CITATION.cff](CITATION.cff) 참고 (GitHub의 "Cite this repository"). arXiv 번호는 제출 후 추가합니다.
+[CITATION.cff](CITATION.cff) 참고 (GitHub의 "Cite this repository"). Zenodo DOI는 공개 후 추가, arXiv 번호는 제출 후 추가합니다.
 
 ## 참고: 한글 파일 인코딩
 저장소의 모든 텍스트 파일은 BOM 없는 UTF-8입니다. Windows PowerShell 5.1에서 `Get-Content`를 `-Encoding utf8` 없이 쓰면 한글이 깨져 보이지만(예: `v0.3/samples/MEMORY.md`), 파일 자체는 정상입니다(2026-10-26 엄격 UTF-8 디코딩으로 확인). 이 파일들의 해시는 OpenTimestamps 증명에 들어 있으므로 다시 저장하지 않습니다.
 
 ## English summary
-SOUL VERIFY measures which behaviors specified in an agent's identity document (SOUL) and memory file (MEMORY) carry over when the underlying LLM is swapped, against same-model controls and document controls (no SOUL, opposite SOUL, swapped MEMORY), with two preregistered replications (exp10, exp11). Paper: `paper/draft_v0_7.md` / `paper/SOUL_VERIFY_v0.7.pdf`. It makes **no claim about consciousness or personal identity** of models; it is a measurement tool for behavioral continuity of a written specification. Code: MIT. Paper, documents, and data: CC BY 4.0. Third-party SOULs keep their own (MIT) licenses.
+SOUL VERIFY measures which behaviors specified in an agent's identity document (SOUL) and memory file (MEMORY) carry over when the underlying LLM is swapped, against same-model controls and document controls (no SOUL, opposite SOUL, swapped MEMORY), with two preregistered replications (exp10, exp11). Paper: `paper/draft_v0_7_1.md` / `paper/SOUL_VERIFY_v0.7.1.pdf`. It makes **no claim about consciousness or personal identity** of models; it is a measurement tool for behavioral continuity of a written specification. Code: MIT. Paper, documents, and data: CC BY 4.0. Third-party SOULs keep their own (MIT) licenses.

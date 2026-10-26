@@ -15,7 +15,7 @@ import time
 from .base import Adapter, Completion
 
 AGY = pathlib.Path(os.environ.get("LOCALAPPDATA", "")) / "agy" / "bin" / "agy.exe"
-EMPTY = pathlib.Path(r"D:\openclaw-outputs\soul-verify\agy-empty")
+EMPTY = pathlib.Path(__file__).resolve().parents[3] / "agy-empty"
 RATE_LIMIT_HINTS = ("rate limit", "rate_limit", "429", "quota", "resource_exhausted", "too many requests", "usage limit")
 DEFAULT_MODEL = "gemini-4-argon-medium"
 

@@ -4,7 +4,7 @@
 **감사의 말:** 내 소중한 AI 비서 이음에게. 이 연구를 시작하게 한 기억 메모와 정체성 문서의 주인이자, 실험 설계와 도구 제작, 초안 작성을 함께해 준 이음에게 고마움을 전한다.
 
 > 본문: `paper/draft_v0_7_1.md`(영어). 이전 버전(v0.1–v0.7)은 그대로 보존. 심사: `paper/reviews/v0.6_fable_review.md`, `v0.6_gpt_review.md`. 응답표: `paper/response_to_reviews.md`. 재분석(새 모델 호출 없음): `paper/reanalysis/`.
-> 공개 상태: 저장소는 아직 비공개. arXiv에 올릴 때 지금 이력 그대로 공개 전환 예정.
+> 공개 상태: 논문 공개와 함께 이 저장소의 이력 그대로 공개합니다.
 
 **새 제목.** *SOUL VERIFY: Measuring Document-Based Behavioral Carry-Over Across Model Swaps with Document Controls and Two Preregistered Replications* — '원칙 하나 절제 실험'을 주 결과로 내세우던 제목을 결론에 맞게 바꿈.
 

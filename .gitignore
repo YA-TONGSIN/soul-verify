@@ -19,3 +19,12 @@ __pycache__/
 external_souls/_work/
 
 paper/arxiv/build/*.log
+
+# review run artifacts (not part of the release)
+paper/reviews/_bundle_v0.6.md
+paper/reviews/_gpt_stdout_v0.6.log
+
+# internal launch notes / unposted outreach drafts (kept locally)
+paper/zenodo/launch_day.md
+paper/outreach/
+review_for_user.md
