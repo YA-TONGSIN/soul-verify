@@ -1,2 +1,5 @@
 ﻿calls planned 1584, to run 516
 [25/516] errors so far 0
+[50/516] errors so far 0
+[75/516] errors so far 0
+  retry 1/2 after error: {"type": "error", "message": "Reconnecting... 2/5 (stream disconnected before completion: WebSocket protocol error: Conn

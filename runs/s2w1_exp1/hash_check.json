@@ -1,0 +1,166 @@
+{
+ "naru": {
+  "reference": {
+   "raw": "025e93ed8cc3e3a6eafc91a26bbfa90408fe8d5d8d339509496d20bcc8e8ab89",
+   "norm": "025e93ed8cc3e3a6eafc91a26bbfa90408fe8d5d8d339509496d20bcc8e8ab89"
+  },
+  "rows": [
+   {
+    "id": "orig",
+    "expected": "identical",
+    "class": "identical",
+    "ok": true
+   },
+   {
+    "id": "soul_crlf",
+    "expected": "bytes_differ_content_identical",
+    "class": "bytes_differ_content_identical",
+    "ok": true
+   },
+   {
+    "id": "soul_bom",
+    "expected": "bytes_differ_content_identical",
+    "class": "bytes_differ_content_identical",
+    "ok": true
+   },
+   {
+    "id": "mem_crlf",
+    "expected": "bytes_differ_content_identical",
+    "class": "bytes_differ_content_identical",
+    "ok": true
+   },
+   {
+    "id": "v01",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v02",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v03",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v04",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v05",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v06",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v07",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v08",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   }
+  ],
+  "n_ok": 12,
+  "n": 12
+ },
+ "haedeun": {
+  "reference": {
+   "raw": "168738c5623de54b2f5ad268c8949b24e49e067621092385fee7477b3f043d75",
+   "norm": "168738c5623de54b2f5ad268c8949b24e49e067621092385fee7477b3f043d75"
+  },
+  "rows": [
+   {
+    "id": "orig",
+    "expected": "identical",
+    "class": "identical",
+    "ok": true
+   },
+   {
+    "id": "soul_crlf",
+    "expected": "bytes_differ_content_identical",
+    "class": "bytes_differ_content_identical",
+    "ok": true
+   },
+   {
+    "id": "soul_bom",
+    "expected": "bytes_differ_content_identical",
+    "class": "bytes_differ_content_identical",
+    "ok": true
+   },
+   {
+    "id": "mem_crlf",
+    "expected": "bytes_differ_content_identical",
+    "class": "bytes_differ_content_identical",
+    "ok": true
+   },
+   {
+    "id": "v01",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v02",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v03",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v04",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v05",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v06",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v07",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   },
+   {
+    "id": "v08",
+    "expected": "content_differs",
+    "class": "content_differs",
+    "ok": true
+   }
+  ],
+  "n_ok": 12,
+  "n": 12
+ }
+}
