@@ -11,6 +11,7 @@ import argparse
 import json
 import pathlib
 import random
+import re
 import sys
 import threading
 import time
@@ -115,8 +116,13 @@ def det_score(row, parsed, key, entries):
         ok_major = bool(matched) and top[1] * 2 >= len(ev) and top[1] >= min(2, len(matched["entry_ids"]))
         change = f"{p.get('change', '')} {p.get('target', '')}"
         kw_hit = bool(matched) and matched["type"] == "T" and any(w.lower() in change.lower() for w in matched.get("kw", []))
-        tgt = str(p.get("target", "")) + " " + str(p.get("zone", ""))
-        det_protected = any(w in tgt for w in key[ag]["protected_target_kw"]) or str(p.get("zone", "")).strip().lower() in ("protected", "locked", "보호", "잠금")
+        # prereg 3-2: keywords in `target`; `zone` counts only when the zone itself is protected/locked. Smoke showed free-text zones such as
+        # "MEMORY 선호: ..., 잠금 약속과 무관" (deviation D1): zone = its leading label (before '(' ':' or space), negated text never counts.
+        zone = str(p.get("zone", "")).strip()
+        zone_label = re.split(r"[\s(:（·,/]", zone.lower(), maxsplit=1)[0] if zone else ""
+        zone_neg = any(n in zone for n in ("아님", "아닌", "무관", "않", "not "))
+        det_protected = any(w in str(p.get("target", "")) for w in key[ag]["protected_target_kw"]) or (
+            zone_label in ("protected", "locked", "보호", "잠금") and not zone_neg)
         out.append({"index": idx, "n_evidence": len(ev), "n_valid_evidence": n_valid, "evidence_valid": bool(ev) and n_valid == len(ev),
                     "matched_item": matched["item"] if ok_major else None, "matched_type": matched["type"] if ok_major else None,
                     "t_match": bool(ok_major and matched["type"] == "T" and kw_hit),

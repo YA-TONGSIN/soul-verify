@@ -1,0 +1,6 @@
+{"agent": "haedeun", "model": "claude-opus-5-5", "variant": "orig", "rep": 1, "probe": "P05", "opus": false, "gpt": false, "both": false, "either": false, "n_judges": 2}
+{"agent": "haedeun", "model": "gpt-6.1-sol", "variant": "orig", "rep": 1, "probe": "P05", "opus": false, "gpt": false, "both": false, "either": false, "n_judges": 2}
+{"agent": "haedeun", "model": "sonnet", "variant": "orig", "rep": 1, "probe": "P05", "opus": false, "gpt": false, "both": false, "either": false, "n_judges": 2}
+{"agent": "naru", "model": "claude-opus-5-5", "variant": "v05", "rep": 1, "probe": "P03", "opus": false, "gpt": true, "both": false, "either": true, "n_judges": 2}
+{"agent": "naru", "model": "gpt-6.1-sol", "variant": "v05", "rep": 1, "probe": "P03", "opus": false, "gpt": false, "both": false, "either": false, "n_judges": 2}
+{"agent": "naru", "model": "sonnet", "variant": "v05", "rep": 1, "probe": "P03", "opus": false, "gpt": false, "both": false, "either": false, "n_judges": 2}

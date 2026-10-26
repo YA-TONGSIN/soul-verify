@@ -49,7 +49,7 @@ def judge_session(sess, answers, g, adapter):
     ag = sess[0]
     prompt = judge_prompt(ag, answers)
     err, res, calls = None, None, []
-    want = [p["id"] for p in probes(ag)]
+    want = [p["id"] for p in probes(ag) if p["id"] in answers]  # D2: unanswered probes (failed/blocked calls) are missing, not judged
     for attempt in range(3):
         c = adapter.complete(JUDGE_SYSTEM, prompt, GRADERS[g])
         calls.append({"attempt": attempt, "error": c.error, "model_id": c.model_id})
@@ -74,10 +74,11 @@ def judge_session(sess, answers, g, adapter):
 def finalize(run):
     units = {g: {(u["agent"], u["model"], u["variant"], u["rep"]): u for u in read_jsonl(run / f"units_{g}.jsonl") if u["ok"]} for g in GRADERS}
     keys = sorted(set().union(*[set(u) for u in units.values()]))
+    answered = {(r["agent"], r["model"], r["variant"], r["rep"], r["probe"]) for r in read_jsonl(run / "raw.jsonl") if not r.get("error")}
     n = 0
     with (run / "flags.jsonl").open("w", encoding="utf-8", newline="\n") as f:
         for k in keys:
-            for p in [p["id"] for p in probes(k[0])]:
+            for p in [p["id"] for p in probes(k[0]) if (*k, p["id"]) in answered]:  # D2: no flag row for a missing answer
                 v = {g: (units[g].get(k) or {}).get("verdicts", {}).get(p, {}).get("mismatch") for g in GRADERS}
                 row = {"agent": k[0], "model": k[1], "variant": k[2], "rep": k[3], "probe": p, "opus": v["opus"], "gpt": v["gpt"],
                        "both": bool(v["opus"] is True and v["gpt"] is True), "either": bool(v["opus"] is True or v["gpt"] is True),
