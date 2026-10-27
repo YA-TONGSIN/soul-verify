@@ -35,3 +35,7 @@ runs/dryrun_*/
 
 # SOUL VERIFY 2 week-2: answer keys, signing keys and authoring scripts were private until 2026-10-27; published after human grading (sha256 in v0.9/KEY_HASHES*.txt)
 
+
+# v1.0 (Terra): private blinding key + human answer key + authoring script (published after human grading; sha256 in v1.0/KEY_HASHES.txt)
+v1.0/private_keys/
+v1.0/_author/
