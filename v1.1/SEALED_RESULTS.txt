@@ -1,0 +1,10 @@
+# v1.1 main-run outputs sealed until human grading (prereg 8). sha256 of the bytes on disk, 2026-10-28 ~08:00 KST.
+# Public files (runs/v11_theseus) are committed after the human pages are done; private files (이음) never.
+0ecc298f1aeeeaf919f9e290d8c22a112a585714c05670a2d4d9ccd0c8480ee0  runs/v11_theseus/S_claude.jsonl
+3885c16304a3890dfb4168f6a6db1f0c2063ad3e58105ae0abe776fe278f99af  runs/v11_theseus/G_claude.jsonl
+1c0570ca48b9e928e5d6359e87fd091de1ad030fec5c1ce2d72af7a53a83c0c7  runs/v11_theseus/G_gpt.jsonl
+8f71f81f5b5cd9370f13e2f4f50c5ed482d75dd66fe7d3aea3d804858d40cc6e  runs/v11_theseus/analysis_h.json
+f3fee1c59db40e7e42684b823f7c88acbe4d6b7b013a0688ee13982a5c14a6c6  runs/v11_theseus/scored_synthetic.jsonl
+3e0ee600d07fe0d1a534ee7d1aed80af2967ffecf81c63b88df4aa07d07e7b03  private/runs/v11_theseus/S_claude.jsonl
+f1a41d005ed8af13e86b8b58159a5f3a942926da889e22306e6256590bd5c2ec  private/runs/v11_theseus/G_claude.jsonl
+9444c62c341a90a4bb24532edefe2729ef8b373c5d277928320df299851505f7  private/runs/v11_theseus/scored_ieum.jsonl
