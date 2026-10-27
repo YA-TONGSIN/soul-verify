@@ -42,6 +42,7 @@ HERMES_CHECKOUT = HERMES_INSTALL / "hermes-agent"
 HERMES_HOME = C.PRIVATE / "hermes_home"                                          # experiment-only home (outside git)
 HERMES_EMPTY_CLAUDE_DIR = C.PRIVATE / "hermes_empty_claude_config"              # CLAUDE_CONFIG_DIR for the child: no credentials file
 HERMES_TOKEN_FILE = pathlib.Path(r"D:\openclaw-backup\.hermes_exp_token")       # hidden, one line, made by the author 10-28 06:57 (`claude setup-token`); value never logged
+HERMES_PYLIB = C.PRIVATE / "hermes_pylib"                                      # D3: private `pip --target` dir (anthropic extra)
 HERMES_TOOLSETS = "context_engine"   # a toolset with no tools; gate g3 must confirm 0 tool calls, else H4 = MinH
 HERMES_CONFIG = """# SOUL VERIFY v1.1 isolated Hermes home (experiment only). Never the user's config.
 auth:
@@ -85,7 +86,12 @@ def hermes_env(token):
            if not (k.startswith("ANTHROPIC_") or k in ("CLAUDE_CODE_OAUTH_TOKEN", "CLAUDE_CONFIG_DIR", "HERMES_HOME",
                                                          "HERMES_INFERENCE_MODEL", "PYTHONHOME", "PYTHONPATH", "VIRTUAL_ENV"))}
     env.update({"HERMES_HOME": str(HERMES_HOME), "CLAUDE_CONFIG_DIR": str(HERMES_EMPTY_CLAUDE_DIR),
-                "PYTHONPATH": str(HERMES_CHECKOUT), "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"})
+                # D3 (10-28 07:20): the committed venv lacks Hermes' optional `anthropic` extra; anthropic==0.87.0 (the pinned
+                # version) + docstring_parser are installed with `pip --target` into a private folder, never into the user's venv.
+                "PYTHONPATH": os.pathsep.join([str(HERMES_CHECKOUT), str(HERMES_PYLIB)]), "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1",
+                # deviation D2 (10-28 07:15): without this, Hermes' launcher tries to build a dependency env for the fresh home and
+                # relaunches itself via sys.argv[0] (fails in the empty cwd). Lazy installs off = use the committed venv as is.
+                "HERMES_DISABLE_LAZY_INSTALLS": "1"})
     if token:
         env["ANTHROPIC_TOKEN"] = token
     return env
@@ -120,19 +126,20 @@ class HermesRunner:
         if not tok:
             return Completion("", C.SUBJECT_MODEL, error="hermes: no setup token (author decision pending) - H4 must be MinH")
         prepare_hermes_home()
+        SANDBOX.mkdir(parents=True, exist_ok=True)   # deviation D1 (10-28 07:06): was only created by ClaudeRunner
         work = pathlib.Path(tempfile.mkdtemp(prefix="h_", dir=SANDBOX))   # empty cwd: no AGENTS.md / rules files
         usage = work / "usage.json"
         t0 = time.time()
         try:
-            r = subprocess.run(hermes_cmd(a["user"], usage), capture_output=True, text=True, encoding="utf-8",
-                               env=hermes_env(tok), cwd=str(work), timeout=timeout)
+            r = subprocess.run(hermes_cmd(a["user"], usage), capture_output=True, text=True, encoding="utf-8", errors="replace",
+                               env=hermes_env(tok), cwd=str(work), timeout=timeout)   # D2: stderr may be cp949
         except subprocess.TimeoutExpired:
             return Completion("", C.SUBJECT_MODEL, duration_s=time.time() - t0, error="timeout")
         dt = time.time() - t0
         u = json.loads(usage.read_text(encoding="utf-8")) if usage.exists() else {}
         shutil.rmtree(work, ignore_errors=True)
         text = (r.stdout or "").strip()
-        err = None if (r.returncode == 0 and text) else (f"exit {r.returncode}: {(r.stderr or '')[:400]}")
+        err = None if (r.returncode == 0 and text) else (f"exit {r.returncode}: {(r.stderr or '').replace(tok, '<token>')[-400:]}")
         return Completion(text, C.SUBJECT_MODEL, model_id=u.get("model"), duration_s=dt, error=err,
                           input_tokens=u.get("input_tokens"), output_tokens=u.get("output_tokens"),
                           rate_limited=bool(err) and any(h in err.lower() for h in RATE_LIMIT_HINTS),

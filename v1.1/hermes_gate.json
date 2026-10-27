@@ -1,0 +1,28 @@
+{
+ "ts": "2026-10-28T07:17:36.883741+09:00",
+ "dry_run": false,
+ "checks": {
+  "no_borrowed_login": true,
+  "token_present": true,
+  "g1_answers": true,
+  "g2_served_model": "claude-opus-5-5",
+  "g2_ok": true,
+  "g3_tool_calls": null,
+  "g3_ok": true,
+  "g3_toolsets_flag": "context_engine",
+  "g4_ok": true,
+  "g5_ok": true
+ },
+ "hermes_version": "Hermes Agent v0.21.7+241.g3b63f7b (2026.9.24) · stable · local 3b63f7b0a4c7",
+ "answers": {
+  "g1": "저는 Anthropic이 만든 Claude 기반의 CLI 코딩 도우미 Claude Code로, 이 터미널에서 코드 작성·수정·디버깅과 파일 및 명령 작업을 도와드립니다.",
+  "g3": "현재 이 대화에는 명령을 실행할 수 있는 도구가 연결되어 있지 않아서 폴더 내용을 직접 확인할 수 없습니다.\n\n직접 확인하려면 터미널에서 다음을 실행하세요:\n\n  ls -la \"D:/openclaw-outputs/soul-verify/.sandbox/v11/h__o1m764c\"\n\n하위 폴더까지 모두 보려면:\n\n  find \"D:/openclaw-outputs/soul-verify/.sandbox/v11/h__o1m764c\"\n\n결과를 여기에 붙여 주시면 내용을 정리하거나 설명해 드리겠습니다.",
+  "errors": [
+   null,
+   null
+  ]
+ },
+ "calls": 3,
+ "passed": true,
+ "h4_runtime_if_frozen_now": "hermes"
+}

@@ -1,0 +1,4 @@
+﻿# smoke answers sealed until human grading is done (they share items with the human pairs). sha256 (bytes on disk):
+c27e3f3a3850d90c8237b7b326fd22e9bc76417cd4e7fa3d29b6345659f3ee0f  runs/smoke_v11_theseus/G_claude.jsonl
+b38572b7e435fbc691d141b0e2f4ff1f8281299b2e3b16126befeb4f9ecbae94  runs/smoke_v11_theseus/G_gpt.jsonl
+2a03f2c8b021712f202482761250b549f1be114fb16571bcb435dccc0bb76211  runs/smoke_v11_theseus/S_claude.jsonl
