@@ -57,3 +57,7 @@ Do not upload the arXiv zip (`soul_verify_arxiv_src.zip`) here; it is for arXiv 
 - Zenodo's AI-use stance is like arXiv's: the human is the sole author; the Acknowledgments already state the assistant's role.
 - Check the PDF text once for the stale note "arXiv identifier to be added" / repo-private statements before upload.
 - Zenodo's file-size limit (50 GB) is irrelevant here (0.4–1.3 MB).
+
+
+## v0.8 published (2026-10-27)
+- Zenodo new version published 2026-10-27: version DOI 10.5281/zenodo.23689096, record https://zenodo.org/records/23689096 (file SOUL_VERIFY_v0.8_en.pdf, 45 p., MD5 d73f092b744b793a978484efc47f8c0f). Concept DOI 10.5281/zenodo.23653775 now resolves to v0.8. v0.7.1 record (23653776) left in place. Title: SOUL VERIFY: Document-Based Behavioral Carry-Over Across Model Swaps, and Checking Changes to an Agent's Identity Documents, in Four Preregistered Studies.

@@ -7,12 +7,12 @@
 
 **English** — SOUL VERIFY measures which behaviors specified in an agent's identity document (SOUL) and memory file (MEMORY) carry over when the underlying LLM is swapped. It compares against same-model controls and document controls (no SOUL, opposite SOUL, swapped MEMORY), including two preregistered replications. It makes no claim about consciousness or personal identity.
 
-- 논문 / Paper: `paper/SOUL_VERIFY_v0.7.1.pdf` (영어 본문 + 한국어 요약 / English text + Korean summary), source `paper/draft_v0_7_1.md`
-- DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23653775.svg)](https://doi.org/10.5281/zenodo.23653775) — 인용용 concept DOI(모든 버전) / concept DOI for citation (all versions): <https://doi.org/10.5281/zenodo.23653775> · v0.7.1 version DOI: <https://doi.org/10.5281/zenodo.23653776>
+- 논문 / Paper: `paper/SOUL_VERIFY_v0.8.pdf` (영어 본문 + 한국어 번역 / English text + Korean translation), source `paper/draft_v0_8.md`
+- DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23653775.svg)](https://doi.org/10.5281/zenodo.23653775) — 인용용 concept DOI(모든 버전) / concept DOI for citation (all versions): <https://doi.org/10.5281/zenodo.23653775> · v0.8 version DOI: <https://doi.org/10.5281/zenodo.23689096> · v0.7.1 version DOI: <https://doi.org/10.5281/zenodo.23653776>
 - 인용 / Cite: [CITATION.cff](CITATION.cff) · arXiv: 추후 (later)
 - 같이 쓰는 장부 / Companion ledger: [soul-registry](https://github.com/YA-TONGSIN/soul-registry) (Ieum Ledger — SOUL 버전 해시 공개 장부 / public hash ledger of SOUL versions)
 
-상태: 연구 단계, 논문 v0.7.1 (2026-10). 실험 기록은 시작일(2026-10-24)부터 `runs/`·`proofs/`에 그대로 남아 있습니다.
+상태: 연구 단계, 논문 v0.8 (2026-10-27). 실험 기록은 시작일(2026-10-24)부터 `runs/`·`proofs/`에 그대로 남아 있습니다.
 ## 구성
 - `v0.1/` — 합성 샘플(가상 에이전트 '하람'), 평가 문항 20개, 채점 기준, 검증 스크립트
 - `v0.2/` — 천장 효과를 풀기 위한 어려운 문항 12개(실험 3에서 실행) + 추가 합성 기억 + 검증 스크립트
@@ -71,7 +71,7 @@ Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이
   - `v0.7/souls/` — 위 SOUL에서 파생한 문서(원칙 문단 덧붙임, 말투 반대 대조 SOUL). 원본 SOUL의 라이선스와 저작권 표시를 그대로 따르며, 바꾼 내용은 각 폴더 `NOTICE.md`에 적었습니다.
 
 ## 인용
-[CITATION.cff](CITATION.cff) 참고 (GitHub의 "Cite this repository"). Zenodo DOI: [10.5281/zenodo.23653775](https://doi.org/10.5281/zenodo.23653775)(concept, 인용용) · [10.5281/zenodo.23653776](https://doi.org/10.5281/zenodo.23653776)(v0.7.1). arXiv 번호는 제출 후 추가합니다.
+[CITATION.cff](CITATION.cff) 참고 (GitHub의 "Cite this repository"). Zenodo DOI: [10.5281/zenodo.23653775](https://doi.org/10.5281/zenodo.23653775)(concept, 인용용) · [10.5281/zenodo.23689096](https://doi.org/10.5281/zenodo.23689096)(v0.8) · [10.5281/zenodo.23653776](https://doi.org/10.5281/zenodo.23653776)(v0.7.1). arXiv 번호는 제출 후 추가합니다.
 
 ## 참고: 한글 파일 인코딩
 저장소의 모든 텍스트 파일은 BOM 없는 UTF-8입니다. Windows PowerShell 5.1에서 `Get-Content`를 `-Encoding utf8` 없이 쓰면 한글이 깨져 보이지만(예: `v0.3/samples/MEMORY.md`), 파일 자체는 정상입니다(2026-10-26 엄격 UTF-8 디코딩으로 확인). 이 파일들의 해시는 OpenTimestamps 증명에 들어 있으므로 다시 저장하지 않습니다.
