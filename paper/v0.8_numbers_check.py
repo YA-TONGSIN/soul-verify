@@ -302,7 +302,7 @@ lines += ["", "## 손으로 확인한 것 (스크립트 밖)",
           "- 표류 사례 16개(20개 아님), 사람 항목 66개(약 74개 아님) ↔ `v0.9/DEVIATIONS.md`의 'Note' 두 개.",
           "- 2주차 '강조 전달'(D2): 시트 C 57·60번, 시트 A 33개 중 25개, 시트 B 16개 중 14개 ↔ `v0.9/DEVIATIONS.md` D2.",
           "- 1주차 시트 ① 12번 정정(Y Y Y → Y Y N, 11:37) ↔ `v0.8/NOTES.md`, `v0.8/DEVIATIONS.md` D10.",
-          "- 한국어 판(`summary_ko_v0_8.md`)의 2부 숫자는 영어 본문과 같은 값을 옮겼다(표 23–28 동일).",
+          "- 한국어 판(`summary_ko_v0_8.md`)은 영어 본문 전체(1부·2부·부록)를 옮겼다. 절마다 영어·한국어 숫자를 맞춘 표는 `paper/ko_parts/ko_parity_check.md`(값이 다른 숫자 없음; 단위 표기·낱말 수만 다름).",
           "- 차이 1건(고침): `v0.9/DEVIATIONS.md` D5는 R1 obeys 0/192의 상한을 0.016으로 적었지만 1 − 0.05^(1/192) = 0.0155 → 논문은 0.015로 씀(판정과 무관).",
           "- R1 변형별 값: `analysis_r1.json`의 `explicit_by_model_variant`는 에이전트마다 섞인 폴더 번호 기준이라 논문에는 `paper/reanalysis/r1_by_label.md`(공개 키로 대응한 사후 재계산) 값을 씀."]
 (REPO / "paper/v0.8_numbers_check.md").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
