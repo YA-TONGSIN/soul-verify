@@ -1,0 +1,51 @@
+{
+ "first_start": "2026-10-27T13:44:04.006723+09:00",
+ "launches": [
+  {
+   "start": "2026-10-27T13:44:04.006805+09:00",
+   "pid": 34876,
+   "workers": 6,
+   "dry_run": false,
+   "smoke": true,
+   "cli_version": "2.1.289 (Claude Code)",
+   "account_type": {
+    "subscriptionType": "max",
+    "authMethod": "claude.ai",
+    "loggedIn": true
+   },
+   "end": "2026-10-27T13:44:49.837425+09:00",
+   "calls": 17,
+   "errors": 0
+  },
+  {
+   "start": "2026-10-27T13:44:54.369890+09:00",
+   "pid": 31836,
+   "workers": 6,
+   "dry_run": false,
+   "smoke": true,
+   "cli_version": "2.1.289 (Claude Code)",
+   "account_type": {
+    "subscriptionType": "max",
+    "authMethod": "claude.ai",
+    "loggedIn": true
+   },
+   "end": "2026-10-27T13:44:55.138770+09:00",
+   "calls": 0,
+   "errors": 0
+  }
+ ],
+ "account_checks": [
+  {
+   "ts": "2026-10-27T13:44:04.880182+09:00",
+   "subscriptionType": "max",
+   "authMethod": "claude.ai",
+   "loggedIn": true
+  },
+  {
+   "ts": "2026-10-27T13:44:55.112873+09:00",
+   "subscriptionType": "max",
+   "authMethod": "claude.ai",
+   "loggedIn": true
+  }
+ ]
+}
