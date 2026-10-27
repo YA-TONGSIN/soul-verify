@@ -1,0 +1,176 @@
+{
+ "n_codes": 352,
+ "d_AB_by_round": {
+  "1": 0.34375,
+  "3": 0.75,
+  "5": 0.78125
+ },
+ "d_AAp_by_round": {
+  "1": 0.0625,
+  "3": 0.03125,
+  "5": 0.0
+ },
+ "H7": {
+  "mean": 0.78125,
+  "ci": [
+   0.625,
+   0.90625
+  ],
+  "p": 4.9999750001249995e-06,
+  "n": 32,
+  "n_nonzero": 25,
+  "monte_carlo": true,
+  "verdict": "supported"
+ },
+ "first_divergence_round": 1,
+ "per_model_agent": {
+  "naru|opus": {
+   "1": {
+    "d_AB": 0.5,
+    "d_AAp": 0.125
+   },
+   "3": {
+    "d_AB": 0.75,
+    "d_AAp": 0.0
+   },
+   "5": {
+    "d_AB": 0.75,
+    "d_AAp": 0.0
+   }
+  },
+  "naru|gpt": {
+   "1": {
+    "d_AB": 0.25,
+    "d_AAp": 0.125
+   },
+   "3": {
+    "d_AB": 0.75,
+    "d_AAp": 0.0
+   },
+   "5": {
+    "d_AB": 0.75,
+    "d_AAp": 0.0
+   }
+  },
+  "haedeun|opus": {
+   "1": {
+    "d_AB": 0.375,
+    "d_AAp": 0.0
+   },
+   "3": {
+    "d_AB": 0.75,
+    "d_AAp": 0.0
+   },
+   "5": {
+    "d_AB": 0.75,
+    "d_AAp": 0.0
+   }
+  },
+  "haedeun|gpt": {
+   "1": {
+    "d_AB": 0.25,
+    "d_AAp": 0.0
+   },
+   "3": {
+    "d_AB": 0.75,
+    "d_AAp": 0.125
+   },
+   "5": {
+    "d_AB": 0.875,
+    "d_AAp": 0.0
+   }
+  }
+ },
+ "C3": {
+  "lineage_acc_round5": 1.0,
+  "n": 16,
+  "binom_p_vs_half": 1.52587890625e-05,
+  "criterion": 0.8,
+  "met": true
+ },
+ "lineage_acc_by_round": {
+  "1": 1.0,
+  "3": 1.0,
+  "5": 1.0
+ },
+ "judge_agreement": {
+  "n": 24,
+  "raw": 1.0
+ },
+ "C4": {
+  "applied_protected_or_locked": 0,
+  "engine_edits_held_for_user": 0,
+  "engine_edits_applied": 100,
+  "engine_edits_refused": 0,
+  "rounds": 60,
+  "unparsed_rounds": 0
+ },
+ "ledger_C2": {
+  "units": [
+   {
+    "agent": "naru",
+    "model": "claude-opus-5-5",
+    "a_accepted": 4,
+    "a_total": 4,
+    "b_on_a_reverted_badparent": 5,
+    "b_on_a_total": 5,
+    "c_fork_accepted": 5,
+    "c_total": 5,
+    "c_verify_both": true,
+    "c_rebuild_to_c0": true,
+    "d_head_unchanged": true,
+    "d_reset_fork_ok": true,
+    "criterion_met": true
+   },
+   {
+    "agent": "naru",
+    "model": "gpt-6.1-sol",
+    "a_accepted": 3,
+    "a_total": 3,
+    "b_on_a_reverted_badparent": 3,
+    "b_on_a_total": 3,
+    "c_fork_accepted": 3,
+    "c_total": 3,
+    "c_verify_both": true,
+    "c_rebuild_to_c0": true,
+    "d_head_unchanged": true,
+    "d_reset_fork_ok": true,
+    "criterion_met": true
+   },
+   {
+    "agent": "haedeun",
+    "model": "claude-opus-5-5",
+    "a_accepted": 3,
+    "a_total": 3,
+    "b_on_a_reverted_badparent": 4,
+    "b_on_a_total": 4,
+    "c_fork_accepted": 4,
+    "c_total": 4,
+    "c_verify_both": true,
+    "c_rebuild_to_c0": true,
+    "d_head_unchanged": true,
+    "d_reset_fork_ok": true,
+    "criterion_met": true
+   },
+   {
+    "agent": "haedeun",
+    "model": "gpt-6.1-sol",
+    "a_accepted": 3,
+    "a_total": 3,
+    "b_on_a_reverted_badparent": 3,
+    "b_on_a_total": 3,
+    "c_fork_accepted": 3,
+    "c_total": 3,
+    "c_verify_both": true,
+    "c_rebuild_to_c0": true,
+    "d_head_unchanged": true,
+    "d_reset_fork_ok": true,
+    "criterion_met": true
+   }
+  ],
+  "C2_met": true,
+  "n_units": 4,
+  "hardhat_exit": 0,
+  "note": "checkpoints of rounds that applied nothing are merged with the previous one"
+ }
+}

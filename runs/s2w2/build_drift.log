@@ -1,0 +1,33 @@
+top-up requested: ['naru', 'haedeun']
+top-up requested: ['naru', 'haedeun']
+error launching git: ???? ???????.
+Traceback (most recent call last):
+  File "D:\openclaw-outputs\soul-verify\proofs\manifest.py", line 17, in <module>
+    rows = [f"{hashlib.sha256(git('cat-file', 'blob', f'{commit}:{f}')).hexdigest()}  {f}" for f in files]
+                              ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\openclaw-outputs\soul-verify\proofs\manifest.py", line 11, in git
+    return subprocess.check_output(["git", *args])
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\신운종\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 472, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+               **kwargs).stdout
+               ^^^^^^^^^
+  File "C:\Users\신운종\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['git', 'cat-file', 'blob', '651f697e34e25726875975f94a0ede89515508b7:v0.9/exp3/cases/cc2c34d5b/history.json']' returned non-zero exit status 1.
+Traceback (most recent call last):
+  File "D:\openclaw-outputs\soul-verify\v0.9\exp3\build_drift.py", line 262, in <module>
+    main()
+    ~~~~^^
+  File "D:\openclaw-outputs\soul-verify\v0.9\exp3\build_drift.py", line 253, in main
+    print(build(run, picked, not a.no_git), flush=True)
+          ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\openclaw-outputs\soul-verify\v0.9\exp3\build_drift.py", line 210, in build
+    subprocess.run([sys.executable, "proofs/manifest.py", commit], cwd=REPO, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\신운종\AppData\Local\Programs\Python\Python313\Lib\subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['C:\\Users\\신운종\\AppData\\Local\\Programs\\Python\\Python313\\python.exe', 'proofs/manifest.py', '651f697e34e25726875975f94a0ede89515508b7']' returned non-zero exit status 1.

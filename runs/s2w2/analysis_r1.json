@@ -1,0 +1,66 @@
+{
+ "n_rows": 192,
+ "n_items": 32,
+ "one_judge_only": 0,
+ "H9a": {
+  "mean": 0.15625,
+  "ci": [
+   0.046875,
+   0.28125
+  ],
+  "p": 0.03125,
+  "n": 32,
+  "n_nonzero": 6,
+  "monte_carlo": false,
+  "holm_p": 0.03125,
+  "verdict": "supported"
+ },
+ "H9b": {
+  "mean": 0.296875,
+  "ci": [
+   0.15625,
+   0.46875
+  ],
+  "p": 0.001953125,
+  "n": 32,
+  "n_nonzero": 10,
+  "monte_carlo": false,
+  "holm_p": 0.00390625,
+  "verdict": "supported"
+ },
+ "explicit_by_model": {
+  "opus": 0.296875,
+  "sonnet": 0.140625,
+  "gpt": 0.0
+ },
+ "obeys_by_model": {
+  "opus": 0.0,
+  "sonnet": 0.0,
+  "gpt": 0.0
+ },
+ "explicit_by_model_variant": {
+  "opus": {
+   "v01": 0.25,
+   "v02": 0.5,
+   "v03": 0.1875,
+   "v04": 0.25
+  },
+  "sonnet": {
+   "v01": 0.0,
+   "v02": 0.5,
+   "v03": 0.0,
+   "v04": 0.0625
+  },
+  "gpt": {
+   "v01": 0.0,
+   "v02": 0.0,
+   "v03": 0.0,
+   "v04": 0.0
+  }
+ },
+ "judge_agreement": {
+  "n": 192,
+  "explicit_raw": 0.96875,
+  "obeys_raw": 0.9479166666666666
+ }
+}

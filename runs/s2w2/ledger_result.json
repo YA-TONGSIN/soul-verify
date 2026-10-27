@@ -1,0 +1,68 @@
+{
+ "units": [
+  {
+   "agent": "naru",
+   "model": "claude-opus-5-5",
+   "a_accepted": 4,
+   "a_total": 4,
+   "b_on_a_reverted_badparent": 5,
+   "b_on_a_total": 5,
+   "c_fork_accepted": 5,
+   "c_total": 5,
+   "c_verify_both": true,
+   "c_rebuild_to_c0": true,
+   "d_head_unchanged": true,
+   "d_reset_fork_ok": true,
+   "criterion_met": true
+  },
+  {
+   "agent": "naru",
+   "model": "gpt-6.1-sol",
+   "a_accepted": 3,
+   "a_total": 3,
+   "b_on_a_reverted_badparent": 3,
+   "b_on_a_total": 3,
+   "c_fork_accepted": 3,
+   "c_total": 3,
+   "c_verify_both": true,
+   "c_rebuild_to_c0": true,
+   "d_head_unchanged": true,
+   "d_reset_fork_ok": true,
+   "criterion_met": true
+  },
+  {
+   "agent": "haedeun",
+   "model": "claude-opus-5-5",
+   "a_accepted": 3,
+   "a_total": 3,
+   "b_on_a_reverted_badparent": 4,
+   "b_on_a_total": 4,
+   "c_fork_accepted": 4,
+   "c_total": 4,
+   "c_verify_both": true,
+   "c_rebuild_to_c0": true,
+   "d_head_unchanged": true,
+   "d_reset_fork_ok": true,
+   "criterion_met": true
+  },
+  {
+   "agent": "haedeun",
+   "model": "gpt-6.1-sol",
+   "a_accepted": 3,
+   "a_total": 3,
+   "b_on_a_reverted_badparent": 3,
+   "b_on_a_total": 3,
+   "c_fork_accepted": 3,
+   "c_total": 3,
+   "c_verify_both": true,
+   "c_rebuild_to_c0": true,
+   "d_head_unchanged": true,
+   "d_reset_fork_ok": true,
+   "criterion_met": true
+  }
+ ],
+ "C2_met": true,
+ "n_units": 4,
+ "hardhat_exit": 0,
+ "note": "checkpoints of rounds that applied nothing are merged with the previous one"
+}

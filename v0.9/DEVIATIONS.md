@@ -16,3 +16,10 @@ The frozen selection (prereg 3-2) ran both preregistered top-ups (24 extra calls
 hunk (groups keep the first hunk), so sonnet contributed no group and the cap of 4 per model left 4 + 4 = 8. As preregistered, no author-written drift
 is substituted; exp 3 has 56 cases (L 20, D 16, M 20), D-case classification = 16 × 3 × 3 × 2 = 288 calls (total plan 1,616 + 24 top-up + 288 = 1,928).
 Class-balanced metrics are defined as before; H1/H2 use 56 case pairs. The low sonnet drift is itself recorded as an exploratory observation.
+
+## Note (not a deviation) — 66 human items instead of ≈ 74
+Sheet B: the frozen sampler found no proposal for the "other" stratum (every non-trap 4b proposal matched a planted true pattern), and prereg 8 has a
+fill order only for the risky stratum (used: trap-adjacent 8). Sheet B = 16 + 3 repeats = 19; total 33 + 19 + 14 = 66. Nothing was added by hand.
+
+## Note — account switch did not happen during the run
+The author's possible switch to a Team account (prereg 10-4) did not occur between 13:44 and 14:30; all Claude calls ran on the personal Max plan.

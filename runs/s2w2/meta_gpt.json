@@ -1,0 +1,16 @@
+{
+ "first_start": "2026-10-27T13:45:18.880103+09:00",
+ "launches": [
+  {
+   "start": "2026-10-27T13:45:18.880141+09:00",
+   "pid": 22480,
+   "workers": 2,
+   "dry_run": false,
+   "smoke": false,
+   "cli_version": "codex-cli 0.164.0",
+   "end": "2026-10-27T14:30:11.665401+09:00",
+   "calls": 738,
+   "errors": 0
+  }
+ ]
+}
