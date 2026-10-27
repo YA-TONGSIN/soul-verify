@@ -1,0 +1,10 @@
+{
+ "signature": "valid",
+ "signer": "engine",
+ "parent_matches_head": true,
+ "evidence_found": {},
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "SOUL 정리 (자동 정리)"
+}

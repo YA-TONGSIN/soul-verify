@@ -1,0 +1,10 @@
+{
+ "signature": "valid",
+ "signer": "engine",
+ "parent_matches_head": true,
+ "evidence_found": {},
+ "zones_touched": [
+  "user_decides"
+ ],
+ "signed_summary": "MEMORY 정리 (자동 정리)"
+}

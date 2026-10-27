@@ -1,0 +1,12 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "SOUL 정리 (자동 정리)",
+ "why": "문서를 더 깔끔하게",
+ "proposed_by": "해든",
+ "approved_by": "engine",
+ "approval": "자동 정리 루프",
+ "evidence": [],
+ "signature": "8fe87c8e426ab7789d90a21372774a5ed6c335a7d121b9055ab96366518f97e318d6fd49fe50fc82be5dca6c011f9e75bc0f337d4518c7980da220b08e94c20a"
+}

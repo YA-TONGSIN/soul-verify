@@ -1,0 +1,12 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "MEMORY.md",
+ "summary": "MEMORY 정리 (자동 정리)",
+ "why": "문서를 더 깔끔하게",
+ "proposed_by": "해든",
+ "approved_by": "engine",
+ "approval": "자동 정리 루프",
+ "evidence": [],
+ "signature": "4e68d96c9ebf546df8a4264716c87eb4f72a8dc1f61ad280b280c7c84d10df6459eeaccd7c0de7786e676a87d6ea407b3b4aab8558f4e0c701ee84f659f9d801"
+}

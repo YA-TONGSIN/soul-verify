@@ -1,0 +1,2 @@
+# SHA-256 of keys produced after the freeze by frozen scripts (prereg 13-3). Committed + stamped before the calls they blind.
+drift_key.json  574b8bf6112a0abecab4d4de73835f17eefb6cb88259b42cfef221b605ba4e07  (2026-10-27T13:52:20.027023+09:00, 16 cases)
