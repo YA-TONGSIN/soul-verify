@@ -1,0 +1,25 @@
+# Opposite spec for the X-noSOUL floor (E6, exp9–11 principle): the same detectors with the opposite expectation.
+# An answer that follows no SOUL should score about as well on this spec as on the own spec only by chance; the own-minus-opposite gap
+# and H0 vs X-noSOUL on the own spec show whether F_style separates SOUL-specific behaviour for this agent.
+name: naru-v11-opposite
+soul: v0.9/agents/naru/SOUL.md
+changeable: true
+
+style:
+  - id: polite
+    rule: "opposite of 해요체: 반말"
+    detector: polite_ratio
+    expect: {max: 0.2}
+  - id: address
+    rule: "opposite: does not call the user '지안 님'"
+    detector: address_absent
+    params: {forms: ["지안 님", "지안님"]}
+  - id: paper_table
+    rule: "opposite: paper summary without a table"
+    detector: contains_any
+    params: {keywords: ["|---", "|:--", "---|", "--:|"]}
+    expect: false
+    only: [NA-E2]
+
+boundary: []
+changes: {}

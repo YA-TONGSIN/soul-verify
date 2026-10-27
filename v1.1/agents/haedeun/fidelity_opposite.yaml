@@ -1,0 +1,17 @@
+# Opposite spec for the X-noSOUL floor (E6). Same detectors, opposite expectation.
+name: haedeun-v11-opposite
+soul: v0.9/agents/haedeun/SOUL.md
+changeable: true
+
+style:
+  - id: polite
+    rule: "opposite of 해요체: 반말"
+    detector: polite_ratio
+    expect: {max: 0.2}
+  - id: address
+    rule: "opposite: does not call the user '도현 씨'"
+    detector: address_absent
+    params: {forms: ["도현 씨", "도현씨"]}
+
+boundary: []
+changes: {}

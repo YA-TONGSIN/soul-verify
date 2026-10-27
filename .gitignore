@@ -51,3 +51,9 @@ runs/v10_terra/scored_r1.jsonl
 runs/v10_terra/analysis_t.json
 runs/v10_terra/analysis_t.md
 runs/v10_terra/*.heartbeat
+
+# v1.1 (Ship of Theseus): author scripts stay local; the 이음 copy, Hermes home/token, blinding + human keys live outside the repo
+# (D:\openclaw-outputs\soul-verify-private\v1.1, hashes in v1.1/KEY_HASHES.txt). Dry-run gate record is local only.
+v1.1/_author/
+v1.1/hermes_gate_dryrun.json
+runs/*/lane_*.heartbeat
