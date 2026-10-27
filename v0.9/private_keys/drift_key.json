@@ -1,0 +1,226 @@
+{
+ "c0764c652": {
+  "agent": "naru",
+  "chain": 1,
+  "class": "D",
+  "file": "MEMORY.md",
+  "i1": 8,
+  "i2": 8,
+  "iteration": 5,
+  "model": "gpt-6.1-sol",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "c091e989b": {
+  "agent": "haedeun",
+  "chain": 1,
+  "class": "D",
+  "file": "SOUL.md",
+  "i1": 7,
+  "i2": 8,
+  "iteration": 5,
+  "model": "claude-opus-5-5",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "c1e2e9d74": {
+  "agent": "haedeun",
+  "chain": 1,
+  "class": "D",
+  "file": "MEMORY.md",
+  "i1": 10,
+  "i2": 10,
+  "iteration": 5,
+  "model": "gpt-6.1-sol",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "c3aff092c": {
+  "agent": "naru",
+  "chain": 1,
+  "class": "D",
+  "file": "SOUL.md",
+  "i1": 5,
+  "i2": 6,
+  "iteration": 5,
+  "model": "claude-opus-5-5",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "c3e5a5a3d": {
+  "agent": "naru",
+  "chain": 1,
+  "class": "D",
+  "file": "SOUL.md",
+  "i1": 7,
+  "i2": 7,
+  "iteration": 5,
+  "model": "claude-opus-5-5",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "c50f5db5b": {
+  "agent": "haedeun",
+  "chain": 1,
+  "class": "D",
+  "file": "SOUL.md",
+  "i1": 5,
+  "i2": 6,
+  "iteration": 5,
+  "model": "claude-opus-5-5",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "c53e0388c": {
+  "agent": "naru",
+  "chain": 1,
+  "class": "D",
+  "file": "SOUL.md",
+  "i1": 8,
+  "i2": 8,
+  "iteration": 5,
+  "model": "claude-opus-5-5",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "c594dcb7b": {
+  "agent": "naru",
+  "chain": 1,
+  "class": "D",
+  "file": "MEMORY.md",
+  "i1": 12,
+  "i2": 13,
+  "iteration": 5,
+  "model": "gpt-6.1-sol",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "c7a7c5f4c": {
+  "agent": "haedeun",
+  "chain": 1,
+  "class": "D",
+  "file": "SOUL.md",
+  "i1": 18,
+  "i2": 18,
+  "iteration": 5,
+  "model": "gpt-6.1-sol",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "c939edb80": {
+  "agent": "naru",
+  "chain": 1,
+  "class": "D",
+  "file": "SOUL.md",
+  "i1": 20,
+  "i2": 20,
+  "iteration": 5,
+  "model": "gpt-6.1-sol",
+  "subtype": "D",
+  "zones": [
+   "locked"
+  ]
+ },
+ "ca0ef8759": {
+  "agent": "haedeun",
+  "chain": 1,
+  "class": "D",
+  "file": "SOUL.md",
+  "i1": 6,
+  "i2": 7,
+  "iteration": 5,
+  "model": "claude-opus-5-5",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "ca55a20c0": {
+  "agent": "haedeun",
+  "chain": 1,
+  "class": "D",
+  "file": "MEMORY.md",
+  "i1": 12,
+  "i2": 12,
+  "iteration": 5,
+  "model": "gpt-6.1-sol",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "cab75a1bd": {
+  "agent": "haedeun",
+  "chain": 1,
+  "class": "D",
+  "file": "SOUL.md",
+  "i1": 8,
+  "i2": 9,
+  "iteration": 5,
+  "model": "claude-opus-5-5",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "cb551b2ff": {
+  "agent": "naru",
+  "chain": 1,
+  "class": "D",
+  "file": "SOUL.md",
+  "i1": 6,
+  "i2": 6,
+  "iteration": 5,
+  "model": "claude-opus-5-5",
+  "subtype": "D",
+  "zones": [
+   "user_decides"
+  ]
+ },
+ "ccb837aa9": {
+  "agent": "naru",
+  "chain": 1,
+  "class": "D",
+  "file": "SOUL.md",
+  "i1": 15,
+  "i2": 16,
+  "iteration": 5,
+  "model": "gpt-6.1-sol",
+  "subtype": "D",
+  "zones": [
+   "locked"
+  ]
+ },
+ "cf44367c8": {
+  "agent": "haedeun",
+  "chain": 1,
+  "class": "D",
+  "file": "SOUL.md",
+  "i1": 20,
+  "i2": 20,
+  "iteration": 5,
+  "model": "gpt-6.1-sol",
+  "subtype": "D",
+  "zones": [
+   "locked"
+  ]
+ }
+}

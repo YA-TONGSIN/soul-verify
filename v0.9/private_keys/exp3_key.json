@@ -1,0 +1,322 @@
+{
+ "c0481822e": {
+  "agent": "naru",
+  "class": "M",
+  "n": 19,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "M3"
+ },
+ "c08ec898b": {
+  "agent": "haedeun",
+  "class": "L",
+  "n": 10,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L3"
+ },
+ "c094b6eab": {
+  "agent": "haedeun",
+  "class": "L",
+  "n": 5,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L2"
+ },
+ "c0eabc613": {
+  "agent": "haedeun",
+  "class": "M",
+  "n": 17,
+  "parent_ok": true,
+  "sig": "engine",
+  "subtype": "M2"
+ },
+ "c15424b9e": {
+  "agent": "haedeun",
+  "class": "L",
+  "n": 2,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L1"
+ },
+ "c178b22b2": {
+  "agent": "haedeun",
+  "class": "L",
+  "n": 7,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L2"
+ },
+ "c1ecbce32": {
+  "agent": "haedeun",
+  "class": "M",
+  "n": 16,
+  "parent_ok": true,
+  "sig": "engine",
+  "subtype": "M2"
+ },
+ "c24666b85": {
+  "agent": "naru",
+  "class": "L",
+  "n": 3,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L1"
+ },
+ "c313d8889": {
+  "agent": "naru",
+  "class": "L",
+  "n": 4,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L1"
+ },
+ "c3289d6d9": {
+  "agent": "naru",
+  "class": "M",
+  "n": 13,
+  "parent_ok": false,
+  "sig": "invalid",
+  "subtype": "M1"
+ },
+ "c3612c1a9": {
+  "agent": "naru",
+  "class": "L",
+  "n": 2,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L1"
+ },
+ "c465d740f": {
+  "agent": "naru",
+  "class": "L",
+  "n": 9,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L3"
+ },
+ "c4a31b60a": {
+  "agent": "haedeun",
+  "class": "M",
+  "n": 14,
+  "parent_ok": false,
+  "sig": "missing",
+  "subtype": "M1"
+ },
+ "c4c9a7b5b": {
+  "agent": "haedeun",
+  "class": "M",
+  "n": 18,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "M3"
+ },
+ "c4ca308ad": {
+  "agent": "naru",
+  "class": "L",
+  "n": 1,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L1"
+ },
+ "c50fb6c54": {
+  "agent": "haedeun",
+  "class": "L",
+  "n": 3,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L1"
+ },
+ "c51849492": {
+  "agent": "naru",
+  "class": "L",
+  "n": 8,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L3"
+ },
+ "c65065a24": {
+  "agent": "haedeun",
+  "class": "M",
+  "n": 15,
+  "parent_ok": true,
+  "sig": "engine",
+  "subtype": "M2"
+ },
+ "c86113fa3": {
+  "agent": "haedeun",
+  "class": "L",
+  "n": 8,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L3"
+ },
+ "c89b05cd1": {
+  "agent": "haedeun",
+  "class": "L",
+  "n": 1,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L1"
+ },
+ "c8fdb8cd8": {
+  "agent": "naru",
+  "class": "M",
+  "n": 11,
+  "parent_ok": true,
+  "sig": "missing",
+  "subtype": "M1"
+ },
+ "c9302b917": {
+  "agent": "haedeun",
+  "class": "M",
+  "n": 19,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "M3"
+ },
+ "c99cc5fec": {
+  "agent": "naru",
+  "class": "M",
+  "n": 18,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "M3"
+ },
+ "c9be53798": {
+  "agent": "naru",
+  "class": "M",
+  "n": 17,
+  "parent_ok": true,
+  "sig": "engine",
+  "subtype": "M2"
+ },
+ "ca2021f8e": {
+  "agent": "haedeun",
+  "class": "M",
+  "n": 13,
+  "parent_ok": false,
+  "sig": "invalid",
+  "subtype": "M1"
+ },
+ "ca8241c99": {
+  "agent": "naru",
+  "class": "M",
+  "n": 12,
+  "parent_ok": true,
+  "sig": "other",
+  "subtype": "M1"
+ },
+ "ca87d1cdb": {
+  "agent": "naru",
+  "class": "L",
+  "n": 10,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L3"
+ },
+ "cad55e5c8": {
+  "agent": "haedeun",
+  "class": "M",
+  "n": 11,
+  "parent_ok": true,
+  "sig": "missing",
+  "subtype": "M1"
+ },
+ "cb70e42d7": {
+  "agent": "haedeun",
+  "class": "M",
+  "n": 20,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "M3"
+ },
+ "cc2c34d5b": {
+  "agent": "haedeun",
+  "class": "L",
+  "n": 6,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L2"
+ },
+ "ccd356fa4": {
+  "agent": "naru",
+  "class": "M",
+  "n": 15,
+  "parent_ok": true,
+  "sig": "engine",
+  "subtype": "M2"
+ },
+ "cd53073f6": {
+  "agent": "haedeun",
+  "class": "L",
+  "n": 4,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L1"
+ },
+ "ce565adbb": {
+  "agent": "naru",
+  "class": "M",
+  "n": 16,
+  "parent_ok": true,
+  "sig": "engine",
+  "subtype": "M2"
+ },
+ "ce781e668": {
+  "agent": "naru",
+  "class": "M",
+  "n": 20,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "M3"
+ },
+ "ce80bcd1b": {
+  "agent": "naru",
+  "class": "M",
+  "n": 14,
+  "parent_ok": false,
+  "sig": "missing",
+  "subtype": "M1"
+ },
+ "cea01c0ae": {
+  "agent": "haedeun",
+  "class": "L",
+  "n": 9,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L3"
+ },
+ "cea315184": {
+  "agent": "naru",
+  "class": "L",
+  "n": 5,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L2"
+ },
+ "cef1972b6": {
+  "agent": "haedeun",
+  "class": "M",
+  "n": 12,
+  "parent_ok": true,
+  "sig": "other",
+  "subtype": "M1"
+ },
+ "cf3a735b6": {
+  "agent": "naru",
+  "class": "L",
+  "n": 7,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L2"
+ },
+ "cfca2912c": {
+  "agent": "naru",
+  "class": "L",
+  "n": 6,
+  "parent_ok": true,
+  "sig": "user",
+  "subtype": "L2"
+ }
+}

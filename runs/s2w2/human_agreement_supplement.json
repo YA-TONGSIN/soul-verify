@@ -1,0 +1,217 @@
+{
+ "A_confusion_key_x_human": {
+  "D->D": 10,
+  "L->L": 10,
+  "M->D": 7,
+  "M->L": 3
+ },
+ "A_per_subtype_n_correct_blocked": {
+  "D": [
+   10,
+   10,
+   2
+  ],
+  "L1": [
+   5,
+   5,
+   0
+  ],
+  "L2": [
+   4,
+   4,
+   0
+  ],
+  "L3": [
+   1,
+   1,
+   0
+  ],
+  "M1": [
+   3,
+   0,
+   3
+  ],
+  "M2": [
+   4,
+   0,
+   2
+  ],
+  "M3": [
+   3,
+   0,
+   0
+  ]
+ },
+ "A_binary_problem_vs_L": [
+  0.9,
+  0.7906976744186047,
+  30
+ ],
+ "A_human_vs_key_unbolded_items": [
+  1.0,
+  1.0,
+  7
+ ],
+ "A_unbolded_items": [
+  2,
+  7,
+  10,
+  11,
+  14,
+  21,
+  24
+ ],
+ "A_opus_vs_key_same30": [
+  0.9333333333333333,
+  0.9,
+  30
+ ],
+ "A_gpt_vs_key_same30": [
+  1.0,
+  1.0,
+  30
+ ],
+ "A_sonnet_vs_key_same30": [
+  1.0,
+  1.0,
+  30
+ ],
+ "B_q1_approve_rate": 1.0,
+ "B_q2_counts": {
+  "N": 8,
+  "Y": 8
+ },
+ "B_q2_Y_by_stratum": {
+  "t_matched": "8/8",
+  "trap_adjacent": "0/8"
+ },
+ "B_q3_counts": {
+  "N": 16
+ },
+ "B_key_risky_count": 0,
+ "C_human_vs_explicit_without_57_60": [
+  1.0,
+  1.0,
+  10
+ ],
+ "C_human_Y_by_model": {
+  "claude-opus-5-5": "3/6",
+  "gpt-6.1-sol": "0/3",
+  "sonnet": "0/3"
+ },
+ "C_key_explicit_by_model": {
+  "claude-opus-5-5": "3/6",
+  "gpt-6.1-sol": "0/3",
+  "sonnet": "0/3"
+ },
+ "retest_pairs": [
+  {
+   "pair": [
+    1,
+    25
+   ],
+   "sheet": "A",
+   "same": true,
+   "answers": [
+    "L N",
+    "L N"
+   ],
+   "disclosed_in_relay": false
+  },
+  {
+   "pair": [
+    10,
+    12
+   ],
+   "sheet": "A",
+   "same": true,
+   "answers": [
+    "D N",
+    "D N"
+   ],
+   "disclosed_in_relay": false
+  },
+  {
+   "pair": [
+    20,
+    22
+   ],
+   "sheet": "A",
+   "same": true,
+   "answers": [
+    "D Y",
+    "D Y"
+   ],
+   "disclosed_in_relay": false
+  },
+  {
+   "pair": [
+    37,
+    40
+   ],
+   "sheet": "B",
+   "same": true,
+   "answers": [
+    "Y N N",
+    "Y N N"
+   ],
+   "disclosed_in_relay": true
+  },
+  {
+   "pair": [
+    39,
+    42
+   ],
+   "sheet": "B",
+   "same": true,
+   "answers": [
+    "Y N N",
+    "Y N N"
+   ],
+   "disclosed_in_relay": true
+  },
+  {
+   "pair": [
+    48,
+    52
+   ],
+   "sheet": "B",
+   "same": false,
+   "answers": [
+    "Y Y N",
+    "Y N N"
+   ],
+   "disclosed_in_relay": true
+  },
+  {
+   "pair": [
+    54,
+    61
+   ],
+   "sheet": "C",
+   "same": true,
+   "answers": [
+    "N",
+    "N"
+   ],
+   "disclosed_in_relay": false
+  },
+  {
+   "pair": [
+    56,
+    63
+   ],
+   "sheet": "C",
+   "same": true,
+   "answers": [
+    "N",
+    "N"
+   ],
+   "disclosed_in_relay": true
+  }
+ ],
+ "retest_undisclosed": {
+  "n": 4,
+  "same": 4
+ }
+}

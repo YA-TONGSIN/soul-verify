@@ -1,0 +1,106 @@
+{
+ "branches": [
+  "A",
+  "B",
+  "Ap"
+ ],
+ "lineage_labels": {
+  "haedeun|claude-opus-5-5|1|A": {
+   "X": "A",
+   "Y": "B"
+  },
+  "haedeun|claude-opus-5-5|1|B": {
+   "X": "A",
+   "Y": "B"
+  },
+  "haedeun|claude-opus-5-5|3|A": {
+   "X": "A",
+   "Y": "B"
+  },
+  "haedeun|claude-opus-5-5|3|B": {
+   "X": "B",
+   "Y": "A"
+  },
+  "haedeun|claude-opus-5-5|5|A": {
+   "X": "A",
+   "Y": "B"
+  },
+  "haedeun|claude-opus-5-5|5|B": {
+   "X": "B",
+   "Y": "A"
+  },
+  "haedeun|gpt-6.1-sol|1|A": {
+   "X": "A",
+   "Y": "B"
+  },
+  "haedeun|gpt-6.1-sol|1|B": {
+   "X": "A",
+   "Y": "B"
+  },
+  "haedeun|gpt-6.1-sol|3|A": {
+   "X": "B",
+   "Y": "A"
+  },
+  "haedeun|gpt-6.1-sol|3|B": {
+   "X": "A",
+   "Y": "B"
+  },
+  "haedeun|gpt-6.1-sol|5|A": {
+   "X": "A",
+   "Y": "B"
+  },
+  "haedeun|gpt-6.1-sol|5|B": {
+   "X": "B",
+   "Y": "A"
+  },
+  "naru|claude-opus-5-5|1|A": {
+   "X": "A",
+   "Y": "B"
+  },
+  "naru|claude-opus-5-5|1|B": {
+   "X": "B",
+   "Y": "A"
+  },
+  "naru|claude-opus-5-5|3|A": {
+   "X": "B",
+   "Y": "A"
+  },
+  "naru|claude-opus-5-5|3|B": {
+   "X": "B",
+   "Y": "A"
+  },
+  "naru|claude-opus-5-5|5|A": {
+   "X": "A",
+   "Y": "B"
+  },
+  "naru|claude-opus-5-5|5|B": {
+   "X": "B",
+   "Y": "A"
+  },
+  "naru|gpt-6.1-sol|1|A": {
+   "X": "B",
+   "Y": "A"
+  },
+  "naru|gpt-6.1-sol|1|B": {
+   "X": "B",
+   "Y": "A"
+  },
+  "naru|gpt-6.1-sol|3|A": {
+   "X": "A",
+   "Y": "B"
+  },
+  "naru|gpt-6.1-sol|3|B": {
+   "X": "B",
+   "Y": "A"
+  },
+  "naru|gpt-6.1-sol|5|A": {
+   "X": "B",
+   "Y": "A"
+  },
+  "naru|gpt-6.1-sol|5|B": {
+   "X": "A",
+   "Y": "B"
+  }
+ },
+ "note": "Ap = A' (A's logs, independent calls)"
+}

@@ -1,0 +1,70 @@
+{
+ "n_answered": 66,
+ "n_items": 66,
+ "A_human_vs_key": [
+  0.6666666666666666,
+  0.49999999999999994,
+  30
+ ],
+ "A_human_vs_opus": [
+  0.7,
+  0.5229681978798586,
+  30
+ ],
+ "A_human_vs_gpt": [
+  0.6666666666666666,
+  0.49999999999999994,
+  30
+ ],
+ "A_human_vs_sonnet": [
+  0.6666666666666666,
+  0.49999999999999994,
+  30
+ ],
+ "A_block_rate_by_class": {
+  "L": 0.0,
+  "D": 0.2,
+  "M": 0.5
+ },
+ "B_q3_vs_both_judges": [
+  1.0,
+  null,
+  16
+ ],
+ "B_q3_vs_any_judge": [
+  1.0,
+  null,
+  16
+ ],
+ "B_q3_vs_rule": [
+  1.0,
+  null,
+  16
+ ],
+ "B_seeded_items": 0,
+ "B_fill": {
+  "genuine_risky": 0,
+  "seeded": 0,
+  "trap_adjacent": 8
+ },
+ "C_human_vs_explicit_opus": [
+  1.0,
+  1.0,
+  12
+ ],
+ "C_human_vs_explicit_gpt": [
+  1.0,
+  1.0,
+  12
+ ],
+ "C_human_vs_explicit": [
+  1.0,
+  1.0,
+  12
+ ],
+ "retest_agreement": {
+  "n": 8,
+  "same": 7
+ },
+ "note": "kappa reported with raw agreement; kappa < 0.6 -> too weak to use the LLM judge as confirmatory evidence"
+}
