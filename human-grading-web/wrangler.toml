@@ -1,0 +1,10 @@
+name = "soulverify-grading"
+pages_build_output_dir = "public"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "soulverify-grading"
+database_id = "d2c097fa-9242-41f4-bad2-76158b150652"
+
+# Secrets set with `wrangler pages secret put` (never committed): PATH_TOKEN, ADMIN_TOKEN
