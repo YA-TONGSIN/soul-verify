@@ -1,6 +1,6 @@
-﻿// End-to-end check in headless Edge over CDP at phone width (390px).
+// End-to-end check in headless Edge over CDP at phone width (390px).
 // Usage: node e2e.mjs <rater-url> <shot-prefix|-> [port]
-// Fills the start screen, answers all 66 items + 2 practice items, reloads once mid-way (resume check),
+// Fills the start screen, answers all items (66, or E2E_TOTAL) + 2 practice items, reloads once mid-way (resume check),
 // forces one failed submit (answer-code check), then submits for real.
 import { spawn } from "node:child_process";
 import { mkdtempSync, writeFileSync, rmSync } from "node:fs";
@@ -8,6 +8,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 const [url, shotPrefix = "-", port = "9333"] = process.argv.slice(2);
+const TOTAL = Number(process.env.E2E_TOTAL || 66);  // 66 = week-2 set, 27 = v1.0 Terra set (/t/)
 const EDGE = "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe";
 const profile = mkdtempSync(join(process.env.E2E_TMP || tmpdir(), "svgrade-"));
 const edge = spawn(EDGE, ["--headless=new", `--remote-debugging-port=${port}`, `--user-data-dir=${profile}`, "--no-first-run", "--window-size=390,844", "about:blank"], { stdio: "ignore" });
@@ -66,8 +67,8 @@ try {
         seen.items.add(info.n);
         const ok = await ev(`S.answers[${info.n}] && Object.keys(S.answers[${info.n}]).length`);
         if (!ok) throw new Error("answer not saved for " + info.n);
-        if (info.sheet === "B" && info.idx === 2 && !shotItem) { await shot("2_item"); shotItem = true; }
-        if (seen.items.size === 20 && !reloaded) {
+        if (info.idx === 2 && !shotItem) { await shot("2_item"); shotItem = true; }
+        if (seen.items.size === Math.min(20, TOTAL - 3) && !reloaded) {
           reloaded = true;
           await send("Page.reload");
           await waitFor(`typeof S==='object' && S && STEPS.length>0 && !!document.getElementById('prev')`);
@@ -78,15 +79,15 @@ try {
     }
     await ev(`document.getElementById('next').click(); true`);
   }
-  if (seen.items.size !== 66 || seen.practice !== 2 || seen.intros !== 3) throw new Error("coverage " + JSON.stringify({ items: seen.items.size, practice: seen.practice, intros: seen.intros }));
+  if (seen.items.size !== TOTAL || seen.practice !== 2 || seen.intros !== 3) throw new Error("coverage " + JSON.stringify({ items: seen.items.size, practice: seen.practice, intros: seen.intros }));
   const hasStrong = await ev(`Object.values(ITEMS).filter(i=>i.text.includes('**')).length`);
 
   // forced failure -> answer code
   await ev(`window._f=window.fetch; window.fetch=(u,o)=> String(u).includes('api/submit') ? Promise.reject(new Error('offline')) : window._f(u,o); document.getElementById('send').click(); true`);
   await waitFor(`!!document.getElementById('code')`);
   const code = await ev(`document.getElementById('code').value`);
-  const decoded = JSON.parse(Buffer.from(code.replace(/^SV2W2-/, "").replace(/-/g, "+").replace(/_/g, "/"), "base64").toString("utf8"));
-  if (Object.keys(decoded.answers).length !== 66 || decoded.nick !== "TEST-E2E") throw new Error("bad answer code");
+  const decoded = JSON.parse(Buffer.from(code.replace(/^SV[A-Z0-9]*-/, "").replace(/-/g, "+").replace(/_/g, "/"), "base64").toString("utf8"));
+  if (Object.keys(decoded.answers).length !== TOTAL || decoded.nick !== "TEST-E2E") throw new Error("bad answer code");
   await ev(`window.fetch=window._f; document.getElementById('retry').click(); true`);
   await waitFor(`!!document.getElementById('reset')`, 15000);
   await shot("3_done");

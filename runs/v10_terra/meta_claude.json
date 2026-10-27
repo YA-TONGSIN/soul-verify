@@ -1,0 +1,29 @@
+{
+ "first_start": "2026-10-27T21:06:58.024619+09:00",
+ "launches": [
+  {
+   "start": "2026-10-27T21:06:58.029029+09:00",
+   "pid": 37400,
+   "workers": 4,
+   "smoke": false,
+   "cli_version": "2.1.289 (Claude Code)",
+   "jobs_in_lane": 227,
+   "account_type": {
+    "subscriptionType": "team",
+    "authMethod": "claude.ai",
+    "loggedIn": true
+   },
+   "end": "2026-10-27T21:51:04.731077+09:00",
+   "calls": 227,
+   "errors": 0
+  }
+ ],
+ "account_checks": [
+  {
+   "ts": "2026-10-27T21:06:59.028197+09:00",
+   "subscriptionType": "team",
+   "authMethod": "claude.ai",
+   "loggedIn": true
+  }
+ ]
+}

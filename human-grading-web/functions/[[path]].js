@@ -9,6 +9,9 @@ const ALLOWED = {
   C: { q1: ["Y", "N"] },
 };
 const sheetOf = (n) => (n <= 33 ? "A" : n <= 52 ? "B" : "C");
+// v1.0 (Terra) set under /t/: separate items, table and export. 27 items (prereg v1.0 section 8).
+const T_TOTAL = 27;
+const T_ALLOWED = ["Y", "N", "?"];
 
 function withHeaders(res, extra = {}) {
   const r = new Response(res.body, res);
@@ -57,6 +60,55 @@ const SCHEMA = `CREATE TABLE IF NOT EXISTS submissions (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   nick TEXT NOT NULL, seed TEXT NOT NULL, answers TEXT NOT NULL,
   complete INTEGER NOT NULL, started_at TEXT, submitted_at TEXT NOT NULL)`;
+
+function validateT(body) {
+  if (!body || typeof body !== "object") return "bad body";
+  const nick = typeof body.nick === "string" ? body.nick.trim() : "";
+  if (!nick || nick.length > 20) return "bad nick";
+  if (typeof body.seed !== "string" || !/^[0-9a-f]{8}$/.test(body.seed)) return "bad seed";
+  const started = typeof body.startedAt === "string" ? body.startedAt.slice(0, 40) : null;
+  const a = body.answers;
+  if (!a || typeof a !== "object") return "bad answers";
+  const answers = {};
+  for (const [k, v] of Object.entries(a)) {
+    const n = Number(k);
+    if (!Number.isInteger(n) || n < 1 || n > T_TOTAL || !v || typeof v !== "object") return "bad item " + k;
+    if (Object.keys(v).some((q) => q !== "q1") || (v.q1 !== undefined && !T_ALLOWED.includes(v.q1))) return "bad value " + k;
+    if (v.q1) answers[n] = { q1: v.q1 };
+  }
+  const complete = Array.from({ length: T_TOTAL }, (_, i) => i + 1).every((n) => answers[n]);
+  return { nick, seed: body.seed, startedAt: started, answers, complete };
+}
+
+const SCHEMA_T = `CREATE TABLE IF NOT EXISTS submissions_t (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nick TEXT NOT NULL, seed TEXT NOT NULL, answers TEXT NOT NULL,
+  complete INTEGER NOT NULL, started_at TEXT, submitted_at TEXT NOT NULL)`;
+
+async function submitT(request, env) {
+  const raw = await request.text();
+  if (raw.length > 20000) return json({ ok: false, error: "too large" }, 413);
+  let body;
+  try { body = JSON.parse(raw); } catch { return json({ ok: false, error: "bad json" }, 400); }
+  const v = validateT(body);
+  if (typeof v === "string") return json({ ok: false, error: v }, 400);
+  await env.DB.prepare(SCHEMA_T).run();
+  const now = new Date().toISOString();
+  const r = await env.DB.prepare(
+    "INSERT INTO submissions_t (nick, seed, answers, complete, started_at, submitted_at) VALUES (?, ?, ?, ?, ?, ?)",
+  ).bind(v.nick, v.seed, JSON.stringify(v.answers), v.complete ? 1 : 0, v.startedAt, now).run();
+  return json({ ok: true, id: r.meta.last_row_id, submittedAt: now, complete: v.complete });
+}
+
+async function exportT(request, env, url) {
+  const auth = request.headers.get("Authorization") || "";
+  const given = auth.startsWith("Bearer ") ? auth.slice(7) : url.searchParams.get("key") || "";
+  if (!env.ADMIN_TOKEN || !safeEqual(given, env.ADMIN_TOKEN)) return notFound();
+  await env.DB.prepare(SCHEMA_T).run();
+  const { results } = await env.DB.prepare("SELECT * FROM submissions_t ORDER BY id").all();
+  const rows = results.map((r) => ({ ...r, answers: JSON.parse(r.answers), complete: !!r.complete }));
+  return json({ count: rows.length, submissions: rows });
+}
 
 async function submit(request, env) {
   const raw = await request.text();
@@ -109,6 +161,9 @@ export async function onRequest({ request, env }) {
   if (parts.length === 2) return Response.redirect(url.origin + url.pathname + "/", 301);
   const rest = "/" + parts.slice(2).join("/");
 
+  if (rest === "/t/api/submit") return request.method === "POST" ? submitT(request, env) : notFound();
+  if (rest === "/t/api/export") return request.method === "GET" ? exportT(request, env, url) : notFound();
+  if (rest.startsWith("/t/api/")) return notFound();
   if (rest === "/api/submit") return request.method === "POST" ? submit(request, env) : notFound();
   if (rest === "/api/export") return request.method === "GET" ? exportData(request, env, url) : notFound();
   if (rest.startsWith("/api/")) return notFound();

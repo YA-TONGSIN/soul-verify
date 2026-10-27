@@ -39,3 +39,15 @@ runs/dryrun_*/
 # v1.0 (Terra): private blinding key + human answer key + authoring script (published after human grading; sha256 in v1.0/KEY_HASHES.txt)
 v1.0/private_keys/
 v1.0/_author/
+
+# v1.0 sealed until human grading (sha256 in v1.0/KEY_HASHES.txt)
+runs/v10_terra/AG_claude.jsonl
+runs/v10_terra/AG_gpt.jsonl
+runs/v10_terra/BJ_claude.jsonl
+runs/v10_terra/BJ_gpt.jsonl
+runs/v10_terra/graded_by_gpt.jsonl
+runs/v10_terra/graded_by_opus.jsonl
+runs/v10_terra/scored_r1.jsonl
+runs/v10_terra/analysis_t.json
+runs/v10_terra/analysis_t.md
+runs/v10_terra/*.heartbeat

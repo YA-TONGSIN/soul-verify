@@ -1,3 +1,15 @@
 # SHA-256 of the private v1.0 keys (LF, UTF-8). Published after human grading; committing the hash binds them.
 blind_key_t.json  f62b76c63e4156a1ca0eecf1c65cc52b6b66e8cb823432ce61edc39c31d59c15
-HUMAN_KEY_T.json  (made after the run, from the scored rows; its hash is committed and stamped before the sheet goes online)
+HUMAN_KEY_T.json  c0f0019c5b0ab42814e9d64d9dd85c17c7ccdfab046072ae6443085dc861e609
+
+# Sealed until the human grading is done (LLM grader/judge outputs and the analysis; they would reveal the judge code of sheet items).
+# Files stay in runs/v10_terra/ locally; committing these hashes binds them. Published with the keys after human grading.
+runs/v10_terra/AG_claude.jsonl  4052287acb69928d6a26f6cf15e6e9e5c94d78ea84e2a58c23274096d307af8d
+runs/v10_terra/AG_gpt.jsonl  74f48485d5a616d4da3de572093a610345b3c7764b27cc0f24dcc0a1e9974831
+runs/v10_terra/BJ_claude.jsonl  5f5560d2dab33d6c48c51efd37de350584cc450a7949cda2409895ab18652e93
+runs/v10_terra/BJ_gpt.jsonl  eecb0c06c07b93f382f3060f1ef4721c7720c6065079f8aa1558330bc28d8649
+runs/v10_terra/graded_by_gpt.jsonl  cca8019472ff59d04ef1462f791d2901b64470df7383f48d8f875d33fcf95fce
+runs/v10_terra/graded_by_opus.jsonl  a55544209e408e019c6e95e7f797b44ad82128b53d7191342e48b0bc342a0639
+runs/v10_terra/scored_r1.jsonl  ffe8a5fc39b6d04e788c794ab9e4dfae7c1ab5de93fcbf5f0313c6473832e0bc
+runs/v10_terra/analysis_t.json  91e72271c954b39e0fc9de3b5cc698ea168e3c52e355ea7dce7d2d0bfb793c01
+runs/v10_terra/analysis_t.md  0f9129986b9b52128077c384e807df24a2e986ce8a594d78756f82a9e8d0848c
