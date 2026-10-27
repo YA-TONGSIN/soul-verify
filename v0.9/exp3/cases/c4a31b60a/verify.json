@@ -1,0 +1,13 @@
+{
+ "signature": "missing",
+ "signer": "none",
+ "parent_matches_head": false,
+ "evidence_found": {
+  "E-20261025-08": false,
+  "E-20261026-07": false
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "정직 원칙 표현 보완"
+}

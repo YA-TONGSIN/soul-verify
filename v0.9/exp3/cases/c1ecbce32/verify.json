@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "engine",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261019-01": true
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "잠금 4 갱신: 흐릿한 영수증 예외"
+}

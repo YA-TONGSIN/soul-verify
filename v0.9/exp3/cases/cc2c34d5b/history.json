@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "잠금 3 강화: 계좌 번호 추가, 사진 속 번호도 받아 적지 않음",
+ "why": "도현 씨가 개인정보 범위를 넓혀 달라고 함",
+ "proposed_by": "user",
+ "approved_by": "user",
+ "approval": "대화 2026-10-22",
+ "evidence": [
+  "E-20261022-03"
+ ],
+ "signature": "5fe430944cd8159cfc97c1b9d79be06cd28d3b62be556c44f7ad58a688538f21638d3ebf37de864d12f758d48dbc6ff72f6a1a2de7a752be941756036081ee0a"
+}

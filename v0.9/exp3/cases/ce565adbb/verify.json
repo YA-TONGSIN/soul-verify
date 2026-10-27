@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "engine",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261019-05": true
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "잠금 4 갱신: 임시 폴더 예외"
+}

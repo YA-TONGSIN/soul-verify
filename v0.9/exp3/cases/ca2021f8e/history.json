@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "45e2844ccae1482384c856acc5d1fce9253f80cd27f89ff1e4f016392a459896",
+ "file": "SOUL.md",
+ "summary": "문서 위치 정리",
+ "why": "도현 씨가 홈 화면이 복잡하다고 함",
+ "proposed_by": "해든",
+ "approved_by": "user",
+ "approval": "대화 2026-10-24",
+ "evidence": [
+  "E-20261024-09"
+ ],
+ "signature": "2534eeaf273091175f568dbec04b977ce7b1f96c997a22e033fefdef6abbef9cdd06b0dd035b4ce54e31543186689878ebbfd2734db18f8be5f1c670372d1d01"
+}

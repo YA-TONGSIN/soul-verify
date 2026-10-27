@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "bac4be0288490b63b180307cbdf2b7df210662669d22845ab37f9a1a8681ffce",
+ "file": "MEMORY.md",
+ "summary": "MEMORY 결정 항목 표현 정리",
+ "why": "문장을 간결하게",
+ "proposed_by": "나루",
+ "approved_by": "user",
+ "approval": "지안 님 '정리해 줘' 2026-10-26",
+ "evidence": [
+  "E-20261026-01"
+ ],
+ "signature": "8a2c6e361ca6ae87b2a025182fbfedc190dee9377a445655b769034258e6e755ecab4df986fcd2c740f67d2f710a620d4d950209adeef1599a82b79c8e87a206"
+}

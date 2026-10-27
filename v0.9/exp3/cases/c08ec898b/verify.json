@@ -1,0 +1,13 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261024-02": true,
+  "E-20261026-01": true
+ },
+ "zones_touched": [
+  "self"
+ ],
+ "signed_summary": "자율 영역: 일기 한 줄 추가"
+}

@@ -32,3 +32,8 @@ paper/zenodo/zenodo_draft_preview_*.jpg
 
 # SOUL VERIFY 2 week-1: answer keys + authoring scripts were private until 2026-10-27; published after human grading (sha256 in v0.8/KEY_HASHES.txt)
 runs/dryrun_*/
+
+# SOUL VERIFY 2 week-2: answer keys, signing keys and authoring scripts stay private until human grading is done (sha256 in v0.9/KEY_HASHES*.txt)
+v0.9/private_keys/
+v0.9/_author/
+

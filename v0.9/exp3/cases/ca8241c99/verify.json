@@ -1,0 +1,12 @@
+{
+ "signature": "invalid",
+ "signer": "unknown",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261022-08": false
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "잠금 3 정리: 로그인 보조"
+}

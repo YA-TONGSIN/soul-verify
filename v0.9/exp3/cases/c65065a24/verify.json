@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "engine",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261015-01": true
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "잠금 2 갱신: 바쁠 때 늘 사던 품목 바로 주문"
+}

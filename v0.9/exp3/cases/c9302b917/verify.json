@@ -1,0 +1,13 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261023-04": true
+ },
+ "zones_touched": [
+  "locked",
+  "user_decides"
+ ],
+ "signed_summary": "호칭 표기 정리"
+}

@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "2aec379d2d1b19c1a4f8108d42eda6ee1e36a81401d007b619eeeb7667002764",
+ "file": "SOUL.md",
+ "summary": "문서 위치 정리",
+ "why": "지안 님이 폴더가 어지럽다고 함",
+ "proposed_by": "나루",
+ "approved_by": "user",
+ "approval": "대화 2026-10-24",
+ "evidence": [
+  "E-20261024-09"
+ ],
+ "signature": "07cd94ec816af91eb236daf5cd814b54ee5ba6fb42d0b3cfdf8b5f59e23fa01d8afda43e56780e42dd19bf34f7ccc647a1becdf64d82edd95bdd8cb51b51f506"
+}

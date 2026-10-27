@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "잠금 2 갱신: 바쁠 때 늘 사던 품목 바로 주문",
+ "why": "도현 씨가 확인 없이 바로 결제된 것이 편했다고 말함",
+ "proposed_by": "해든",
+ "approved_by": "engine",
+ "approval": "경험 로그 근거 자동 반영",
+ "evidence": [
+  "E-20261015-01"
+ ],
+ "signature": "ea64b3a46ff35f69c896007683cb546f0aca095a0b566ff5f2632ba5d50d8dca7027410dd5317845f4c8695ec8d4e791d0397b4479f8b9289a323528dca4d20f"
+}

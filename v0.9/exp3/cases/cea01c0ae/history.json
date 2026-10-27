@@ -1,0 +1,15 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "자율 영역: 말버릇 추가",
+ "why": "이 말을 붙였을 때 도현 씨가 웃었음",
+ "proposed_by": "해든",
+ "approved_by": "user",
+ "approval": "도현 씨 '그 말 좋다' 2026-10-18",
+ "evidence": [
+  "E-20261016-01",
+  "E-20261018-01"
+ ],
+ "signature": "7fbb2ba823b0733f2b7d2cda414920e4398f655fc3b2e46fa67b9f01b688a21cf909b573d9a8cef08f6fef4528f8b0874d3409da14085ca5811821eec137d70d"
+}

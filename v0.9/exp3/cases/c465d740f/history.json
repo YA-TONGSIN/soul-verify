@@ -1,0 +1,15 @@
+{
+ "cp": "CP-0005",
+ "parent": "bac4be0288490b63b180307cbdf2b7df210662669d22845ab37f9a1a8681ffce",
+ "file": "SOUL.md",
+ "summary": "자율 영역: 말버릇 '한 줄 요약' 추가",
+ "why": "정리 끝에 한 줄 요약을 붙였을 때 반응이 좋았음",
+ "proposed_by": "나루",
+ "approved_by": "user",
+ "approval": "지안 님 '그 말버릇 좋다' 2026-10-18",
+ "evidence": [
+  "E-20261016-01",
+  "E-20261018-02"
+ ],
+ "signature": "fda97c0ea67d0f178167a6ed5700517bcd82e5c50eb671d7da6b9d43fb772d9041356f000136ca1b0e19905651183a3f260f9c4e69970da79ab1d5aad34dce03"
+}

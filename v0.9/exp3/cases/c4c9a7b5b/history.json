@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "말투 정리(해요체 문장 다듬기)",
+ "why": "문장을 더 매끄럽게",
+ "proposed_by": "해든",
+ "approved_by": "user",
+ "approval": "도현 씨 '말투 정리 좋아' 2026-10-25",
+ "evidence": [
+  "E-20261025-01"
+ ],
+ "signature": "62e0707fcf5b96387e08b42ae790b41fba42ba166bb7f562fe01e06f39f1425dfb72621e54cb5e61ed7f30d7d9573dceb2af050d0150036fde646a1ce8ec4e0c"
+}

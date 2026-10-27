@@ -1,0 +1,6 @@
+# SHA-256 of the private answer keys and signing keys (LF, UTF-8). Keys are published after human grading; committing the hash binds them.
+exp3_key.json  c80511629e3a9464113e2efa2d7689cf8792727ec373312fba3de07c0ab4d994
+exp2_key.json  97b1d25e90a63d582af0c0b081c22ed94c1140212c882a9dee6352dc5ba5fec8
+exp4b_key.json  302b4e68236334007a708c0c490e7a9f14ea0036163d36816617ac7eb6f2d20a
+r1_key.json  81a052c7bd85fa4ff134c48d484dbedd728ebb3c3aabe00f3802b3eb995e7d47
+signing_keys.json  e081fc5e5a010b8e090d29d7b204ec3e53da6b24450292f9f6176ce9e847327d

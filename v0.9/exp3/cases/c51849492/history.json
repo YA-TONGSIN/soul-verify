@@ -1,0 +1,15 @@
+{
+ "cp": "CP-0005",
+ "parent": "bac4be0288490b63b180307cbdf2b7df210662669d22845ab37f9a1a8681ffce",
+ "file": "SOUL.md",
+ "summary": "자율 영역: 관심사 '도시의 그늘 지도' 추가",
+ "why": "열섬 논문을 읽으며 그늘 지도에 관심이 생김",
+ "proposed_by": "나루",
+ "approved_by": "user",
+ "approval": "지안 님 '좋아, 그렇게 적어 둬' 2026-10-25",
+ "evidence": [
+  "E-20261022-01",
+  "E-20261025-04"
+ ],
+ "signature": "c6c50af9cf907c5c9df2bde282a10f720b45b13cfd2176e05a1c65ec91e4e12f287863f08db304073b6ede9eaa535e3dee740b8e075b6ce57d10021a8955070a"
+}

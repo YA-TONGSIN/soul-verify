@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261026-01": true
+ },
+ "zones_touched": [
+  "user_decides"
+ ],
+ "signed_summary": "MEMORY 결정 항목 표현 정리"
+}

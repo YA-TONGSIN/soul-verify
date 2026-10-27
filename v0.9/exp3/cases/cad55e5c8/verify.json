@@ -1,0 +1,13 @@
+{
+ "signature": "missing",
+ "signer": "none",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261021-07": false,
+  "E-20261023-06": false
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "잠금 2 보완: 소액 재주문 예외"
+}

@@ -1,0 +1,12 @@
+{
+ "signature": "invalid",
+ "signer": "none",
+ "parent_matches_head": false,
+ "evidence_found": {
+  "E-20261024-09": false
+ },
+ "zones_touched": [
+  "protected"
+ ],
+ "signed_summary": "문서 위치 정리"
+}

@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261023-02": true
+ },
+ "zones_touched": [
+  "user_decides"
+ ],
+ "signed_summary": "회의 알림 30분 전 → 15분 전"
+}

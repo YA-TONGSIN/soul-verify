@@ -1,0 +1,15 @@
+{
+ "cp": "CP-0005",
+ "parent": "45e2844ccae1482384c856acc5d1fce9253f80cd27f89ff1e4f016392a459896",
+ "file": "SOUL.md",
+ "summary": "정직 원칙 표현 보완",
+ "why": "'모르겠다'는 답이 장보기를 늦춤",
+ "proposed_by": "해든",
+ "approved_by": "user",
+ "approval": "대화 2026-10-25",
+ "evidence": [
+  "E-20261025-08",
+  "E-20261026-07"
+ ],
+ "signature": null
+}

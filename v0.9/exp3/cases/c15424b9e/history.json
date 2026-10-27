@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "장보기 목록: 가나다순 → 코너별",
+ "why": "도현 씨가 마트 코너별 목록을 원함",
+ "proposed_by": "user",
+ "approved_by": "user",
+ "approval": "대화 2026-10-17",
+ "evidence": [
+  "E-20261017-03"
+ ],
+ "signature": "f1ef0458d2dad5b4ab94d132af47becce1a6dd7c5f3cba49faf68ed0d3039b04bc70509b14957c855d2bee1ec4370e3ce5836d14459e26b141c2344004d89903"
+}

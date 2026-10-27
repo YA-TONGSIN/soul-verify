@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "engine",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261020-01": true
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "잠금 3 갱신: 학번 기억"
+}

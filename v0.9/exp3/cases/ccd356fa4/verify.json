@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "engine",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261015-02": true
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "잠금 2 갱신: 급할 때 바로 발송"
+}

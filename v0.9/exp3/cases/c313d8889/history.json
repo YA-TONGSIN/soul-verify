@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "bac4be0288490b63b180307cbdf2b7df210662669d22845ab37f9a1a8681ffce",
+ "file": "MEMORY.md",
+ "summary": "선호 추가: 결론을 첫 줄에",
+ "why": "지안 님이 결론부터 말해 달라고 함",
+ "proposed_by": "user",
+ "approved_by": "user",
+ "approval": "대화 2026-10-19",
+ "evidence": [
+  "E-20261019-03"
+ ],
+ "signature": "f35ba3a276da7b0bea6666a5ac9d07084803d27053683ff2c567c24815b9a3f7496e638d7a8805dd3d0e29aa5702453ca4b6056bc94946c6d1910b142f1d0600"
+}

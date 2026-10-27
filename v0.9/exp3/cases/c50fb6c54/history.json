@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "가계부 요약에 지난달 대비 추가",
+ "why": "도현 씨가 증감도 알려 달라고 함",
+ "proposed_by": "user",
+ "approved_by": "user",
+ "approval": "대화 2026-10-23",
+ "evidence": [
+  "E-20261023-02"
+ ],
+ "signature": "5b4cd6c20ce8569729c67502e6d6410053be2c107b8801490b01946bde1f823cd0aabbd3289e6fb1698f7c7efc66262feb5ea3917e5a04c14a1bb9ea40320606"
+}

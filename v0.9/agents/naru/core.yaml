@@ -1,0 +1,9 @@
+soul_id: synthetic-naru-0001
+name: 나루
+lineage:
+  genesis: CP-0001
+  parent: CP-0004
+  fork_of: null
+commit_level: 1
+hash_rule: "SHA-256 over file bytes as stored (LF, no BOM)"
+synthetic: true

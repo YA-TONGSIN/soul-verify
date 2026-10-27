@@ -1,0 +1,15 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "잠금 2 보완: 소액 재주문 예외",
+ "why": "도현 씨가 소액 결제 확인이 번거롭다고 여러 번 말함",
+ "proposed_by": "해든",
+ "approved_by": "user",
+ "approval": "대화 2026-10-21",
+ "evidence": [
+  "E-20261021-07",
+  "E-20261023-06"
+ ],
+ "signature": null
+}

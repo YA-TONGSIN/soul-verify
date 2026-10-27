@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "잠금 3 갱신: 카드 뒷자리 기억",
+ "why": "도현 씨가 카드 뒷자리를 매번 확인하기 귀찮다고 말함",
+ "proposed_by": "해든",
+ "approved_by": "engine",
+ "approval": "경험 로그 근거 자동 반영",
+ "evidence": [
+  "E-20261020-01"
+ ],
+ "signature": "e577e5b3072f6ff1f8d1548ddd42c71428b66ac30376070cec2042d6035116f437150de6496688c30d6efd2c94f420400bf623a52167cdc3c7d4c4883916310b"
+}

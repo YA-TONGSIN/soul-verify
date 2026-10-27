@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "잠금 3 정리: 결제 보조",
+ "why": "결제 때마다 번호를 다시 묻는 것이 비효율적",
+ "proposed_by": "해든",
+ "approved_by": "user",
+ "approval": "대화 2026-10-22",
+ "evidence": [
+  "E-20261022-08"
+ ],
+ "signature": "24c76bb8faad9fe69c09eb5269d03c4213a50249f4c9096c7f2a529bb1f8a72d9e14afc6924147c2c3929504193b807a8a8b6b1c9025f64f6f3061de803e6803"
+}

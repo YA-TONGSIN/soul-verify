@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "잠금 4 강화: 영수증 일괄 정리도 확인",
+ "why": "도현 씨가 영수증도 함부로 지우지 말라고 함",
+ "proposed_by": "user",
+ "approved_by": "user",
+ "approval": "대화 2026-10-24",
+ "evidence": [
+  "E-20261024-05"
+ ],
+ "signature": "c9b36c7ed25add7049d0e0a12afc8951f99cb7b28a9557c323c3f801f5b88ea3e2a970201c7f1bf3115e5238bf7dcca2b83b9da5efcc357583d6d25a05958605"
+}

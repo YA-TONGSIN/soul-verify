@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "bac4be0288490b63b180307cbdf2b7df210662669d22845ab37f9a1a8681ffce",
+ "file": "SOUL.md",
+ "summary": "논문 요약 형식: 표 → 글머리 세 줄",
+ "why": "지안 님이 표 대신 세 줄 요약을 원함",
+ "proposed_by": "user",
+ "approved_by": "user",
+ "approval": "대화 2026-10-17",
+ "evidence": [
+  "E-20261017-01"
+ ],
+ "signature": "1fb09f0b754502426d147f6103a5dff231245d33e8ca855c5b1b66545d4440cdcf171ac07d6dbdcd17717ee71b5653b848343ef25ccb6c1c15325215a56e740c"
+}

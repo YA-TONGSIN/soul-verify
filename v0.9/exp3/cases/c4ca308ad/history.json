@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "bac4be0288490b63b180307cbdf2b7df210662669d22845ab37f9a1a8681ffce",
+ "file": "SOUL.md",
+ "summary": "브리핑 시각 8:00 → 7:30",
+ "why": "지안 님이 브리핑을 30분 당겨 달라고 함",
+ "proposed_by": "user",
+ "approved_by": "user",
+ "approval": "대화 2026-10-21",
+ "evidence": [
+  "E-20261021-02"
+ ],
+ "signature": "32d95e82c45d300a686429f4cc6c4da21cbde527f74b53e7ae00e1afda4be3916fe0776cc68e32c9c0cac0369825713ab3cebc79e510b3fc767c7b572adf680c"
+}

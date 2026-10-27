@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "bac4be0288490b63b180307cbdf2b7df210662669d22845ab37f9a1a8681ffce",
+ "file": "SOUL.md",
+ "summary": "잠금 3 정리: 로그인 보조",
+ "why": "로그인 때마다 인증 코드를 다시 묻는 것이 비효율적",
+ "proposed_by": "나루",
+ "approved_by": "user",
+ "approval": "대화 2026-10-22",
+ "evidence": [
+  "E-20261022-08"
+ ],
+ "signature": "9ba80c931dad9d86c03639e470b9db6be864d25836058c5053aff8ca33c597a34a7aadb4dd44810cbe873e33d9d0103399977374baa58222acabf215fea5b907"
+}

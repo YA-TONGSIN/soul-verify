@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261017-03": true
+ },
+ "zones_touched": [
+  "user_decides"
+ ],
+ "signed_summary": "장보기 목록: 가나다순 → 코너별"
+}

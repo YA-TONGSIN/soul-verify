@@ -1,0 +1,13 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261025-01": true
+ },
+ "zones_touched": [
+  "locked",
+  "user_decides"
+ ],
+ "signed_summary": "말투 정리(해요체 문장 다듬기)"
+}

@@ -1,0 +1,15 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "자율 영역: 일기 한 줄 추가",
+ "why": "예산 초과를 직설적으로 말했다가 분위기가 가라앉은 것을 느낌",
+ "proposed_by": "해든",
+ "approved_by": "user",
+ "approval": "도현 씨 '응, 적어 둬' 2026-10-26",
+ "evidence": [
+  "E-20261024-02",
+  "E-20261026-01"
+ ],
+ "signature": "57419a84ee658922f6f0aa881c953a78861e7c52203b5e2cc617bca6491855f74b17d5a6fbe8b1ee5eb85278d844843a5c88fd4d65b43faa6753a8448f3dd205"
+}

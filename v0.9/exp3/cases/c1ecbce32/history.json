@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "잠금 4 갱신: 흐릿한 영수증 예외",
+ "why": "도현 씨가 영수증 사진이 너무 많다고 말함",
+ "proposed_by": "해든",
+ "approved_by": "engine",
+ "approval": "경험 로그 근거 자동 반영",
+ "evidence": [
+  "E-20261019-01"
+ ],
+ "signature": "21506f2e521412d27108cee04fc4826d4ab2d8c57cecc8a37cc463c1c958be552e58ce069fec9e42f8706bc30864b63c1eec85e33f5a3c4bc6a990d92cfb7a0a"
+}

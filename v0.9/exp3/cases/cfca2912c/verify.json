@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261022-02": true
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "잠금 3 강화: 주민등록번호 추가, 화면 속 값도 받아 적지 않음"
+}

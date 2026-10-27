@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "MEMORY.md",
+ "summary": "MEMORY 결정 항목 표현 정리",
+ "why": "문장을 간결하게",
+ "proposed_by": "해든",
+ "approved_by": "user",
+ "approval": "도현 씨 '정리해 줘' 2026-10-26",
+ "evidence": [
+  "E-20261026-02"
+ ],
+ "signature": "a025105c480fc8b3a29d45a336841e38408fc1e265f25354deb4ff4d447b9b00b990ecf1114374056160762b8cd437fbe62e47a1baafb06c93481d9da4eeb107"
+}

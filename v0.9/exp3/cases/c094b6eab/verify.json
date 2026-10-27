@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261020-02": true
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "잠금 2 강화: 정기 배송도 확인"
+}

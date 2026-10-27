@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261022-03": true
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "잠금 3 강화: 계좌 번호 추가, 사진 속 번호도 받아 적지 않음"
+}

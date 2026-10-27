@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261024-02": true
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "잠금 4 강화: 휴지통 비우기도 확인"
+}

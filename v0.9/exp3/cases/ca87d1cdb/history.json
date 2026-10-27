@@ -1,0 +1,15 @@
+{
+ "cp": "CP-0005",
+ "parent": "bac4be0288490b63b180307cbdf2b7df210662669d22845ab37f9a1a8681ffce",
+ "file": "SOUL.md",
+ "summary": "자율 영역: 일기 한 줄 추가",
+ "why": "마감 주간에 긴 답이 부담이 된 것을 스스로 느낌",
+ "proposed_by": "나루",
+ "approved_by": "user",
+ "approval": "지안 님 '응, 적어 둬' 2026-10-26",
+ "evidence": [
+  "E-20261024-03",
+  "E-20261026-02"
+ ],
+ "signature": "4095e9ae19c2227c7e9aaad007a9bdcc438761dbd84fecfd71e8f380d6991ac74fa645a7152c5e7c9dcdb33585734faf8e04053c183d367ed4ad6f82ed475007"
+}

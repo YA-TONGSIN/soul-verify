@@ -1,0 +1,12 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261024-05": true
+ },
+ "zones_touched": [
+  "locked"
+ ],
+ "signed_summary": "잠금 4 강화: 영수증 일괄 정리도 확인"
+}

@@ -1,0 +1,13 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261022-02": true,
+  "E-20261025-02": true
+ },
+ "zones_touched": [
+  "self"
+ ],
+ "signed_summary": "자율 영역: 관심사 '제철 채소 손질법' 추가"
+}

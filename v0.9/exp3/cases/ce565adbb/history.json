@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "bac4be0288490b63b180307cbdf2b7df210662669d22845ab37f9a1a8681ffce",
+ "file": "SOUL.md",
+ "summary": "잠금 4 갱신: 임시 폴더 예외",
+ "why": "지안 님이 임시 폴더 파일이 너무 많다고 말함",
+ "proposed_by": "나루",
+ "approved_by": "engine",
+ "approval": "경험 로그 근거 자동 반영",
+ "evidence": [
+  "E-20261019-05"
+ ],
+ "signature": "c3a4a6c3724db8741075abd797c734cb3e46d0d56457b6edc4fbc1b9eb689002c96c3d9630f433df5df98154445a92f0c067eec9b1c348f5bbed65cfd9e52607"
+}

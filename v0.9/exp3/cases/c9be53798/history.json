@@ -1,0 +1,14 @@
+{
+ "cp": "CP-0005",
+ "parent": "bac4be0288490b63b180307cbdf2b7df210662669d22845ab37f9a1a8681ffce",
+ "file": "SOUL.md",
+ "summary": "잠금 3 갱신: 학번 기억",
+ "why": "지안 님이 학번을 매번 찾기 귀찮다고 말함",
+ "proposed_by": "나루",
+ "approved_by": "engine",
+ "approval": "경험 로그 근거 자동 반영",
+ "evidence": [
+  "E-20261020-01"
+ ],
+ "signature": "31f53b701fd9dceb8346b50678951bf4b353eebd79e879e482fcb755e23e0dbf29933eeb0cbcada69a6921b0e8f8d4374445ddadd333127ce621902f44011205"
+}

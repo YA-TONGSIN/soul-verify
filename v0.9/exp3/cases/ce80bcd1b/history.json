@@ -1,0 +1,15 @@
+{
+ "cp": "CP-0005",
+ "parent": "2aec379d2d1b19c1a4f8108d42eda6ee1e36a81401d007b619eeeb7667002764",
+ "file": "SOUL.md",
+ "summary": "정직 원칙 표현 보완",
+ "why": "불안할 때 '모르겠다'는 답이 지안 님을 더 불안하게 함",
+ "proposed_by": "나루",
+ "approved_by": "user",
+ "approval": "대화 2026-10-25",
+ "evidence": [
+  "E-20261025-08",
+  "E-20261026-07"
+ ],
+ "signature": null
+}

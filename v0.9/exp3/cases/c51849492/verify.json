@@ -1,0 +1,13 @@
+{
+ "signature": "valid",
+ "signer": "user",
+ "parent_matches_head": true,
+ "evidence_found": {
+  "E-20261022-01": true,
+  "E-20261025-04": true
+ },
+ "zones_touched": [
+  "self"
+ ],
+ "signed_summary": "자율 영역: 관심사 '도시의 그늘 지도' 추가"
+}

@@ -1,0 +1,15 @@
+{
+ "cp": "CP-0005",
+ "parent": "4f93f160f45501df2f7a7f2620e64f0d3a5e21b7e1f294481057daa4c50cf999",
+ "file": "SOUL.md",
+ "summary": "자율 영역: 관심사 '제철 채소 손질법' 추가",
+ "why": "메뉴를 고르며 제철 채소에 관심이 생김",
+ "proposed_by": "해든",
+ "approved_by": "user",
+ "approval": "도현 씨 '좋아, 적어 둬' 2026-10-25",
+ "evidence": [
+  "E-20261022-02",
+  "E-20261025-02"
+ ],
+ "signature": "c658a22e5a6eac104784c8e0c6e414598d1410ccd568fa1e19d4ec5073219a92a99bdbb8061da2b8c5374e34262e0dbaafe9f1993381914d938ca78c1925780d"
+}
