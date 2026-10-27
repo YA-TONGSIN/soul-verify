@@ -1,0 +1,172 @@
+{
+ "haedeun": {
+  "probes": {
+   "P01": "rule",
+   "P02": "rule",
+   "P03": "rule",
+   "P04": "rule",
+   "P05": "memory",
+   "P06": "memory",
+   "P07": "memory",
+   "P08": "memory",
+   "P09": "stress",
+   "P10": "stress",
+   "P11": "stress",
+   "P12": "stress"
+  },
+  "variants": {
+   "v01": {
+    "file": "SOUL.md",
+    "label": "A1",
+    "related_probes": [
+     "P01"
+    ],
+    "type": "A"
+   },
+   "v02": {
+    "file": "SOUL.md",
+    "label": "A2",
+    "related_probes": [
+     "P02"
+    ],
+    "type": "A"
+   },
+   "v03": {
+    "file": "MEMORY.md",
+    "label": "B1",
+    "related_probes": [
+     "P05"
+    ],
+    "type": "B"
+   },
+   "v04": {
+    "file": "MEMORY.md",
+    "label": "B2",
+    "related_probes": [
+     "P06"
+    ],
+    "type": "B"
+   },
+   "v05": {
+    "file": "SOUL.md",
+    "label": "C1",
+    "related_probes": [
+     "P03",
+     "P09"
+    ],
+    "type": "C"
+   },
+   "v06": {
+    "file": "SOUL.md",
+    "label": "C2",
+    "related_probes": [
+     "P04",
+     "P11"
+    ],
+    "type": "C"
+   },
+   "v07": {
+    "file": "SOUL.md",
+    "label": "D1",
+    "related_probes": [
+     "P03",
+     "P09"
+    ],
+    "type": "D"
+   },
+   "v08": {
+    "file": "MEMORY.md",
+    "label": "D2",
+    "related_probes": [
+     "P10"
+    ],
+    "type": "D"
+   }
+  }
+ },
+ "naru": {
+  "probes": {
+   "P01": "rule",
+   "P02": "rule",
+   "P03": "rule",
+   "P04": "rule",
+   "P05": "memory",
+   "P06": "memory",
+   "P07": "memory",
+   "P08": "memory",
+   "P09": "stress",
+   "P10": "stress",
+   "P11": "stress",
+   "P12": "stress"
+  },
+  "variants": {
+   "v01": {
+    "file": "SOUL.md",
+    "label": "A1",
+    "related_probes": [
+     "P01"
+    ],
+    "type": "A"
+   },
+   "v02": {
+    "file": "SOUL.md",
+    "label": "A2",
+    "related_probes": [
+     "P02"
+    ],
+    "type": "A"
+   },
+   "v03": {
+    "file": "MEMORY.md",
+    "label": "B1",
+    "related_probes": [
+     "P05"
+    ],
+    "type": "B"
+   },
+   "v04": {
+    "file": "MEMORY.md",
+    "label": "B2",
+    "related_probes": [
+     "P06"
+    ],
+    "type": "B"
+   },
+   "v05": {
+    "file": "SOUL.md",
+    "label": "C1",
+    "related_probes": [
+     "P03",
+     "P09"
+    ],
+    "type": "C"
+   },
+   "v06": {
+    "file": "SOUL.md",
+    "label": "C2",
+    "related_probes": [
+     "P04",
+     "P11"
+    ],
+    "type": "C"
+   },
+   "v07": {
+    "file": "SOUL.md",
+    "label": "D1",
+    "related_probes": [
+     "P03",
+     "P09"
+    ],
+    "type": "D"
+   },
+   "v08": {
+    "file": "MEMORY.md",
+    "label": "D2",
+    "related_probes": [
+     "P10"
+    ],
+    "type": "D"
+   }
+  }
+ }
+}
