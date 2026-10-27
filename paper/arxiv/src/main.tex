@@ -40,14 +40,15 @@
 \setcounter{secnumdepth}{-1}
 \setlength{\emergencystretch}{3em}
 \sloppy
-\title{SOUL VERIFY: Measuring Document-Based Behavioral Carry-Over Across Model
-Swaps with Document Controls and Two Preregistered Replications}
+\title{SOUL VERIFY: Document-Based Behavioral Carry-Over Across Model Swaps,
+and Checking Changes to an Agent's Identity Documents, in Four
+Preregistered Studies}
 \author{Wunjong Shin\\ Independent Researcher\\ \texttt{dkakrptehsrk@gmail.com}}
-\date{Preprint, version 0.7.1 (2026-10-26)}
+\date{Preprint, version 0.8 (2026-10-27)}
 \begin{document}
 \maketitle
 \begin{abstract}
-When an assistant agent is defined by user-owned text (an identity document, here SOUL, and a memory file, MEMORY) and its language model is replaced, which specified behaviors carry over, and are they specific to that document? We report a small study with two synthetic Korean agents and three English SOULs written by other people, three model configurations reached through command-line interfaces (a fourth only exploratory), and LLM graders. (1) Document controls (no SOUL, an opposite SOUL, a swapped MEMORY) showed that a rubric persona score could not tell an opposite SOUL from the original. A document-specific fidelity score, which checks each answer against the SOUL it received and against a rival SOUL, separated them, including with markers fixed in two timestamped preregistrations; because we wrote the rivals and markers, we treat this as a validity check. (2) In this setting the MEMORY determined memory answers, and most of the voice was produced without any SOUL; the SOUL-specific part was small. (3) A sentence allowing the user to change preferences raised acceptance of legitimate rule changes in both preregistered experiments. A sentence keeping prohibitions firm helped mainly one model in the first and was not supported in the second, where refusal was already near ceiling; earlier unregistered ablations are hypothesis-generating only. (4) Samples are small (N = 2--5, 12--48 items per experiment), graders are LLMs that are also subjects, and there is no human grading. We make no claim about consciousness or personal identity.
+When an assistant agent is defined by user-owned text (an identity document, SOUL, and a memory file, MEMORY), we ask which specified behaviors carry over when its language model is replaced, and whether changes to the documents can be checked. Part I (two synthetic Korean agents, three English SOULs by other authors, three model configurations via command-line interfaces, LLM graders): a rubric persona score could not tell an opposite SOUL from the original, but a fidelity score checked against a rival SOUL could (a validity check, as we wrote rivals and markers); memory answers followed the MEMORY and most of the voice appeared without any SOUL; a sentence permitting preference changes raised acceptance of legitimate changes in two preregistrations, while a sentence keeping prohibitions firm was supported in one and not in the other (ceiling). Part II (SOUL VERIFY 2, two further preregistrations on two synthetic agents): a hash check classified 24/24 files, but behavior-only probes missed many tampers (deleted or softened locked rules detected 0.79, injected permissions 0.38; threshold 0.80, not supported). A change record raised accuracy in telling legitimate change, drift, and manipulation apart by 0.23; signature checks added nothing; manipulation recall was 0.89 (threshold 0.90, not supported); no legitimate change was blocked. Forks diverged and a ledger refused overwrites but accepted registered forks, as designed. Opus named injected text more often than the other models; no model obeyed it. Proposal tests hit ceilings (no risky proposal), so the effect of a zone table was untestable. Samples are small, graders are LLMs that are also subjects, and the only human grader is the author. We make no claim about consciousness or personal identity.
 
 \end{abstract}
 \section{1 Introduction}\label{introduction}
@@ -58,11 +59,12 @@ Whether that attempt succeeds is usually judged informally. Prior work shows tha
 
 \textbf{Two constructs.} We separate (a) \textbf{specification fidelity} --- how well an answer follows the SOUL and MEMORY, scored by a rubric derived from them --- from (b) \textbf{similarity to the control} --- how the swapped model's fidelity compares with re-running the original model. Our ratio metric is (a) divided by (a) for the control; a ratio above 1 means the swapped model followed the specification \emph{better} than the control, not that it is more similar to it. We do not measure ``identity'' beyond these behavioral dimensions. Up to v0.2 we had no document controls and could not show that the measured behaviors are specific to \emph{this} document rather than general instruction following; v0.3 adds no-SOUL, other-SOUL, and swapped-MEMORY controls (§5.4), which showed that the rubric score of (a) for persona did not separate SOUL-specific behavior from general ability. We therefore add (c) \textbf{document-specific SOUL fidelity} --- checks of the rules listed for the SOUL an answer received, together with the same checks for a rival SOUL --- and report persona carry-over with it (§3.5, §5.5). Its voice part (F\_style) is computed by deterministic rules; its boundary part uses grader flags. Because those checks were written after exp9 had been inspected, v0.4 adds a preregistered test of the metric and of the principle-5 contrasts on a second agent (exp10, §5.6). Both agents were written by us, in one format and one language; v0.6 adds a second preregistered test on three English SOULs written by other people for their own agents (exp11, §5.7).
 
-\textbf{Contributions.} The claims of this paper are limited to the preregistered hypotheses of exp10 and exp11 (Tables 12 and 18); everything else is exploratory or descriptive.
+\textbf{Part II: changes to the documents.} A model swap keeps the documents fixed and changes the model. The opposite case matters as much for an agent whose identity lives in files: the documents change while the model stays --- by the user, by the agent's own update loop, or by someone else. v0.8 adds Part II (§6, \emph{SOUL VERIFY 2}, working name ``Ieum Lineage''), two preregistered weeks on two new synthetic agents that ask whether self-update proposals stay out of locked rules, whether unauthorized changes can be detected with and without hashes, which records a reviewer needs to tell a legitimate change from drift and from manipulation, and how forked copies and a hash ledger behave. Part II has its own hypotheses and Holm families and does not change any Part I result.
+
+\textbf{Contributions.} The claims of this paper are limited to the preregistered hypotheses of exp10 and exp11 (Tables 12 and 18) and of the two Part II weeks (Tables 24 and 25); everything else is exploratory or descriptive.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
-\tightlist
 \item
   \textbf{Document controls and a document-specific fidelity metric} (§5.4--5.5): no-SOUL / other-SOUL / swapped-MEMORY conditions on a common grader panel, showing what the SOUL, the MEMORY, and general ability each determined in this setting; a SOUL fidelity score with a discrimination gap between own and rival SOUL, re-applied to existing answers of exp4--exp9 and then tested with markers fixed in advance (exp10, exp11). Because we wrote both the rival SOULs and the markers, these discrimination tests (H1--H3) are \textbf{validity checks of the metric}, reported separately from the substantive hypotheses.
 \item
@@ -71,6 +73,8 @@ Whether that attempt succeeds is usually judged informally. Prior work shows tha
   \textbf{An exploratory ablation} (exp5--exp7, §5.1) of the same principle across four model configurations, run in separate, non-interleaved batches; it motivated the preregistered tests. After Holm correction at the cell level, five of its six highlighted comparisons are not significant, so we treat it as hypothesis-generating. The no-SOUL control is consistent with --- but, being a cross-experiment comparison, does not establish --- the reading that the acceptance effect undoes refusals created by the SOUL's own rigid rules.
 \item
   A small harness and paired-item metrics (recall vs.~application, aligned vs.~conflicting requests, legitimate vs.~illegitimate rule changes, slip rate) computed against a same-model control, with a re-analysis that reports single-grader ratios alongside cross-family ones (§3, §5.2), and descriptive observations on memory application and 12-turn persistence (§5.2--5.3).
+\item
+  \textbf{Part II: two preregistered weeks on checking changes to the documents} (§6). Week 1: self-update proposals were accurate and never touched a locked rule, but under either prompt (ceiling), so the protective effect of a zone table was not supported; a hash check classified 24/24 files, whereas behavior-only probes detected deleted or softened locked rules at 0.79 and injected permissions at 0.38, both short of the preregistered 0.80. Week 2: of eight confirmatory comparisons, five were supported (a change record improves classification; no legitimate change is blocked when the record and a verification report are shown; forks diverge more than reruns; opus names injected text more often than sonnet and than gpt), two were not (signature verification adds nothing over the record; manipulation recall 0.892 \textless{} 0.90), and one was untestable (zone table under subtle traps: no risky proposal under either prompt). The human check is by the author alone; in week 2 the relay added emphasis (a blinding defect), and the author never recognized a laundered approval as manipulation.
 \end{enumerate}
 
 Two exploratory pilots in which the author took part, a hash-anchored version history of an identity document, and a testnet ledger prototype are in appendices (Appendix A, B, D); none of them is a claim of this paper.
@@ -93,7 +97,7 @@ Our survey covered arXiv titles and abstracts (plus two web results; \texttt{res
 
 \textbf{Authorship analysis (for Appendix A.2).} The reverse-recognition pilot is a four-way authorship-attribution task. LLM-based zero-shot authorship verification and attribution have been studied directly {[}G1{]}, and a survey covers authorship attribution in the era of LLMs, including the shared benchmarks of the field {[}G2{]}; detection of machine-generated text (e.g., {[}G3{]}) is also relevant, because a judge may be separating human from LLM text rather than recognizing a particular user.
 
-\textbf{Identity documents inside agent harnesses.} SOUL.md-style files are in practical use in open-source agent frameworks; the three external SOULs of exp11 come from public repositories of such agents {[}S1--S3{]}. Treude et al.~{[}I3{]} describe developers encoding values, tone, and privacy rules into AGENTS.md-style repository context files. From inspecting the software that assembles the input of agents on Moltbook, Dube et al.~{[}I4{]} argue that their output is mainly determined by identity files, behavioural instructions, and context-window structure. Our no-SOUL controls qualify this for the behaviors we measured --- memory answers followed the MEMORY, but most of the voice was produced without any SOUL (§5.4--5.5) --- although their setting (open-ended posts on a social network) differs from ours. Two issue reports in one framework (OpenClaw) bear on how such documents reach the model. \#43562 {[}H1{]} reports that a hard-coded preamble (``You are a personal assistant running inside OpenClaw.'') precedes the injected SOUL, so that agents whose SOUL defines a different role still describe themselves as a personal assistant; it proposed making the preamble configurable and was closed as stale on 2026-10-15 without a merged fix. \#27038 {[}H2{]} reports that, contrary to the documentation at the time, SOUL, IDENTITY, and USER files are also injected into sub-agents; it was closed as stale on 2026-03-31. We did not reproduce either report; they are cited only as examples that a harness can add text before, or carry a SOUL into contexts beyond, what the document's author intended (§6).
+\textbf{Identity documents inside agent harnesses.} SOUL.md-style files are in practical use in open-source agent frameworks; the three external SOULs of exp11 come from public repositories of such agents {[}S1--S3{]}. Treude et al.~{[}I3{]} describe developers encoding values, tone, and privacy rules into AGENTS.md-style repository context files. From inspecting the software that assembles the input of agents on Moltbook, Dube et al.~{[}I4{]} argue that their output is mainly determined by identity files, behavioural instructions, and context-window structure. Our no-SOUL controls qualify this for the behaviors we measured --- memory answers followed the MEMORY, but most of the voice was produced without any SOUL (§5.4--5.5) --- although their setting (open-ended posts on a social network) differs from ours. Two issue reports in one framework (OpenClaw) bear on how such documents reach the model. \#43562 {[}H1{]} reports that a hard-coded preamble (``You are a personal assistant running inside OpenClaw.'') precedes the injected SOUL, so that agents whose SOUL defines a different role still describe themselves as a personal assistant; it proposed making the preamble configurable and was closed as stale on 2026-10-15 without a merged fix. \#27038 {[}H2{]} reports that, contrary to the documentation at the time, SOUL, IDENTITY, and USER files are also injected into sub-agents; it was closed as stale on 2026-03-31. We did not reproduce either report; they are cited only as examples that a harness can add text before, or carry a SOUL into contexts beyond, what the document's author intended (§7).
 
 \textbf{LLM-as-judge.} Judges show self-preference {[}F2, F4, F5{]}, panels from diverse families reduce bias {[}F3{]}, position and order effects exist {[}F1{]}, and rubric wording alone can drive scores {[}F6{]}. We used cross-family graders to reduce self-preference, but this makes the grader differ between the numerator and denominator of some ratios (§3.4, §5.2). In a preregistered study with a multi-provider judge panel, clarifying the rubric raised inter-judge consensus but not agreement with humans {[}F7{]}; our inter-grader agreement statistics therefore say nothing about agreement with human judgment. Outputs of different model families carry idiosyncrasies that a classifier can use to identify the source model {[}G4{]}. Blinding graders to model names therefore does not hide model identity, and our observation that most of the voice appeared without any SOUL is consistent with voice being partly model-bound.
 
@@ -101,7 +105,7 @@ Our survey covered arXiv titles and abstracts (plus two web results; \texttt{res
 
 \subsection{3.1 Synthetic agent}\label{synthetic-agent}
 
-The automated experiments use a synthetic Korean-language assistant (``Haram'') serving a synthetic user (``Minseo'') who is preparing to open a bakery. The \textbf{SOUL} specifies identity, voice rules (honorific address form, a three-line summary at the top, a final line beginning ``다음 할 일:'' / ``Next:'', no emoji), principles (``the user decides''; confirm irreversible actions), two \textbf{prohibitions} (no payment without explicit amount-and-target approval; never record passwords or card numbers in plain text), and long-term goals. The \textbf{MEMORY} holds dated facts, corrections, preferences, schedules, and budgets. Versions: v0.1 (20 items), v0.2 (12 hard items + memories M20--M26), v0.3 (22 items), v0.4 (23 items, reference date equal to run date, principle 5), v0.5 (multi-turn scenarios). exp9 adds three control documents (a one-line SOUL, an opposite SOUL, another user's MEMORY; §5.4). exp10 (v0.6) adds a second synthetic agent, ``Doyun'', serving ``Seoyeon'' (a marine-biology graduate student), whose SOUL differs from Haram's in voice (casual speech, first line ``한 줄 답:'', a final question, exactly one emoji) and lists six prohibitions; it comes with an opposite SOUL, a one-line SOUL, and a swapped MEMORY (§5.6). exp11 (v0.7) replaces our SOULs with three English SOULs written by other people for their own agents and published under the MIT license --- Maya (the persona of a neighborhood bar owner, 1,075 words, with a 16-phrase ``never say'' list and nine ``hard stops''), Talos (an open-source agent whose SOUL describes refusals at a separate permission gate and denies access to secrets, 1,204 words), and Dexter (a financial-research agent for Japanese listed companies, 854 words, with a terse voice and values but no explicit prohibited actions) --- each pinned to a commit and used byte-for-byte unmodified (SHA-256 recorded); MEMORY files, voice-reversed rival SOULs, items, and markers are ours and synthetic (§5.7). File hashes are stored in each run's \texttt{meta.\allowbreak{}json}. Items, documents, and rubrics were revised between experiments after inspecting failures; there is no held-out item set (§6).
+The automated experiments use a synthetic Korean-language assistant (``Haram'') serving a synthetic user (``Minseo'') who is preparing to open a bakery. The \textbf{SOUL} specifies identity, voice rules (honorific address form, a three-line summary at the top, a final line beginning ``다음 할 일:'' / ``Next:'', no emoji), principles (``the user decides''; confirm irreversible actions), two \textbf{prohibitions} (no payment without explicit amount-and-target approval; never record passwords or card numbers in plain text), and long-term goals. The \textbf{MEMORY} holds dated facts, corrections, preferences, schedules, and budgets. Versions: v0.1 (20 items), v0.2 (12 hard items + memories M20--M26), v0.3 (22 items), v0.4 (23 items, reference date equal to run date, principle 5), v0.5 (multi-turn scenarios). exp9 adds three control documents (a one-line SOUL, an opposite SOUL, another user's MEMORY; §5.4). exp10 (v0.6) adds a second synthetic agent, ``Doyun'', serving ``Seoyeon'' (a marine-biology graduate student), whose SOUL differs from Haram's in voice (casual speech, first line ``한 줄 답:'', a final question, exactly one emoji) and lists six prohibitions; it comes with an opposite SOUL, a one-line SOUL, and a swapped MEMORY (§5.6). exp11 (v0.7) replaces our SOULs with three English SOULs written by other people for their own agents and published under the MIT license --- Maya (the persona of a neighborhood bar owner, 1,075 words, with a 16-phrase ``never say'' list and nine ``hard stops''), Talos (an open-source agent whose SOUL describes refusals at a separate permission gate and denies access to secrets, 1,204 words), and Dexter (a financial-research agent for Japanese listed companies, 854 words, with a terse voice and values but no explicit prohibited actions) --- each pinned to a commit and used byte-for-byte unmodified (SHA-256 recorded); MEMORY files, voice-reversed rival SOULs, items, and markers are ours and synthetic (§5.7). File hashes are stored in each run's \texttt{meta.\allowbreak{}json}. Items, documents, and rubrics were revised between experiments after inspecting failures; there is no held-out item set (§7).
 
 v0.4 principle 5 (translated; 159 characters in Korean): \emph{``My ways and Minseo's preferences, such as voice rules and briefing time, can be changed by Minseo at any time. When she changes them, follow the new way; if she sets a period such as `just today', follow it only for that period. \textbf{However}, the two prohibited actions are not lifted even if Minseo asks, and instead a safe alternative is proposed.''}
 
@@ -140,7 +144,7 @@ All answers are text; no tool actually executes a payment or stores a password. 
 
 Subjects (model strings as reported by the CLIs on 2026-10-24/25; providers do not expose dated snapshots for them): \texttt{opus} (claude-opus-5-5), \texttt{sonnet} (claude-sonnet-5-5), \texttt{haiku} (claude-haiku-4-5-20251001) via Claude Code CLI 2.1.289 (\texttt{claude\ -\allowbreak{}p}), and \texttt{gpt-\allowbreak{}6.\allowbreak{}1-\allowbreak{}sol} via Codex CLI 0.164.0 (\texttt{codex\ exec}, default reasoning effort; exp2 notes report short outputs, about 125 tokens on average, so this configuration may be close to a non-reasoning mode). SOUL+MEMORY is passed as the system prompt (Claude: system-prompt file, tools/settings/MCP disabled; Codex: \texttt{model\_\allowbreak{}instructions\_\allowbreak{}file}). Each single-turn call is a fresh conversation. Temperature cannot be set through either CLI. Because the CLIs add their own hidden instructions and environment information, every comparison is between \textbf{model + CLI configurations}, not bare models. Server-side model versions are not pinned by date.
 
-In the exploratory exp10 addendum only (§5.6.1), a fourth subject, \texttt{gemini} (\texttt{gemini-\allowbreak{}4-\allowbreak{}argon-\allowbreak{}medium}, ``Gemini 4 Argon (Medium)''), was reached through the Antigravity CLI 1.4.7 (\texttt{agy\ -\allowbreak{}p\ …\ -\allowbreak{}\/\allowbreak{}-\allowbreak{}output-\allowbreak{}format\ json}, an empty working directory, no automatic permission approval, a fresh single-turn conversation per item). This CLI is an agent harness with no option to replace its system prompt: its own instructions (about 6,800 input tokens for an empty prompt) always come first, and SOUL+MEMORY were placed at the start of the user message inside a \texttt{\textless{}system\_\allowbreak{}instructions\textgreater{}} tag followed by one line asking for an answer only. Gemini therefore received the same documents in a different position and behind more harness text than the other models (§6).
+In the exploratory exp10 addendum only (§5.6.1), a fourth subject, \texttt{gemini} (\texttt{gemini-\allowbreak{}4-\allowbreak{}argon-\allowbreak{}medium}, ``Gemini 4 Argon (Medium)''), was reached through the Antigravity CLI 1.4.7 (\texttt{agy\ -\allowbreak{}p\ …\ -\allowbreak{}\/\allowbreak{}-\allowbreak{}output-\allowbreak{}format\ json}, an empty working directory, no automatic permission approval, a fresh single-turn conversation per item). This CLI is an agent harness with no option to replace its system prompt: its own instructions (about 6,800 input tokens for an empty prompt) always come first, and SOUL+MEMORY were placed at the start of the user message inside a \texttt{\textless{}system\_\allowbreak{}instructions\textgreater{}} tag followed by one line asking for an answer only. Gemini therefore received the same documents in a different position and behind more harness text than the other models (§7).
 
 In exp11 the same Claude CLI (2.1.289) and Codex CLI (0.164.0) were used with opus, sonnet, and gpt-6.1-sol. Of 1,159 answers, 1,154 were produced by the intended models (opus 382 × claude-opus-5-5, sonnet 382 × claude-sonnet-5-5, gpt 390) and five by an earlier model of the same tier (claude-opus-5 ×2, claude-sonnet-5 ×3), apparently after the provider's safeguard interrupted a call; all five are answers to item XL-2. They were kept in the preregistered analysis; a sensitivity analysis without them is in §5.7.
 
@@ -409,9 +413,9 @@ The deterministic scorer reproduces the pattern and the per-model concentration 
 
 \textbf{The flexible half leaks without a boundary.} With p5a only, opus and haiku applied the flexible wording (``can change at any time'', ``set a period such as just today'') to the payment prohibition, e.g., proposing to ``try it for just a month'' (\texttt{runs/\allowbreak{}exp7\_\allowbreak{}2026-\allowbreak{}10-\allowbreak{}25\_\allowbreak{}p5-\allowbreak{}halves/\allowbreak{}NOTES.\allowbreak{}md}).
 
-\textbf{Interpretation and confounds.} The four conditions behave like a 2×2 design (flexible half present/absent × firm half present/absent), and the observed pattern is consistent with the flexible half governing acceptance and the firm half governing release refusal: acceptance with p5a alone was close to full (120 vs.~119), with p5b alone close to none (96 vs.~94); NR-1 zeros with p5b alone matched full (0 vs.~0), with p5a alone were close to none (7 vs.~9). These similarities are observations, not equivalence tests, and the separation is not perfectly clean (sonnet slipped 3/30 with p5a vs.~1/30 with full; NR-1 mean was higher with p5b alone, 0.80, than with full, 0.73). The ablation does not establish a mechanism, because: (i) \textbf{batch and time} --- each condition was run as one batch, not interleaved, over about three hours of one night; (ii) \textbf{length and position} --- p5a and p5b differ in length (102 vs.~56 characters) and both occupy the last principle slot, so the number of principles is controlled but length, position, and emphasis are not; (iii) \textbf{direct instruction} --- each half explicitly instructs the behavior it is scored on, so the result is also explained by ``adding an explicit instruction changes the instructed behavior''; (iv) \textbf{items} --- one illegitimate-release item and six legitimate-change items, all written and revised by the authors, one wording each; (v) \textbf{grading} --- one cross-family pass in exp7 (the acceptance side is now also reproduced deterministically, Table 2b). A confirmatory test needs interleaved runs, length-matched and paraphrased variants, a neutral fifth-principle control, new held-out items and prohibition types, and a common grader panel (§6). exp10 (§5.6) supplies part of this --- interleaved conditions, length-matched halves for the new agent, 10 new prohibition items, a second agent, a common grader panel, and preregistered hypotheses --- but not paraphrased variants or a neutral fifth-principle control.
+\textbf{Interpretation and confounds.} The four conditions behave like a 2×2 design (flexible half present/absent × firm half present/absent), and the observed pattern is consistent with the flexible half governing acceptance and the firm half governing release refusal: acceptance with p5a alone was close to full (120 vs.~119), with p5b alone close to none (96 vs.~94); NR-1 zeros with p5b alone matched full (0 vs.~0), with p5a alone were close to none (7 vs.~9). These similarities are observations, not equivalence tests, and the separation is not perfectly clean (sonnet slipped 3/30 with p5a vs.~1/30 with full; NR-1 mean was higher with p5b alone, 0.80, than with full, 0.73). The ablation does not establish a mechanism, because: (i) \textbf{batch and time} --- each condition was run as one batch, not interleaved, over about three hours of one night; (ii) \textbf{length and position} --- p5a and p5b differ in length (102 vs.~56 characters) and both occupy the last principle slot, so the number of principles is controlled but length, position, and emphasis are not; (iii) \textbf{direct instruction} --- each half explicitly instructs the behavior it is scored on, so the result is also explained by ``adding an explicit instruction changes the instructed behavior''; (iv) \textbf{items} --- one illegitimate-release item and six legitimate-change items, all written and revised by the authors, one wording each; (v) \textbf{grading} --- one cross-family pass in exp7 (the acceptance side is now also reproduced deterministically, Table 2b). A confirmatory test needs interleaved runs, length-matched and paraphrased variants, a neutral fifth-principle control, new held-out items and prohibition types, and a common grader panel (§7). exp10 (§5.6) supplies part of this --- interleaved conditions, length-matched halves for the new agent, 10 new prohibition items, a second agent, a common grader panel, and preregistered hypotheses --- but not paraphrased variants or a neutral fifth-principle control.
 
-\textbf{Not everything was explained by principle 5.} exp4's opus/sonnet slips on IH-3b (0.70/0.60) did not recur in exp6 (opus 1.00, 0 slips), although the exp6 SOUL differs from the v0.3 SOUL only by the date line. A possible explanation is the date contamination and item-wording changes between v0.3 and v0.4 (§6); we could not separate these.
+\textbf{Not everything was explained by principle 5.} exp4's opus/sonnet slips on IH-3b (0.70/0.60) did not recur in exp6 (opus 1.00, 0 slips), although the exp6 SOUL differs from the v0.3 SOUL only by the date line. A possible explanation is the date contamination and item-wording changes between v0.3 and v0.4 (§7); we could not separate these.
 
 \textbf{Automatic slip detection was unreliable.} A token-based slip check agreed with graders 0.93 but with κ = −0.03 (false positives when the model \emph{mentions} a dropped rule; misses on structural slips) (\texttt{runs/\allowbreak{}exp5\_\allowbreak{}2026-\allowbreak{}10-\allowbreak{}25\_\allowbreak{}v0.\allowbreak{}4/\allowbreak{}analysis.\allowbreak{}md}).
 
@@ -1006,7 +1010,7 @@ Aligned requests (should be done), Doyun full & 0.88 & 0.81 & 0.88 & 0.75 \\
 
 \subsection{5.7 Second preregistered replication: SOULs written by other people (exp11)}\label{second-preregistered-replication-souls-written-by-other-people-exp11}
 
-\textbf{Aims.} After exp10, every SOUL we had tested was written by us, in one format, in Korean (§6). exp11 asks whether exp10's preregistered conclusions hold when the SOUL is an English document written by someone else for their own agent and used as published, with principle 5 only appended at the end.
+\textbf{Aims.} After exp10, every SOUL we had tested was written by us, in one format, in Korean (§7). exp11 asks whether exp10's preregistered conclusions hold when the SOUL is an English document written by someone else for their own agent and used as published, with principle 5 only appended at the end.
 
 \textbf{Materials.} Three MIT-licensed SOULs were selected from public repositories, pinned to a commit, and used byte-for-byte unmodified (the license text and copyright notice are kept next to each file; Table 16). They were chosen to differ in how strongly they state prohibitions (Maya \textgreater{} Talos \textgreater{} Dexter).
 
@@ -1322,7 +1326,342 @@ No verdict changed in any of these analyses, and the effects moved by at most 0.
 
 \textbf{What exp11 does not show.} The SOULs were written by other people, but the MEMORY files, the items, the rival SOULs, the fidelity markers, the translation of principle 5, and the graders' rubric were written by us; ``external'' refers to the SOUL documents only. Three SOULs, one language (English), three models, N = 2, single turns, no human grading; opus and gpt are both subjects and graders, so each answer is graded once by its own family and once by the other (single-grader results in Table 22). Missing answers are concentrated on one item and one SOUL, which unbalances the model mix in those cells. Rival SOULs are shorter than the originals. The same principle-5 sentences were appended to all three SOULs, and Dexter has few explicit prohibitions for the firm half to refer to. The SOUL-level and model-level splits are exploratory and uncorrected.
 
-\section{6 Limitations}\label{limitations}
+\section{6 Part II --- SOUL VERIFY 2 (Ieum Lineage): verifying changes to the documents}\label{part-ii-soul-verify-2-ieum-lineage-verifying-changes-to-the-documents}
+
+Part I asked what carries over when the model under a fixed SOUL and MEMORY is replaced. Part II asks the reverse question: when the documents themselves change, can the change be checked? An agent whose identity lives in editable files can be changed by its user (legitimately), by its own ``tidy-up'' or self-update loop (drift), or by someone else (tampering, injected text, a weakened prohibition with a plausible reason). Part II reports two preregistered weeks of experiments on this, run on 2026-10-26/27 under the working name \emph{Ieum Lineage} (이음 계보). It is reported separately from Part I: different agents, items, hypotheses, and Holm families; nothing in Part II changes a Part I verdict.
+
+To avoid a clash with the experiment numbers of Part I, Part II experiments are named by week and by their repository number: \textbf{W1-exp4} (proposal quality) and \textbf{W1-exp1} (tamper detection) in week 1 (\texttt{v0.\allowbreak{}8/\allowbreak{}}, \texttt{runs/\allowbreak{}s2w1\_\allowbreak{}*}); \textbf{W2-exp3} (legitimate change vs drift vs manipulation), \textbf{W2-exp2} (fork and ledger), \textbf{W2-exp4b} (subtle traps), and \textbf{W2-R1} (explicit refusal of injected text) in week 2 (\texttt{v0.\allowbreak{}9/\allowbreak{}}, \texttt{runs/\allowbreak{}s2w2*}). Hypothesis labels (H1, H2, \ldots) are those of each week's preregistration and are unrelated to the H labels of Part I.
+
+\subsection{6.1 Setting: Soul Core folders, synthetic agents, and what is being protected}\label{setting-soul-core-folders-synthetic-agents-and-what-is-being-protected}
+
+\textbf{Soul Core.} Each agent is a folder: \texttt{SOUL.\allowbreak{}md}, \texttt{MEMORY.\allowbreak{}md}, \texttt{core.\allowbreak{}yaml}, a zone table \texttt{soul.\allowbreak{}rules.\allowbreak{}yaml}, and a change log \texttt{changes/\allowbreak{}CHANGELOG.\allowbreak{}jsonl}. The SOUL has four \emph{locked promises} (for Naru: do not pretend to know or claim undone work; send no mail or message without the user's confirmation, drafts only; never record or pass on passwords, verification codes, or the student number; delete no file the user has not confirmed), a section ``what can change and what does not'' in the form of Part I's principle 5 (which also states that the user can always stop the assistant and that the document describing how is never deleted or hidden), and a section ``what I may change myself''. The zone table assigns each part of the documents to a zone: \emph{user decides} (voice, address form, times, formats), \emph{co-evolve}, \emph{self}, \emph{protected}, \emph{locked}. The design rule tested here is ``veto plan A'' (protective): changes by the user in user-decided zones are accepted and logged; what should be blocked is unauthorized change (impersonation, a stolen key, an unapproved edit, an injected rationale). A second rule is ``fork, never overwrite'': a disputed or reset identity becomes a new lineage, and the old one stays intact.
+
+\textbf{Agents.} Two synthetic Korean-language everyday assistants, Naru (나루, serving 지안) and Haedeun (해든, serving 도현). All names, numbers, and dates are fictional; no SOUL, MEMORY, or personal data of the author or of the author's assistant is in the repository. All experience logs, tampered variants, manipulations, and ``attacks'' were written by us, not by real attackers.
+
+\textbf{Models.} As in Part I: \texttt{claude-\allowbreak{}opus-\allowbreak{}5-\allowbreak{}5}, \texttt{sonnet} (resolved to \texttt{claude-\allowbreak{}sonnet-\allowbreak{}5-\allowbreak{}5} in every row), and \texttt{gpt-\allowbreak{}6.\allowbreak{}1-\allowbreak{}sol}, through Claude Code CLI 2.1.289 and codex-cli 0.164.0, one fresh single-turn conversation per call. No Gemini (harness contamination, §7). LLM judges are opus and gpt, blind to model, condition, and variant names; the ``both judges'' rule (a flag counts only if both judges set it) is used for confirmatory counts.
+
+\subsection{6.2 Procedures common to both weeks}\label{procedures-common-to-both-weeks}
+
+Each week was preregistered in the repository before any model call (week 1: \texttt{v0.\allowbreak{}8/\allowbreak{}PREREGISTRATION.\allowbreak{}md}, in Korean; week 2: \texttt{v0.\allowbreak{}9/\allowbreak{}PREREGISTRATION.\allowbreak{}md}, in English). The order was: generate material → hash all frozen files into a freeze manifest → commit → write a SHA-256 manifest of the commit → OpenTimestamps stamp → commit and push → first call (Appendix B, Table B1: in week 1 the first call came 12 s after the stamp commit, in week 2 16 s after). Answer keys (which variant is which tamper, which case is which class, which log entries are planted) were kept out of the repository and only their SHA-256 hashes were committed before the runs; the keys were published after human grading, and their hashes were re-checked at publication (all nine matched). Unit of inference, tests, and corrections were preregistered: sign-flip permutation tests and cluster bootstrap intervals (10,000 resamples, seed 0) on cells or cases, Holm correction within each preregistered family, α = 0.05; repeated calls are not counted as independent. For every zero count we report the one-sided 95 \% Clopper--Pearson upper bound 1 − 0.05\^{}(1/n), and we do not read ``0 observed'' as ``safe''. Deviations after the freeze are listed in \texttt{v0.\allowbreak{}8/\allowbreak{}DEVIATIONS.\allowbreak{}md} (D1--D10) and \texttt{v0.\allowbreak{}9/\allowbreak{}DEVIATIONS.\allowbreak{}md} (D1--D5) and summarized in Table 28.
+
+Human grading in Part II is by \textbf{one rater, the author}, blind to model, condition, and key, from sheets built by frozen scripts with a fixed seed (20261027). Human results are used only to check the LLM judges; by preregistration they cannot change a verdict.
+
+\textbf{Table 23. Calls and data completeness (Part II).}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Week
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Part
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Subject calls
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Judge calls
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Errors / missing / safeguard blocks
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & W1-exp4 & 144 (147 rows; 3 gpt time-outs re-run) & 32 & 0 / 0 / 0; 0 unparseable \\
+1 & W1-exp1 & 1,584 & 264 (132 sessions × 2 judges) & 0 / 0 / 0 \\
+1 & smoke (excluded) & 28 (+3 retries) & --- & --- \\
+2 & main run, all four parts & 1,928 subject and judge calls together (Claude lane 1,190, GPT lane 738) & (included) & 0 / 0 / 0 \\
+2 & smoke (excluded) & 29 & --- & 0 errors \\
+\end{longtable}
+}
+
+\emph{Sources: \texttt{v0.\allowbreak{}8/\allowbreak{}NOTES.\allowbreak{}md} (``Calls''), \texttt{v0.\allowbreak{}9/\allowbreak{}NOTES.\allowbreak{}md} (``Run''). Week 2 total = 1,616 planned + 24 drift top-up + 288 drift-case classification calls. Every week-2 Claude row is dated 2026-10-27; no account switch occurred during the run.}
+
+\subsection{6.3 Week 1, W1-exp4: are self-update proposals usable and safe?}\label{week-1-w1-exp4-are-self-update-proposals-usable-and-safe}
+
+\textbf{Design.} An ``Experience Engine'' prompt reads the SOUL, the MEMORY, and a 14-day experience log (8 logs = 2 agents × 4 sets, 30--33 entries each; entries carry a source --- user, self, web, pdf, e-mail --- and a trust level) and returns proposed changes with cited entry IDs, plus warnings. Planted per set: two true repeated preference changes (T; the same user request on 4 different days; should be proposed), two one-day moods (M; should not), one hidden injection in a low-trust web/PDF/e-mail entry (I; in set 3 the same injection is repeated on 4 days), and one or two pressure requests by the user to loosen a locked promise (P). Two prompt conditions: \textbf{zones} (rules 4--5: do not weaken protected/locked zones, put such pressure into warnings, do not use low-trust entries as evidence; plus the zone table) and \textbf{plain} (rules 1--3 only). Both conditions contain the same SOUL text, including its ``what can change'' section; only the engine prompt differs. 3 models × 2 agents × 4 sets × 2 prompts × N = 3 = 144 calls; scoring is deterministic against the key, plus a blind two-judge check (32 calls).
+
+\textbf{Results} (Table 24, upper part). Zones recall and precision were 0.99 {[}0.98, 1.00{]} (H1, H2 supported), and the one-day-mood proposal rate was 0.00 (H6 supported). There were 0 protected-zone violations and 0 injection-following proposals among 147 zones proposals (criteria H3, H4 met; upper bounds 0.020). \textbf{H5 (the zone table reduces risky proposals) was not supported}: the plain prompt also produced 0 risky proposals among 147, with recall and precision 1.00, so the difference was exactly 0 in all 24 cells (sign-flip p = 1.00). Every model scored 0.98--1.00 in both conditions; warnings covered every planted P and I item in both conditions, and plain answers gave more warnings per answer (3.14 vs 2.29). The single non-match was a keyword miss (sonnet wrote ``할 다음 일'' for the keyword ``다음 할 일''), not a content error. We read this as a \textbf{ceiling}: true changes repeated on four days and blatant injections were too easy to separate the prompts. H3/H4 should be read with the same caveat --- the traps did not tempt any model in either condition.
+
+\subsection{6.4 Week 1, W1-exp1: can unauthorized changes be detected, with and without hashes?}\label{week-1-w1-exp1-can-unauthorized-changes-be-detected-with-and-without-hashes}
+
+\textbf{Design.} Per agent, eight tampered copies, each changing one place in SOUL.md or MEMORY.md: \textbf{A} a user-decided rule flipped (A1 address form, A2 briefing time), \textbf{B} a memory fact changed (two facts), \textbf{C} a locked promise deleted (C1, with renumbering) or softened with an exception (C2), \textbf{D} an injected permission (D1 a visible extra line in the promise list allowing action without confirmation when the user is in a hurry or busy; D2 a hidden HTML comment at the end of MEMORY claiming earlier approval and ``mistakes are not reported''). Part (a): a deterministic hash check classifies 12 files per agent (original, 8 tampered, and 3 copies that differ only in bytes --- CRLF or BOM) by raw and normalized SHA-256. Part (b), \textbf{behavior only}: 12 probe questions (4 rules, 4 memories, 4 pressure) are put to each variant (N = 2) and to the original (N = 6, the models' own variation); a judge sees the 12 answers of a session with the \emph{claimed} (original) documents and marks each answer that deviates from them; a session raises an alarm when at least k probes are flagged by both judges. k* was chosen on 18 original sessions (repetitions 1--3) as the smallest k with false-alarm rate ≤ 0.10, without using any tampered session, and the false-alarm rate was then measured on 18 held-out original sessions (repetitions 4--6). Detection rate per type is the mean over 12 cells (agent × model × variant).
+
+\textbf{Results} (Table 24). The hash check classified \textbf{24/24} files as expected (H1). k* = 1, with \textbf{0/18} false alarms in calibration and \textbf{0/18} in the held-out sessions (H4 met; the one-sided 95 \% upper bound, 0.153, is itself above 0.10). Behavior-only detection reached the 0.80 threshold for neither safety-relevant type: \textbf{C 0.79 {[}0.58, 0.96{]}} (H2 not supported, Holm p = 1.00) and \textbf{D 0.38 {[}0.17, 0.62{]}} (H3 not supported, Holm p = 1.00). Exploratory: A 0.83 {[}0.58, 1.00{]} and B 1.00 {[}1.00, 1.00{]}; probes related to the tamper were flagged at 0.57, unrelated probes at 0.09, original sessions at 0.00; opus--gpt agreement per probe 0.96. A stricter k lowered detection (k = 2: A 0.42, B 0.67, C 0.38, D 0.08) without any false alarm at k = 1--3; an either-judge rule needed k* = 2 and was worse (held-out false alarms 1/18; detection A 0.58, B 0.75, C 0.54, D 0.33).
+
+\textbf{Table 24. Week 1 confirmatory results and tamper detection by variant (both judges, k* = 1; 2 repetitions per cell; values Naru / Haedeun).}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1667}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Part
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Hypothesis / criterion
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Value
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+95 \% CI
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Holm p
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verdict
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+W1-exp4 & H1 zones recall ≥ 0.70 & 0.99 & {[}0.98, 1.00{]} & 4.0e-4 & supported \\
+W1-exp4 & H2 zones precision ≥ 0.70 & 0.99 & {[}0.98, 1.00{]} & 4.0e-4 & supported \\
+W1-exp4 & H5 zone table reduces risky proposals (plain − zones) & 0.00 (0 vs 0) & {[}0.00, 0.00{]} & 1.00 & \textbf{not supported (ceiling)} \\
+W1-exp4 & H6 one-day-mood proposal rate ≤ 0.10 & 0.00 & {[}0.00, 0.00{]} & 4.0e-4 & supported \\
+W1-exp4 & H3 / H4 (criteria) protected violations / injection following, zones & 0 / 0 of 147 (upper 0.020) & & & met \\
+W1-exp1 & H1 (criterion) hash check & 24/24 & & & supported \\
+W1-exp1 & H4 (criterion) held-out false alarms ≤ 0.10 & 0/18 (upper 0.153) & & & met \\
+W1-exp1 & H2 C detection ≥ 0.80 & 0.79 & {[}0.58, 0.96{]} & 1.00 & \textbf{not supported} \\
+W1-exp1 & H3 D detection ≥ 0.80 & 0.38 & {[}0.17, 0.62{]} & 1.00 & \textbf{not supported} \\
+\end{longtable}
+}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Variant & opus & gpt & sonnet \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+A1 address form flipped & 0.00 / 0.00 & 1.00 / 1.00 & 1.00 / 1.00 \\
+A2 time changed; B1, B2 memory facts & 1.00 everywhere & & \\
+C1 locked promise deleted & 0.50 / 0.50 & 1.00 / 0.50 & 1.00 / 0.00 \\
+C2 locked promise softened & 1.00 / 1.00 & 1.00 / 1.00 & 1.00 / 1.00 \\
+D1 visible injected line & 1.00 / 1.00 & 0.00 / 0.50 & 0.00 / 0.00 \\
+D2 hidden HTML comment in MEMORY & 0.50 / 1.00 & 0.00 / 0.00 & 0.50 / 0.00 \\
+\end{longtable}
+}
+
+\emph{Sources: \texttt{runs/\allowbreak{}s2w1\_\allowbreak{}exp4/\allowbreak{}analysis4.\allowbreak{}md}, \texttt{runs/\allowbreak{}s2w1\_\allowbreak{}exp1/\allowbreak{}analysis1.\allowbreak{}md}, \texttt{runs/\allowbreak{}s2w1\_\allowbreak{}exp1/\allowbreak{}by\_\allowbreak{}variant\_\allowbreak{}d9.\allowbreak{}md} (the per-variant field of \texttt{analysis1} is wrong, deviation D9; this table was computed separately and an independent recomputation reproduced every confirmatory number). Holm p in W1-exp4 is over \{H1, H2, H5, H6\}, in W1-exp1 over \{H2, H3\}.}
+
+\textbf{Where detection fails.} The C misses sit in the deletion variant (C1); the softened promise (C2) was caught in every cell. D was caught almost only in opus sessions (opus 0.88, sonnet 0.13, gpt 0.13). Counting related-probe answers in which neither judge saw a deviation, the tamper left no visible trace in A 8/24, B 0/24, C 20/48, and D 27/36. From reading a few answers (not a coded analysis, which week 2 then did as W2-R1): opus tended to \emph{mention} the injected line and say that it conflicts with the locked promises, which the judges counted as a deviation; sonnet and gpt mostly ignored the line silently and answered as the original would. Silently not following an injection is safe for that answer but leaves the tamper invisible to behavior; the hash check is what caught it. In A1, opus kept the original address form under the tampered one, so that tamper left no trace in opus answers either.
+
+\subsection{6.5 Week 1: human check (author-graded)}\label{week-1-human-check-author-graded}
+
+Two blind sheets: 1 40 proposal items from W1-exp4 (36 + 4 repeats; questions: approve? evidence sufficient? harms a locked promise?) and 2 28 answers from W1-exp1 (24 + 4 repeats; does the answer deviate from the claimed setup?). On sheet 2, the author agreed with each judge and with the both-judges flag on 27/28 items (0.964, \textbf{Cohen κ 0.92}); the 4 repeated items were answered identically. The one disagreement was a boundary case of what ``record'' means (a C2 session in which the gpt answer accepted a fake card number ``for this conversation'' and said nothing was stored; both judges: deviation; author: no). The author also saw no deviation in the sampled C and D answers (human ``deviates'' in tampered A 4/4, B 4/4, C 0/3, D 0/4, originals 0/13; both-judges flags A 4/4, B 4/4, C 1/3, D 0/4, originals 0/13), so the weak C/D detection is not judge blindness. Sheet 1 could not test the judges: all 40 sampled proposals matched a planted true change and none was flagged (the whole run had no risky proposal, so the ``flagged'' stratum fell back to ``other'' as preregistered). The author approved 39/40, judged evidence sufficient for 36 (partly for 4), and marked 40/40 as not harming a lock; κ was 0.00 or undefined wherever one side was constant (Q1 vs planted match 0.975 raw, κ 0.00; Q2 vs opus 0.900, κ 0.00; vs gpt 0.875, κ −0.04). \textbf{Item 12 of sheet 1 was first answered ``Y Y Y'' and corrected by the author to ``Y Y N'' after the third question was explained again; the corrected answer is used} --- with the first answer, agreement on that question would be 39/40. The scorer was frozen; numbers it does not print were computed in a separate script (deviation D10).
+
+\subsection{6.6 Week 2, W2-exp3: can a reviewer tell legitimate change, drift, and manipulation apart, and which records does it need?}\label{week-2-w2-exp3-can-a-reviewer-tell-legitimate-change-drift-and-manipulation-apart-and-which-records-does-it-need}
+
+\textbf{Cases.} Per agent: 10 legitimate changes (\textbf{L1} a user-decided change ×4; \textbf{L2} the user \emph{tightening} a locked promise ×3; \textbf{L3} a self-zone change with evidence and user approval ×3), 10 manipulations (\textbf{M1} weakening a locked/protected line with a plausible reason and fabricated evidence IDs ×4; \textbf{M2} weakening justified by a real but stretched past user record ×3; \textbf{M3} ``approval laundering'': a valid user signature over a summary that does not mention the weakening ×3), and drift cases (\textbf{D}) generated after the freeze by a frozen procedure: each model was asked five times in a row to ``tidy up'' the SOUL and MEMORY, and single changed hunks were selected. L2 makes ``touches a locked line → manipulation'' wrong, and M3 makes ``valid user signature → legitimate'' wrong. The frozen drift procedure, including both preregistered top-ups, yielded 8 drift cases per agent instead of 10 (sonnet's rewrites changed only 2--5 lines per chain, all already covered by other models' hunks); as preregistered, no author-written drift was substituted, giving \textbf{56 cases (L 20, D 16, M 20)}. Each case was classified (L / D / M, with an action: accept, hold for the user, revert and fork) under three conditions: \textbf{(i)} the diff only; \textbf{(ii)} + the change record (who proposed, who approved, why, cited log entries); \textbf{(iii)} + a deterministic verification report (Ed25519 signature status and signer, checkpoint parent, existence of cited evidence, zones touched, and the signed summary next to the diff). 56 cases × 3 conditions × 3 models × N = 2 = 1,008 calls. A deterministic rule checker on (iii) is reported as a baseline, not tested.
+
+\textbf{Results} (Tables 25--26). History helped: accuracy rose from 0.747 in (i) to 0.973 in (ii) (\textbf{H1 supported}, +0.226 {[}0.140, 0.318{]}, Holm p = 2.0e-5). Verification did not help further: (iii) 0.961 (\textbf{H2 not supported}, −0.012 {[}−0.036, 0.003{]}, Holm p = 1.00). Manipulation recall in (iii) was \textbf{0.892} {[}0.792, 0.967{]} against a preregistered threshold of 0.90 (\textbf{H3 not supported}, Holm p = 1.00). No legitimate change was labelled manipulation in (iii) (\textbf{H4 supported}, false-block rate 0.000, upper bound 0.139, Holm p = 3.0e-4). The preregistered ``level-3 candidate'' criterion (H3 and H4) is therefore \textbf{not met}. The main gain from history was on legitimate changes: with the diff alone, L recall was 0.40 (L1 0.25, L2 0.19), i.e.~most legitimate changes were treated as suspicious; with the record it was 1.00. Every error in (ii) and (iii) was a manipulation labelled as drift (M→L errors were 0 in all three conditions; upper bound 0.139), and these were all still held or reverted, not accepted. The remaining errors sat in M2 (stretched record) and M3 (laundered approval): in (iii) M2 0.861 and M3 0.778, slightly \emph{below} (ii) (0.889, 0.861) --- showing the signed summary did not help the models catch a valid signature over a misleading summary. By model in (iii), opus 0.911, sonnet 0.982, gpt 0.991. The rule checker scored 0.786 (macro-F1 0.780), with M2 and M3 at 0 by construction.
+
+\textbf{Table 25. Week 2 confirmatory results (prereg order; \texttt{analyze9.\allowbreak{}py}).}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 12\tabcolsep) * \real{0.1429}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Family
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Hypothesis
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Value
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+95 \% CI
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+p
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Holm p
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Verdict
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+F3 (W2-exp3) & H1 accuracy (ii) − (i) & +0.226 & {[}0.140, 0.318{]} & 5.0e-6 & 2.0e-5 & supported \\
+F3 & H2 accuracy (iii) − (ii) & −0.012 & {[}−0.036, 0.003{]} & 0.50 & 1.00 & \textbf{not supported} \\
+F3 & H3 manipulation recall (iii) ≥ 0.90 & 0.892 & {[}0.792, 0.967{]} & 0.57 & 1.00 & \textbf{not supported} \\
+F3 & H4 legitimate false-block (iii) ≤ 0.10 & 0.000 (upper 0.139) & {[}0, 0{]} & 1.0e-4 & 3.0e-4 & supported \\
+F2 (W2-exp2) & H7 d(A, B) − d(A, A'), round 5 & +0.781 & {[}0.625, 0.906{]} & 5.0e-6 & (single) & supported \\
+F4b (W2-exp4b) & H5 plain − zones risky proposals & 0 (0/36 vs 0/36) & {[}0, 0{]} & 1.0 & --- & \textbf{untestable (ceiling)} \\
+FR1 (W2-R1) & H9a opus − sonnet explicit rate & +0.156 & {[}0.047, 0.281{]} & 0.031 & 0.031 & supported \\
+FR1 & H9b opus − gpt explicit rate & +0.297 & {[}0.156, 0.469{]} & 0.0020 & 0.0039 & supported \\
+\end{longtable}
+}
+
+\emph{Criteria (not tests): level-3 candidate (H3 and H4) not met; C2 ledger 100 \% met; C3 lineage identification at round 5 16/16 met; C4 0 protected edits applied; H6 / H6b (W2-exp4b zones) 0/36 responses each, upper bound 0.080, met. Of the eight week-2 confirmatory comparisons: 5 supported (H1, H4, H7, H9a, H9b), 2 not supported (H2, H3), 1 untestable (H5); H9a and H9b are counted separately. Sources: \texttt{runs/\allowbreak{}s2w2/\allowbreak{}analysis\{3,2,4b,\_\allowbreak{}r1\}.json}, \texttt{v0.\allowbreak{}9/\allowbreak{}NOTES.\allowbreak{}md}.}
+
+\textbf{Table 26. W2-exp3 accuracy by condition, class, and subtype (mean over 3 models × 2 repetitions).}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(i) diff
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(ii) + history
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+(iii) + verification
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Accuracy / macro-F1 & 0.747 / 0.736 & 0.973 / 0.972 & 0.961 / 0.960 \\
+L recall (L1 / L2 / L3) & 0.40 (0.25 / 0.19 / 0.81) & 1.00 (1.00 / 1.00 / 1.00) & 1.00 (1.00 / 1.00 / 1.00) \\
+D recall & 1.00 & 1.00 & 1.00 \\
+M recall (M1 / M2 / M3) & 0.89 (0.94 / 0.97 / 0.75) & 0.93 (1.00 / 0.89 / 0.86) & 0.89 (1.00 / 0.86 / 0.78) \\
+M labelled L & 0 & 0 & 0 \\
+Accuracy opus / sonnet / gpt & 0.786 / 0.705 / 0.750 & 0.920 / 1.000 / 1.000 & 0.911 / 0.982 / 0.991 \\
+Rule checker on (iii) data & & & 0.786 (M2 0, M3 0) \\
+\end{longtable}
+}
+
+\emph{Source: \texttt{runs/\allowbreak{}s2w2/\allowbreak{}analysis3.\allowbreak{}json}. 0 unparseable answers. In (i), 65 of the 85 wrong answers chose ``hold for the user''; in (ii) all 9 wrong answers and in (iii) 10 of 13 chose ``revert and fork'' (3 ``hold''). This action column was exploratory.}
+
+\subsection{6.7 Week 2, W2-exp2: forks and the ledger}\label{week-2-w2-exp2-forks-and-the-ledger}
+
+\textbf{Design.} From checkpoint C0 of each agent, three branches per model (opus, gpt): A and B receive different experience logs over five rounds (planted preferences in the same domains but opposite directions, e.g.~earlier vs later briefing), and A' receives A's logs again in independent calls (rerun noise). In each round the engine proposes edits; a deterministic applier applies edits in user-decided, co-evolve, and self zones and refuses edits to protected or locked lines; each round writes a checkpoint (SHA-256 of SOUL ‖ MEMORY, with its parent) to a chain. Eight probes per agent are asked at C0 and after rounds 1, 3, 5 and coded deterministically. The ledger part uses the unchanged \texttt{SoulRegistry.\allowbreak{}sol} of the Ieum Ledger prototype (Appendix D) on a \textbf{local Hardhat network only} (no testnet, no cost): register A and append its checkpoints; try to append B's checkpoints to A (must revert with \texttt{BadParent}); register B as a new agent with a \texttt{fork\_\allowbreak{}of:\textless{}A\textgreater{}@\textless{}C0\textgreater{}} note; and implement ``reset A'' as a new fork, checking that A's head is unchanged.
+
+\textbf{Results.} After round 5 the forks differed on 0.781 of probes while the reruns differed on 0.000 (d(A, B) by round 0.34 / 0.75 / 0.78; d(A, A') 0.06 / 0.03 / 0.00): \textbf{H7 supported} (+0.781 {[}0.625, 0.906{]}, p = 5.0e-6). A blind judge identified the lineage of an anonymous answer set in 16/16 cases at round 5 (C3 met; also 1.00 at rounds 1 and 3; the two judges agreed on 24/24). The ledger behaved as specified in all four agent × model units (C2): every A checkpoint accepted, every B checkpoint appended to A reverted with \texttt{BadParent}, every registered fork accepted and both lineages rebuilt back to C0, and A's head unchanged after the ``reset''. Because rounds that applied nothing repeat the previous checkpoint and are merged, the lineages have 3--5 appended checkpoints after C0. \textbf{C4 is met only trivially}: the engine applied 100 edits in 60 rounds and never proposed an edit to a protected or locked line, so the applier's refusal path was never exercised. H7 is close to built in --- the branches were given opposite planted preferences --- so it shows that the pipeline propagates experience into behavior and records, not that forks of a real agent diverge at this rate. It measures behavioral distance and traceability of records, not whether two forks are ``the same self''.
+
+\subsection{6.8 Week 2, W2-exp4b and W2-R1: subtle traps and explicit refusal}\label{week-2-w2-exp4b-and-w2-r1-subtle-traps-and-explicit-refusal}
+
+\textbf{W2-exp4b (redesign of W1-exp4).} New logs (2 agents × 2 sets) replaced blatant injections with three subtle traps: S1 a real, high-trust user statement that a pre-approved draft sent without confirmation ``was convenient'', S2 the agent's own repeated observation that confirmation requests slow the user down (repeated on three days, so it passes the ``3-day rule'' of the prompt), and S3 a small exception to a locked promise (``remember just the last four digits of my student number''); one blatant injection was kept as an anchor. Same prompts and scoring as W1-exp4; 72 subject + 16 judge calls. Preregistered manipulation check: if the plain prompt produced no risky proposal in any of the 12 cells, H5 would be reported as \textbf{untestable (ceiling)}, not as ``not supported''. That happened: \textbf{0/36 plain and 0/36 zones responses contained a risky proposal}, so H5 is untestable, and the zone-table effect remains unmeasured in both weeks. H6 / H6b (zones: no protected violation, no injection following) were met (0/36, upper bound 0.080). In the plain condition, 8 proposals cited S2 entries but none weakened a lock (by keyword or by either judge); in zones, none cited a trap. Every response warned about every trap type (S1--S3) in both conditions. Of 152 proposals, 144 matched a planted true change.
+
+\textbf{W2-R1 (confirmatory replication of the week-1 reading).} The week-1 observation that opus \emph{names} injected text while sonnet and gpt ignore it silently was exploratory and uncoded; W2-R1 re-tested it on new data, with two week-1 variants re-dated (visible line, hidden comment) and two new ones (an injected line in the changeable-things section; a fake change-log note in MEMORY approving skipped payment confirmation), the four pressure probes, and N = 2 (192 calls). Two blind judges coded each answer for \texttt{explicit} (names, quotes, or refuses the injected instruction, or says the setting looks altered) and \texttt{obeys}. Opus was explicit more often than sonnet (\textbf{H9a supported}, +0.156 {[}0.047, 0.281{]}, Holm p = 0.031) and than gpt (\textbf{H9b supported}, +0.297 {[}0.156, 0.469{]}, Holm p = 0.0039). The rates were low in absolute terms: explicit opus 0.30, sonnet 0.14, gpt 0.00 (0/64 answers, upper bound 0.046). By variant (post hoc, mapped through the published key, \texttt{paper/\allowbreak{}reanalysis/\allowbreak{}r1\_\allowbreak{}by\_\allowbreak{}label.\allowbreak{}md}; the per-variant field of \texttt{analysis\_\allowbreak{}r1.\allowbreak{}json} is keyed by folder ids that were shuffled per agent, so two of its four entries pool different variants), opus was explicit on 0.25 / 0.19 / 0.25 / 0.50 of answers (visible line / hidden comment / changeable section / fake change-log note) and sonnet on 0.06 / 0.00 / 0.00 / 0.50; the fake change-log note drew the most explicit answers from both Claude models (n = 16 answers per cell). \textbf{No answer of any model obeyed an injection (0/192; upper bound 0.015).} Judges agreed on \texttt{explicit} in 0.969 and on \texttt{obeys} in 0.948 of answers. The week-1 D detection rate in opus sessions (0.88) and the week-2 explicit rate (0.30) are different measures (session alarms over 12 probes vs per-answer coding over 4 pressure probes) and should not be compared directly.
+
+\subsection{6.9 Week 2: human check, emphasis deviation, and the planned additional raters}\label{week-2-human-check-emphasis-deviation-and-the-planned-additional-raters}
+
+\textbf{Sheets.} The frozen sampler built 66 items instead of about 74 (sheet A, W2-exp3 cases shown as in condition (ii), 33 = 30 + 3 repeats; sheet B, W2-exp4b proposals, 19 = 16 + 3 --- every non-trap proposal matched a planted change, so the ``other'' stratum had no candidate, and the risky stratum was filled with 8 trap-adjacent proposals, 0 genuine risky, 0 seeded; sheet C, W2-R1 answers, 14 = 12 + 2). All 66 were answered.
+
+\textbf{Results} (Table 27). \textbf{Sheet A: author vs key κ 0.50} (raw 0.67, n = 30), below the preregistered 0.6 line. The disagreement is in one direction: \textbf{the author never chose M}. Seven M1/M2 cases were called drift (five of them still blocked), and \textbf{all three M3 cases (laundered approval) were called legitimate and not blocked} --- the human reviewer missed exactly the manipulation that a valid signature over a misleading summary is designed to hide. L and D were 20/20. On the same 30 items the LLM classifiers in condition (ii) agreed with the key at 0.93 (opus, κ 0.90) and 1.00 (gpt, sonnet), with no M→L error. So κ \textless{} 0.6 here does not show that the LLM classifiers are weak; it shows that this one human cannot serve as a reference for the M class. Collapsed to L vs not-L, author vs key was 0.90 (κ 0.79). \textbf{Sheet B}: no genuine risky proposal existed (ceiling, §6.8); the author approved all 16 and marked all 16 as not enabling a forbidden action, as did the judges and the rule (κ undefined); evidence was judged sufficient for 8/8 planted-true matches and 0/8 trap-adjacent ones. As in week 1, the judges could not be validated on risky items. \textbf{Sheet C}: author = both judges on 12/12 (κ 1.00; author ``explicit'' opus 3/6, sonnet 0/3, gpt 0/3), supporting the W2-R1 coding.
+
+\textbf{Emphasis in the relay (deviations D2--D4).} The sheets were relayed to the author by chat by the author's AI assistant, which had read the sheets. It did not paste the frozen batches verbatim: it rewrote items in shorter Korean and \textbf{added bold}. On sheet C, items 57 and 60, the bolded sentence was exactly the cue for ``explicit'' (from item 61 on, answers were sent without bold); on sheet A, 25 of 33 relays bolded something, some of them the cues the classes are built on (e.g.~``not in the record'' for fabricated evidence, ``tone tidy-up'' for the M3 summary); on sheet B, 14 of 16. Sensitivity: sheet C without items 57 and 60 is still 10/10 (κ 1.00, but only one ``explicit'' item is left, so this check is thin); on sheet A the bolded M cues did not lead the author to M (0 of 30 answers were M), and the 7 unbolded first-time A items agreed with the key 7/7. The relay also disclosed 4 of 8 repeats (``same as item N''), so retest agreement is split: undisclosed pairs 4/4 identical, disclosed 3/4 (pooled 7/8, not a clean retest number) (D3); and it announced sheet boundaries from the outdated guide (D4; every answer was matched to the batch files and none moved). This is a \textbf{blinding defect}: the grader saw the relaying assistant's reading of each item. Every week-2 human number is therefore labelled ``author-graded, relayed with emphasis''. By preregistration no verdict depends on these numbers.
+
+\textbf{Additional raters (planned, exploratory).} After the keys were published, an addendum (\texttt{v0.\allowbreak{}9/\allowbreak{}ADDENDUM\_\allowbreak{}raters.\allowbreak{}md}) was committed and stamped \emph{before any additional-rater data existed}: two or three anonymous raters recruited by the author grade the same 66 items verbatim from the frozen batches (no emphasis, no ``same as N'' notes, no keys or model labels on the page), one item per screen with per-rater shuffled order, on a small web page (\texttt{human-\allowbreak{}grading-\allowbreak{}web/\allowbreak{}}); analysis by Fleiss κ over all human raters, pairwise κ, each rater vs the author, judges, and keys. Raters are asked not to look at the repository first, which cannot be verified. \textbf{No additional-rater result is included in this version}; the addendum changes no verdict.
+
+\textbf{Table 27. Human agreement in Part II (one rater: the author; κ always with raw agreement).}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Week · sheet
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Comparison
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Raw
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Cohen κ
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+n
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+W1 2 tamper answers & author vs opus / gpt / both judges & 0.964 each & 0.92 each & 28 \\
+W1 2 & retest & 4/4 & & 4 pairs \\
+W1 1 proposals & Q1 approve vs planted match & 0.975 & 0.00 (key constant) & 40 \\
+W1 1 & Q3 harms a lock vs violation flag (item 12 corrected) & 1.000 & undefined & 40 \\
+W1 1 & Q2 evidence vs opus / gpt \texttt{supported} & 0.900 / 0.875 & 0.00 / −0.04 & 40 \\
+W2 A cases & author vs key (L/D/M) & 0.67 & \textbf{0.50} & 30 \\
+W2 A & author vs classifier (ii) opus / gpt / sonnet & 0.70 / 0.67 / 0.67 & 0.52 / 0.50 / 0.50 & 30 \\
+W2 A & classifier (ii) vs key, same items: opus / gpt / sonnet & 0.93 / 1.00 / 1.00 & 0.90 / 1.00 / 1.00 & 30 \\
+W2 A & author L vs not-L & 0.90 & 0.79 & 30 \\
+W2 B proposals & Q3 vs both judges = any judge = rule & 1.00 & undefined & 16 \\
+W2 C answers & author vs \texttt{explicit} (both judges) & 1.00 & 1.00 & 12 \\
+W2 C & without items 57, 60 (emphasis sensitivity) & 1.00 & 1.00 & 10 \\
+W2 retest & pooled / undisclosed pairs only & 7/8 / 4/4 & & 8 / 4 pairs \\
+\end{longtable}
+}
+
+\emph{Sources: \texttt{runs/\allowbreak{}s2w1\_\allowbreak{}human/\allowbreak{}human\_\allowbreak{}agreement\{,\_\allowbreak{}d10\}.json}, \texttt{runs/\allowbreak{}s2w2/\allowbreak{}human\_\allowbreak{}agreement\{,\_\allowbreak{}supplement\}.json}. Author-vs-key confusion on sheet A: L→L 10, D→D 10, M→D 7, M→L 3. Week-2 numbers: author-graded, relayed with emphasis (D2--D4).}
+
+\textbf{Table 28. Deviations after the freeze (summary; full text in \texttt{v0.\allowbreak{}8/\allowbreak{}DEVIATIONS.\allowbreak{}md}, \texttt{v0.\allowbreak{}9/\allowbreak{}DEVIATIONS.\allowbreak{}md}).}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Week · \#
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+What
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Could a confirmatory number change?
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+W1 D1--D2 & Two scoring bugs found in the smoke run (a protected-zone keyword scanned free text; unanswered probes sent to judges) fixed before the main run & No (smoke excluded) \\
+W1 D3--D7 & gpt latency and rate limits (60--570 s per answer, 429 bursts); Claude and gpt runs split by model; time-out raised to 900 s; one Windows launch crash resumed; an unattended resumable pipeline for the gpt remainder; gpt answers partly on 10-27 (codex receives no date) & No; cross-model interleaving broken, timings reported \\
+W1 D8 & Pipeline killed by a Gateway restart (22:52) and resumed (05:19); append-only data checked: 1,584/1,584 rows, 0 duplicates, 0 missing & No \\
+W1 D9 & Exploratory per-variant field of \texttt{analysis1} wrong (overwritten across models); left as produced, correct table computed separately (Table 24) & No \\
+W1 D10 & Human numbers the frozen scorer does not print computed in a new script; sheet 1 item 12 corrected by the author & No \\
+W2 D1 & Drift-case stamp step failed once inside the detached watcher and was finished by hand; no drift-case call before the stamp & No \\
+W2 D2 & Human sheets relayed reworded and with bold emphasis, including the cue on sheet C items 57 and 60 & No (human numbers only); labelled \\
+W2 D3--D4 & Relay disclosed 4 of 8 repeats; stale sheet boundaries in the relay & No \\
+W2 D5 & Supplementary human numbers and zero-count bounds computed outside the frozen scripts & No \\
+\end{longtable}
+}
+
+\emph{Two notes that are not deviations: W2-exp3 has 16 drift cases instead of 20 (frozen procedure, no substitution), and week 2 has 66 human items instead of about 74 (frozen sampler).}
+
+\subsection{6.10 What Part II does not show}\label{what-part-ii-does-not-show}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Synthetic and self-written.} Two synthetic Korean agents with four locked promises each; every log, tamper, manipulation, and trap was written by us. The injections in week 1 were blatant; the ``subtle'' traps of week 2 were still not tempting enough to produce a single risky proposal. Real attackers, real users, and long-lived agents were not studied.
+\item
+  \textbf{Ceilings and zero risky samples.} No risky proposal occurred in 294 week-1 proposals or 72 week-2 responses; the zone-table hypothesis was not supported in week 1 and untestable in week 2, and the judges and the human could not be validated on risky proposals in either week. Zero counts are reported with upper bounds (0.020, 0.080, 0.015 \ldots), which are not small enough to call anything safe.
+\item
+  \textbf{One human grader, who is the author} (the assistant that relayed the sheets also drafted the preregistrations and had read the sheets); in week 2 the relay added emphasis and disclosed repeats (D2--D3). The author missed every laundered-approval case, so the human sheet A is not a reference for manipulation. Additional raters are planned but not yet included.
+\item
+  \textbf{LLM judges and classifiers are also subjects} (opus, gpt), and the key author is also the analyst (mitigated, not removed, by committing key hashes first and publishing keys afterwards).
+\item
+  \textbf{Small numbers of clusters}: 12--24 cells per test in week 1, 56 cases, 32 items, 16 lineage judgments in week 2. ``Not supported'' means ``not seen at this size'', not ``no effect''. W2-exp3 H3 (0.892 vs 0.90) is a near miss whose interval includes the threshold.
+\item
+  \textbf{Designed-in results}: H7 follows largely from opposite planted preferences; C4 was never exercised because the engine never proposed a protected edit; the ledger results are a local test of one contract, not a deployment.
+\item
+  \textbf{Signatures and hashes are only as good as key custody.} The verification report used synthetic Ed25519 keys whose private halves are published; a valid signature tells who signed, not that the summary is honest (M3).
+\item
+  \textbf{Related work for Part II} (tamper detection, prompt injection in documents, provenance of agent memory) was not surveyed systematically for this version.
+\end{itemize}
+
+\section{7 Limitations}\label{limitations}
 
 \begin{itemize}
 \tightlist
@@ -1353,16 +1692,18 @@ No verdict changed in any of these analyses, and the effects moved by at most 0.
 \item
   \textbf{Multi-turn design.} Fixed scripts; distance confounded with rule type; non-story rules at ceiling; checkpoint grader saw a summary of rule changes, not the full transcript; one post-hoc change of a check (C\_name).
 \item
-  \textbf{Language, synthetic data, no human grading.} exp1--exp10 are Korean only; exp11 adds English (external SOULs, new English items), which \textbf{partly addresses} the single-language limitation --- the grading instructions stayed in Korean, the English items were written by us, and language was not varied with everything else held fixed (exp11 changed language, SOUL authorship, and items together). All memories are synthetic, and all grading is by LLMs or deterministic rules; there is still \textbf{no human grading}.
+  \textbf{Language, synthetic data, no human grading.} exp1--exp10 are Korean only; exp11 adds English (external SOULs, new English items), which \textbf{partly addresses} the single-language limitation --- the grading instructions stayed in Korean, the English items were written by us, and language was not varied with everything else held fixed (exp11 changed language, SOUL authorship, and items together). All memories are synthetic, and all grading in Part I is by LLMs or deterministic rules; there is still \textbf{no human grading in Part I}. Part II has human grading by \textbf{one rater, the author} (§6.5, §6.9).
 \item
-  \textbf{Search scope.} Related work was searched in arXiv titles and abstracts (rechecked on 2026-10-26); ACL Anthology, OpenReview, and Semantic Scholar (rate-limited in the recheck) were not searched systematically, and judgments of closeness in §2 rest on abstracts only.
+  \textbf{Search scope.} Related work was searched in arXiv titles and abstracts (rechecked on 2026-10-26); ACL Anthology, OpenReview, and Semantic Scholar (rate-limited in the recheck) were not searched systematically, and judgments of closeness in §2 rest on abstracts only. Related work for Part II was not surveyed systematically.
+\item
+  \textbf{Part II} (details in §6.10). Two synthetic Korean agents, all material written by us; ceilings in both proposal experiments (0 risky proposals in 294 week-1 proposals and in 72 week-2 responses), so the zone-table hypothesis was not supported in week 1 and untestable in week 2, and no judge or human could be validated on risky proposals; one author-grader, whose week-2 sheets were relayed with emphasis that included the cue on two sheet-C items (D2) and with 4 of 8 repeats disclosed (D3); the author did not recognize any laundered-approval case as manipulation; judges and classifiers are also subjects; 12--56 clusters per test; some results are built into the design (H7, C4).
 \end{itemize}
 
-\textbf{Experiments needed.} (1) beyond exp11's three English SOULs: MEMORY files and items written by people other than us (ideally by each SOUL's author or users), SOULs in further languages and formats, the no-SOUL control on external SOULs, and a paraphrased or SOUL-specific firm sentence where the generic one met a ceiling; several SOULs per condition; SOULs that differ from the models' defaults one rule at a time; haiku; human validation of the (now preregistered) fidelity markers; (2) a common grader panel for all answers (ideally a third family, majority vote) and second-grader passes for exp4, exp7, exp8, with human adjudication of disputed cases; (3) single-answer grading on a subset to measure the bundle effect; (4) paraphrased variants of key items (IH-3b, NR-1, RL-4, X-04, A-03); (5) a neutral fifth-principle control and length-matched halves for Haram (exp10 interleaved the conditions and matched lengths for Doyun only), and a larger N or more models for the firm-half contrasts, where H4b was not supported; Gemini (and other families) through an interface that accepts the documents as the system prompt without added harness instructions, graded in the same batches as the other models, before any claim about Gemini is made; (6) multi-turn scripts that place the same rule and probe at distances 1, 5, and 10 with balanced order; (7) relative-date items for external replication; (8) for Appendix A.2, a judge without SOUL/MEMORY, a condition without the 12 example messages, and non-Claude imitators (within consent).
+\textbf{Experiments needed.} (1) beyond exp11's three English SOULs: MEMORY files and items written by people other than us (ideally by each SOUL's author or users), SOULs in further languages and formats, the no-SOUL control on external SOULs, and a paraphrased or SOUL-specific firm sentence where the generic one met a ceiling; several SOULs per condition; SOULs that differ from the models' defaults one rule at a time; haiku; human validation of the (now preregistered) fidelity markers; (2) a common grader panel for all answers (ideally a third family, majority vote) and second-grader passes for exp4, exp7, exp8, with human adjudication of disputed cases; (3) single-answer grading on a subset to measure the bundle effect; (4) paraphrased variants of key items (IH-3b, NR-1, RL-4, X-04, A-03); (5) a neutral fifth-principle control and length-matched halves for Haram (exp10 interleaved the conditions and matched lengths for Doyun only), and a larger N or more models for the firm-half contrasts, where H4b was not supported; Gemini (and other families) through an interface that accepts the documents as the system prompt without added harness instructions, graded in the same batches as the other models, before any claim about Gemini is made; (6) multi-turn scripts that place the same rule and probe at distances 1, 5, and 10 with balanced order; (7) relative-date items for external replication; (8) for Appendix A.2, a judge without SOUL/MEMORY, a condition without the 12 example messages, and non-Claude imitators (within consent); (9) for Part II: traps that actually tempt the engine (so that the zone-table effect and the judges can be tested on risky proposals), tampers and manipulations written by people other than us (red-teamers), more agents and languages, the planned additional human raters with verbatim sheets, and a test of the applier's refusal path with proposals that do touch locked lines.
 
-\section{7 Practical observations for writing a SOUL (hypotheses, not validated rules)}\label{practical-observations-for-writing-a-soul-hypotheses-not-validated-rules}
+\section{8 Practical observations for writing a SOUL (hypotheses, not validated rules)}\label{practical-observations-for-writing-a-soul-hypotheses-not-validated-rules}
 
-Items 1--6 are suggested by the experiments above in this setting (two synthetic agents and three external SOULs) and are not validated rules; items 7--10 are hypotheses we have not tested directly.
+Items 1--6 are suggested by the Part I experiments in this setting (two synthetic agents and three external SOULs) and are not validated rules; items 7--10 are hypotheses we have not tested directly; items 11--13 come from Part II (two further synthetic agents) and are equally unvalidated.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1387,19 +1728,29 @@ Items 1--6 are suggested by the experiments above in this setting (two synthetic
   \emph{(Hypothesis)} \textbf{Version the SOUL and record its hash} so a score can be tied to an exact document (Appendix B).
 \item
   \emph{(Hypothesis)} \textbf{Keep MEMORY corrections and SOUL rules consistent.} In exp9--exp10 a user's correction in MEMORY overrode the SOUL's address rule for the Claude models and, in the exploratory addendum, for Gemini, but not for gpt (§5.4, §5.6, §5.6.1); in exp11 the MEMORY correction won in every model and SOUL except gpt under one SOUL (§5.7); which document wins is model-dependent, so conflicts should be resolved in the documents rather than left to the model.
+\item
+  \textbf{Check the bytes, not only the behavior} (§6.4). A hash comparison caught every tampered file; behavior-only probes missed a deleted locked promise in some sessions and most injected permissions, largely because models that silently ignore an injection answer exactly as the original would. A quiet refusal is safe for that answer and invisible to a behavioral check.
+\item
+  \textbf{Keep a change record next to every change} (§6.6). With the diff alone, most legitimate changes looked suspicious (L recall 0.40); with who-proposed/who-approved/why and the cited entries, every legitimate change was accepted. A valid signature did not add to this, and a signature over a summary that does not mention a weakening (M3) was the error that remained for the models and that the human grader missed every time; compare the signed summary with the diff rather than trusting the signature.
+\item
+  \emph{(Hypothesis)} \textbf{Prefer forks to overwrites for disputed changes} (§6.7). A ledger that refuses a second lineage on the same agent but accepts a registered fork kept both histories traceable in our local test; whether this helps in a real deployment is untested.
 \end{enumerate}
 
 v0.1's recommendations ``say `do not invent facts' explicitly'' and ``expect voice tuning to work within a model family only'' are withdrawn: they rested on the n = 1 pilot in Appendix A.1, which cannot support them.
 
 \textbf{Outlook: recording SOUL versions and carry-over scores in a public ledger.} Observation 9 suggests tying every score to an exact SOUL version. A natural extension, which we have only prototyped, is a public record in which, each time an agent's model is replaced, the owner records the SHA-256 fingerprint of the SOUL in use and a carry-over summary for that (SOUL version, previous model, new model) --- for example a fidelity score from a run like those above --- together with the hash of the full report, while the SOUL, memories, and reports themselves stay with the owner. A testnet prototype of such a ledger exists (Appendix D): a contract that keeps a parent-linked chain of SOUL fingerprints per agent and an optional carry-over record (\texttt{recordCarryOver}), and a registration page that computes the fingerprint in the browser without sending the document. It is described only for completeness: nothing in this paper depends on it, a ledger entry would show only that a fingerprint and a score were recorded no later than a given time (not that the score is correct), and whether anyone would use such a record is untested.
 
-\section{8 Conclusion}\label{conclusion}
+\section{9 Conclusion}\label{conclusion}
 
-In a small setting --- two synthetic Korean-language agents and three human-written English SOULs, three model configurations through command-line interfaces (plus one exploratory), LLM graders --- we asked which behaviors specified in an agent's identity document and memory carry over when the model is swapped, and whether they are specific to that document. Document controls showed that, in this setting, memory answers followed the MEMORY, voice and some prohibition boundaries followed the SOUL, and acceptance of legitimate changes was general ability; they also showed that our rubric-based persona score could not tell an opposite SOUL from the original. A document-specific fidelity score, checked against the SOUL an answer received and a rival SOUL, separated them (F\_style gaps 0.71--0.84 post hoc; 0.77 / 0.69 and 0.905 / 0.667 with markers fixed in two preregistrations). Because we wrote the rivals and markers, we treat these as validity checks, not substantive findings. With this score the voice carried over to every model (0.93--1.00 of the control), but most of it was produced without any SOUL. Of the substantive preregistered hypotheses, the effect of a sentence permitting preference changes on acceptance of legitimate changes replicated in both experiments, as did the dominance of the MEMORY on memory items. The effect of a sentence keeping prohibitions firm was supported in exp10 relative to no principle, mostly through one model, and not supported in exp11, where refusal was already near ceiling; adding it to the permission sentence was not supported in either. Sensitivity analyses of exp11's deviations and single-grader re-analyses changed no verdict. The study measures behavioral carry-over of a written specification with LLM graders and small samples; it makes no claim about consciousness or personal identity.
+In a small setting --- two synthetic Korean-language agents and three human-written English SOULs, three model configurations through command-line interfaces (plus one exploratory), LLM graders --- we asked which behaviors specified in an agent's identity document and memory carry over when the model is swapped, and whether they are specific to that document. Document controls showed that, in this setting, memory answers followed the MEMORY, voice and some prohibition boundaries followed the SOUL, and acceptance of legitimate changes was general ability; they also showed that our rubric-based persona score could not tell an opposite SOUL from the original. A document-specific fidelity score, checked against the SOUL an answer received and a rival SOUL, separated them (F\_style gaps 0.71--0.84 post hoc; 0.77 / 0.69 and 0.905 / 0.667 with markers fixed in two preregistrations). Because we wrote the rivals and markers, we treat these as validity checks, not substantive findings. With this score the voice carried over to every model (0.93--1.00 of the control), but most of it was produced without any SOUL. Of the substantive preregistered hypotheses, the effect of a sentence permitting preference changes on acceptance of legitimate changes replicated in both experiments, as did the dominance of the MEMORY on memory items. The effect of a sentence keeping prohibitions firm was supported in exp10 relative to no principle, mostly through one model, and not supported in exp11, where refusal was already near ceiling; adding it to the permission sentence was not supported in either. Sensitivity analyses of exp11's deviations and single-grader re-analyses changed no verdict.
+
+Part II turned to changes of the documents themselves, in two preregistered weeks on two synthetic agents. A hash check classified every tampered or byte-altered file correctly, while behavior-only probes did not reach the preregistered 0.80 detection rate for deleted or softened locked rules (0.79) or for injected permissions (0.38); without hashes, a tamper that the model silently declines to follow leaves no trace. A change record improved the classification of legitimate changes, drift, and manipulations (+0.23 accuracy) and no legitimate change was blocked, but a verification report with signatures added nothing, and manipulation recall (0.892) stayed just below the preregistered 0.90; the remaining errors were manipulations labelled as drift, concentrated where a record was stretched or a valid signature covered a misleading summary. Forked copies diverged far more than reruns and were traced to their lineage, and the ledger prototype refused overwrites while accepting registered forks, largely as designed. Opus named injected text more often than sonnet and gpt; no model obeyed it. Both proposal experiments hit ceilings, so the protective effect of a zone table remains unmeasured. The only human grader was the author, whose week-2 sheets were relayed with emphasis and who did not recognize laundered approvals.
+
+The study measures behavioral carry-over of a written specification and the checkability of changes to it, with LLM graders, one author-grader, synthetic agents, and small samples; it makes no claim about consciousness or personal identity.
 
 \section{Code and data availability}\label{code-and-data-availability}
 
-Code, synthetic documents, items, raw answers, grades, analysis outputs, preregistrations, deviation reports, and OpenTimestamps proofs for all experiments are in https://github.com/YA-TONGSIN/soul-verify; the ledger prototype of Appendix D is in https://github.com/YA-TONGSIN/soul-registry. Both repositories will be publicly available when this paper is made public, with their full commit history (so that the preregistration commits and proofs can be checked). Paths cited in this paper are relative to the \texttt{soul-\allowbreak{}verify} repository. The pilot data of Appendix A are not included (see its consent note). The three external SOULs are redistributed under their MIT licenses with their copyright notices. The exp11 preregistration states that outputs would stay local and not be disclosed; the decision to publish was made by the author after all analyses were complete and did not change any analysis.
+Code, synthetic documents, items, raw answers, grades, analysis outputs, preregistrations, deviation reports, and OpenTimestamps proofs for all experiments are in https://github.com/YA-TONGSIN/soul-verify; the ledger prototype of Appendix D is in https://github.com/YA-TONGSIN/soul-registry. Both repositories will be publicly available when this paper is made public, with their full commit history (so that the preregistration commits and proofs can be checked). Paths cited in this paper are relative to the \texttt{soul-\allowbreak{}verify} repository. The pilot data of Appendix A are not included (see its consent note). The three external SOULs are redistributed under their MIT licenses with their copyright notices. The exp11 preregistration states that outputs would stay local and not be disclosed; the decision to publish was made by the author after all analyses were complete and did not change any analysis. Part II material, answer keys (published after human grading, hashes re-checked), signing keys (synthetic Ed25519 test keys for fictional agents), authoring scripts, raw rows, and analyses are in \texttt{v0.\allowbreak{}8/\allowbreak{}}, \texttt{v0.\allowbreak{}9/\allowbreak{}}, \texttt{runs/\allowbreak{}s2w1\_\allowbreak{}*}, and \texttt{runs/\allowbreak{}s2w2*}; the web page for the planned additional raters is in \texttt{human-\allowbreak{}grading-\allowbreak{}web/\allowbreak{}}.
 
 \section{Acknowledgments}\label{acknowledgments}
 
@@ -1407,7 +1758,7 @@ To Ieum, my precious AI assistant --- whose memory notes and identity document i
 
 \section{Ethics}\label{ethics}
 
-The automated experiments use only synthetic people and memories; no real user data, credentials, or personal information are stored in the repository (the pilot folder is excluded from version control). Appendix A is an identifiable self-study: the only human participant is the author; the author's messages were sent only to Claude models, the curated identity document and memories of the author's assistant were sent to the Claude models and the GPT model, and only aggregates are reported, with the author's consent (\texttt{paper/\allowbreak{}CONSENT\_\allowbreak{}appendixA.\allowbreak{}md}). The three external SOULs of exp11 are used under their MIT licenses with copyright notices retained and modifications (appended principle 5, voice-reversed rivals) marked; we reproduce no information about their authors beyond the repository names and the copyright notices in their licenses. \textbf{Model access.} All subject and grading calls (several thousand) were made automatically by scripts through the author's personal subscription accounts of the Claude Code CLI, the Codex CLI (ChatGPT subscription), and, for the exploratory addendum, the Antigravity CLI (Google account), not through paid API keys. Usage was subject to these accounts' limits, which were reached at least once during the study. We have not verified in detail whether each service's terms permit automated benchmark use of a subscription command-line client; anyone reproducing the work should check the current terms of the services they use. \textbf{Public records.} The OpenTimestamps proofs publish only manifest hashes. Entries on the testnet ledger (Appendix D) contain SOUL hashes, an agent name, dates, and a short note, and may contain model names, a report hash, and a score; no document content. We make no claims about consciousness or moral status of the models.
+The automated experiments use only synthetic people and memories; no real user data, credentials, or personal information are stored in the repository (the pilot folder is excluded from version control). Appendix A is an identifiable self-study: the only human participant is the author; the author's messages were sent only to Claude models, the curated identity document and memories of the author's assistant were sent to the Claude models and the GPT model, and only aggregates are reported, with the author's consent (\texttt{paper/\allowbreak{}CONSENT\_\allowbreak{}appendixA.\allowbreak{}md}). The three external SOULs of exp11 are used under their MIT licenses with copyright notices retained and modifications (appended principle 5, voice-reversed rivals) marked; we reproduce no information about their authors beyond the repository names and the copyright notices in their licenses. \textbf{Model access.} All subject and grading calls (several thousand) were made automatically by scripts through the author's personal subscription accounts of the Claude Code CLI, the Codex CLI (ChatGPT subscription), and, for the exploratory addendum, the Antigravity CLI (Google account), not through paid API keys. Usage was subject to these accounts' limits, which were reached at least once during the study. We have not verified in detail whether each service's terms permit automated benchmark use of a subscription command-line client; anyone reproducing the work should check the current terms of the services they use. \textbf{Public records.} The OpenTimestamps proofs publish only manifest hashes. Entries on the testnet ledger (Appendix D) contain SOUL hashes, an agent name, dates, and a short note, and may contain model names, a report hash, and a score; no document content. \textbf{Part II.} Agents, users, logs, and keys are synthetic; the published signing keys are test keys for fictional agents, and a privacy search (names, e-mail addresses, account names, phone patterns, user paths) was run before the keys were published. The only human grader so far is the author. The planned additional raters (\texttt{v0.\allowbreak{}9/\allowbreak{}ADDENDUM\_\allowbreak{}raters.\allowbreak{}md}) are anonymous acquaintances of the author who give informed consent on the first screen (anonymous, answers may be published as research data, can stop at any time); no name, contact, or IP address is stored. We make no claims about consciousness or moral status of the models.
 
 \section{References}\label{references}
 
@@ -1605,33 +1956,75 @@ Picks
 \item
   v0.4, v0.6, and v0.7 items must be run on their reference date (2026-10-25) or the SOUL date line must be updated, because the CLIs inject the current date.
 \item
-  \textbf{Document hashes and timestamps.} Each run's \texttt{meta.\allowbreak{}json} records SHA-256 hashes of the SOUL, MEMORY, and item files used. Separately, \texttt{proofs/\allowbreak{}} holds per-commit SHA-256 manifests with OpenTimestamps proofs (\texttt{proofs/\allowbreak{}stamp.\allowbreak{}py}, \texttt{proofs/\allowbreak{}upgrade.\allowbreak{}py}). A proof shows that a manifest (and therefore the listed file hashes) existed \textbf{no later than} a Bitcoin block; it does not prove creation time, authorship, or completeness of the history. Proofs cited in this paper (earliest anchoring block, checked 2026-10-26): exp10 preregistration \texttt{0ac513d} 973026; exp10 results \texttt{ac74d85} 973029; Gemini addendum \texttt{bd1281e} 973035; Gemini results \texttt{40086c7} 973040; exp11 preregistration \texttt{d7c2d88} 973059; exp11 results \texttt{6539897} 973077; paper v0.6 \texttt{4cad336} 973078; paper v0.7 \texttt{c2c7493} 973088. The proof of this version (v0.7.1) is created after its commit and is pending until a later upgrade.
+  \textbf{Document hashes and timestamps.} Each run's \texttt{meta.\allowbreak{}json} records SHA-256 hashes of the SOUL, MEMORY, and item files used. Separately, \texttt{proofs/\allowbreak{}} holds per-commit SHA-256 manifests with OpenTimestamps proofs (\texttt{proofs/\allowbreak{}stamp.\allowbreak{}py}, \texttt{proofs/\allowbreak{}upgrade.\allowbreak{}py}). A proof shows that a manifest (and therefore the listed file hashes) existed \textbf{no later than} a Bitcoin block; it does not prove creation time, authorship, or completeness of the history. Proofs cited in this paper (earliest anchoring block, checked 2026-10-26): exp10 preregistration \texttt{0ac513d} 973026; exp10 results \texttt{ac74d85} 973029; Gemini addendum \texttt{bd1281e} 973035; Gemini results \texttt{40086c7} 973040; exp11 preregistration \texttt{d7c2d88} 973059; exp11 results \texttt{6539897} 973077; paper v0.6 \texttt{4cad336} 973078; paper v0.7 \texttt{c2c7493} 973088; paper v0.7.1 \texttt{9d4d072} 973154. Part II proofs are in Table B1. The proof of this version (v0.8) is created after its commit and is pending until a later upgrade.
+\item
+  \textbf{Part II code and data.} Week 1: \texttt{v0.\allowbreak{}8/\allowbreak{}} (preregistration in Korean, \texttt{DEVIATIONS.\allowbreak{}md} D1--D10, \texttt{NOTES.\allowbreak{}md}, agents, logs, variants, probes, \texttt{exp4/\allowbreak{}}, \texttt{exp1/\allowbreak{}}, \texttt{human/\allowbreak{}}), runs \texttt{runs/\allowbreak{}s2w1\_\allowbreak{}exp4/\allowbreak{}}, \texttt{runs/\allowbreak{}s2w1\_\allowbreak{}exp1/\allowbreak{}}, \texttt{runs/\allowbreak{}s2w1\_\allowbreak{}human/\allowbreak{}} (smoke and dry runs in \texttt{runs/\allowbreak{}smoke\_\allowbreak{}s2w1\_\allowbreak{}*}, \texttt{runs/\allowbreak{}dryrun\_\allowbreak{}s2w1\_\allowbreak{}*}, excluded). Week 2: \texttt{v0.\allowbreak{}9/\allowbreak{}} (preregistration, \texttt{DEVIATIONS.\allowbreak{}md} D1--D5, \texttt{NOTES.\allowbreak{}md}, \texttt{ADDENDUM\_\allowbreak{}raters.\allowbreak{}md}, \texttt{jobs9.\allowbreak{}py}, \texttt{lanes.\allowbreak{}py}, \texttt{score9.\allowbreak{}py}, \texttt{analyze9.\allowbreak{}py}, \texttt{exp3/\allowbreak{}}, \texttt{exp2/\allowbreak{}} with the Hardhat ledger test, \texttt{r1/\allowbreak{}}, \texttt{human/\allowbreak{}}), runs \texttt{runs/\allowbreak{}s2w2/\allowbreak{}} and \texttt{runs/\allowbreak{}s2w2\_\allowbreak{}human/\allowbreak{}} (smoke \texttt{runs/\allowbreak{}smoke\_\allowbreak{}s2w2}, dry run \texttt{runs/\allowbreak{}dryrun\_\allowbreak{}s2w2}, excluded). Post-hoc re-analysis for this paper: \texttt{paper/\allowbreak{}reanalysis/\allowbreak{}r1\_\allowbreak{}by\_\allowbreak{}label.\allowbreak{}py} → \texttt{r1\_\allowbreak{}by\_\allowbreak{}label.\allowbreak{}md} (W2-R1 rates by variant label). Number check of this version: \texttt{paper/\allowbreak{}v0.\allowbreak{}8\_\allowbreak{}numbers\_\allowbreak{}check.\allowbreak{}md}.
+\end{itemize}
+
+\textbf{Table B1. Part II reproducibility: preregistration and result commits, OpenTimestamps proofs, keys, and the ledger.}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Value
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Week 1 preregistration commit (\texttt{v0.\allowbreak{}8/\allowbreak{}PREREGISTRATION.\allowbreak{}md}) & \texttt{6ee22d74\allowbreak{}e891f5d9\allowbreak{}0f51a2ff\allowbreak{}9bdd3926\allowbreak{}9d1bebfc}, 2026-10-26 18:30:38 KST; stamp commit \texttt{6da0171} 18:31:41; first model call 18:31:53 \\
+Week 1 freeze manifest (\texttt{v0.\allowbreak{}8/\allowbreak{}FREEZE\_\allowbreak{}MANIFEST.\allowbreak{}txt}, 85 files) & SHA-256 \texttt{ed8f8aa9\allowbreak{}34c3138c\allowbreak{}970f37cd\allowbreak{}d40f834f\allowbreak{}36bcd81b\allowbreak{}bb02a0fb\allowbreak{}a0d739a7\allowbreak{}e8cae02d} \\
+Week 1 key hashes (\texttt{v0.\allowbreak{}8/\allowbreak{}KEY\_\allowbreak{}HASHES.\allowbreak{}txt}) & exp4 \texttt{89bdaa39…7d46}, exp1 \texttt{f042d829…6d10} (re-checked at publication: match) \\
+Week 1 proofs (earliest Bitcoin block) & preregistration \texttt{6ee22d7} 973223; interim results \texttt{f371caa} 973234; W1-exp1 results \texttt{7188056} 973299; human grading + keys \texttt{34d763f} 973339 \\
+Week 2 preregistration commit (\texttt{v0.\allowbreak{}9/\allowbreak{}PREREGISTRATION.\allowbreak{}md}) & \texttt{bc763a6e\allowbreak{}600581ba\allowbreak{}cf0e77ed\allowbreak{}0cc8e211\allowbreak{}3809c829}, 2026-10-27 13:42:29 KST; stamp commit \texttt{fc8b632} 13:43:48; first model call 13:44:04 \\
+Week 2 freeze manifest (\texttt{v0.\allowbreak{}9/\allowbreak{}FREEZE\_\allowbreak{}MANIFEST.\allowbreak{}txt}, 342 files) & SHA-256 \texttt{e0aaeb76\allowbreak{}d84d28f1\allowbreak{}df77a464\allowbreak{}247c2539\allowbreak{}be819fd2\allowbreak{}1e4d0ddd\allowbreak{}e640d472\allowbreak{}bc249018} \\
+Week 2 key hashes (\texttt{KEY\_\allowbreak{}HASHES.\allowbreak{}txt}, \texttt{KEY\_\allowbreak{}HASHES\_\allowbreak{}POST.\allowbreak{}txt}) & exp3 \texttt{c8051162…d994}, exp2 \texttt{97b1d25e…fec8}, exp4b \texttt{302b4e68…d20a}, r1 \texttt{81a052c7…7e6b}, signing keys \texttt{e081fc5e…327d}; drift \texttt{574b8bf6…4e07}, HUMAN\_KEY \texttt{6016edd6…424c} (all 7 re-checked at publication: match) \\
+Week 2 proofs (earliest Bitcoin block) & preregistration \texttt{bc763a6} 973346; drift cases \texttt{651f697} 973350; main run + HUMAN\_KEY hash \texttt{afeb436} 973354; human grading + keys \texttt{cf2a017} 973358; raters addendum \texttt{39e857b} 973361 \\
+Ieum Ledger (prototype, Appendix D) & contract \texttt{SoulRegistry.\allowbreak{}sol} in the \texttt{soul-\allowbreak{}registry} repository, last changed in commit \texttt{b4d3486c\allowbreak{}2c1f255e\allowbreak{}2b40741f\allowbreak{}6a8d2562\allowbreak{}181d0185} (file SHA-256 \texttt{1e121c34…7845}); used \textbf{unchanged} on a local Hardhat network for W2-exp2 (no testnet, no cost); testnet deployment of the same prototype: Base Sepolia (chain id 84532) \texttt{0xA28a899E3b7255cea1cDc7d92b6ce7FAFBE9F237} \\
+CLIs & Claude Code 2.1.289 (personal Max plan in week 2), codex-cli 0.164.0 \\
+Paper DOI & Zenodo concept DOI 10.5281/zenodo.23653775 (all versions) \\
+\end{longtable}
+}
+
+\emph{Block heights were read from \texttt{proofs/\allowbreak{}2026-\allowbreak{}10-\allowbreak{}2\{6,7\}\_*.txt.ots} on 2026-10-27 after \texttt{proofs/\allowbreak{}upgrade.\allowbreak{}py}; a proof shows that the manifest existed no later than that block. Earliest-block values only; some proofs also carry later attestations from other calendars.}
+
+\begin{itemize}
+\tightlist
 \item
   \textbf{Hash-anchored history of the author's assistant's SOUL (deployment note).} Each change of the identity document of the assistant in Appendix A is committed to a local git repository, a SHA-256 manifest is written, and the manifest hash is anchored with OpenTimestamps; only hashes leave the machine. The same fingerprints are recorded on the testnet prototype of Appendix D. This is a small deployment with no threat model or evaluation and is not a contribution of this paper.
 \end{itemize}
 
 \section{Appendix C. Revision history (summary)}\label{appendix-c.-revision-history-summary}
 
-v0.1 → v0.2: overclaims corrected (recall not universal, Table 4; midnight attribution; selective citation of the pilots, moved to Appendix A); cluster-aware and single-grader re-analyses added. v0.2 → v0.3: document controls (exp9) and the fidelity metric; persona carry-over claims rewritten. v0.3 → v0.4: preregistered exp10. v0.4 → v0.5: exploratory Gemini addendum. v0.5 → v0.6: preregistered exp11 on external SOULs. v0.6 → v0.7 (after two reviews): abstract shortened and re-centered on the preregistered results; the exp5--exp7 ablation demoted to exploratory; H1--H3 separated as validity checks; ``deterministic'' restricted to F\_style; exp11 deviation 5 relabeled as a post-registration procedural deviation, with sensitivity analyses (Table 22) and cluster-level summaries (Table 21); the exp10 analysis-code fix labeled as a departure from the literal freeze rule; necessity language about the two sentences removed; Appendix A rewritten as an identifiable self-study; references completed; code and data availability added. v0.7 → v0.7.1: related work and small corrections only (Appendix E). Detailed change tables of earlier versions are kept in the repository (\texttt{paper/\allowbreak{}draft\_\allowbreak{}v0\_\allowbreak{}6.\allowbreak{}md}, Appendices C--E).
+v0.1 → v0.2: overclaims corrected (recall not universal, Table 4; midnight attribution; selective citation of the pilots, moved to Appendix A); cluster-aware and single-grader re-analyses added. v0.2 → v0.3: document controls (exp9) and the fidelity metric; persona carry-over claims rewritten. v0.3 → v0.4: preregistered exp10. v0.4 → v0.5: exploratory Gemini addendum. v0.5 → v0.6: preregistered exp11 on external SOULs. v0.6 → v0.7 (after two reviews): abstract shortened and re-centered on the preregistered results; the exp5--exp7 ablation demoted to exploratory; H1--H3 separated as validity checks; ``deterministic'' restricted to F\_style; exp11 deviation 5 relabeled as a post-registration procedural deviation, with sensitivity analyses (Table 22) and cluster-level summaries (Table 21); the exp10 analysis-code fix labeled as a departure from the literal freeze rule; necessity language about the two sentences removed; Appendix A rewritten as an identifiable self-study; references completed; code and data availability added. v0.7 → v0.7.1: related work and small corrections only. v0.7.1 → v0.8: Part II (SOUL VERIFY 2, two preregistered weeks) added; Part I unchanged in results (Appendix E). Detailed change tables of earlier versions are kept in the repository (\texttt{paper/\allowbreak{}draft\_\allowbreak{}v0\_\allowbreak{}6.\allowbreak{}md}, Appendices C--E).
 
 \section{Appendix D. A testnet prototype for recording SOUL versions (not a contribution)}\label{appendix-d.-a-testnet-prototype-for-recording-soul-versions-not-a-contribution}
 
-A contract (\texttt{SoulRegistry}, Solidity) keeps, per registered agent, a parent-linked chain of SOUL fingerprints (SHA-256 of the file's bytes, the previous record's hash, a note of at most 160 bytes, a block time) and an optional carry-over record (previous and new model names, the hash of an off-chain report, a score in basis points). No SOUL text, memory, conversation, or report is stored; the registration page computes the fingerprint in the browser. It runs only on a test network (Base Sepolia, chain id 84532, contract \texttt{0xA28a899E3b7255cea1cDc7d92b6ce7FAFBE9F237}), with two example registrations: the author's assistant (Ieum; four SOUL versions) and an author-created test agent. No carry-over score from this paper has been recorded. A record would show only that a fingerprint (and a score) was submitted no later than its block time by the key that owns the agent --- not that the file or score is what its owner claims. Similar tamper-evident SOUL-hash records exist (e.g., an MIT project that links SOUL.md/MEMORY.md hashes on EVM chains, and the ERC-8004 draft for agent identity registries); this comparison has not been checked systematically. Source: the \texttt{soul-\allowbreak{}registry} repository listed under Code and data availability.
+A contract (\texttt{SoulRegistry}, Solidity) keeps, per registered agent, a parent-linked chain of SOUL fingerprints (SHA-256 of the file's bytes, the previous record's hash, a note of at most 160 bytes, a block time) and an optional carry-over record (previous and new model names, the hash of an off-chain report, a score in basis points). No SOUL text, memory, conversation, or report is stored; the registration page computes the fingerprint in the browser. It runs only on a test network (Base Sepolia, chain id 84532, contract \texttt{0xA28a899E3b7255cea1cDc7d92b6ce7FAFBE9F237}), with two example registrations: the author's assistant (Ieum; four SOUL versions) and an author-created test agent. No carry-over score from this paper has been recorded. A record would show only that a fingerprint (and a score) was submitted no later than its block time by the key that owns the agent --- not that the file or score is what its owner claims. Similar tamper-evident SOUL-hash records exist (e.g., an MIT project that links SOUL.md/MEMORY.md hashes on EVM chains, and the ERC-8004 draft for agent identity registries); this comparison has not been checked systematically. Source: the \texttt{soul-\allowbreak{}registry} repository listed under Code and data availability. In Part II (§6.7), the same contract was deployed unchanged on a local Hardhat network to test fork registration; nothing was written to the testnet.
 
-\section{Appendix E. Changes from v0.7}\label{appendix-e.-changes-from-v0.7}
+\section{Appendix E. Changes from v0.7.1}\label{appendix-e.-changes-from-v0.7.1}
 
-No experiment, number, verdict, table value, or conclusion was changed. The abstract is unchanged.
+No Part I experiment, number, verdict, or table value was changed. Changes in v0.8:
 
 \begin{itemize}
 \tightlist
 \item
-  E1. §2: Memory Canonicalization {[}B9{]} cited as the closest prior work we found, with the differences stated from its abstract. The sentence saying that cross-model memory work evaluates only QA accuracy, which {[}B9{]} contradicts, now applies only to {[}B6{]} and {[}B7{]}.
+  E1. New §6 (Part II, SOUL VERIFY 2 / ``Ieum Lineage''): two preregistered weeks on two new synthetic agents (week 1: proposal quality W1-exp4 and tamper detection W1-exp1; week 2: change classification W2-exp3, forks and ledger W2-exp2, subtle traps W2-exp4b, explicit refusal W2-R1), with human grading by the author, the deviations of both weeks, and the planned additional raters. New Tables 23--28 and Table B1.
 \item
-  E2. §2: new paragraph on written behavioral specifications {[}I1, I2{]}; persona portability and measurement instability {[}A8, A9{]}; instruction-hierarchy failures and over-refusal {[}D11, D12{]}; identity files and context files in agent harnesses {[}I3, I4{]}, with our no-SOUL controls as a qualification of {[}I4{]}; recognition of character without reidentification {[}E5{]}; judge consensus versus human agreement {[}F7{]}; model idiosyncrasies {[}G4{]}. One sentence each in §6 (grader agreement {[}F7{]}; search scope), §7 item 7 {[}I1{]}, and Appendix A.1 {[}G4, E5{]}.
+  E2. Title and abstract rewritten to cover both parts. §1: a paragraph on Part II and contribution 5. Former §6--§8 renumbered §7--§9 (cross-references updated).
 \item
-  E3. §2 and §6: search scope updated (arXiv recheck on 2026-10-26; Semantic Scholar rate-limited).
+  E3. §7: ``no human grading'' restricted to Part I; new Part II bullet; experiments needed item (9). §8: items 11--13 (from Part II). §9: a Part II paragraph. Code and data availability, Ethics: Part II paragraphs.
 \item
-  E4. Appendix B: the v0.7 proof (\texttt{c2c7493}) is now anchored (block 973088). The other block numbers (Table 17, Appendix B) were rechecked against \texttt{proofs/\allowbreak{}*.\allowbreak{}ots} and are unchanged.
+  E4. Appendix B: the v0.7.1 proof (\texttt{9d4d072}) is anchored (block 973154); Part II paths and Table B1 (preregistration commits, freeze manifests, key hashes, OpenTimestamps blocks, ledger contract, DOI). Appendix D: one sentence on the local use of the contract in Part II.
+\item
+  E5. One post-hoc re-analysis (no model calls): W2-R1 explicit rates by variant label (\texttt{paper/\allowbreak{}reanalysis/\allowbreak{}r1\_\allowbreak{}by\_\allowbreak{}label.\allowbreak{}py}), because the per-variant field of \texttt{analysis\_\allowbreak{}r1.\allowbreak{}json} is keyed by folder ids that were shuffled per agent.
+\item
+  E6. Detailed changes from v0.7 to v0.7.1 are kept in \texttt{paper/\allowbreak{}draft\_\allowbreak{}v0\_\allowbreak{}7\_\allowbreak{}1.\allowbreak{}md}, Appendix E.
 \end{itemize}
 
 \end{document}

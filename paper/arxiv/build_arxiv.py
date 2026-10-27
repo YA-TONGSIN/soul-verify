@@ -76,7 +76,7 @@ def md_to_latex(md: str) -> str:
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--draft", default=str(PAPER / "draft_v0_7_1.md"))
+    ap.add_argument("--draft", default=str(PAPER / "draft_v0_8.md"))
     ap.add_argument("--compile", action="store_true")
     args = ap.parse_args()
 
@@ -106,6 +106,8 @@ def main():
         s = m.group(1)
         for ch in ("\\_", "-", "/", "."):
             s = s.replace(ch, ch + "\\allowbreak{}")
+        # long hex digests (SHA-256, commit ids) may break every 8 characters
+        s = re.sub(r"[0-9a-f]{32,}", lambda h: "\\allowbreak{}".join(re.findall(".{1,8}", h.group(0))), s)
         return "\\texttt{" + s + "}"
     body_tex = re.sub(r"\\texttt\{((?:[^{}]|\\[{}]|\{\})*)\}", breakable, body_tex)
 
