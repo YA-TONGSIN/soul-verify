@@ -29,6 +29,12 @@
   stamped before either page is opened.
 - `FREEZE_MANIFEST.txt` is left as frozen (it still records the pre-fix `harness.py`; see DEVIATIONS D1–D3).
 
+## Human pages online
+- 08:0x: `/h/` deployed to `soulverify-grading` (Pages deployment 62205ea1, production `main`) from a clean `git archive` of commit `4e43de1`
+  (so the uncommitted v1.2 `/r/` files and routes were **not** uploaded). Checked: `/<path token>/h/` 200, `app.js` 200, `items.json` 17 items
+  (no 이음), opened in the bot browser and the start screen rendered. No test submission was sent (table `submissions_h` stays clean).
+- Local 이음 page: `D:\openclaw-outputs\soul-verify-private\v1.1\human\index.html` (one file, `connect-src 'none'`, never uploaded).
+
 ## Still to do
 - Author: grade `/h/` (website) and the local 이음 page; save the local page's JSON into `soul-verify-private/v1.1/human/`.
 - Then: export `/h/api/export`, write the human analysis (`human_h.json`: HB1, Clopper–Pearson, retest, correlation), unseal and commit
