@@ -1,0 +1,2 @@
+# SHA-256 of the private v1.2 human answer key, written after the main run and before any human grading (prereg 8-3 order). Published after human grading.
+HUMAN_KEY_R.json  4ef7eb0e8c84be6739ba4d4fdb519882a55855281b2b4edd4500e852a0b69228
