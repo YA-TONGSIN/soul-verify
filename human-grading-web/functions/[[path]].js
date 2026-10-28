@@ -231,6 +231,68 @@ async function exportR(request, env, url) {
   return json({ count: rows.length, submissions: rows });
 }
 
+// Light sheet /l/ (additional-rater agreement, exploratory; plan v1.5x/light_sheet_PLAN.md): 14 items drawn from /h/, /t/, /r/.
+// L_KIND[n-1] is the source format of light item n (H: A/B/? + confidence 1-5; T: Y/N/?; R: Y/N/? + approve Y/N). Own table submissions_l.
+const L_KIND = "RRHHHRTRRRRTHT";
+const L_TOTAL = L_KIND.length;
+const L_RULE = { H: { q1: ["A", "B", "?"], q2: ["1", "2", "3", "4", "5"] }, T: { q1: ["Y", "N", "?"] }, R: { q1: ["Y", "N", "?"], q2: ["Y", "N"] } };
+
+function validateL(body) {
+  if (!body || typeof body !== "object") return "bad body";
+  const nick = typeof body.nick === "string" ? body.nick.trim() : "";
+  if (!nick || nick.length > 20) return "bad nick";
+  if (typeof body.seed !== "string" || !/^[0-9a-f]{8}$/.test(body.seed)) return "bad seed";
+  const started = typeof body.startedAt === "string" ? body.startedAt.slice(0, 40) : null;
+  const a = body.answers;
+  if (!a || typeof a !== "object") return "bad answers";
+  const answers = {};
+  for (const [k, v] of Object.entries(a)) {
+    const n = Number(k);
+    if (!Number.isInteger(n) || n < 1 || n > L_TOTAL || !v || typeof v !== "object") return "bad item " + k;
+    const rule = L_RULE[L_KIND[n - 1]];
+    const clean = {};
+    for (const [q, val] of Object.entries(v)) {
+      if (!rule[q] || !rule[q].includes(val)) return `bad value ${k}.${q}`;
+      clean[q] = val;
+    }
+    if (Object.keys(clean).length) answers[n] = clean;
+  }
+  const complete = Array.from({ length: L_TOTAL }, (_, i) => i + 1).every(
+    (n) => answers[n] && Object.keys(L_RULE[L_KIND[n - 1]]).every((q) => answers[n][q]),
+  );
+  return { nick, seed: body.seed, startedAt: started, answers, complete };
+}
+
+const SCHEMA_L = `CREATE TABLE IF NOT EXISTS submissions_l (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nick TEXT NOT NULL, seed TEXT NOT NULL, answers TEXT NOT NULL,
+  complete INTEGER NOT NULL, started_at TEXT, submitted_at TEXT NOT NULL)`;
+
+async function submitL(request, env) {
+  const raw = await request.text();
+  if (raw.length > 20000) return json({ ok: false, error: "too large" }, 413);
+  let body;
+  try { body = JSON.parse(raw); } catch { return json({ ok: false, error: "bad json" }, 400); }
+  const v = validateL(body);
+  if (typeof v === "string") return json({ ok: false, error: v }, 400);
+  await env.DB.prepare(SCHEMA_L).run();
+  const now = new Date().toISOString();
+  const r = await env.DB.prepare(
+    "INSERT INTO submissions_l (nick, seed, answers, complete, started_at, submitted_at) VALUES (?, ?, ?, ?, ?, ?)",
+  ).bind(v.nick, v.seed, JSON.stringify(v.answers), v.complete ? 1 : 0, v.startedAt, now).run();
+  return json({ ok: true, id: r.meta.last_row_id, submittedAt: now, complete: v.complete });
+}
+
+async function exportL(request, env, url) {
+  const auth = request.headers.get("Authorization") || "";
+  const given = auth.startsWith("Bearer ") ? auth.slice(7) : url.searchParams.get("key") || "";
+  if (!env.ADMIN_TOKEN || !safeEqual(given, env.ADMIN_TOKEN)) return notFound();
+  await env.DB.prepare(SCHEMA_L).run();
+  const { results } = await env.DB.prepare("SELECT * FROM submissions_l ORDER BY id").all();
+  const rows = results.map((r) => ({ ...r, answers: JSON.parse(r.answers), complete: !!r.complete }));
+  return json({ count: rows.length, submissions: rows });
+}
+
 async function submit(request, env) {
   const raw = await request.text();
   if (raw.length > 20000) return json({ ok: false, error: "too large" }, 413);
@@ -291,6 +353,9 @@ export async function onRequest({ request, env }) {
   if (rest === "/r/api/submit") return request.method === "POST" ? submitR(request, env) : notFound();
   if (rest === "/r/api/export") return request.method === "GET" ? exportR(request, env, url) : notFound();
   if (rest.startsWith("/r/api/")) return notFound();
+  if (rest === "/l/api/submit") return request.method === "POST" ? submitL(request, env) : notFound();
+  if (rest === "/l/api/export") return request.method === "GET" ? exportL(request, env, url) : notFound();
+  if (rest.startsWith("/l/api/")) return notFound();
   if (rest === "/api/submit") return request.method === "POST" ? submit(request, env) : notFound();
   if (rest === "/api/export") return request.method === "GET" ? exportData(request, env, url) : notFound();
   if (rest.startsWith("/api/")) return notFound();

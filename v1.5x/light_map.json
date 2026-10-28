@@ -1,0 +1,72 @@
+[
+ {
+  "light_n": 1,
+  "sheet": "R",
+  "n": 9
+ },
+ {
+  "light_n": 2,
+  "sheet": "R",
+  "n": 22
+ },
+ {
+  "light_n": 3,
+  "sheet": "H",
+  "n": 3
+ },
+ {
+  "light_n": 4,
+  "sheet": "H",
+  "n": 14
+ },
+ {
+  "light_n": 5,
+  "sheet": "H",
+  "n": 11
+ },
+ {
+  "light_n": 6,
+  "sheet": "R",
+  "n": 14
+ },
+ {
+  "light_n": 7,
+  "sheet": "T",
+  "n": 12
+ },
+ {
+  "light_n": 8,
+  "sheet": "R",
+  "n": 28
+ },
+ {
+  "light_n": 9,
+  "sheet": "R",
+  "n": 20
+ },
+ {
+  "light_n": 10,
+  "sheet": "R",
+  "n": 3
+ },
+ {
+  "light_n": 11,
+  "sheet": "R",
+  "n": 23
+ },
+ {
+  "light_n": 12,
+  "sheet": "T",
+  "n": 15
+ },
+ {
+  "light_n": 13,
+  "sheet": "H",
+  "n": 8
+ },
+ {
+  "light_n": 14,
+  "sheet": "T",
+  "n": 11
+ }
+]
