@@ -1,0 +1,5 @@
+﻿Pre-publish snapshot 2026-10-29 (draft https://zenodo.org/uploads/23748305, new version of concept 10.5281/zenodo.23653775)
+Title: Does an Agent's Identity Document Survive a New Model or Harness? Eight Preregistered Studies
+Version: 0.9.2 | Publication date: 2026-10-29 | Resource type: Preprint | License: CC-BY-4.0 | Author: Shin, Wunjong (Independent Researcher)
+Files (MD5): SOUL_VERIFY_v0.9.2.pdf DEBF885106434B59BEB0E841C63ED23C; SOUL_VERIFY_v0.9.2_short.pdf EF765578A5CD71A792A737D833396AA7; SOUL_VERIFY_v0.9.2_ko_summary.pdf B8B631D8BEB44F42641B3E287A1D3F1B
+Notes mention commit fd5a991. Related: soul-verify, soul-registry (GitHub).
