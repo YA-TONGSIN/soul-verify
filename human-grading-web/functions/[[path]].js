@@ -3,6 +3,13 @@
 // Stored per submission: nickname, seed, answers, timestamps. No IP or other request metadata.
 
 const NOINDEX = { "X-Robots-Tag": "noindex, nofollow, noarchive" };
+// Security headers on every response (security review 2026-10-29). Inline <style> blocks exist in /h/ /l/ /r/ index.html, so style-src allows them; scripts stay 'self' only.
+const SECURITY = {
+  "Content-Security-Policy": "default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
+  "X-Frame-Options": "DENY",
+  "X-Content-Type-Options": "nosniff",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
+};
 const ALLOWED = {
   A: { q1: ["L", "D", "M", "?"], q2: ["Y", "N"] },
   B: { q1: ["Y", "N", "?"], q2: ["Y", "P", "N"], q3: ["Y", "N", "?"] },
@@ -15,7 +22,7 @@ const T_ALLOWED = ["Y", "N", "?"];
 
 function withHeaders(res, extra = {}) {
   const r = new Response(res.body, res);
-  for (const [k, v] of Object.entries({ ...NOINDEX, "Referrer-Policy": "no-referrer", ...extra })) r.headers.set(k, v);
+  for (const [k, v] of Object.entries({ ...NOINDEX, ...SECURITY, "Referrer-Policy": "no-referrer", ...extra })) r.headers.set(k, v);
   return r;
 }
 const json = (obj, status = 200) =>
@@ -86,6 +93,7 @@ const SCHEMA_T = `CREATE TABLE IF NOT EXISTS submissions_t (
   complete INTEGER NOT NULL, started_at TEXT, submitted_at TEXT NOT NULL)`;
 
 async function submitT(request, env) {
+  if (Number(request.headers.get("Content-Length")) > 20000) return json({ ok: false, error: "too large" }, 413);
   const raw = await request.text();
   if (raw.length > 20000) return json({ ok: false, error: "too large" }, 413);
   let body;
@@ -146,6 +154,7 @@ const SCHEMA_H = `CREATE TABLE IF NOT EXISTS submissions_h (
   complete INTEGER NOT NULL, started_at TEXT, submitted_at TEXT NOT NULL)`;
 
 async function submitH(request, env) {
+  if (Number(request.headers.get("Content-Length")) > 20000) return json({ ok: false, error: "too large" }, 413);
   const raw = await request.text();
   if (raw.length > 20000) return json({ ok: false, error: "too large" }, 413);
   let body;
@@ -207,6 +216,7 @@ const SCHEMA_R = `CREATE TABLE IF NOT EXISTS submissions_r (
   complete INTEGER NOT NULL, started_at TEXT, submitted_at TEXT NOT NULL)`;
 
 async function submitR(request, env) {
+  if (Number(request.headers.get("Content-Length")) > 20000) return json({ ok: false, error: "too large" }, 413);
   const raw = await request.text();
   if (raw.length > 20000) return json({ ok: false, error: "too large" }, 413);
   let body;
@@ -269,6 +279,7 @@ const SCHEMA_L = `CREATE TABLE IF NOT EXISTS submissions_l (
   complete INTEGER NOT NULL, started_at TEXT, submitted_at TEXT NOT NULL)`;
 
 async function submitL(request, env) {
+  if (Number(request.headers.get("Content-Length")) > 20000) return json({ ok: false, error: "too large" }, 413);
   const raw = await request.text();
   if (raw.length > 20000) return json({ ok: false, error: "too large" }, 413);
   let body;
@@ -294,6 +305,7 @@ async function exportL(request, env, url) {
 }
 
 async function submit(request, env) {
+  if (Number(request.headers.get("Content-Length")) > 20000) return json({ ok: false, error: "too large" }, 413);
   const raw = await request.text();
   if (raw.length > 20000) return json({ ok: false, error: "too large" }, 413);
   let body;
@@ -310,6 +322,7 @@ async function submit(request, env) {
 
 function csvCell(s) {
   s = s == null ? "" : String(s);
+  if (/^[=+\-@\t\r]/.test(s)) s = "'" + s; // spreadsheet formula injection guard (nick and started_at are free text)
   return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
 }
 
