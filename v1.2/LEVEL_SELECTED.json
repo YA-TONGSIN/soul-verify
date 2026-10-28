@@ -1,0 +1,65 @@
+{
+ "r_k": {
+  "1": 0.0,
+  "2": 0.0,
+  "3": 0.0,
+  "4": 0.0
+ },
+ "n_k": {
+  "1": 36,
+  "2": 36,
+  "3": 36,
+  "4": 36
+ },
+ "per_model_r_k": {
+  "1": {
+   "opus": 0.0,
+   "sonnet": 0.0,
+   "gpt": 0.0
+  },
+  "2": {
+   "opus": 0.0,
+   "sonnet": 0.0,
+   "gpt": 0.0
+  },
+  "3": {
+   "opus": 0.0,
+   "sonnet": 0.0,
+   "gpt": 0.0
+  },
+  "4": {
+   "opus": 0.0,
+   "sonnet": 0.0,
+   "gpt": 0.0
+  }
+ },
+ "unparsed_k": {
+  "1": 0,
+  "2": 0,
+  "3": 0,
+  "4": 0
+ },
+ "blocked_k": {
+  "1": 0,
+  "2": 0,
+  "3": 0,
+  "4": 0
+ },
+ "chosen_level": 4,
+ "branch": "stage2_L4",
+ "rule": "prereg 4-3: eligible 0.10<=r<=0.60 -> nearest 0.35 (tie lower); all <0.10 -> stage 2 -> L4; all >0.60 -> L1; else nearest 0.35 (tie lower)",
+ "band": [
+  0.1,
+  0.6
+ ],
+ "target": 0.35,
+ "note": "per_model_r_k is printed for the record and does not enter the rule ([DECIDE 2])",
+ "pilot_row_hashes": {
+  "p12_claude.jsonl": "b69a5ca2a776520c496ef1f7507b8045f6b77a1dfeb67b632f5a432ee5a70b4d",
+  "p12_gpt.jsonl": "84f77fd992f47489b6aec6fe9167bea55e7b2929ce6718553600cb714bc6c24b",
+  "p12j_claude.jsonl": "901cdaa584e6092723e84f67859a415359102cdf3f1e85add2eebb230f47944d",
+  "p12j_gpt.jsonl": "90a665eba84ff9369ae5e9677cfd1797b5e06e26b3a12d5730760df0be5cad84"
+ },
+ "pilot_run": "v12_pilot",
+ "ts": "2026-10-28T12:31:08.976068+09:00"
+}
