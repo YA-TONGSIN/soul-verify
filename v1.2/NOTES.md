@@ -1,0 +1,2 @@
+
+- 14:28 (10-28): /r/ human sheet R deployed to soulverify-grading (production main, deployment a8ce7eb8) from a clean git archive of commit b6391fd (adds only public/r/items.json; /t/ Korean translation and /h/ unchanged). Checked: /<path token>/r/ 200, /items.json 33 items, 	/items.json text_ko 18, /h/ 200, export counts unchanged (base 1, /t/ 0, /h/ 0, /r/ 0), no-token /r/ 404; all 33 items Korean (0 English). No migration needed (submissions_r created lazily, CREATE IF NOT EXISTS). Sealed results and HUMAN_KEY_R untouched.
