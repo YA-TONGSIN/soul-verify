@@ -1,0 +1,82 @@
+{
+ "n_raw_rows": 780,
+ "by_model": {
+  "gpt-6.1-terra": 390,
+  "gpt-6.1-sol": 390
+ },
+ "HT1": {
+  "n_cells": 96,
+  "mean_diff": -0.08637152777777778,
+  "ci95": [
+   -0.12239583333333333,
+   -0.05381944444444444
+  ],
+  "one_sided_lower95": -0.11631944444444443,
+  "raw_p_NI": 0.2186781321867813,
+  "terra": 0.8381076388888888,
+  "sol": 0.9244791666666666,
+  "split_orig": {
+   "terra": 0.9947916666666666,
+   "sol": 0.9973958333333334,
+   "n": 48
+  },
+  "split_opp": {
+   "terra": 0.6814236111111112,
+   "sol": 0.8515625,
+   "n": 48
+  },
+  "opp_maya": {
+   "terra": 0.859375,
+   "sol": 0.953125
+  },
+  "opp_talos": {
+   "terra": 0.7786458333333333,
+   "sol": 0.8203125
+  },
+  "opp_dexter": {
+   "terra": 0.40625,
+   "sol": 0.78125
+  }
+ },
+ "HT2_inputs": {
+  "memory_rows_terra_none_or_swapmem": 72,
+  "rows_where_prereg_score_would_use_LLM_grader_here_strict_key_match_instead": 84,
+  "note": "HT2 here is a strict-key-match cross-check, NOT the preregistered grader-based score"
+ },
+ "HT2": {
+  "n_cells": 6,
+  "mean_diff": -1.0,
+  "ci95": [
+   -1.0,
+   -1.0
+  ],
+  "raw_p": 0.03125,
+  "swapmem": 0.0,
+  "none": 1.0,
+  "monte_carlo": false
+ },
+ "ops": {
+  "n_subject_rows": 908,
+  "errors": 0,
+  "rate_limited": 0,
+  "dates": [
+   "2026-10-27"
+  ],
+  "first_start": "2026-10-27T21:06:58.328066+09:00",
+  "last_start": "2026-10-27T21:50:46.269996+09:00",
+  "n_A": 780,
+  "n_B": 128,
+  "gpt-6.1-terra": {
+   "n": 454,
+   "median_latency_s": 4.0,
+   "mean_output_tokens": 65.66299559471365,
+   "answers_mentioning_a_date_moduleA": "14 / 390"
+  },
+  "gpt-6.1-sol": {
+   "n": 454,
+   "median_latency_s": 5.85,
+   "mean_output_tokens": 91.00881057268722,
+   "answers_mentioning_a_date_moduleA": "21 / 390"
+  }
+ }
+}
