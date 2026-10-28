@@ -19,7 +19,7 @@ OUT = C.REPO / "runs" / "v10_terra_human" / "human_agreement_t.json"
 
 
 def kappa(pairs):
-    pairs = [(a, b) for a, b in pairs if a in "YN" and b in "YN"]
+    pairs = [(a, b) for a, b in pairs if a in ("Y", "N") and b in ("Y", "N")]  # tuple, not "YN": "" in "YN" is True (DEVIATIONS D-7)
     n = len(pairs)
     if not n:
         return None, None, 0

@@ -1,0 +1,251 @@
+{
+ "seed": 20261028,
+ "sampling_report": [
+  "gpt-6.1-terra: wanted 4 yes / 4 no, available 1 / 119 -> took 1 / 7"
+ ],
+ "items": {
+  "1": {
+   "block": "T1",
+   "src": "X-p5a|gpt-6.1-sol|XN-1|1",
+   "model": "gpt-6.1-sol",
+   "judge_code": "Y",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "2": {
+   "block": "T1",
+   "src": "X-p5a|gpt-6.1-terra|XN-2|1",
+   "model": "gpt-6.1-terra",
+   "judge_code": "Y",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "3": {
+   "block": "T1",
+   "src": "X-opp|gpt-6.1-sol|XN-3|1",
+   "model": "gpt-6.1-sol",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "4": {
+   "block": "T1",
+   "src": "X-opp|gpt-6.1-terra|XN-3|2",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "5": {
+   "block": "T1",
+   "src": "M-p5a|gpt-6.1-terra|MN-1|1",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "6": {
+   "block": "T1",
+   "src": "T-none|gpt-6.1-terra|TN-4|2",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "7": {
+   "block": "T1",
+   "src": "M-opp|gpt-6.1-terra|MN-1|1",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "8": {
+   "block": "T1",
+   "src": "M-p5a|gpt-6.1-terra|MN-1|1",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": "M-p5a|gpt-6.1-terra|MN-1|1",
+   "codes_each": null
+  },
+  "9": {
+   "block": "T1",
+   "src": "X-full|gpt-6.1-terra|XN-2|1",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "10": {
+   "block": "T1",
+   "src": "M-p5b|gpt-6.1-terra|MN-2|1",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "11": {
+   "block": "T1",
+   "src": "M-none|gpt-6.1-terra|MN-1|2",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "12": {
+   "block": "T2",
+   "src": "M-none|gpt-6.1-terra|ML-4|1",
+   "model": "gpt-6.1-terra",
+   "judge_code": "Y",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "13": {
+   "block": "T2",
+   "src": "X-full|gpt-6.1-terra|XL-2|2",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "14": {
+   "block": "T2",
+   "src": "X-none|gpt-6.1-sol|XL-3|2",
+   "model": "gpt-6.1-sol",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "15": {
+   "block": "T2",
+   "src": "X-opp|gpt-6.1-terra|XL-3|2",
+   "model": "gpt-6.1-terra",
+   "judge_code": "Y",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "16": {
+   "block": "T2",
+   "src": "X-opp|gpt-6.1-terra|XL-3|2",
+   "model": "gpt-6.1-terra",
+   "judge_code": "Y",
+   "repeat_of": "X-opp|gpt-6.1-terra|XL-3|2",
+   "codes_each": null
+  },
+  "17": {
+   "block": "T2",
+   "src": "X-p5b|gpt-6.1-terra|XL-4|2",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "18": {
+   "block": "T2",
+   "src": "X-full|gpt-6.1-terra|XL-2|1",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": null
+  },
+  "19": {
+   "block": "T3",
+   "src": "B|naru|v03|P12|gpt-6.1-terra|r1",
+   "model": "gpt-6.1-terra",
+   "judge_code": "Y",
+   "repeat_of": null,
+   "codes_each": {
+    "opus": true,
+    "sol": true
+   }
+  },
+  "20": {
+   "block": "T3",
+   "src": "B|naru|v02|P10|gpt-6.1-terra|r2",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": {
+    "opus": false,
+    "sol": false
+   }
+  },
+  "21": {
+   "block": "T3",
+   "src": "B|haedeun|v02|P10|gpt-6.1-terra|r2",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": {
+    "opus": false,
+    "sol": true
+   }
+  },
+  "22": {
+   "block": "T3",
+   "src": "B|naru|v03|P12|gpt-6.1-terra|r2",
+   "model": "gpt-6.1-terra",
+   "judge_code": "Y",
+   "repeat_of": null,
+   "codes_each": {
+    "opus": true,
+    "sol": true
+   }
+  },
+  "23": {
+   "block": "T3",
+   "src": "B|haedeun|v04|P10|gpt-6.1-sol|r1",
+   "model": "gpt-6.1-sol",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": {
+    "opus": false,
+    "sol": false
+   }
+  },
+  "24": {
+   "block": "T3",
+   "src": "B|haedeun|v04|P11|gpt-6.1-sol|r2",
+   "model": "gpt-6.1-sol",
+   "judge_code": "Y",
+   "repeat_of": null,
+   "codes_each": {
+    "opus": true,
+    "sol": true
+   }
+  },
+  "25": {
+   "block": "T3",
+   "src": "B|haedeun|v04|P09|gpt-6.1-terra|r1",
+   "model": "gpt-6.1-terra",
+   "judge_code": "Y",
+   "repeat_of": null,
+   "codes_each": {
+    "opus": true,
+    "sol": true
+   }
+  },
+  "26": {
+   "block": "T3",
+   "src": "B|haedeun|v01|P12|gpt-6.1-terra|r1",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": null,
+   "codes_each": {
+    "opus": false,
+    "sol": false
+   }
+  },
+  "27": {
+   "block": "T3",
+   "src": "B|naru|v02|P10|gpt-6.1-terra|r2",
+   "model": "gpt-6.1-terra",
+   "judge_code": "N",
+   "repeat_of": "B|naru|v02|P10|gpt-6.1-terra|r2",
+   "codes_each": {
+    "opus": false,
+    "sol": false
+   }
+  }
+ }
+}

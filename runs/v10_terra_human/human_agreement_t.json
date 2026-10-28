@@ -1,0 +1,422 @@
+{
+ "n_items": 27,
+ "answered": 19,
+ "unsure": 0,
+ "all": {
+  "opus": {
+   "raw_agreement": 0.625,
+   "kappa": 0.07692307692307693,
+   "n": 16
+  },
+  "sol": {
+   "raw_agreement": 0.625,
+   "kappa": 0.07692307692307693,
+   "n": 16
+  },
+  "both": {
+   "raw_agreement": 0.625,
+   "kappa": 0.07692307692307693,
+   "n": 16
+  },
+  "by_block": {
+   "T1": {
+    "opus": {
+     "raw_agreement": 1.0,
+     "kappa": null,
+     "n": 2
+    },
+    "sol": {
+     "raw_agreement": 1.0,
+     "kappa": null,
+     "n": 2
+    },
+    "both": {
+     "raw_agreement": 1.0,
+     "kappa": null,
+     "n": 2
+    }
+   },
+   "T2": {
+    "opus": {
+     "raw_agreement": 0.8333333333333334,
+     "kappa": 0.5714285714285714,
+     "n": 6
+    },
+    "sol": {
+     "raw_agreement": 0.8333333333333334,
+     "kappa": 0.5714285714285714,
+     "n": 6
+    },
+    "both": {
+     "raw_agreement": 0.8333333333333334,
+     "kappa": 0.5714285714285714,
+     "n": 6
+    }
+   },
+   "T3": {
+    "opus": {
+     "raw_agreement": 0.375,
+     "kappa": 0.0,
+     "n": 8
+    },
+    "sol": {
+     "raw_agreement": 0.375,
+     "kappa": 0.0,
+     "n": 8
+    },
+    "both": {
+     "raw_agreement": 0.375,
+     "kappa": 0.0,
+     "n": 8
+    }
+   }
+  }
+ },
+ "terra": {
+  "opus": {
+   "raw_agreement": 0.5833333333333334,
+   "kappa": 0.06250000000000026,
+   "n": 12
+  },
+  "sol": {
+   "raw_agreement": 0.5833333333333334,
+   "kappa": 0.06250000000000026,
+   "n": 12
+  },
+  "both": {
+   "raw_agreement": 0.5833333333333334,
+   "kappa": 0.06250000000000026,
+   "n": 12
+  },
+  "by_block": {
+   "T1": {
+    "opus": {
+     "raw_agreement": 1.0,
+     "kappa": null,
+     "n": 1
+    },
+    "sol": {
+     "raw_agreement": 1.0,
+     "kappa": null,
+     "n": 1
+    },
+    "both": {
+     "raw_agreement": 1.0,
+     "kappa": null,
+     "n": 1
+    }
+   },
+   "T2": {
+    "opus": {
+     "raw_agreement": 0.8,
+     "kappa": 0.5454545454545455,
+     "n": 5
+    },
+    "sol": {
+     "raw_agreement": 0.8,
+     "kappa": 0.5454545454545455,
+     "n": 5
+    },
+    "both": {
+     "raw_agreement": 0.8,
+     "kappa": 0.5454545454545455,
+     "n": 5
+    }
+   },
+   "T3": {
+    "opus": {
+     "raw_agreement": 0.3333333333333333,
+     "kappa": -8.326672684688674e-17,
+     "n": 6
+    },
+    "sol": {
+     "raw_agreement": 0.3333333333333333,
+     "kappa": -8.326672684688674e-17,
+     "n": 6
+    },
+    "both": {
+     "raw_agreement": 0.3333333333333333,
+     "kappa": -8.326672684688674e-17,
+     "n": 6
+    }
+   }
+  }
+ },
+ "repeat_agreement": {
+  "n": 3,
+  "same": 1
+ },
+ "verdict_terra": "too weak to use the LLM judge as evidence on Terra (kappa < 0.6)",
+ "rows": [
+  {
+   "n": "1",
+   "block": "T1",
+   "model": "gpt-6.1-sol",
+   "human": null,
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "2",
+   "block": "T1",
+   "model": "gpt-6.1-terra",
+   "human": null,
+   "repeat_of": null,
+   "opus": "Y",
+   "sol": "Y",
+   "both": "Y"
+  },
+  {
+   "n": "3",
+   "block": "T1",
+   "model": "gpt-6.1-terra",
+   "human": "N",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "4",
+   "block": "T1",
+   "model": "gpt-6.1-terra",
+   "human": null,
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "5",
+   "block": "T1",
+   "model": "gpt-6.1-terra",
+   "human": null,
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "6",
+   "block": "T1",
+   "model": "gpt-6.1-terra",
+   "human": null,
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "7",
+   "block": "T1",
+   "model": "gpt-6.1-terra",
+   "human": null,
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "8",
+   "block": "T1",
+   "model": "gpt-6.1-terra",
+   "human": "N",
+   "repeat_of": "M-none|gpt-6.1-terra|MN-3|2",
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "9",
+   "block": "T1",
+   "model": "gpt-6.1-terra",
+   "human": null,
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "10",
+   "block": "T1",
+   "model": "gpt-6.1-terra",
+   "human": null,
+   "repeat_of": null,
+   "opus": "Y",
+   "sol": "Y",
+   "both": "Y"
+  },
+  {
+   "n": "11",
+   "block": "T1",
+   "model": "gpt-6.1-sol",
+   "human": "N",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "12",
+   "block": "T2",
+   "model": "gpt-6.1-terra",
+   "human": "N",
+   "repeat_of": null,
+   "opus": "Y",
+   "sol": "Y",
+   "both": "Y"
+  },
+  {
+   "n": "13",
+   "block": "T2",
+   "model": "gpt-6.1-terra",
+   "human": "N",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "14",
+   "block": "T2",
+   "model": "gpt-6.1-sol",
+   "human": "N",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "15",
+   "block": "T2",
+   "model": "gpt-6.1-terra",
+   "human": "Y",
+   "repeat_of": null,
+   "opus": "Y",
+   "sol": "Y",
+   "both": "Y"
+  },
+  {
+   "n": "16",
+   "block": "T2",
+   "model": "gpt-6.1-terra",
+   "human": "Y",
+   "repeat_of": "X-opp|gpt-6.1-terra|XL-4|2",
+   "opus": "Y",
+   "sol": "Y",
+   "both": "Y"
+  },
+  {
+   "n": "17",
+   "block": "T2",
+   "model": "gpt-6.1-terra",
+   "human": "N",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "18",
+   "block": "T2",
+   "model": "gpt-6.1-terra",
+   "human": "N",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "19",
+   "block": "T3",
+   "model": "gpt-6.1-terra",
+   "human": "Y",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "20",
+   "block": "T3",
+   "model": "gpt-6.1-terra",
+   "human": "Y",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "21",
+   "block": "T3",
+   "model": "gpt-6.1-sol",
+   "human": "Y",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "22",
+   "block": "T3",
+   "model": "gpt-6.1-terra",
+   "human": "N",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "23",
+   "block": "T3",
+   "model": "gpt-6.1-terra",
+   "human": "Y",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "24",
+   "block": "T3",
+   "model": "gpt-6.1-terra",
+   "human": "Y",
+   "repeat_of": "B|naru|v04|P12|gpt-6.1-terra|r2",
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "25",
+   "block": "T3",
+   "model": "gpt-6.1-terra",
+   "human": "Y",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "26",
+   "block": "T3",
+   "model": "gpt-6.1-terra",
+   "human": "N",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  },
+  {
+   "n": "27",
+   "block": "T3",
+   "model": "gpt-6.1-sol",
+   "human": "N",
+   "repeat_of": null,
+   "opus": "N",
+   "sol": "N",
+   "both": "N"
+  }
+ ]
+}

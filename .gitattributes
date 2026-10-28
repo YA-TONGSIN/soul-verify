@@ -3,3 +3,6 @@ proofs/*.ots binary
 
 # v0.8 synthetic Soul Core files are hashed byte-for-byte: no EOL conversion
 v0.8/** -text
+
+# v1.0 sealed files are hash-bound byte-for-byte (v1.0/KEY_HASHES.txt): no EOL conversion
+runs/v10_terra/analysis_t.* -text

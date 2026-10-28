@@ -32,3 +32,23 @@ Scope: items n = 1..18 (sheets T1, T2; English originals). Items 19..27 (sheet T
 
 ## D-5. Run zero-error
 0 error rows, 0 rate-limit rows, 0 safeguard blocks, 0 missing keys; the backoff and resume paths were not exercised in the main run.
+
+## D-6 addendum (written at unsealing, 2026-10-28 15:4x). The author graded with the translation on screen
+The sole submission (`export_t.json`) has client start 13:12:59 KST and submit 15:33:29 KST. So the author graded the translated page: the first translation deploy
+(commit `cb1033e`, 13:17:54) came a few minutes after the client start time, and the 15:2x update (blocks open by default + practice-item translation, commit
+`79260c9`, 15:20:05) went live **during** grading. The sentence "Human grading had not started when this was deployed" above holds only for the
+submissions table (no submission existed); the page does not record which items were answered before or after each deploy. Effect: the human
+codes for items 1–18 may rest on an LLM (claude-sonnet-5-5) translation rather than the English original alone; the T1/T2 human answers should be read with that.
+T3 (items 19–27, Korean originals) is not affected.
+
+## D-7. Bug fixed in `v1.0/human/agree_t.py` at analysis time
+`kappa()` filtered pairs with `a in "YN"`, which is also true for the empty string, so unanswered items (`human = None → ""`) and items where the two judges
+disagree (`both = None → ""`) were counted as disagreements. First run on the export: n = 24 (all) and κ = −3.0 on T1 (impossible values). Fixed to
+`a in ("Y", "N")` (one line), re-run; the reported numbers come from the fixed script. The repeat-agreement count (`same` of `n`) still counts a pair with one
+unanswered side as "not same"; NOTES gives the pairs one by one. No other change; prereg 4 allows fixing bugs in analysis code.
+
+## D-8. Human sheet incomplete: 19 of 27 items answered
+The author submitted with the "여기까지만 제출" button (`complete = false`). Unanswered: items 1, 2, 4, 5, 6, 7, 9, 10 (all 8 on sheet T1, illegitimate release; English with translation).
+They are excluded from agreement like `?` (prereg 8 counts `?` separately; it does not say what to do with blanks). Consequences: T1 (the HT3 check) has only
+2 answered non-repeat items (1 Terra); one of the 3 repeat pairs (item 8 vs item 4) cannot be compared. The seal was opened on this submission, so the 8 items
+can no longer be graded blind.
