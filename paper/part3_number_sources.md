@@ -54,3 +54,62 @@ Status column: **R** = recomputed from public rows by `paper/part3_recompute.py`
 
 ## Not used / deliberately omitted
 Redaction category counts and content of the private copy (privacy); the setup-token path; any v1.1 metric value.
+
+---
+# Update 2026-10-28 (after the seals of waves 3 and 5 were opened)
+The first paragraph above ("No sealed file ... was opened") describes the first version of the draft. For this update the writer used files that became public when the seals were opened (v1.0: commit `057f425`; v1.2: commit `8570a46`; exploration: `b6af7d3`). Wave 4 (`runs/v11_theseus`, `v1.1/SEALED_RESULTS.txt` contents) remains unopened. Check script: `paper/part3_recompute_v12.py` -> `paper/part3_recompute_v12_out.json` (48 checks, 0 mismatches; **R2** below = recomputed by this script from row-level files; **Q** = quoted from the named file; **D** = derived by arithmetic).
+
+## Wave 3 (v1.0) additions
+| Number | Source | How | Match |
+|---|---|---|---|
+| HT3 Terra 0.908, sol 0.942, diff −0.033, CI [−0.062, −0.008], one-sided lower −0.058, Holm p 0.0003, 60 cells | `runs/v10_terra/analysis_t.json` (HT3); `v1.0/NOTES.md` | R2 (reads json fields), Q | ok |
+| HT4 0.000 vs 0.000, CI [0, 0], Holm p 1.0, 0 non-zero cells, 32 cells | `analysis_t.json` (HT4); NOTES | R2, Q | ok |
+| HT1 Holm p 0.437 (draft earlier: 0.44) | `analysis_t.json` | R2 | ok |
+| HT2 0.111 vs 0.944, Holm p 3.1e-05 | `analysis_t.json` | R2 | ok |
+| raw p 0.219, 7.6e-06, 1.0e-04, 1.0 | `v1.0/NOTES.md` ("Holm over the four raw p") | Q | ok (HT1 0.2187 recomputed earlier) |
+| Human sheet: 27 scored items, 19 answered, 8 unanswered (all T1); client start 13:12:59, submitted 15:33:29 | `v1.0/NOTES.md`; `runs/v10_terra_human/human_agreement_t.json` (`answered` 19) | R2, Q | ok |
+| κ all (n 16) 0.077 / raw 0.625; Terra (n 12) 0.062 / 0.583; T1 2/1, raw 1.00, κ undefined; T2 6/5, 0.833/0.800, κ 0.571/0.545; T3 8/6, 0.375/0.333, κ 0.000 | `human_agreement_t.json` (rows) | R2 (κ recomputed from the 27 rows) | ok |
+| human yes on T3: 5 of 8 non-repeat (4 of 6 Terra); judges yes 0 | rows of `human_agreement_t.json` | R2 | ok |
+| repeat agreement: 1 of 3 same; 1 of 2 comparable | `human_agreement_t.json` (`repeat_agreement`), `NOTES.md` pairs | R2, Q | ok |
+| sampling report: T1 Terra wanted 4 yes/4 no, available 2 yes; sol 0; T3 available 0 yes | `v1.0/NOTES.md` (quoting `HUMAN_KEY_T.json`) | Q | not recomputed |
+| judge agreement explicit 0.977, obeys 0.992, n = 128 | `v1.0/NOTES.md` | Q | not recomputed |
+| 11 sealed files hash-checked; D-6 commits `cb1033e` 13:17:54, `79260c9` 15:20:05; D-7, D-8 wording | `v1.0/NOTES.md`, `v1.0/DEVIATIONS.md`, `git log` | Q | ok |
+| "no answer scored 0 in any SOUL x condition" (D2) | `v1.0/NOTES.md` | Q | exploratory |
+
+## Wave 5 (v1.2)
+| Number | Source | How | Match |
+|---|---|---|---|
+| commits `4561f09` 09:36:20, `9db03d3` 09:38:22, `6e6bfd4` 12:31:29, `55e88b1` 12:33:51, `968604d` 13:11:28, `9a5c2a2` 13:14:46, `8570a46` 15:43:53, `95d3fad` 15:45:38 | `git log` | Q | ok |
+| first pilot row 09:41:08; main subject 12:34:06–12:56:17; judge 12:55:45–13:08:38 | `runs/v12_pilot/p12_*.jsonl`, `runs/v12_main/*.jsonl` (`start`) | computed from rows (earliest/latest) | ok (commit message: 12:34 / 13:08) |
+| 756 keys = 540 + 216; 540 responses; 1,215 proposals; 0 unparseable, 0 blocked | `analysis12.json`; commit message `968604d`; NOTES | R2 (540), Q | ok |
+| pilot 132 + 44 = 176 calls | `v1.2/DEVIATIONS.md` D2, D4 | Q, D | ok |
+| session-limit gap 09:42:41 → 12:21:22 (about 2 h 39 min), 30 error rows, stage 2 12:27:31–12:29:54 | `v1.2/DEVIATIONS.md` D2 | Q | ok |
+| GPT probes `gpt-6.1-sol` 09:40:02, 13:11:20 | `v1.2/DEVIATIONS.md` D1 | Q | ok |
+| pilot r_k = 0 at L1–L4, 36 per level, chosen L4 `stage2_L4` | `v1.2/LEVEL_SELECTED.json` | R2 | ok |
+| CP upper bounds 0.080 (n 36), 0.017 (n 180) | `1 − 0.05^(1/n)` | R2 | ok |
+| plain 9/180, zones 5/180, bare 14/180 | `runs/v12_main/scored12.jsonl` (`y`) | R2 | ok (analysis12.json) |
+| H1 d +0.022, CI [−0.039, +0.094], p 0.75, 12 clusters, 3 non-zero | `analysis12.json`; d, p, non-zero recomputed from the rows | R2, Q (CI) | ok |
+| sensitivity: agent x set x model d +0.022, CI [−0.028, +0.083], p 0.625; count and det-only p 0.75; judges-only d 0.000, p 1.0 | `analysis12.json` (sensitivity); `v1.2/NOTES.md` | Q | judges-only quoted from NOTES |
+| C1 5/180; C2 recall 0.992 / 0.986 / 0.978 (drop −0.006); C3 1.00 | `analysis12.json` | Q | ok |
+| per model risky rates (opus 0.050/0.117/0.017; sonnet 0.033/0.033/0.217; GPT 0/0/0) | `analysis12.json` (per_model) | R2 (spot checks opus plain, sonnet bare), Q | ok |
+| E2 bare − plain d +0.028, CI [−0.056, +0.111], p 0.625; E3 per lock; E4 13 / 1 / 0; E6 0.988, 0.987, 0.999 | `analysis12.json`; `v1.2/NOTES.md` | Q | not recomputed |
+| both judges: plain 0, zones 0, bare 13 (of 180) | `v1.2/NOTES.md` (exploratory, added at unsealing) | Q | not recomputed |
+| Human sheet R: 33/33, 15:18:41–15:28:43, 0 `?`; 22 hashes matched | `v1.2/NOTES.md` | Q | ok |
+| κ primary 0.435 (raw 0.700), opus 0.710 (0.900), GPT 0.630 (0.867), det-only 0.435 (0.700); n 30; 8 human yes; primary 17 yes | `runs/v12_human/human_agreement_r.json`; rows in `runs/poll_explore_2026-10-28/results.json` | R2 (κ, raw from rows) | ok |
+| retest 2 of 3; Q2 rates 0.67 / 0.83 / 1.00 / 1.00 | `human_agreement_r.json` | Q | ok |
+| Human Q1 by classifier pattern (5/5, 3/12, 0/1, 0/12) | `v1.2/NOTES.md`; det-only 3 of 12 recomputed | Q, R2 (det-only) | ok |
+| risky stratum 12, zones 5 / plain 2 / bare 5; opus 5 / sonnet 7 / GPT 0 | `v1.2/NOTES.md` (quoting `HUMAN_KEY_R.json`) | Q | not recomputed |
+| ladder 2 / 6 / 11 / 15 trap entries; features a–g; selection rule; threshold 9 | `v1.2/PREREGISTRATION.md` §3-3, §4-3, §5-3 | Q | ok |
+
+## v1.3x PoLL exploration (EXPLORATORY)
+| Number | Source | How | Match |
+|---|---|---|---|
+| commits `180a4f3` 16:04:59, `3f79f90` 16:06:45, `b6af7d3` 16:46:05; calls 16:06–16:43; about 60 calls; Gemini `gemini-4-argon-medium`, agy 1.4.9 | `git log`; `runs/poll_explore_2026-10-28/NOTES.md` | Q | ok |
+| Terra n 12: 0.063 for opus, GPT, Gemini, majority; T3 0.000 | `runs/poll_explore_2026-10-28/results.json` | R2 (Terra, majority checked) | ok |
+| v1.2: opus 0.710, GPT 0.630, Gemini 0.710, majority 0.710; Gemini = opus on 30 of 30 | `results.json` rows | R2 | ok |
+| v1.0 Gemini = opus on 19 of 19 | `poll_explore NOTES.md` | Q | not recomputed |
+| revised T3 criterion κ 0.182 (Y 1 of 6; human Y 4) | `poll_explore NOTES.md`; `v1.3x/NOTES.md` | Q | circular, flagged |
+| bootstrap interval opus v1.2 [0.33, 1.00] | `results.json` | Q | ok |
+
+## Number counting for the report
+Numbers added or changed in this update: see `paper/part3_number_sources.md` rows above; recomputed or compared checks: 48 (`part3_recompute_v12_out.json`), mismatches 0.

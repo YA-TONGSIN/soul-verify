@@ -1,0 +1,433 @@
+{
+ "v10_human": {
+  "all": {
+   "n": 16,
+   "raw": 0.625,
+   "kappa": 0.07692307692307693,
+   "human_yes": 6,
+   "judge_yes": 2
+  },
+  "terra": {
+   "n": 12,
+   "raw": 0.5833333333333334,
+   "kappa": 0.06250000000000026,
+   "human_yes": 5,
+   "judge_yes": 2
+  },
+  "terra_T3": {
+   "n": 6,
+   "raw": 0.3333333333333333,
+   "kappa": -8.326672684688674e-17,
+   "human_yes": 4,
+   "judge_yes": 0
+  },
+  "terra_T2": {
+   "n": 5,
+   "raw": 0.8,
+   "kappa": 0.5454545454545455,
+   "human_yes": 1,
+   "judge_yes": 2
+  },
+  "all_T3": {
+   "n": 8,
+   "raw": 0.375,
+   "kappa": 0.0,
+   "human_yes": 5,
+   "judge_yes": 0
+  }
+ },
+ "v12_n_responses": 540,
+ "v12_risky_by_cond": {
+  "zones": [
+   5,
+   180
+  ],
+  "plain": [
+   9,
+   180
+  ],
+  "bare": [
+   14,
+   180
+  ]
+ },
+ "v12_H1": {
+  "d": 0.022222222222222216,
+  "p_exact": 0.75,
+  "n_clusters": 12,
+  "n_nonzero": 3
+ },
+ "v12_per_model": {
+  "claude-opus-5-5": {
+   "zones": 0.05,
+   "plain": 0.11666666666666667,
+   "bare": 0.016666666666666666
+  },
+  "claude-sonnet-5-5": {
+   "zones": 0.03333333333333333,
+   "plain": 0.03333333333333333,
+   "bare": 0.21666666666666667
+  },
+  "gpt": {
+   "zones": 0.0,
+   "plain": 0.0,
+   "bare": 0.0
+  }
+ },
+ "v12_cp_upper_0of180": 0.01650522819566269,
+ "v12_human": {
+  "primary": {
+   "n": 30,
+   "raw": 0.7,
+   "kappa": 0.43514644351464427,
+   "human_yes": 8,
+   "cls_yes": 17
+  },
+  "opus": {
+   "n": 30,
+   "raw": 0.9,
+   "kappa": 0.7096774193548387,
+   "human_yes": 8,
+   "cls_yes": 5
+  },
+  "gpt": {
+   "n": 30,
+   "raw": 0.8666666666666667,
+   "kappa": 0.6296296296296295,
+   "human_yes": 8,
+   "cls_yes": 6
+  },
+  "det": {
+   "n": 30,
+   "raw": 0.7,
+   "kappa": 0.43514644351464427,
+   "human_yes": 8,
+   "cls_yes": 17
+  },
+  "gemini": {
+   "n": 30,
+   "raw": 0.9,
+   "kappa": 0.7096774193548387,
+   "human_yes": 8,
+   "cls_yes": 5
+  },
+  "majority": {
+   "n": 30,
+   "raw": 0.9,
+   "kappa": 0.7096774193548387,
+   "human_yes": 8,
+   "cls_yes": 5
+  }
+ },
+ "v12_human_Q1_by_pattern": {
+  "det|--": [
+   3,
+   12
+  ],
+  "-|--": [
+   0,
+   12
+  ],
+  "det|opusgpt": [
+   5,
+   5
+  ],
+  "-|-gpt": [
+   0,
+   1
+  ]
+ },
+ "poll_agreement_gemini_opus_r": 30,
+ "checks": [
+  {
+   "name": "HT3.terra",
+   "got": 0.9083333333333333,
+   "want": 0.9083,
+   "ok": true
+  },
+  {
+   "name": "HT3.sol",
+   "got": 0.9416666666666667,
+   "want": 0.9417,
+   "ok": true
+  },
+  {
+   "name": "HT3.mean",
+   "got": -0.03333333333333333,
+   "want": -0.0333,
+   "ok": true
+  },
+  {
+   "name": "HT3.holm_p",
+   "got": 0.00029997000299970003,
+   "want": 0.0003,
+   "ok": true
+  },
+  {
+   "name": "HT3.lower95",
+   "got": -0.058333333333333334,
+   "want": -0.0583,
+   "ok": true
+  },
+  {
+   "name": "HT4.terra",
+   "got": 0.0,
+   "want": 0.0,
+   "ok": true
+  },
+  {
+   "name": "HT4.holm_p",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "HT4.n_nonzero",
+   "got": 0,
+   "want": 0,
+   "ok": true
+  },
+  {
+   "name": "HT2.holm_p",
+   "got": 3.0517578125e-05,
+   "want": 3.05e-05,
+   "ok": true
+  },
+  {
+   "name": "HT1.holm_p",
+   "got": 0.4373562643735626,
+   "want": 0.4374,
+   "ok": true
+  },
+  {
+   "name": "T.terra.n",
+   "got": 12,
+   "want": 12,
+   "ok": true
+  },
+  {
+   "name": "T.terra.raw",
+   "got": 0.5833333333333334,
+   "want": 0.5833,
+   "ok": true
+  },
+  {
+   "name": "T.terra.kappa",
+   "got": 0.06250000000000026,
+   "want": 0.0625,
+   "ok": true
+  },
+  {
+   "name": "T.all.n",
+   "got": 16,
+   "want": 16,
+   "ok": true
+  },
+  {
+   "name": "T.all.kappa",
+   "got": 0.07692307692307693,
+   "want": 0.0769,
+   "ok": true
+  },
+  {
+   "name": "T.T3.human_yes_terra",
+   "got": 4,
+   "want": 4,
+   "ok": true
+  },
+  {
+   "name": "T.T3.human_yes_all",
+   "got": 5,
+   "want": 5,
+   "ok": true
+  },
+  {
+   "name": "T.T3.judge_yes_all",
+   "got": 0,
+   "want": 0,
+   "ok": true
+  },
+  {
+   "name": "T.T2.terra.kappa",
+   "got": 0.5454545454545455,
+   "want": 0.5455,
+   "ok": true
+  },
+  {
+   "name": "T.answered",
+   "got": 19,
+   "want": 19,
+   "ok": true
+  },
+  {
+   "name": "T.repeat_same",
+   "got": 1,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "v12.n_responses",
+   "got": 540,
+   "want": 540,
+   "ok": true
+  },
+  {
+   "name": "v12.plain",
+   "got": 9,
+   "want": 9,
+   "ok": true
+  },
+  {
+   "name": "v12.zones",
+   "got": 5,
+   "want": 5,
+   "ok": true
+  },
+  {
+   "name": "v12.bare",
+   "got": 14,
+   "want": 14,
+   "ok": true
+  },
+  {
+   "name": "H1.d",
+   "got": 0.022222222222222216,
+   "want": 0.0222,
+   "ok": true
+  },
+  {
+   "name": "H1.p",
+   "got": 0.75,
+   "want": 0.75,
+   "ok": true
+  },
+  {
+   "name": "H1.nonzero",
+   "got": 3,
+   "want": 3,
+   "ok": true
+  },
+  {
+   "name": "v12.opus.plain",
+   "got": 0.11666666666666667,
+   "want": 0.1167,
+   "ok": true
+  },
+  {
+   "name": "v12.sonnet.bare",
+   "got": 0.21666666666666667,
+   "want": 0.2167,
+   "ok": true
+  },
+  {
+   "name": "cp180",
+   "got": 0.01650522819566269,
+   "want": 0.0165,
+   "ok": true
+  },
+  {
+   "name": "cp36",
+   "got": 0.07984650951989436,
+   "want": 0.0799,
+   "ok": true
+  },
+  {
+   "name": "pilot.r_all_zero",
+   "got": 0.0,
+   "want": 0.0,
+   "ok": true
+  },
+  {
+   "name": "pilot.n_k",
+   "got": 36,
+   "want": 36,
+   "ok": true
+  },
+  {
+   "name": "pilot.level",
+   "got": 4,
+   "want": 4,
+   "ok": true
+  },
+  {
+   "name": "R.primary.kappa",
+   "got": 0.43514644351464427,
+   "want": 0.435,
+   "ok": true
+  },
+  {
+   "name": "R.opus.kappa",
+   "got": 0.7096774193548387,
+   "want": 0.71,
+   "ok": true
+  },
+  {
+   "name": "R.gpt.kappa",
+   "got": 0.6296296296296295,
+   "want": 0.63,
+   "ok": true
+  },
+  {
+   "name": "R.primary.raw",
+   "got": 0.7,
+   "want": 0.7,
+   "ok": true
+  },
+  {
+   "name": "R.opus.raw",
+   "got": 0.9,
+   "want": 0.9,
+   "ok": true
+  },
+  {
+   "name": "R.gpt.raw",
+   "got": 0.8666666666666667,
+   "want": 0.8667,
+   "ok": true
+  },
+  {
+   "name": "R.human_yes",
+   "got": 8,
+   "want": 8,
+   "ok": true
+  },
+  {
+   "name": "R.primary.yes",
+   "got": 17,
+   "want": 17,
+   "ok": true
+  },
+  {
+   "name": "R.det_only.n",
+   "got": 12,
+   "want": 12,
+   "ok": true
+  },
+  {
+   "name": "R.det_only.human_yes",
+   "got": 3,
+   "want": 3,
+   "ok": true
+  },
+  {
+   "name": "PoLL.terra.gemini",
+   "got": 0.063,
+   "want": 0.063,
+   "ok": true
+  },
+  {
+   "name": "PoLL.terra.majority",
+   "got": 0.063,
+   "want": 0.063,
+   "ok": true
+  },
+  {
+   "name": "PoLL.r.gemini=opus",
+   "got": 30,
+   "want": 30,
+   "ok": true
+  }
+ ],
+ "n_checks": 48,
+ "n_mismatch": 0
+}
