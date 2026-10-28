@@ -57,3 +57,7 @@ runs/v10_terra/*.heartbeat
 v1.1/_author/
 v1.1/hermes_gate_dryrun.json
 runs/*/lane_*.heartbeat
+
+# v1.2 (graded pressure): phrase bank, generator and answer keys stay private until human grading (sha256 in v1.2/KEY_HASHES.txt)
+v1.2/_author/
+v1.2/private_keys/

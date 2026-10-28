@@ -170,6 +170,67 @@ async function exportH(request, env, url) {
   return json({ count: rows.length, submissions: rows });
 }
 
+// v1.2 ("graded pressure") sheet R under /r/: blind proposal items, synthetic agents only (prereg v1.2 section 8).
+// Scored items n = 1..R_TOTAL (30 + 3 repeats; practice items are client-side only and never submitted).
+// q1 = would the change let the assistant do something it must not (Y/N/?), q2 = would the owner approve it (Y/N).
+const R_TOTAL = 33;
+const R_Q1 = ["Y", "N", "?"];
+const R_Q2 = ["Y", "N"];
+
+function validateR(body) {
+  if (!body || typeof body !== "object") return "bad body";
+  const nick = typeof body.nick === "string" ? body.nick.trim() : "";
+  if (!nick || nick.length > 20) return "bad nick";
+  if (typeof body.seed !== "string" || !/^[0-9a-f]{8}$/.test(body.seed)) return "bad seed";
+  const started = typeof body.startedAt === "string" ? body.startedAt.slice(0, 40) : null;
+  const a = body.answers;
+  if (!a || typeof a !== "object") return "bad answers";
+  const answers = {};
+  for (const [k, v] of Object.entries(a)) {
+    const n = Number(k);
+    if (!Number.isInteger(n) || n < 1 || n > R_TOTAL || !v || typeof v !== "object") return "bad item " + k;
+    if (Object.keys(v).some((q) => q !== "q1" && q !== "q2")) return "bad key " + k;
+    if (v.q1 !== undefined && !R_Q1.includes(v.q1)) return "bad q1 " + k;
+    if (v.q2 !== undefined && !R_Q2.includes(v.q2)) return "bad q2 " + k;
+    const clean = {};
+    if (v.q1) clean.q1 = v.q1;
+    if (v.q2) clean.q2 = v.q2;
+    if (Object.keys(clean).length) answers[n] = clean;
+  }
+  const complete = Array.from({ length: R_TOTAL }, (_, i) => i + 1).every((n) => answers[n] && answers[n].q1 && answers[n].q2);
+  return { nick, seed: body.seed, startedAt: started, answers, complete };
+}
+
+const SCHEMA_R = `CREATE TABLE IF NOT EXISTS submissions_r (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  nick TEXT NOT NULL, seed TEXT NOT NULL, answers TEXT NOT NULL,
+  complete INTEGER NOT NULL, started_at TEXT, submitted_at TEXT NOT NULL)`;
+
+async function submitR(request, env) {
+  const raw = await request.text();
+  if (raw.length > 20000) return json({ ok: false, error: "too large" }, 413);
+  let body;
+  try { body = JSON.parse(raw); } catch { return json({ ok: false, error: "bad json" }, 400); }
+  const v = validateR(body);
+  if (typeof v === "string") return json({ ok: false, error: v }, 400);
+  await env.DB.prepare(SCHEMA_R).run();
+  const now = new Date().toISOString();
+  const r = await env.DB.prepare(
+    "INSERT INTO submissions_r (nick, seed, answers, complete, started_at, submitted_at) VALUES (?, ?, ?, ?, ?, ?)",
+  ).bind(v.nick, v.seed, JSON.stringify(v.answers), v.complete ? 1 : 0, v.startedAt, now).run();
+  return json({ ok: true, id: r.meta.last_row_id, submittedAt: now, complete: v.complete });
+}
+
+async function exportR(request, env, url) {
+  const auth = request.headers.get("Authorization") || "";
+  const given = auth.startsWith("Bearer ") ? auth.slice(7) : url.searchParams.get("key") || "";
+  if (!env.ADMIN_TOKEN || !safeEqual(given, env.ADMIN_TOKEN)) return notFound();
+  await env.DB.prepare(SCHEMA_R).run();
+  const { results } = await env.DB.prepare("SELECT * FROM submissions_r ORDER BY id").all();
+  const rows = results.map((r) => ({ ...r, answers: JSON.parse(r.answers), complete: !!r.complete }));
+  return json({ count: rows.length, submissions: rows });
+}
+
 async function submit(request, env) {
   const raw = await request.text();
   if (raw.length > 20000) return json({ ok: false, error: "too large" }, 413);
@@ -227,6 +288,9 @@ export async function onRequest({ request, env }) {
   if (rest === "/h/api/submit") return request.method === "POST" ? submitH(request, env) : notFound();
   if (rest === "/h/api/export") return request.method === "GET" ? exportH(request, env, url) : notFound();
   if (rest.startsWith("/h/api/")) return notFound();
+  if (rest === "/r/api/submit") return request.method === "POST" ? submitR(request, env) : notFound();
+  if (rest === "/r/api/export") return request.method === "GET" ? exportR(request, env, url) : notFound();
+  if (rest.startsWith("/r/api/")) return notFound();
   if (rest === "/api/submit") return request.method === "POST" ? submit(request, env) : notFound();
   if (rest === "/api/export") return request.method === "GET" ? exportData(request, env, url) : notFound();
   if (rest.startsWith("/api/")) return notFound();
