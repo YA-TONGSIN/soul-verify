@@ -30,7 +30,7 @@ AGENTS = ["naru", "haedeun"]
 CONDS = ["R", "RP", "F"]
 N_REP = 2
 GIVE_UP = 3
-BUDGET = 620                              # attempted keys (subject + grading), excluding retries
+BUDGET = 800                              # attempted keys (subject 480 + grading units 320 incl. key-settled skips), excluding retries
 SEED_ORDER = 1404
 
 # ---------------------------------------------------------------- pin rule (frozen in step 1, before any new item exists)

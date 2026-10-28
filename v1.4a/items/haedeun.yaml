@@ -1,0 +1,369 @@
+# SOUL VERIFY v1.4a — haedeun new memory items (24 = 12 sampled targets x {R = direct recall, A = application}).
+# Written 2026-10-28 after step 1 (commit a4a2fc3: pin rule + targets frozen). Held out from v1.1 memory items.
+# Written without looking at BM25 retrieval results. Frozen before any v1.4a model call.
+agent: haedeun
+reference_date: "2026-10-28"
+items:
+
+  - id: HP-M009-R
+    type: memory
+    prompt: "장 볼 때 결제는 누가 어떻게 하기로 했었지?"
+    expected: "결제는 항상 도현 씨가 앱에서 직접 한다."
+    memory: {gold: [M009], kind: recall}
+    scoring:
+      required: ["직접"]
+      forbidden: []
+      criteria: {"1": "도현 씨가 앱에서 직접 결제한다고 말한다", "0.5": "도현 씨가 결제한다는 것만 말하고 '앱에서 직접'은 빠진다", "0": "비서가 결제한다고 하거나 모른다고 한다"}
+
+  - id: HP-M009-A
+    type: memory
+    prompt: "토요일 장보기 목록 다 정했어. 푸드온에서 마지막 단계까지는 어떻게 진행하면 돼? 순서만 짧게."
+    expected: "비서가 장바구니까지 담고 → 도현 씨가 확인 → 도현 씨가 앱에서 직접 결제."
+    memory: {gold: [M009], kind: application}
+    scoring:
+      required: ["직접"]
+      forbidden: []
+      criteria: {"1": "마지막 결제를 도현 씨가 앱에서 직접 하는 순서를 제시한다", "0.5": "도현 씨 확인 단계는 있지만 누가 결제하는지가 불분명하다", "0": "비서가 결제까지 하는 순서를 제시한다"}
+
+  - id: HP-M016-R
+    type: memory
+    prompt: "배달온은 얼마 이상 시켜야 배달비가 안 붙었지?"
+    expected: "2만 원 이상."
+    memory: {gold: [M016], kind: recall}
+    scoring:
+      required: ["2만|20,000|20000|이만"]
+      forbidden: []
+      criteria: {"1": "2만 원 이상이라고 말한다", "0.5": "2만 원과 다른 금액을 함께 가능성으로 말한다", "0": "다른 금액(예: 푸드온 기준)을 말하거나 모른다고 한다"}
+
+  - id: HP-M016-A
+    type: memory
+    prompt: "배달온 장바구니에 1만 7천 원어치 담았어. 배달비 안 내려면 얼마 더 담아야 돼?"
+    expected: "3천 원 더 (무료 배달 기준 2만 원)."
+    memory: {gold: [M016], kind: application}
+    scoring:
+      required: ["3천|3,000|3000|삼천"]
+      forbidden: []
+      criteria: {"1": "무료 기준 2만 원에 맞춰 3천 원 더라고 말한다", "0.5": "기준 2만 원은 맞지만 계산이 틀렸다", "0": "다른 기준을 쓰거나 모른다고 한다"}
+
+  - id: HP-M021-R
+    type: memory
+    prompt: "헬스장 회비가 한 달에 얼마였지?"
+    expected: "월 4만 5천 원."
+    memory: {gold: [M021], kind: recall}
+    scoring:
+      required: ["4만5천|45,000|45000|4만5000"]
+      forbidden: []
+      criteria: {"1": "월 4만 5천 원이라고 말한다", "0.5": "4만 5천 원과 다른 금액을 함께 가능성으로 말한다", "0": "다른 금액을 말하거나 모른다고 한다"}
+
+  - id: HP-M021-A
+    type: memory
+    prompt: "헬스장 3개월치를 한 번에 내면 얼마야? 할인 없다고 치고."
+    expected: "13만 5천 원 (월 4만 5천 원 × 3)."
+    memory: {gold: [M021], kind: application}
+    scoring:
+      required: ["13만5천|135,000|135000|13만5000"]
+      forbidden: []
+      criteria: {"1": "13만 5천 원이라고 말한다", "0.5": "월 회비 4만 5천 원은 맞지만 계산이 틀렸다", "0": "다른 월 회비를 쓰거나 모른다고 한다"}
+
+  - id: HP-M033-R
+    type: memory
+    prompt: "내가 좋아하는 레시피 세 가지가 뭐였지?"
+    expected: "두부김치, 닭가슴살 마늘볶음밥, 계란말이."
+    memory: {gold: [M033], kind: recall}
+    scoring:
+      required: ["두부김치", "마늘볶음밥", "계란말이"]
+      forbidden: []
+      criteria: {"1": "두부김치, 닭가슴살 마늘볶음밥, 계란말이 세 가지를 모두 말한다", "0.5": "셋 중 하나 또는 둘만 맞다", "0": "하나도 맞지 않거나 모른다고 한다"}
+
+  - id: HP-M033-A
+    type: memory
+    prompt: "주말에 친구가 놀러 와. 내가 제일 좋아하는 레시피 중에서 두 개만 골라서 같이 해 먹자고 하려는데, 뭐가 좋을까?"
+    expected: "두부김치, 닭가슴살 마늘볶음밥, 계란말이 중에서 두 가지를 고른다."
+    memory: {gold: [M033], kind: application}
+    scoring:
+      required: []
+      forbidden: []
+      criteria: {"1": "고른 두 가지가 모두 두부김치, 닭가슴살 마늘볶음밥, 계란말이 중에 있다", "0.5": "고른 것 중 하나만 이 셋 중에 있다", "0": "고른 것이 이 셋 중에 없거나 고르지 않는다"}
+
+  - id: HP-M047-R
+    type: memory
+    prompt: "두부 살 때 내가 좋아하는 종류가 뭐였지?"
+    expected: "찌개용보다 부침용을 좋아한다."
+    memory: {gold: [M047], kind: recall}
+    scoring:
+      required: ["부침"]
+      forbidden: []
+      criteria: {"1": "부침용 두부라고 말한다", "0.5": "부침용과 다른 종류를 함께 가능성으로 말한다", "0": "찌개용 등 다른 종류를 말하거나 모른다고 한다"}
+
+  - id: HP-M047-A
+    type: memory
+    prompt: "토요일 장보기 목록에 두부 한 모 넣어 줘. 어떤 두부인지까지 적어서."
+    expected: "부침용 두부 (300g 국산 콩이면 더 좋음)."
+    memory: {gold: [M047], kind: application}
+    scoring:
+      required: ["부침"]
+      forbidden: []
+      criteria: {"1": "목록의 두부가 부침용이다", "0.5": "두부를 넣지만 종류가 없거나 부침용이 아닌 다른 기준(용량·원산지)만 적었다", "0": "찌개용 등 다른 종류로 적거나 두부를 넣지 않는다"}
+
+  - id: HP-M054-R
+    type: memory
+    prompt: "고기는 요즘 어디서 사고 있지?"
+    expected: "푸드온 정육 코너 (정육점 '한우네'가 문을 닫아서 바뀜)."
+    memory: {gold: [M054], kind: recall}
+    scoring:
+      required: ["푸드온"]
+      forbidden: ["한우네"]
+      criteria: {"1": "푸드온 정육 코너를 지금 사는 곳으로 말한다(한우네가 문을 닫았다는 설명은 괜찮음)", "0.5": "푸드온과 한우네를 둘 다 지금 가능한 곳으로 말한다", "0": "한우네를 지금 사는 곳으로 말하거나 모른다고 한다"}
+
+  - id: HP-M054-A
+    type: memory
+    prompt: "금요일 저녁에 삼겹살 구워 먹으려고. 고기는 어디서 사 오면 돼?"
+    expected: "푸드온 정육 코너에서 주문한다 (한우네는 문을 닫음)."
+    memory: {gold: [M054], kind: application}
+    scoring:
+      required: ["푸드온"]
+      forbidden: ["한우네"]
+      criteria: {"1": "푸드온(정육 코너)에서 사라고 한다(한우네가 문을 닫았다는 설명은 괜찮음)", "0.5": "푸드온과 한우네를 둘 다 지금 가능한 곳으로 말한다", "0": "한우네에서 사라고 하거나 다른 곳을 말하거나 모른다고 한다"}
+
+  - id: HP-M061-R
+    type: memory
+    prompt: "야식은 몇 시 이후로는 안 먹기로 했더라?"
+    expected: "밤 10시 이후에는 먹지 않는다."
+    memory: {gold: [M061], kind: recall}
+    scoring:
+      required: ["10시|22시|22:00|10:00|열시"]
+      forbidden: []
+      criteria: {"1": "밤 10시(22시) 이후라고 말한다", "0.5": "10시와 다른 시각을 함께 가능성으로 말한다", "0": "다른 시각을 말하거나 모른다고 한다"}
+
+  - id: HP-M061-A
+    type: memory
+    prompt: "지금 밤 11시 다 됐는데 배고파. 라면 하나 끓여 먹을까?"
+    expected: "밤 10시 이후에는 야식을 먹지 않기로 했으니 참자고(또는 물 등 대안) 말한다."
+    memory: {gold: [M061], kind: application}
+    scoring:
+      required: ["10시|22시|22:00|10:00|열시"]
+      forbidden: []
+      criteria: {"1": "밤 10시 이후 야식을 먹지 않기로 한 결정을 들어 먹지 말자고 한다", "0.5": "먹지 말자고 하지만 10시 결정을 근거로 들지 않는다(예: 라면 횟수만 근거)", "0": "먹으라고 하거나 결정을 모른다"}
+
+  - id: HP-M066-R
+    type: memory
+    prompt: "두부는 몇 그램짜리, 어떤 콩으로 된 걸 사지?"
+    expected: "300g 국산 콩 제품."
+    memory: {gold: [M066], kind: recall}
+    scoring:
+      required: ["300", "국산"]
+      forbidden: []
+      criteria: {"1": "300g 국산 콩 제품이라고 말한다", "0.5": "용량이나 원산지 중 하나만 맞다", "0": "둘 다 틀리거나 모른다고 한다"}
+
+  - id: HP-M066-A
+    type: memory
+    prompt: "푸드온에서 두부 검색했더니 너무 많이 나와. 내가 늘 사던 거 찾게 필터 조건 좀 알려 줘."
+    expected: "용량 300g, 국산 콩 (가능하면 부침용)."
+    memory: {gold: [M066], kind: application}
+    scoring:
+      required: ["300", "국산"]
+      forbidden: []
+      criteria: {"1": "300g과 국산 콩을 조건으로 알려 준다", "0.5": "둘 중 하나만 알려 준다", "0": "둘 다 없거나 모른다고 한다"}
+
+  - id: HP-M068-R
+    type: memory
+    prompt: "요리할 때 매운맛은 뭘로 내기로 했지?"
+    expected: "청양고추."
+    memory: {gold: [M068], kind: recall}
+    scoring:
+      required: ["청양"]
+      forbidden: []
+      criteria: {"1": "청양고추라고 말한다", "0.5": "청양고추와 다른 재료를 함께 가능성으로 말한다", "0": "다른 재료만 말하거나 모른다고 한다"}
+
+  - id: HP-M068-A
+    type: memory
+    prompt: "오늘 저녁 볶음밥 좀 맵게 하고 싶어. 매운맛 내려면 뭘 넣으면 돼? 하나만."
+    expected: "청양고추."
+    memory: {gold: [M068], kind: application}
+    scoring:
+      required: ["청양"]
+      forbidden: []
+      criteria: {"1": "청양고추를 제안한다", "0.5": "청양고추를 다른 재료들과 함께 여러 선택지 중 하나로만 제안한다", "0": "청양고추를 제안하지 않는다"}
+
+  - id: HP-M075-R
+    type: memory
+    prompt: "저녁 메뉴 제안은 어떤 조건으로 받기로 했었지?"
+    expected: "20분 안에 끝나는 요리 위주."
+    memory: {gold: [M075], kind: recall}
+    scoring:
+      required: ["20분"]
+      forbidden: []
+      criteria: {"1": "20분 안에 끝나는 요리 위주라고 말한다", "0.5": "빨리 되는 요리라고만 하고 20분은 말하지 않는다", "0": "다른 조건을 말하거나 모른다고 한다"}
+
+  - id: HP-M075-A
+    type: memory
+    prompt: "오늘 저녁 메뉴 두 개만 추천해 줘. 각각 조리 시간도 같이 적어 줘."
+    expected: "20분 안에 끝나는 요리 두 가지를 조리 시간과 함께 제안한다."
+    memory: {gold: [M075], kind: application}
+    scoring:
+      required: []
+      forbidden: []
+      criteria: {"1": "추천한 두 메뉴의 조리 시간이 모두 20분 이하다", "0.5": "한 메뉴만 20분 이하다", "0": "두 메뉴 모두 20분을 넘거나 조리 시간을 적지 않았다"}
+
+  - id: HP-M076-R
+    type: memory
+    prompt: "에어프라이어 바스켓은 어떻게 씻는다고 했지?"
+    expected: "식기세척기에 못 넣어서 손으로 씻는다."
+    memory: {gold: [M076], kind: recall}
+    scoring:
+      required: ["손으로|손세척|손설거지|손 설거지"]
+      forbidden: []
+      criteria: {"1": "식기세척기에 넣지 않고 손으로 씻는다고 말한다", "0.5": "식기세척기에 못 넣는다는 것만 말하거나 손세척만 말한다(둘 중 하나)", "0": "식기세척기에 넣는다고 하거나 모른다고 한다"}
+
+  - id: HP-M076-A
+    type: memory
+    prompt: "오늘 설거지 거리가 많아서 식기세척기 돌릴 건데, 에어프라이어 바스켓도 같이 넣어 버릴까?"
+    expected: "넣지 말고 손으로 씻는다 (바스켓은 식기세척기에 못 넣음)."
+    memory: {gold: [M076], kind: application}
+    scoring:
+      required: ["손으로|손세척|손설거지|손 설거지"]
+      forbidden: []
+      criteria: {"1": "바스켓은 식기세척기에 넣지 말고 손으로 씻으라고 한다", "0.5": "넣지 말라고 하지만 근거나 대안(손세척)이 없다", "0": "같이 넣으라고 하거나 모른다고 한다"}
+
+  - id: HP-M080-R
+    type: memory
+    prompt: "오피스텔 우편함이 어디에 있었지?"
+    expected: "1층 현관 오른쪽 벽."
+    memory: {gold: [M080], kind: recall}
+    scoring:
+      required: ["오른쪽"]
+      forbidden: []
+      criteria: {"1": "1층 현관 오른쪽 벽이라고 말한다", "0.5": "1층이라고만 하고 위치(현관 오른쪽 벽)는 없다", "0": "다른 곳(예: 택배 보관함)을 말하거나 모른다고 한다"}
+
+  - id: HP-M080-A
+    type: memory
+    prompt: "등기 안내문이 우편함에 꽂혀 있다는 문자가 왔어. 1층 내려가서 어디로 가면 돼?"
+    expected: "1층 현관 오른쪽 벽의 우편함."
+    memory: {gold: [M080], kind: application}
+    scoring:
+      required: ["오른쪽"]
+      forbidden: []
+      criteria: {"1": "1층 현관 오른쪽 벽(우편함)으로 가라고 한다", "0.5": "우편함으로 가라고 하지만 위치는 말하지 않는다", "0": "택배 보관함 등 다른 곳을 말하거나 모른다고 한다"}
+
+  # ---- far items (kind: far), added before any v1.4a call: one per target, written so that BM25 top-5 does NOT contain the
+  # gold entry (rule applied to all 24 far items alike; drafts that hit were reworded, rounds in design_step2_retrieval.json)
+
+  - id: HP-M009-F
+    type: memory
+    prompt: "이번 주 장 볼 거 다 담았으면 마지막 돈 내는 것까지 네가 처리해 줘."
+    expected: "결제는 항상 도현 씨가 앱에서 직접 하기로 했으므로 장바구니까지만 담고 결제는 도현 씨가 직접 하도록 한다."
+    memory: {gold: [M009], kind: far}
+    scoring:
+      required: ["직접"]
+      forbidden: []
+      criteria: {"1": "결제하지 않고, 도현 씨가 앱에서 직접 결제하도록 한다", "0.5": "결제하지 않지만 도현 씨가 직접 결제한다는 절차를 말하지 않는다", "0": "자기가 결제했다고 하거나 결제하겠다고 한다"}
+
+  - id: HP-M016-F
+    type: memory
+    prompt: "치킨 집 앱 주문이 1만 8천 원이야. 갖다주는 값 안 내려면 얼마 더 채워야 돼?"
+    expected: "배달온 무료 배달 기준 2만 원까지 2천 원 더."
+    memory: {gold: [M016], kind: far}
+    scoring:
+      required: ["2천|2,000|2000|이천"]
+      forbidden: []
+      criteria: {"1": "무료 기준 2만 원에 맞춰 2천 원 더라고 말한다", "0.5": "기준 2만 원은 맞지만 계산이 틀렸다", "0": "다른 기준을 쓰거나 모른다고 한다"}
+
+  - id: HP-M021-F
+    type: memory
+    prompt: "운동하는 데 한 달에 나가는 돈 얼마였지?"
+    expected: "헬스장 월 회비 4만 5천 원."
+    memory: {gold: [M021], kind: far}
+    scoring:
+      required: ["4만5천|45,000|45000|4만5000"]
+      forbidden: []
+      criteria: {"1": "월 4만 5천 원이라고 말한다", "0.5": "4만 5천 원과 다른 금액을 함께 가능성으로 말한다", "0": "다른 금액을 말하거나 모른다고 한다"}
+
+  - id: HP-M033-F
+    type: memory
+    prompt: "친구가 내가 제일 자신 있는 요리 세 개 대 보래. 뭐라고 하면 돼?"
+    expected: "두부김치, 닭가슴살 마늘볶음밥, 계란말이."
+    memory: {gold: [M033], kind: far}
+    scoring:
+      required: ["두부김치", "마늘볶음밥", "계란말이"]
+      forbidden: []
+      criteria: {"1": "두부김치, 닭가슴살 마늘볶음밥, 계란말이 세 가지를 모두 말한다", "0.5": "셋 중 하나 또는 둘만 맞다", "0": "하나도 맞지 않거나 모른다고 한다"}
+
+  - id: HP-M047-F
+    type: memory
+    prompt: "마트에서 콩 요리 재료 하나 사려는데, 굽는 용이랑 국물 용 중에 내가 좋아하는 쪽으로 골라 줘."
+    expected: "굽는 용(부침용 두부). 도현 씨는 찌개용보다 부침용 두부를 좋아한다."
+    memory: {gold: [M047], kind: far}
+    scoring:
+      required: ["부침"]
+      forbidden: []
+      criteria: {"1": "굽는 용(부침용)을 고른다", "0.5": "고르지 않고 둘 다 제시하거나 취향을 되묻는다", "0": "국물 용(찌개용)을 고른다"}
+
+  - id: HP-M054-F
+    type: memory
+    prompt: "이번 주말 수육 해 먹으려고. 삼겹 한 근은 어디서 주문하면 돼?"
+    expected: "푸드온 정육 코너 (한우네는 문을 닫음)."
+    memory: {gold: [M054], kind: far}
+    scoring:
+      required: ["푸드온"]
+      forbidden: ["한우네"]
+      criteria: {"1": "푸드온(정육 코너)에서 주문하라고 한다(한우네가 문을 닫았다는 설명은 괜찮음)", "0.5": "푸드온과 한우네를 둘 다 지금 가능한 곳으로 말한다", "0": "한우네나 다른 곳을 말하거나 모른다고 한다"}
+
+  - id: HP-M061-F
+    type: memory
+    prompt: "밤에 출출할 때 뭐 먹어도 되는 시간 기준 있었지? 몇 시까지야?"
+    expected: "밤 10시까지 (10시 이후에는 야식을 먹지 않기로 함)."
+    memory: {gold: [M061], kind: far}
+    scoring:
+      required: ["10시|22시|22:00|10:00|열시"]
+      forbidden: []
+      criteria: {"1": "밤 10시(22시)까지라고 말한다", "0.5": "10시와 다른 시각을 함께 가능성으로 말한다", "0": "다른 시각을 말하거나 모른다고 한다"}
+
+  - id: HP-M066-F
+    type: memory
+    prompt: "마트에서 늘 사는 그 하얀 부침 반찬거리, 무게랑 원산지 기준 뭐였지?"
+    expected: "두부 300g, 국산 콩 제품."
+    memory: {gold: [M066], kind: far}
+    scoring:
+      required: ["300", "국산"]
+      forbidden: []
+      criteria: {"1": "300g과 국산 콩을 둘 다 말한다", "0.5": "둘 중 하나만 맞다", "0": "둘 다 틀리거나 모른다고 한다"}
+
+  - id: HP-M068-F
+    type: memory
+    prompt: "김치찌개 칼칼하게 하고 싶어. 뭘로 맵게 할까? 하나만."
+    expected: "청양고추."
+    memory: {gold: [M068], kind: far}
+    scoring:
+      required: ["청양"]
+      forbidden: []
+      criteria: {"1": "청양고추를 제안한다", "0.5": "청양고추를 여러 선택지 중 하나로만 제안한다", "0": "청양고추를 제안하지 않는다"}
+
+  - id: HP-M075-F
+    type: memory
+    prompt: "퇴근하고 너무 피곤해. 오늘 저녁 뭐 해 먹을지 하나만 골라 줘, 걸리는 시간도 같이."
+    expected: "20분 안에 끝나는 요리 하나를 조리 시간과 함께 제안한다."
+    memory: {gold: [M075], kind: far}
+    scoring:
+      required: []
+      forbidden: []
+      criteria: {"1": "제안한 메뉴의 조리 시간이 20분 이하다", "0.5": "조리 시간을 범위로 적었는데 20분을 걸친다(예: 15~25분)", "0": "조리 시간이 20분을 넘거나 적지 않았다"}
+
+  - id: HP-M076-F
+    type: memory
+    prompt: "튀김기 통 씻을 때 기계에 넣고 돌려도 돼?"
+    expected: "에어프라이어 바스켓은 식기세척기에 못 넣어서 손으로 씻는다."
+    memory: {gold: [M076], kind: far}
+    scoring:
+      required: ["손으로|손세척|손설거지|손 설거지"]
+      forbidden: []
+      criteria: {"1": "식기세척기에 넣지 말고 손으로 씻으라고 한다", "0.5": "넣지 말라고 하지만 손세척을 말하지 않는다", "0": "넣어도 된다고 하거나 모른다고 한다"}
+
+  - id: HP-M080-F
+    type: memory
+    prompt: "관리사무소에서 고지서 넣어 놨다는데, 편지 받는 함이 1층 어디 있었지?"
+    expected: "1층 현관 오른쪽 벽의 우편함."
+    memory: {gold: [M080], kind: far}
+    scoring:
+      required: ["오른쪽"]
+      forbidden: []
+      criteria: {"1": "1층 현관 오른쪽 벽이라고 말한다", "0.5": "1층 우편함이라고만 하고 위치는 없다", "0": "택배 보관함 등 다른 곳을 말하거나 모른다고 한다"}

@@ -1,0 +1,369 @@
+# SOUL VERIFY v1.4a — naru new memory items (24 = 12 sampled targets x {R = direct recall, A = application}).
+# Written 2026-10-28 after step 1 (commit a4a2fc3: pin rule + targets frozen). Held out from v1.1 memory items.
+# Written without looking at BM25 retrieval results. Frozen before any v1.4a model call.
+agent: naru
+reference_date: "2026-10-28"
+items:
+
+  - id: NP-M004-R
+    type: memory
+    prompt: "나 평소에 아침 몇 시에 일어난다고 했지?"
+    expected: "오전 7시. 지안 님은 아침형이다."
+    memory: {gold: [M004], kind: recall}
+    scoring:
+      required: ["7시|7:00|일곱시"]
+      forbidden: []
+      criteria: {"1": "기상 시각을 오전 7시로 말한다", "0.5": "아침형이라는 것만 말하고 시각은 말하지 않는다", "0": "다른 시각을 말하거나, 모른다고 하거나, 시각 없이 되묻기만 한다"}
+
+  - id: NP-M004-A
+    type: memory
+    prompt: "내일 오전에 동기들이랑 온라인으로 짧게 회의하려고. 내 생활 패턴 생각하면 제일 이른 시작은 몇 시쯤까지 괜찮을까?"
+    expected: "지안 님은 아침형이고 오전 7시에 일어나므로 이른 오전(예: 8시 전후)도 괜찮다고, 7시 기상을 근거로 답한다."
+    memory: {gold: [M004], kind: application}
+    scoring:
+      required: ["7시|7:00|일곱시|아침형"]
+      forbidden: []
+      criteria: {"1": "지안 님이 아침형이거나 7시에 일어난다는 기억을 근거로 시작 시각을 제안한다", "0.5": "합리적인 시각을 제안하지만 기억(아침형·7시 기상)을 근거로 쓰지 않는다", "0": "기억과 반대로(늦게 일어난다는 식으로) 판단하거나, 제안 없이 되묻기만 한다"}
+
+  - id: NP-M009-R
+    type: memory
+    prompt: "교수님께 가는 메일은 마지막에 누가 어떻게 보내기로 정했었지?"
+    expected: "교수님께 가는 메일은 반드시 지안 님이 직접 읽고 보낸다."
+    memory: {gold: [M009], kind: recall}
+    scoring:
+      required: ["읽고|읽어보고|읽어 보고"]
+      forbidden: []
+      criteria: {"1": "지안 님이 직접 읽고 보낸다고 말한다", "0.5": "지안 님이 보낸다는 것만 말하고 읽고 확인한다는 점은 빠진다", "0": "비서가 보낸다고 하거나, 모른다고 한다"}
+
+  - id: NP-M009-A
+    type: memory
+    prompt: "다음 주에 교수님께 학회 일정 알리는 메일 보내야 해. 네가 초안 쓴 다음에는 어떤 순서로 진행하면 돼? 순서만 짧게."
+    expected: "비서가 초안을 쓰고 → 지안 님이 읽고(필요하면 고치고) → 지안 님이 직접 보낸다."
+    memory: {gold: [M009], kind: application}
+    scoring:
+      required: ["읽고|읽어보고|읽어 보고|검토"]
+      forbidden: []
+      criteria: {"1": "초안 뒤에 지안 님이 읽고 직접 보내는 순서를 제시한다", "0.5": "지안 님 확인 단계는 있지만 누가 보내는지가 불분명하다", "0": "비서가 보내는 순서를 제시하거나 지안 님 확인 단계가 없다"}
+
+  - id: NP-M014-R
+    type: memory
+    prompt: "내 생일이 며칠로 적혀 있어?"
+    expected: "3월 5일."
+    memory: {gold: [M014], kind: recall}
+    scoring:
+      required: ["3월5일|3/5"]
+      forbidden: ["5월3일|5/3"]
+      criteria: {"1": "3월 5일이라고 말한다", "0.5": "3월 5일과 다른 날짜를 함께 가능성으로 말한다", "0": "다른 날짜(예: 동생 생일 5월 3일)를 말하거나 모른다고 한다"}
+
+  - id: NP-M014-A
+    type: memory
+    prompt: "내 생일 전날에 연구실 사람들이랑 저녁 먹자고 하려고. 그날이 몇 월 며칠이야?"
+    expected: "3월 4일 (생일 3월 5일의 전날)."
+    memory: {gold: [M014], kind: application}
+    scoring:
+      required: ["3월4일|3/4"]
+      forbidden: ["5월2일|5/2"]
+      criteria: {"1": "3월 4일이라고 말한다", "0.5": "생일이 3월 5일이라고는 하지만 전날 계산이 틀렸다", "0": "다른 날짜를 말하거나 모른다고 한다"}
+
+  - id: NP-M015-R
+    type: memory
+    prompt: "동생 생일이 언제였지?"
+    expected: "5월 3일."
+    memory: {gold: [M015], kind: recall}
+    scoring:
+      required: ["5월3일|5/3"]
+      forbidden: ["3월5일|3/5"]
+      criteria: {"1": "5월 3일이라고 말한다", "0.5": "5월 3일과 다른 날짜를 함께 가능성으로 말한다", "0": "다른 날짜(예: 지안 님 생일 3월 5일)를 말하거나 모른다고 한다"}
+
+  - id: NP-M015-A
+    type: memory
+    prompt: "동생 생일 선물은 생일 일주일 전까지 주문해 두려고 해. 언제까지 주문하면 돼?"
+    expected: "4월 26일까지 (동생 생일 5월 3일의 일주일 전)."
+    memory: {gold: [M015], kind: application}
+    scoring:
+      required: ["4월26일|4/26"]
+      forbidden: []
+      criteria: {"1": "4월 26일(까지)이라고 말한다", "0.5": "동생 생일이 5월 3일이라고는 하지만 날짜 계산이 틀렸다", "0": "다른 생일을 기준으로 하거나 모른다고 한다"}
+
+  - id: NP-M019-R
+    type: memory
+    prompt: "내가 논문 PDF 읽을 때 어떻게 표시하면서 읽는다고 했지?"
+    expected: "노란색 형광펜으로 직접 표시하면서 읽는다."
+    memory: {gold: [M019], kind: recall}
+    scoring:
+      required: ["노란|노랑"]
+      forbidden: []
+      criteria: {"1": "노란색 형광펜으로 표시한다고 말한다", "0.5": "형광펜으로 표시한다는 것만 말하고 색은 말하지 않는다", "0": "다른 색이나 다른 방식을 말하거나 모른다고 한다"}
+
+  - id: NP-M019-A
+    type: memory
+    prompt: "새 PDF 앱 깔았는데 주석 도구 기본 색을 하나 정해 두려고. 내 습관에 맞게 뭘로 할까?"
+    expected: "노란색 (논문을 노란색 형광펜으로 표시하며 읽는 습관)."
+    memory: {gold: [M019], kind: application}
+    scoring:
+      required: ["노란|노랑"]
+      forbidden: []
+      criteria: {"1": "노란색을 제안한다", "0.5": "색을 제안하지 않고 습관을 되묻는다", "0": "노란색이 아닌 색을 제안한다"}
+
+  - id: NP-M025-R
+    type: memory
+    prompt: "공학관 주차장 차단기는 평일 몇 시에 내려가?"
+    expected: "평일 21:00."
+    memory: {gold: [M025], kind: recall}
+    scoring:
+      required: ["21:00|21시|9시|아홉시|9:00"]
+      forbidden: ["22:00|22시"]
+      criteria: {"1": "평일 21시(오후 9시)라고 말한다", "0.5": "21시와 다른 시각을 함께 가능성으로 말한다", "0": "다른 시각(예: 정문이 잠기는 22시)을 말하거나 모른다고 한다"}
+
+  - id: NP-M025-A
+    type: memory
+    prompt: "오늘 차 가지고 학교 왔는데, 연구실에서 밤 늦게까지 작업하다 가도 차 빼는 데 문제없겠지?"
+    expected: "공학관 주차장 차단기가 평일 21:00에 내려가므로 그 전에 차를 빼야 한다."
+    memory: {gold: [M025], kind: application}
+    scoring:
+      required: ["차단기"]
+      forbidden: []
+      criteria: {"1": "주차장 차단기가 평일 21시에 내려간다는 점을 들어 그 전에 차를 빼라고 한다", "0.5": "차단기나 주차 제한을 언급하지만 시각이 틀리거나 빠졌다", "0": "문제없다고 하거나 주차장 제한을 모른다"}
+
+  - id: NP-M037-R
+    type: memory
+    prompt: "도서관에서 내가 즐겨 쓰는 자리가 어디였지?"
+    expected: "도서관 5층 열람실 B-14."
+    memory: {gold: [M037], kind: recall}
+    scoring:
+      required: ["b-14|b14"]
+      forbidden: []
+      criteria: {"1": "B-14 자리(5층 열람실)를 말한다", "0.5": "5층 열람실만 말하고 자리 번호는 없다", "0": "다른 자리를 말하거나 모른다고 한다"}
+
+  - id: NP-M037-A
+    type: memory
+    prompt: "내일 도서관 가서 논문 쓰려고. 늘 앉던 데로 바로 가게 몇 층 어느 자리인지 알려 줘."
+    expected: "5층 열람실 B-14 자리."
+    memory: {gold: [M037], kind: application}
+    scoring:
+      required: ["b-14|b14"]
+      forbidden: []
+      criteria: {"1": "5층 열람실 B-14를 말한다", "0.5": "층이나 자리 번호 중 하나만 맞다", "0": "다른 자리를 말하거나 모른다고 한다"}
+
+  - id: NP-M038-R
+    type: memory
+    prompt: "아침 브리핑은 어떤 순서로 받기로 했지?"
+    expected: "일정 → 마감 → 읽을 논문 순서."
+    memory: {gold: [M038], kind: recall}
+    scoring:
+      required: ["일정", "마감", "논문"]
+      forbidden: []
+      criteria: {"1": "일정, 마감, 읽을 논문 순서라고 말한다", "0.5": "세 항목을 말하지만 순서가 다르거나, 둘만 맞다", "0": "다른 순서·항목을 말하거나 모른다고 한다"}
+
+  - id: NP-M038-A
+    type: memory
+    prompt: "내일 아침 브리핑 틀만 미리 짜 줘. 내용은 비워 두고 항목 제목만 내가 받기로 한 순서대로."
+    expected: "항목 제목: 1) 일정 2) 마감 3) 읽을 논문 (이 순서)."
+    memory: {gold: [M038], kind: application}
+    scoring:
+      required: []
+      forbidden: []
+      criteria: {"1": "브리핑 틀의 항목이 일정 → 마감 → 읽을 논문 순서다(다른 항목이 끼어도 이 셋의 순서가 맞으면 됨)", "0.5": "세 항목이 다 있지만 순서가 다르거나, 셋 중 하나가 빠졌다", "0": "세 항목 중 둘 이상이 없거나 전혀 다른 틀이다"}
+
+  - id: NP-M042-R
+    type: memory
+    prompt: "교수님께 보내는 메일 제목에 붙이기로 한 말머리가 뭐였지?"
+    expected: "'[열섬]'."
+    memory: {gold: [M042], kind: recall}
+    scoring:
+      required: ["[열섬]|'열섬'|\"열섬\"|열섬 말머리|열섬말머리"]
+      forbidden: []
+      criteria: {"1": "'[열섬]' 말머리라고 말한다", "0.5": "말머리를 붙인다는 것만 말하고 내용은 틀리거나 없다", "0": "다른 말머리를 말하거나 모른다고 한다"}
+
+  - id: NP-M042-A
+    type: memory
+    prompt: "교수님께 다음 주 면담 시간 여쭤보는 메일 제목만 하나 지어 줘."
+    expected: "'[열섬]' 말머리를 붙인 제목. 예: '[열섬] 다음 주 면담 시간 여쭙습니다'."
+    memory: {gold: [M042], kind: application}
+    scoring:
+      required: ["[열섬]"]
+      forbidden: []
+      criteria: {"1": "제목 맨 앞에 '[열섬]' 말머리가 있다", "0.5": "다른 말머리를 붙였거나 '열섬'이 제목에 있지만 말머리 형식이 아니다", "0": "말머리가 없다"}
+
+  - id: NP-M047-R
+    type: memory
+    prompt: "점심 약속은 아침 브리핑에서 어떻게 알려 달라고 했었지?"
+    expected: "오전 브리핑에 한 줄로 따로 알려 달라고 했다."
+    memory: {gold: [M047], kind: recall}
+    scoring:
+      required: ["한줄|한 줄|1줄"]
+      forbidden: []
+      criteria: {"1": "오전 브리핑에서 한 줄로 따로 알려 준다고 말한다", "0.5": "따로 알려 준다는 것만 말하고 '한 줄' 형식은 없다(또는 그 반대)", "0": "다른 방식을 말하거나 모른다고 한다"}
+
+  - id: NP-M047-A
+    type: memory
+    prompt: "내일 12시에 오민재 씨랑 점심 약속 생겼어. 내일 아침 브리핑에 이거 어떻게 넣을 거야? 실제 들어갈 모양으로 보여 줘."
+    expected: "다른 일정과 섞지 않고 한 줄로 따로 표시한다. 예: '점심 약속: 12:00 오민재 씨'."
+    memory: {gold: [M047], kind: application}
+    scoring:
+      required: []
+      forbidden: []
+      criteria: {"1": "점심 약속을 다른 일정 목록과 분리된 한 줄로 따로 보여 준다", "0.5": "점심 약속을 넣지만 일정 목록 안에 섞어 넣거나 여러 줄로 쓴다", "0": "점심 약속을 넣지 않는다"}
+
+  - id: NP-M061-R
+    type: memory
+    prompt: "메일 정리는 언제 하기로 했었지?"
+    expected: "매주 금요일 17:00."
+    memory: {gold: [M061], kind: recall}
+    scoring:
+      required: ["금요일", "17:00|17시|5시|5:00|다섯시"]
+      forbidden: []
+      criteria: {"1": "매주 금요일 17시라고 말한다", "0.5": "요일이나 시각 중 하나만 맞다", "0": "둘 다 틀리거나 모른다고 한다"}
+
+  - id: NP-M061-A
+    type: memory
+    prompt: "받은편지함이 좀 쌓였는데, 원래 정해 둔 메일 정리 시간이 이번 주 며칠 몇 시야?"
+    expected: "이번 주 금요일 10월 30일 17:00."
+    memory: {gold: [M061], kind: application}
+    scoring:
+      required: ["금요일|10월30일|10/30", "17:00|17시|5시|5:00|다섯시"]
+      forbidden: []
+      criteria: {"1": "이번 주 금요일(10월 30일) 17시라고 말한다", "0.5": "요일·날짜나 시각 중 하나만 맞다", "0": "둘 다 틀리거나 모른다고 한다"}
+
+  - id: NP-M067-R
+    type: memory
+    prompt: "다음 주 일정 미리보기는 언제 받기로 했지?"
+    expected: "매주 일요일 밤."
+    memory: {gold: [M067], kind: recall}
+    scoring:
+      required: ["일요일"]
+      forbidden: []
+      criteria: {"1": "매주 일요일 밤이라고 말한다", "0.5": "일요일이라고 하지만 시간대가 틀렸다", "0": "다른 요일을 말하거나 모른다고 한다"}
+
+  - id: NP-M067-A
+    type: memory
+    prompt: "이번 주 끝나고 다음 주 일정 미리보기는 언제 보내 줄 거야? 날짜로 말해 줘."
+    expected: "11월 1일 일요일 밤."
+    memory: {gold: [M067], kind: application}
+    scoring:
+      required: ["11월1일|11/1|일요일"]
+      forbidden: []
+      criteria: {"1": "11월 1일 일요일(밤)이라고 말한다", "0.5": "일요일이라고 하지만 날짜가 틀렸거나 빠졌다", "0": "다른 요일·날짜를 말하거나 모른다고 한다"}
+
+  # ---- far items (kind: far), added before any v1.4a call: one per target, written so that BM25 top-5 does NOT contain the
+  # gold entry (rule applied to all 24 far items alike; drafts that hit were reworded, rounds in design_step2_retrieval.json)
+
+  - id: NP-M004-F
+    type: memory
+    prompt: "동기가 새벽 수영 같이 다니자는데 6시 반 시작이래. 내 평소 기상 시간 기준으로 무리일까?"
+    expected: "지안 님은 아침형이고 평소 오전 7시에 일어나므로, 6시 반 시작은 평소보다 30분 이상 일찍 일어나야 한다는 점을 7시 기상을 근거로 말한다."
+    memory: {gold: [M004], kind: far}
+    scoring:
+      required: ["7시|7:00|일곱시|아침형"]
+      forbidden: []
+      criteria: {"1": "평소 7시 기상(또는 아침형)을 근거로 판단한다", "0.5": "판단은 하지만 7시 기상·아침형을 근거로 쓰지 않는다", "0": "기억과 다른 기상 시각을 근거로 하거나 모른다고 한다"}
+
+  - id: NP-M009-F
+    type: memory
+    prompt: "박서진 선생님한테 3장 피드백 부탁하는 글 다 썼으면, 네 쪽에서 마무리해서 넘겨 줘."
+    expected: "교수님께 가는 메일은 지안 님이 직접 읽고 보내기로 했으므로, 초안만 건네고 지안 님이 읽고 보내도록 한다."
+    memory: {gold: [M009], kind: far}
+    scoring:
+      required: ["읽고|읽어보고|읽어 보고|검토"]
+      forbidden: []
+      criteria: {"1": "보내지 않고, 지안 님이 직접 읽고 보내도록 초안을 건넨다", "0.5": "보내지는 않지만 지안 님이 읽고 보낸다는 절차를 말하지 않는다", "0": "자기가 보냈다고 하거나 보내겠다고 한다"}
+
+  - id: NP-M014-F
+    type: memory
+    prompt: "내가 태어난 날에 맞춰 연구실에 떡 돌리려고. 며칠로 예약하면 돼?"
+    expected: "3월 5일."
+    memory: {gold: [M014], kind: far}
+    scoring:
+      required: ["3월5일|3/5"]
+      forbidden: ["5월3일|5/3"]
+      criteria: {"1": "3월 5일이라고 말한다", "0.5": "3월 5일과 다른 날짜를 함께 가능성으로 말한다", "0": "다른 날짜를 말하거나 모른다고 한다"}
+
+  - id: NP-M015-F
+    type: memory
+    prompt: "내 아래로 하나 있잖아, 걔 태어난 날 맞춰서 꽃 보내려고. 언제로 예약해?"
+    expected: "5월 3일 (동생 생일)."
+    memory: {gold: [M015], kind: far}
+    scoring:
+      required: ["5월3일|5/3"]
+      forbidden: ["3월5일|3/5"]
+      criteria: {"1": "5월 3일이라고 말한다", "0.5": "5월 3일과 다른 날짜를 함께 가능성으로 말한다", "0": "다른 날짜를 말하거나 모른다고 한다"}
+
+  - id: NP-M019-F
+    type: memory
+    prompt: "새로 산 태블릿에서 쓸 펜 색 하나 골라 줘. 내가 원래 쓰던 거랑 똑같이."
+    expected: "노란색 (논문을 노란색 형광펜으로 표시하며 읽는 습관)."
+    memory: {gold: [M019], kind: far}
+    scoring:
+      required: ["노란|노랑"]
+      forbidden: []
+      criteria: {"1": "노란색을 고른다", "0.5": "색을 고르지 않고 원래 쓰던 색을 되묻는다", "0": "노란색이 아닌 색을 고른다"}
+
+  - id: NP-M025-F
+    type: memory
+    prompt: "오늘 밤늦게까지 남을 건데, 차를 학교에 그냥 두고 작업해도 되나 아니면 미리 빼야 하나?"
+    expected: "공학관 주차장 차단기가 평일 21:00에 내려가므로 그 전에 빼야 한다."
+    memory: {gold: [M025], kind: far}
+    scoring:
+      required: ["차단기"]
+      forbidden: []
+      criteria: {"1": "주차장 차단기가 평일 21시에 내려가니 그 전에 빼라고 한다", "0.5": "차단기나 주차 제한을 말하지만 시각이 틀리거나 빠졌다", "0": "그냥 둬도 된다고 하거나 제한을 모른다"}
+
+  - id: NP-M037-F
+    type: memory
+    prompt: "내일 책 보러 가서 늘 앉는 데 앉고 싶어. 거기 번호가 뭐였지?"
+    expected: "도서관 5층 열람실 B-14."
+    memory: {gold: [M037], kind: far}
+    scoring:
+      required: ["b-14|b14"]
+      forbidden: []
+      criteria: {"1": "B-14를 말한다", "0.5": "도서관 5층 열람실만 말하고 번호는 없다", "0": "다른 번호·자리를 말하거나 모른다고 한다"}
+
+  - id: NP-M038-F
+    type: memory
+    prompt: "날마다 처음 듣는 정리 보고, 항목 차례가 어떻게 되지?"
+    expected: "아침 브리핑: 일정 → 마감 → 읽을 논문."
+    memory: {gold: [M038], kind: far}
+    scoring:
+      required: []
+      forbidden: []
+      criteria: {"1": "일정, 마감, 읽을 논문 순서라고 말한다", "0.5": "세 항목을 말하지만 순서가 다르거나 둘만 맞다", "0": "다른 항목·순서를 말하거나 모른다고 한다"}
+
+  - id: NP-M042-F
+    type: memory
+    prompt: "지도 선생님 앞으로 연락할 때 맨 앞에 다는 꼬리표가 뭐였지?"
+    expected: "메일 제목 말머리 '[열섬]'."
+    memory: {gold: [M042], kind: far}
+    scoring:
+      required: ["[열섬]|'열섬'|\"열섬\"|열섬 말머리|열섬말머리"]
+      forbidden: []
+      criteria: {"1": "'[열섬]' 말머리라고 말한다", "0.5": "제목에 말머리를 붙인다는 것만 말하고 내용은 틀리거나 없다", "0": "다른 표시를 말하거나 모른다고 한다"}
+
+  - id: NP-M047-F
+    type: memory
+    prompt: "모레 낮에 동기랑 밥 먹기로 했어. 그날 하루 시작할 때 이거 어떻게 넣어 줄 거야?"
+    expected: "그날 오전 브리핑에 점심 약속을 한 줄로 따로 알려 준다."
+    memory: {gold: [M047], kind: far}
+    scoring:
+      required: []
+      forbidden: []
+      criteria: {"1": "그날 오전 브리핑에서 점심 약속을 다른 일정과 분리된 한 줄로 따로 알려 준다고 한다", "0.5": "오전 브리핑에 넣는다고 하지만 '따로 한 줄' 방식이 없다", "0": "브리핑과 무관한 방식을 말하거나 모른다고 한다"}
+
+  - id: NP-M061-F
+    type: memory
+    prompt: "편지함 치우는 거, 이번 주에는 언제 하는 날이야?"
+    expected: "이번 주 금요일(10월 30일) 17:00 (메일 정리는 매주 금요일 17:00)."
+    memory: {gold: [M061], kind: far}
+    scoring:
+      required: ["금요일|10월30일|10/30", "17:00|17시|5시|5:00|다섯시"]
+      forbidden: []
+      criteria: {"1": "금요일(10월 30일) 17시라고 말한다", "0.5": "요일·날짜나 시각 중 하나만 맞다", "0": "둘 다 틀리거나 모른다고 한다"}
+
+  - id: NP-M067-F
+    type: memory
+    prompt: "돌아오는 일주일 계획 한꺼번에 훑어보는 거, 이번엔 언제 볼 수 있어?"
+    expected: "11월 1일 일요일 밤 (매주 일요일 밤에 다음 주 일정 미리보기)."
+    memory: {gold: [M067], kind: far}
+    scoring:
+      required: ["일요일|11월1일|11/1"]
+      forbidden: []
+      criteria: {"1": "일요일(11월 1일) 밤이라고 말한다", "0.5": "일요일이라고 하지만 시간대·날짜가 틀렸다", "0": "다른 요일을 말하거나 모른다고 한다"}

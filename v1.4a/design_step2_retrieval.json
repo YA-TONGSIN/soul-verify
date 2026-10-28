@@ -1,0 +1,462 @@
+{
+ "naru": {
+  "NP-M004-R": {
+   "target": "M004",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "NP-M004-A": {
+   "target": "M004",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "NP-M009-R": {
+   "target": "M009",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "NP-M009-A": {
+   "target": "M009",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "NP-M014-R": {
+   "target": "M014",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "NP-M014-A": {
+   "target": "M014",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": false
+  },
+  "NP-M015-R": {
+   "target": "M015",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "NP-M015-A": {
+   "target": "M015",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "NP-M019-R": {
+   "target": "M019",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "NP-M019-A": {
+   "target": "M019",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "NP-M025-R": {
+   "target": "M025",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "NP-M025-A": {
+   "target": "M025",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": false
+  },
+  "NP-M037-R": {
+   "target": "M037",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "NP-M037-A": {
+   "target": "M037",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "NP-M038-R": {
+   "target": "M038",
+   "kind": "recall",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "NP-M038-A": {
+   "target": "M038",
+   "kind": "application",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "NP-M042-R": {
+   "target": "M042",
+   "kind": "recall",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "NP-M042-A": {
+   "target": "M042",
+   "kind": "application",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "NP-M047-R": {
+   "target": "M047",
+   "kind": "recall",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "NP-M047-A": {
+   "target": "M047",
+   "kind": "application",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "NP-M061-R": {
+   "target": "M061",
+   "kind": "recall",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "NP-M061-A": {
+   "target": "M061",
+   "kind": "application",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "NP-M067-R": {
+   "target": "M067",
+   "kind": "recall",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "NP-M067-A": {
+   "target": "M067",
+   "kind": "application",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "NP-M004-F": {
+   "target": "M004",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "NP-M009-F": {
+   "target": "M009",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "NP-M014-F": {
+   "target": "M014",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "NP-M015-F": {
+   "target": "M015",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 2
+  },
+  "NP-M019-F": {
+   "target": "M019",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "NP-M025-F": {
+   "target": "M025",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "NP-M037-F": {
+   "target": "M037",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "NP-M038-F": {
+   "target": "M038",
+   "kind": "far",
+   "pinned": true,
+   "gold_in_top5": false,
+   "draft_rounds": 3
+  },
+  "NP-M042-F": {
+   "target": "M042",
+   "kind": "far",
+   "pinned": true,
+   "gold_in_top5": false,
+   "draft_rounds": 4
+  },
+  "NP-M047-F": {
+   "target": "M047",
+   "kind": "far",
+   "pinned": true,
+   "gold_in_top5": false,
+   "draft_rounds": 2
+  },
+  "NP-M061-F": {
+   "target": "M061",
+   "kind": "far",
+   "pinned": true,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "NP-M067-F": {
+   "target": "M067",
+   "kind": "far",
+   "pinned": true,
+   "gold_in_top5": false,
+   "draft_rounds": 3
+  }
+ },
+ "haedeun": {
+  "HP-M009-R": {
+   "target": "M009",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "HP-M009-A": {
+   "target": "M009",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": false
+  },
+  "HP-M016-R": {
+   "target": "M016",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "HP-M016-A": {
+   "target": "M016",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "HP-M021-R": {
+   "target": "M021",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "HP-M021-A": {
+   "target": "M021",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "HP-M033-R": {
+   "target": "M033",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "HP-M033-A": {
+   "target": "M033",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "HP-M047-R": {
+   "target": "M047",
+   "kind": "recall",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "HP-M047-A": {
+   "target": "M047",
+   "kind": "application",
+   "pinned": true,
+   "gold_in_top5": false
+  },
+  "HP-M054-R": {
+   "target": "M054",
+   "kind": "recall",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "HP-M054-A": {
+   "target": "M054",
+   "kind": "application",
+   "pinned": true,
+   "gold_in_top5": false
+  },
+  "HP-M061-R": {
+   "target": "M061",
+   "kind": "recall",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "HP-M061-A": {
+   "target": "M061",
+   "kind": "application",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "HP-M066-R": {
+   "target": "M066",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "HP-M066-A": {
+   "target": "M066",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": false
+  },
+  "HP-M068-R": {
+   "target": "M068",
+   "kind": "recall",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "HP-M068-A": {
+   "target": "M068",
+   "kind": "application",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "HP-M075-R": {
+   "target": "M075",
+   "kind": "recall",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "HP-M075-A": {
+   "target": "M075",
+   "kind": "application",
+   "pinned": true,
+   "gold_in_top5": true
+  },
+  "HP-M076-R": {
+   "target": "M076",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "HP-M076-A": {
+   "target": "M076",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "HP-M080-R": {
+   "target": "M080",
+   "kind": "recall",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "HP-M080-A": {
+   "target": "M080",
+   "kind": "application",
+   "pinned": false,
+   "gold_in_top5": true
+  },
+  "HP-M009-F": {
+   "target": "M009",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "HP-M016-F": {
+   "target": "M016",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 2
+  },
+  "HP-M021-F": {
+   "target": "M021",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "HP-M033-F": {
+   "target": "M033",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 2
+  },
+  "HP-M047-F": {
+   "target": "M047",
+   "kind": "far",
+   "pinned": true,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "HP-M054-F": {
+   "target": "M054",
+   "kind": "far",
+   "pinned": true,
+   "gold_in_top5": false,
+   "draft_rounds": 2
+  },
+  "HP-M061-F": {
+   "target": "M061",
+   "kind": "far",
+   "pinned": true,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "HP-M066-F": {
+   "target": "M066",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 3
+  },
+  "HP-M068-F": {
+   "target": "M068",
+   "kind": "far",
+   "pinned": true,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "HP-M075-F": {
+   "target": "M075",
+   "kind": "far",
+   "pinned": true,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "HP-M076-F": {
+   "target": "M076",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  },
+  "HP-M080-F": {
+   "target": "M080",
+   "kind": "far",
+   "pinned": false,
+   "gold_in_top5": false,
+   "draft_rounds": 1
+  }
+ }
+}
