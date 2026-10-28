@@ -13,3 +13,8 @@ runs/v12_pilot/** -text
 runs/v12_human/** -text
 v1.2/private_keys/** -text
 v1.2/_author/** -text
+
+# v1.1 sealed files are hash-bound byte-for-byte (v1.1/SEALED_RESULTS.txt, SEALED_SMOKE.txt): no EOL conversion
+runs/v11_theseus/** -text
+runs/smoke_v11_theseus/** -text
+runs/v11_human/** -text

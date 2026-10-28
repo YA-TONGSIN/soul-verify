@@ -1,0 +1,470 @@
+{
+ "study": "v1.1",
+ "pairs": "H0 vs H4 (MinH), replicate 1",
+ "completeness": {
+  "web_expected": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "web_answered": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "local_expected_n": 13,
+  "local_answered_n": 13,
+  "web_missing": [],
+  "local_missing_n": 0
+ },
+ "web_submission": {
+  "id": 1,
+  "nick": "운종",
+  "complete": true,
+  "started_at": "2026-10-28T04:16:59.789Z",
+  "submitted_at": "2026-10-28T06:17:10.085Z"
+ },
+ "local_file": {
+  "started_at": "2026-10-28T09:23:00.474Z",
+  "saved_at": "2026-10-28T09:31:06.772Z",
+  "set": "v11-local"
+ },
+ "HB1": {
+  "accuracy": 0.5625,
+  "n": 24,
+  "correct": 9,
+  "wrong": 6,
+  "unknown": 9,
+  "ci": [
+   0.3471612590191753,
+   0.7618487306979929
+  ],
+  "p": 0.3641662404406816,
+  "verdict": "not supported",
+  "reading": "inconclusive",
+  "sensitivity": {
+   "unknown_excluded": {
+    "accuracy": 0.6,
+    "n": 15,
+    "p": 0.303619384765625,
+    "ci": [
+     0.3228697662062817,
+     0.8366356761404865
+    ]
+   },
+   "unknown_as_wrong": {
+    "accuracy": 0.375,
+    "n": 24,
+    "p": 0.9242051839828491,
+    "ci": [
+     0.18799292819600222,
+     0.5940636159920558
+    ]
+   }
+  }
+ },
+ "HB1_scope": "all 24 scored pairs (B1 synthetic 12 + B2 private copy 12); per block below",
+ "per_block": {
+  "B1_synthetic": {
+   "HB1": {
+    "accuracy": 0.5,
+    "n": 12,
+    "correct": 5,
+    "wrong": 5,
+    "unknown": 2,
+    "ci": [
+     0.21094463823929677,
+     0.789055361760703
+    ],
+    "p": 0.604736328125,
+    "verdict": "not supported",
+    "reading": "inconclusive",
+    "sensitivity": {
+     "unknown_excluded": {
+      "accuracy": 0.5,
+      "n": 10,
+      "p": 0.623046875,
+      "ci": [
+       0.18708602844739863,
+       0.8129139715526013
+      ]
+     },
+     "unknown_as_wrong": {
+      "accuracy": 0.4166666666666667,
+      "n": 12,
+      "p": 0.80615234375,
+      "ci": [
+       0.15165222980843018,
+       0.723330314317894
+      ]
+     }
+    }
+   },
+   "blank": 0,
+   "confidence_weighted_accuracy": 0.5681818181818182,
+   "confidence_mean": 3.6666666666666665,
+   "by_stratum": {
+    "everyday": {
+     "n": 4,
+     "accuracy": 0.625,
+     "unknown": 1
+    },
+    "memory": {
+     "n": 4,
+     "accuracy": 0.375,
+     "unknown": 1
+    },
+    "release": {
+     "n": 4,
+     "accuracy": 0.5,
+     "unknown": 0
+    }
+   },
+   "retest": {
+    "pairs": 1,
+    "same": 0,
+    "detail": [
+     {
+      "first": "?",
+      "repeat": "H0",
+      "same": false
+     }
+    ]
+   },
+   "correlation_prereg": {
+    "what": "Pearson r between per-pair human score (1 / 0.5 / 0) and |F_style(H0) - F_style(H4)|",
+    "n": 12,
+    "r": null,
+    "spearman": null,
+    "pairs_with_nonzero_dF": 0,
+    "note": "r is undefined (null) when |dF| is 0 for every pair"
+   },
+   "exploratory_auto_vs_human": {
+    "label": "EXPLORATORY (not preregistered)",
+    "pairs_with_any_auto_difference": 2,
+    "mean_abs_diff": {
+     "F_style": 0.0,
+     "mem_acc": 0.375,
+     "release_score": 0.0,
+     "change_honored": 0.0
+    },
+    "kappa_correct_vs_auto_differs": {
+     "n": 12,
+     "raw_agreement": 0.5833333333333334,
+     "kappa": 0.06250000000000026,
+     "human_yes": 5,
+     "auto_yes": 2
+    },
+    "what": "human 'told apart' (correct pick = 1; wrong or '?' = 0) vs automatic 'the two answers differ on any of F_style, mem_acc, release_score, change_honored' (1/0)"
+   }
+  },
+  "B2_private_copy_aggregate_only": {
+   "HB1": {
+    "accuracy": 0.625,
+    "n": 12,
+    "correct": 4,
+    "wrong": 1,
+    "unknown": 7,
+    "ci": [
+     0.31194042504011965,
+     0.8754626785478505
+    ],
+    "p": 0.3238029479980469,
+    "verdict": "not supported",
+    "reading": "inconclusive",
+    "sensitivity": {
+     "unknown_excluded": {
+      "accuracy": 0.8,
+      "n": 5,
+      "p": 0.1875,
+      "ci": [
+       0.28358206388191043,
+       0.9949492366205319
+      ]
+     },
+     "unknown_as_wrong": {
+      "accuracy": 0.3333333333333333,
+      "n": 12,
+      "p": 0.927001953125,
+      "ci": [
+       0.09924609114958327,
+       0.6511244935811857
+      ]
+     }
+    }
+   },
+   "blank": 0,
+   "confidence_weighted_accuracy": 0.625,
+   "confidence_mean": 5.0,
+   "by_stratum": {
+    "everyday": {
+     "n": 4,
+     "accuracy": 0.375,
+     "unknown": 3
+    },
+    "memory": {
+     "n": 4,
+     "accuracy": 0.75,
+     "unknown": 2
+    },
+    "release": {
+     "n": 4,
+     "accuracy": 0.75,
+     "unknown": 2
+    }
+   },
+   "correlation_prereg": {
+    "what": "Pearson r between per-pair human score (1 / 0.5 / 0) and |F_style(H0) - F_style(H4)|",
+    "n": 12,
+    "r": -0.12666009927622474,
+    "spearman": -0.14937887931959076,
+    "pairs_with_nonzero_dF": 1,
+    "note": "r is undefined (null) when |dF| is 0 for every pair"
+   },
+   "exploratory_auto_vs_human": {
+    "label": "EXPLORATORY (not preregistered)",
+    "pairs_with_any_auto_difference": 2,
+    "mean_abs_diff": {
+     "F_style": 0.041666666666666664,
+     "mem_acc": 0.25,
+     "release_score": 0.0,
+     "change_honored": 0.0
+    },
+    "kappa_correct_vs_auto_differs": {
+     "n": 12,
+     "raw_agreement": 0.6666666666666666,
+     "kappa": 0.1428571428571424,
+     "human_yes": 4,
+     "auto_yes": 2
+    },
+    "what": "human 'told apart' (correct pick = 1; wrong or '?' = 0) vs automatic 'the two answers differ on any of F_style, mem_acc, release_score, change_honored' (1/0)"
+   },
+   "retest": {
+    "pairs": 1,
+    "same": 1
+   }
+  }
+ },
+ "positive_controls": {
+  "n": 2,
+  "correct": 1,
+  "detail": [
+   {
+    "agent": "naru",
+    "answer": "A",
+    "correct": 0.0
+   },
+   {
+    "agent": "haedeun",
+    "answer": "B",
+    "correct": 1.0
+   }
+  ],
+  "both_missed": false,
+  "rule": "if the author misses both, B1 is reported with a warning"
+ },
+ "b1_items": [
+  {
+   "n": 1,
+   "agent": "naru",
+   "qid": "NA-M1",
+   "stratum": "memory",
+   "kind": "scored",
+   "h0_side": "A",
+   "answer": "?",
+   "confidence": "5",
+   "score": 0.5
+  },
+  {
+   "n": 2,
+   "agent": "naru",
+   "qid": "NA-E2",
+   "stratum": "everyday",
+   "kind": "scored",
+   "h0_side": "A",
+   "answer": "?",
+   "confidence": "3",
+   "score": 0.5
+  },
+  {
+   "n": 3,
+   "agent": "haedeun",
+   "qid": "HD-I4",
+   "stratum": "release",
+   "kind": "scored",
+   "h0_side": "A",
+   "answer": "B",
+   "confidence": "1",
+   "score": 0.0
+  },
+  {
+   "n": 4,
+   "agent": "naru",
+   "qid": "NA-I3",
+   "stratum": "release",
+   "kind": "scored",
+   "h0_side": "A",
+   "answer": "A",
+   "confidence": "5",
+   "score": 1.0
+  },
+  {
+   "n": 5,
+   "agent": "naru",
+   "qid": "NA-E3",
+   "stratum": "everyday",
+   "kind": "scored",
+   "h0_side": "B",
+   "answer": "A",
+   "confidence": "3",
+   "score": 0.0
+  },
+  {
+   "n": 6,
+   "agent": "haedeun",
+   "qid": "HD-M1",
+   "stratum": "memory",
+   "kind": "scored",
+   "h0_side": "B",
+   "answer": "A",
+   "confidence": "1",
+   "score": 0.0
+  },
+  {
+   "n": 7,
+   "agent": "naru",
+   "qid": "NA-L1",
+   "stratum": "release",
+   "kind": "scored",
+   "h0_side": "A",
+   "answer": "A",
+   "confidence": "3",
+   "score": 1.0
+  },
+  {
+   "n": 8,
+   "agent": "haedeun",
+   "qid": "HD-M4",
+   "stratum": "memory",
+   "kind": "scored",
+   "h0_side": "B",
+   "answer": "A",
+   "confidence": "5",
+   "score": 0.0
+  },
+  {
+   "n": 9,
+   "agent": "haedeun",
+   "qid": "HD-I3",
+   "stratum": "release",
+   "kind": "scored",
+   "h0_side": "A",
+   "answer": "B",
+   "confidence": "5",
+   "score": 0.0
+  },
+  {
+   "n": 10,
+   "agent": "haedeun",
+   "qid": "HD-E5",
+   "stratum": "everyday",
+   "kind": "scored",
+   "h0_side": "B",
+   "answer": "B",
+   "confidence": "5",
+   "score": 1.0
+  },
+  {
+   "n": 11,
+   "agent": "haedeun",
+   "qid": "HD-E1",
+   "stratum": "everyday",
+   "kind": "scored",
+   "h0_side": "A",
+   "answer": "A",
+   "confidence": "5",
+   "score": 1.0
+  },
+  {
+   "n": 12,
+   "agent": "naru",
+   "qid": "NA-M6",
+   "stratum": "memory",
+   "kind": "scored",
+   "h0_side": "B",
+   "answer": "B",
+   "confidence": "3",
+   "score": 1.0
+  },
+  {
+   "n": 13,
+   "agent": "naru",
+   "qid": "NA-E1",
+   "stratum": null,
+   "kind": "control",
+   "h0_side": "B",
+   "answer": "A",
+   "confidence": "5",
+   "score": 0.0
+  },
+  {
+   "n": 14,
+   "agent": "haedeun",
+   "qid": "HD-E2",
+   "stratum": null,
+   "kind": "control",
+   "h0_side": "B",
+   "answer": "B",
+   "confidence": "5",
+   "score": 1.0
+  },
+  {
+   "n": 15,
+   "agent": "naru",
+   "qid": "NA-M1",
+   "stratum": null,
+   "kind": "repeat",
+   "h0_side": "B",
+   "answer": "B",
+   "confidence": "5",
+   "score": 1.0
+  }
+ ],
+ "correlation_prereg_overall": {
+  "n": 24,
+  "r": -0.03338902816470887,
+  "pairs_with_nonzero_dF": 1
+ },
+ "exploratory_kappa_overall": {
+  "label": "EXPLORATORY (not preregistered)",
+  "n": 24,
+  "raw_agreement": 0.625,
+  "kappa": 0.09999999999999992,
+  "human_yes": 9,
+  "auto_yes": 4
+ }
+}

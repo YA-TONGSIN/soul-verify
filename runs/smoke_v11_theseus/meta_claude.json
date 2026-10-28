@@ -1,0 +1,18 @@
+{
+ "first_start": "2026-10-28T07:19:39.452482+09:00",
+ "launches": [
+  {
+   "start": "2026-10-28T07:19:39.452541+09:00",
+   "pid": 17984,
+   "workers": 6,
+   "smoke": true,
+   "dry_run": false,
+   "jobs_in_lane": 27,
+   "h4_runtime": "minh",
+   "materials_date": "2026-10-28",
+   "end": "2026-10-28T07:20:41.476954+09:00",
+   "calls": 27,
+   "errors": 0
+  }
+ ]
+}
