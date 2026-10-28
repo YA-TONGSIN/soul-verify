@@ -1,0 +1,41 @@
+{
+ "n_key_settled_and_judged": 53,
+ "n_disagree_ge_0.5": 6,
+ "disagree_by_cond_and_direction": {
+  "RP|key1": 2,
+  "R|key1": 4
+ },
+ "disagree_items": [
+  "haedeun/HP-M066-A/R/r2",
+  "haedeun/HP-M066-F/R/r1",
+  "haedeun/HP-M066-F/RP/r2",
+  "naru/NP-M004-F/R/r2",
+  "naru/NP-M004-F/RP/r1",
+  "naru/NP-M025-A/R/r1"
+ ],
+ "judge_preferred_means": {
+  "R": 0.7621527777777778,
+  "RP": 0.8402777777777778,
+  "F": 0.9982638888888888
+ },
+ "judge_preferred_RP-R": {
+  "mean": 0.078125,
+  "ci": [
+   0.026041666666666668,
+   0.1388888888888889
+  ],
+  "p": 0.00390625,
+  "n_cells": 72,
+  "n_nonzero": 9
+ },
+ "judge_preferred_F-R": {
+  "mean": 0.2361111111111111,
+  "ci": [
+   0.14930555555555555,
+   0.328125
+  ],
+  "p": 4.9999750001249995e-06,
+  "n_cells": 72,
+  "n_nonzero": 21
+ }
+}

@@ -1,0 +1,15 @@
+10-28 19:50:33 lane claude start pid=40860 run=v14a_pin workers=4 jobs=640
+10-28 19:52:05 50 calls, 0 errors, left 591
+10-28 19:53:34 100 calls, 0 errors, left 541
+10-28 19:55:01 150 calls, 0 errors, left 491
+10-28 19:56:34 200 calls, 0 errors, left 441
+10-28 19:58:13 250 calls, 0 errors, left 391
+10-28 19:59:47 300 calls, 0 errors, left 341
+10-28 20:01:44 350 calls, 0 errors, left 291
+10-28 20:03:10 400 calls, 0 errors, left 241
+10-28 20:04:40 450 calls, 0 errors, left 191
+10-28 20:05:44 500 calls, 0 errors, left 140
+10-28 20:06:15 550 calls, 0 errors, left 91
+10-28 20:06:57 600 calls, 0 errors, left 40
+10-28 20:07:34 budget cap reached (prereg 4); stopping
+10-28 20:07:34 lane claude end: 640 calls, 0 errors
