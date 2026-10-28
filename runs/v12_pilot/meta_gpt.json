@@ -1,0 +1,30 @@
+{
+ "phase": "pilot",
+ "first_start": "2026-10-28T09:41:07.729741+09:00",
+ "launches": [
+  {
+   "start": "2026-10-28T09:41:07.729780+09:00",
+   "pid": 22892,
+   "workers": 2,
+   "dry_run": false,
+   "smoke": false,
+   "level": null,
+   "cli_version": "codex-cli 0.164.0",
+   "end": "2026-10-28T12:24:59.806963+09:00",
+   "calls": 48,
+   "errors": 0
+  },
+  {
+   "start": "2026-10-28T12:27:31.948194+09:00",
+   "pid": 31812,
+   "workers": 2,
+   "dry_run": false,
+   "smoke": false,
+   "level": null,
+   "cli_version": "codex-cli 0.164.0",
+   "end": "2026-10-28T12:29:54.678517+09:00",
+   "calls": 16,
+   "errors": 0
+  }
+ ]
+}

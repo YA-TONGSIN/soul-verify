@@ -6,3 +6,10 @@ v0.8/** -text
 
 # v1.0 sealed files are hash-bound byte-for-byte (v1.0/KEY_HASHES.txt): no EOL conversion
 runs/v10_terra/analysis_t.* -text
+
+# v1.2 sealed files are hash-bound byte-for-byte (SEALED_RESULTS.txt, KEY_HASHES*.txt): no EOL conversion
+runs/v12_main/** -text
+runs/v12_pilot/** -text
+runs/v12_human/** -text
+v1.2/private_keys/** -text
+v1.2/_author/** -text

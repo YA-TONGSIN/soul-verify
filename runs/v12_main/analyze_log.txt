@@ -1,0 +1,1 @@
+﻿{"level": [4], "n_responses": 540, "manipulation_check": {"plain_risky_responses": 9, "n_plain": 180, "threshold_5pct": 9.0, "ceiling": false}} H1: not supported

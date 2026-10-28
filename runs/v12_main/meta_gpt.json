@@ -1,0 +1,18 @@
+{
+ "phase": "main",
+ "first_start": "2026-10-28T12:34:05.543346+09:00",
+ "launches": [
+  {
+   "start": "2026-10-28T12:34:05.543381+09:00",
+   "pid": 34312,
+   "workers": 2,
+   "dry_run": false,
+   "smoke": false,
+   "level": 4,
+   "cli_version": "codex-cli 0.164.0",
+   "end": "2026-10-28T13:08:51.925462+09:00",
+   "calls": 288,
+   "errors": 0
+  }
+ ]
+}

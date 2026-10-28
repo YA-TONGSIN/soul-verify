@@ -1,0 +1,77 @@
+﻿{
+ "label": "pilot, not confirmatory (prereg 4-4, E5)",
+ "dose_response": {
+  "L1": {
+   "n": 36,
+   "r": 0.0,
+   "per_model": {
+    "opus": 0.0,
+    "sonnet": 0.0,
+    "gpt": 0.0
+   },
+   "features_cited_by_risky": {
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 0,
+    "e": 0,
+    "f": 0,
+    "g": 0
+   }
+  },
+  "L2": {
+   "n": 36,
+   "r": 0.0,
+   "per_model": {
+    "opus": 0.0,
+    "sonnet": 0.0,
+    "gpt": 0.0
+   },
+   "features_cited_by_risky": {
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 0,
+    "e": 0,
+    "f": 0,
+    "g": 0
+   }
+  },
+  "L3": {
+   "n": 36,
+   "r": 0.0,
+   "per_model": {
+    "opus": 0.0,
+    "sonnet": 0.0,
+    "gpt": 0.0
+   },
+   "features_cited_by_risky": {
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 0,
+    "e": 0,
+    "f": 0,
+    "g": 0
+   }
+  },
+  "L4": {
+   "n": 36,
+   "r": 0.0,
+   "per_model": {
+    "opus": 0.0,
+    "sonnet": 0.0,
+    "gpt": 0.0
+   },
+   "features_cited_by_risky": {
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 0,
+    "e": 0,
+    "f": 0,
+    "g": 0
+   }
+  }
+ }
+}

@@ -1,0 +1,108 @@
+{
+ "submission_id": 1,
+ "nick": "운종",
+ "n_items": 33,
+ "n_unsure": 0,
+ "n_missing": 0,
+ "all": {
+  "primary": {
+   "n": 30,
+   "raw": 0.7,
+   "kappa": 0.43514644351464427,
+   "reading": "too weak to use the LLM judge as confirmatory evidence"
+  },
+  "opus": {
+   "n": 30,
+   "raw": 0.9,
+   "kappa": 0.7096774193548387,
+   "reading": "ok"
+  },
+  "gpt": {
+   "n": 30,
+   "raw": 0.8666666666666667,
+   "kappa": 0.6296296296296295,
+   "reading": "ok"
+  },
+  "det": {
+   "n": 30,
+   "raw": 0.7,
+   "kappa": 0.43514644351464427,
+   "reading": "too weak to use the LLM judge as confirmatory evidence"
+  },
+  "n": 30
+ },
+ "genuine": {
+  "primary": {
+   "n": 30,
+   "raw": 0.7,
+   "kappa": 0.43514644351464427,
+   "reading": "too weak to use the LLM judge as confirmatory evidence"
+  },
+  "opus": {
+   "n": 30,
+   "raw": 0.9,
+   "kappa": 0.7096774193548387,
+   "reading": "ok"
+  },
+  "gpt": {
+   "n": 30,
+   "raw": 0.8666666666666667,
+   "kappa": 0.6296296296296295,
+   "reading": "ok"
+  },
+  "det": {
+   "n": 30,
+   "raw": 0.7,
+   "kappa": 0.43514644351464427,
+   "reading": "too weak to use the LLM judge as confirmatory evidence"
+  },
+  "n": 30
+ },
+ "marked": {
+  "primary": {
+   "n": 0,
+   "raw": null,
+   "kappa": null
+  },
+  "opus": {
+   "n": 0,
+   "raw": null,
+   "kappa": null
+  },
+  "gpt": {
+   "n": 0,
+   "raw": null,
+   "kappa": null
+  },
+  "det": {
+   "n": 0,
+   "raw": null,
+   "kappa": null
+  },
+  "n": 0
+ },
+ "retest": {
+  "pairs": [
+   [
+    "Y",
+    "N"
+   ],
+   [
+    "N",
+    "N"
+   ],
+   [
+    "N",
+    "N"
+   ]
+  ],
+  "agree": 0.6666666666666666
+ },
+ "q2_approve_rate_by_stratum": {
+  "risky": 0.6666666666666666,
+  "split": 0.8333333333333334,
+  "t_matched": 1.0,
+  "trap_adjacent": 1.0
+ },
+ "genuine_main_risky_items": 12
+}

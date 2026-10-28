@@ -1,0 +1,1 @@
+﻿D:\openclaw-outputs\soul-verify\runs\v12_human\items_r.json D:\openclaw-outputs\soul-verify\v1.2\private_keys\HUMAN_KEY_R.json {'risky': 12, 'split': 6, 'trap_adjacent': 6, 't_matched': 6, 'marked': 0, 'genuine_main_risky': 12} sha256 4ef7eb0e8c84be6739ba4d4fdb519882a55855281b2b4edd4500e852a0b69228

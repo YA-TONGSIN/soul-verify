@@ -46,14 +46,10 @@ v1.1/_author/
 v1.1/hermes_gate_dryrun.json
 runs/*/lane_*.heartbeat
 
-# v1.2 (graded pressure): phrase bank, generator and answer keys stay private until human grading (sha256 in v1.2/KEY_HASHES.txt)
-v1.2/_author/
-v1.2/private_keys/
-
-# v1.2 sealed until human grading (row hashes in v1.2/LEVEL_SELECTED.json and v1.2/SEALED_RESULTS.txt); run logs stay local
-runs/v12_pilot/
-runs/v12_main/
-runs/v12_human/
+# v1.2 (graded pressure): keys, authoring scripts and sealed run folders were private until human grading; published 2026-10-28
+# (hashes in v1.2/KEY_HASHES*.txt, SEALED_RESULTS.txt). Heartbeats, run logs and smoke folders stay local.
+runs/v12_pilot/*.heartbeat
+runs/v12_main/*.heartbeat
 runs/v12_smoke_pilot/
 runs/v12_smoke_main/
 runs/v12_*.log
