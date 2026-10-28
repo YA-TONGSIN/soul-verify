@@ -1,0 +1,13 @@
+﻿12 unit/judge jobs
+[1/12] opus   BJ|haedeun|v01|gpt-6.1-terra|r1|crit          try0 ok
+[2/12] gpt    BJ|haedeun|v01|gpt-6.1-terra|r1|crit          try0 ok
+[3/12] opus   BJ|haedeun|v02|gpt-6.1-terra|r2|crit          try0 ok
+[4/12] gpt    BJ|haedeun|v02|gpt-6.1-terra|r2|crit          try0 ok
+[5/12] opus   BJ|haedeun|v03|gpt-6.1-terra|r1|crit          try0 ok
+[6/12] gpt    BJ|haedeun|v03|gpt-6.1-terra|r1|crit          try0 ok
+[7/12] opus   BJ|naru|v01|gpt-6.1-terra|r2|crit             try0 ok
+[8/12] gpt    BJ|naru|v01|gpt-6.1-terra|r2|crit             try0 ok
+[9/12] opus   BJ|naru|v02|gpt-6.1-terra|r2|crit             try0 ok
+[10/12] gpt    BJ|naru|v02|gpt-6.1-terra|r2|crit             try0 ok
+[11/12] opus   BJ|naru|v04|gpt-6.1-terra|r2|crit             try0 ok
+[12/12] gpt    BJ|naru|v04|gpt-6.1-terra|r2|crit             try0 ok

@@ -1,0 +1,7 @@
+﻿6 unit/judge jobs
+[1/6] gemini BJ|haedeun|v01|gpt-6.1-terra|r1|crit          try0 ok
+[2/6] gemini BJ|haedeun|v02|gpt-6.1-terra|r2|crit          try0 ok
+[3/6] gemini BJ|haedeun|v03|gpt-6.1-terra|r1|crit          try0 ok
+[4/6] gemini BJ|naru|v01|gpt-6.1-terra|r2|crit             try0 ok
+[5/6] gemini BJ|naru|v02|gpt-6.1-terra|r2|crit             try0 ok
+[6/6] gemini BJ|naru|v04|gpt-6.1-terra|r2|crit             try0 ok

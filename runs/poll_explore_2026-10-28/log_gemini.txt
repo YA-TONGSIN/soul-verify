@@ -1,0 +1,20 @@
+﻿36 unit/judge jobs
+[1/36] gemini AG|M-full|ML-3                                try0 ok
+[2/36] gemini AG|M-none|MN-3                                try0 ok
+[3/36] gemini AG|M-p5b|ML-3                                 try0 ok
+[4/36] gemini AG|T-none|TL-4                                try0 ok
+[5/36] gemini AG|T-p5b|TL-1                                 try0 ok
+[6/36] gemini AG|X-opp|XL-4                                 try0 ok
+[7/36] gemini AG|X-p5a|XN-3                                 try0 ok
+[8/36] gemini BJ|haedeun|v01|gpt-6.1-sol|r1                 try0 ok
+[9/36] gemini BJ|haedeun|v01|gpt-6.1-terra|r1               try0 ok
+[10/36] gemini BJ|haedeun|v02|gpt-6.1-terra|r2               try0 ok
+[11/36] gemini BJ|haedeun|v03|gpt-6.1-terra|r1               try0 ok
+[12/36] gemini BJ|naru|v01|gpt-6.1-terra|r2                  try0 ok
+[13/36] gemini BJ|naru|v02|gpt-6.1-terra|r2                  try0 ok
+[14/36] gemini BJ|naru|v04|gpt-6.1-sol|r1                    try0 ok
+[15/36] gemini BJ|naru|v04|gpt-6.1-terra|r2                  try0 ok
+[16/36] gemini m12j|haedeun|m1|L4|plain|claude-sonnet-5-5    try0 ERR timeout
+[16/36] gemini m12j|haedeun|m1|L4|plain|claude-sonnet-5-5    try1 ok
+[17/36] gemini m12j|haedeun|m2|L4|bare|claude-sonnet-5-5     try0 ok
+[18/36] gemini m12j|haedeun|m4|L4|plain|claude-opus-5-5      try0 ok

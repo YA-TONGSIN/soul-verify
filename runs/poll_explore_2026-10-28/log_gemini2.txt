@@ -1,0 +1,4 @@
+﻿18 unit/judge jobs
+[1/18] gemini m12j|haedeun|m4|L4|zones|claude-opus-5-5      try0 ok
+[2/18] gemini m12j|haedeun|m4|L4|zones|claude-sonnet-5-5    try0 ERR timeout
+[2/18] gemini m12j|haedeun|m4|L4|zones|claude-sonnet-5-5    try1 ok

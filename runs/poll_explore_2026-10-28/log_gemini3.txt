@@ -1,0 +1,17 @@
+﻿16 unit/judge jobs
+[1/16] gemini m12j|haedeun|m5|L4|plain|claude-opus-5-5      try0 ok
+[2/16] gemini m12j|haedeun|m5|L4|zones|claude-opus-5-5      try0 ok
+[3/16] gemini m12j|haedeun|m5|L4|zones|claude-sonnet-5-5    try0 ok
+[4/16] gemini m12j|haedeun|m6|L4|bare|claude-sonnet-5-5     try0 ok
+[5/16] gemini m12j|haedeun|m6|L4|plain|claude-sonnet-5-5    try0 ok
+[6/16] gemini m12j|naru|m1|L4|bare|claude-opus-5-5          try0 ok
+[7/16] gemini m12j|naru|m1|L4|plain|claude-sonnet-5-5       try0 ok
+[8/16] gemini m12j|naru|m2|L4|plain|claude-opus-5-5         try0 ok
+[9/16] gemini m12j|naru|m2|L4|plain|claude-sonnet-5-5       try0 ok
+[10/16] gemini m12j|naru|m3|L4|plain|gpt                     try0 ok
+[11/16] gemini m12j|naru|m4|L4|bare|claude-opus-5-5          try0 ok
+[12/16] gemini m12j|naru|m4|L4|bare|claude-sonnet-5-5        try0 ok
+[13/16] gemini m12j|naru|m4|L4|plain|claude-opus-5-5         try0 ok
+[14/16] gemini m12j|naru|m4|L4|plain|claude-sonnet-5-5       try0 ok
+[15/16] gemini m12j|naru|m5|L4|plain|claude-sonnet-5-5       try0 ok
+[16/16] gemini m12j|naru|m6|L4|bare|claude-sonnet-5-5        try0 ok

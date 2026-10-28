@@ -21,6 +21,59 @@ sys.path.insert(0, str(REPO / "v1.2"))
 from s2common import extract_json  # noqa: E402
 
 agy_cli.EMPTY = pathlib.Path(r"D:\agy-judge-ws")   # neutral empty cwd (ADDENDUM 3); the repo's agy-empty path contains the project name
+
+
+class AgyStream(agy_cli.AgyCLI):
+    """Same command and WRAP prompt as AgyCLI, but `--output-format stream-json`: the answer is taken from the `result` event and the agy
+    process is then ended. Reason (NOTES): with `json` output agy sometimes did not exit after a finished answer (16:26, 16:35), so the
+    call hit the timeout although the model had answered. The prompt and model are unchanged."""
+
+    def complete(self, system, prompt, model, timeout=300):
+        import os
+        import subprocess
+        import threading
+        from soul_verify.adapters.base import Completion
+        mid = agy_cli.DEFAULT_MODEL if model in ("gemini", "agy", "") else model
+        full = agy_cli.WRAP.format(system=system.strip(), prompt=prompt.strip())
+        cmd = [self.exe, "-p", full, "--model", mid, "--print-timeout", f"{int(timeout)}s", "--output-format", "stream-json"]
+        t0 = time.time()
+        p = subprocess.Popen(cmd, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding="utf-8",
+                             cwd=agy_cli.EMPTY, env=dict(os.environ))
+        timer = threading.Timer(timeout + 30, p.kill)
+        timer.start()
+        result, usage, err_lines = None, {}, []
+        try:
+            for line in p.stdout:
+                try:
+                    ev = json.loads(line)
+                except json.JSONDecodeError:
+                    err_lines.append(line)
+                    continue
+                su = ev.get("step_update") or {}
+                if su.get("usage"):
+                    usage = su["usage"]
+                if ev.get("event") == "result":
+                    result = ev.get("result") or {}
+                    break
+        finally:
+            timer.cancel()
+            exited = p.poll() is not None
+            if not exited:
+                p.kill()
+            p.wait()
+        dt_ = time.time() - t0
+        if result is None:
+            msg = ("".join(err_lines) + (p.stderr.read() or ""))[-500:] or "timeout or no result event"
+            return Completion("", model, model_id=mid, duration_s=dt_, error=msg, rate_limited=any(h in msg.lower() for h in agy_cli.RATE_LIMIT_HINTS))
+        text = (result.get("response") or "").strip()
+        c = Completion(text=text, model=model, model_id=mid, duration_s=dt_, input_tokens=usage.get("input_tokens"),
+                       output_tokens=usage.get("output_tokens"),
+                       extra={"status": result.get("status"), "num_turns": result.get("num_turns"), "thinking_tokens": usage.get("thinking_tokens"),
+                              "conversation_id": result.get("conversation_id"), "transport": "stream-json"})
+        if result.get("status") != "SUCCESS" or not text:
+            c.error = json.dumps(result, ensure_ascii=False)[:500]
+            c.rate_limited = any(h in c.error.lower() for h in agy_cli.RATE_LIMIT_HINTS)
+        return c
 MODELS = {"gemini": "gemini-4-argon-medium", "opus": "claude-opus-5-5", "gpt_t": "gpt-6.1-sol", "gpt_r": "gpt"}
 STOP_HINTS = ("quota", "rate limit", "rate_limit", "429", "resource_exhausted", "usage limit", "login", "logged in", "authenticat", "401",
               "403", "oauth", "credential", "unauthorized", "sign in")
@@ -52,11 +105,12 @@ def main(a):
         mkey = g if g != "gpt" else ("gpt_t" if u["study"] == "t" else "gpt_r")
         model = MODELS[mkey]
         if model not in adapters:
-            adapters[model] = get_adapter(model if model != "gpt" else "gpt", SANDBOX)
+            adapters[model] = AgyStream(SANDBOX) if g == "gemini" else get_adapter(model, SANDBOX)
         for attempt in range(3):
             t0 = dt.datetime.now().astimezone().isoformat()
             try:
-                c = adapters[model].complete(u["system"], u["prompt"], model, timeout=900)
+                # gemini 300 s (NOTES: one agy hang after a finished answer at 900 s, 16:26); opus/gpt 900 s as in the original lanes
+                c = adapters[model].complete(u["system"], u["prompt"], model, timeout=300 if g == "gemini" else 900)
             except OSError as e:
                 c = None
                 err = f"launch: {e}"
