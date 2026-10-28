@@ -1,12 +1,12 @@
 # SOUL VERIFY v0.9 — Part III draft: Changing the brain, changing the body
 
-**Draft of Part III for preprint version 0.9 (2026-10-28, updated after the seals of waves 3 and 5 were opened). Status: waves 3 (v1.0) and 5 (v1.2) are complete, with human grading; wave 4 (v1.1) is still sealed, see its placeholders.**
+**Draft of Part III for preprint version 0.9 (2026-10-28, updated after the seals of waves 3, 5 and 4 were opened). Status: waves 3 (v1.0), 4 (v1.1) and 5 (v1.2) are complete, with human grading.**
 
 **Wunjong Shin**
 Independent Researcher
 dkakrptehsrk@gmail.com
 
-*Editorial note.* This file is a stand-alone draft of the new Part III. Section numbers `III.x` will be renumbered when it is merged into the v0.8 manuscript (after §6, before Limitations). All paths are relative to the `soul-verify` repository. Every number in this file is either quoted from a committed repository file or recomputed from public rows; the source of each is listed in `paper/part3_number_sources.md`. Cells marked **[SEALED — pending human grading]** (wave 4 only) are not yet known to the writer of this draft (see III.7). Numbers for waves 3 and 5 that were sealed until the author finished the human sheets (HT3, HT4, human–judge agreement, v1.2) were taken from the files published when the seals were opened (commits `057f425`, `8570a46`) and re-checked by `paper/part3_recompute_v12.py` (48 checks, 0 mismatches); the exploratory judge-panel rerun (commit `b6af7d3`) is labelled as such.
+*Editorial note.* This file is a stand-alone draft of the new Part III. Section numbers `III.x` will be renumbered when it is merged into the v0.8 manuscript (after §6, before Limitations). All paths are relative to the `soul-verify` repository. Every number in this file is either quoted from a committed repository file or recomputed from public rows; the source of each is listed in `paper/part3_number_sources.md`. Numbers for waves 3 and 5 that were sealed until the author finished the human sheets (HT3, HT4, human–judge agreement, v1.2) were taken from the files published when the seals were opened (commits `057f425`, `8570a46`) and re-checked by `paper/part3_recompute_v12.py` (48 checks, 0 mismatches); the wave 4 numbers come from the files published when its seal was opened (commit `1a6ebe8`) and were re-checked by `paper/part3_recompute_v11.py` (117 checks, 0 mismatches); the exploratory judge-panel rerun (commit `b6af7d3`) is labelled as such.
 
 ---
 
@@ -16,7 +16,7 @@ Parts I and II changed the model (model swaps) or the documents (changes to SOUL
 
 **Wave 5 (v1.2, "graded pressure")** is a redesign of the earlier trap experiments, whose plain condition sat at the floor (no risky proposal at all): it climbs a ladder of pressure levels in a pilot, picks the level by a rule fixed in advance, and then asks whether the zone table of the SOUL lowers the share of risky proposals (III.5). A last, exploratory rerun adds a third LLM judge to see whether a judge panel agrees better with the human grader (III.6).
 
-All three preregistered waves were committed and timestamped before their first study call, and all keep part of their results sealed until the author, who is the human grader, has finished the human sheets. The sealing is itself a design element and is described in III.7. At the time of this draft the seals of waves 3 and 5 are open; the seal of wave 4 is not.
+All three preregistered waves were committed and timestamped before their first study call, and all keep part of their results sealed until the author, who is the human grader, has finished the human sheets. The sealing is itself a design element and is described in III.7. At the time of this draft all three seals are open.
 
 ---
 
@@ -85,6 +85,8 @@ The OpenTimestamps receipts record the manifest hash; their Bitcoin anchoring ha
 | Main run: first / last subject call | 07:21:49 / 07:56:21 | `v1.1/NOTES.md` |
 | Commit `5a96af7` (sealed outputs: hashes only; human-key hash), proof commit `4e43de1` | 08:00:58 / 08:02:52 | `git log` |
 | Human page `/h/` online (clean archive of `4e43de1`); notes commit `41ee633`; proof commit `8e4ca84` | about 08:0x / 08:06:29 / 08:08:17 | `v1.1/NOTES.md`, `git log` |
+| `/h/` graded (client start / submitted); local private-copy page saved | 13:16:59 / 15:17:10; 18:31 | `runs/v11_human/export_h.json`; `v1.1/NOTES.md` |
+| Seal opened (hash check, analysis reproduced), commit `1a6ebe8`; proof commit `ac3cff5` | 18:37:16 / 18:40:29 | `git log`; `proofs/2026-10-28_1a6ebe8.txt` |
 
 *Human blind discrimination.* 30 items = 24 scored + 2 practice + 2 positive controls + 2 repeats: 12 synthetic pairs (H0 vs. MinH) on the grading website, 12 pairs from the private copy on a local offline page that cannot transmit data, 2 positive controls (H0 vs. X-noSOUL), 2 practice, 2 repeats. The question is which answer comes from the baseline body. "Don't know" counts 0.5. The key's SHA-256 was committed and stamped before either page was opened.
 
@@ -119,7 +121,7 @@ Separate family FB = {HB1}: accuracy of picking the baseline (H0) answer in (H0,
 
 ## III.3 Results (waves 3 and 4)
 
-Wave 3 results are complete (seal opened 2026-10-28 after the human sheet; III.3.3 gives the human check). Wave 4 results are still sealed and shown as placeholders that are not known to the writer. Wave 5 has its own section, III.5.
+Wave 3 results are complete (seal opened 2026-10-28 after the human sheet; III.3.3 gives the human check). Wave 4 results are complete (seal opened 2026-10-28 evening after both human pages; III.3.4–III.3.6). Wave 5 has its own section, III.5.
 
 ### III.3.1 Wave 3 (new brain): run summary
 
@@ -172,39 +174,79 @@ Repeat agreement: one of the three repeat pairs was the same; one pair differed 
 
 All 896 keys were settled: 704 subject answers (synthetic 544, including H4alt 64 and X-noSOUL 32; private copy 160) and 192 grading units, 0 errors, 0 blocked, 0 missing. Every subject answer was served by `claude-opus-5-5` (OpenClaw-style 544, MinH 96, Hermes 64 as recorded in the row metadata); graders were `claude-opus-5-5` and `gpt-6.1-sol`. The Hermes gate passed on its third attempt. Retrieval recall, which is deterministic and was fixed before any call, is part of the design and not a result: the gold entry is in the top-5 for all six corrected-fact items (with the superseded entry retrieved as well in all six) and for 2 of 6 far items of the synthetic agents (Naru 0/3, Haedeun 2/3). Under H3 and H4 (no tools) a far item can therefore not be answered by lookup.
 
-**Table III-5. Wave 4 confirmatory results.**
+The seal was opened on 2026-10-28 shortly before 18:37 KST (commit `1a6ebe8`), after both human pages had been graded and after a completeness check (all 15 numbers of the `/h/` page that are graded, i.e. 12 scored pairs, 2 positive controls and 1 repeat, were answered; practice items excluded; the local page 13 of 13). All 22 hashes of `v1.1/SEALED_RESULTS.txt`, `SEALED_SMOKE.txt` and `KEY_HASHES.txt` matched, and re-running the frozen `analyze_h.py` on the sealed rows reproduced `analysis_h.json` and both scored files byte for byte.
+
+**Table III-5. Wave 4 confirmatory results (synthetic agents; Holm over eight).**
 
 | Contrast | Effect | 95 % CI | Holm p (over 8) | Verdict |
 |---|---|---|---|---|
-| HH1 voice, H4 (MinH) − H0 | [SEALED — pending human grading] | [SEALED] | [SEALED] | [SEALED — pending human grading] |
-| HH2 memory, H4 − H0 | [SEALED — pending human grading] | [SEALED] | [SEALED] | [SEALED — pending human grading] |
-| HH3 locked promises, H4 − H0 | [SEALED — pending human grading] | [SEALED] | [SEALED] | [SEALED — pending human grading] |
-| HH1h voice, H4alt (Hermes) − H0 | [SEALED — pending human grading] | [SEALED] | [SEALED] | [SEALED — pending human grading] |
-| HH2h memory, H4alt − H0 | [SEALED — pending human grading] | [SEALED] | [SEALED] | [SEALED — pending human grading] |
-| HH3h locked promises, H4alt − H0 | [SEALED — pending human grading] | [SEALED] | [SEALED] | [SEALED — pending human grading] |
-| HH4 SOUL placement, H1 − H0 (F_style) | [SEALED — pending human grading] | [SEALED] | [SEALED] | [SEALED — pending human grading] |
-| HH5 retrieval, C2 − H0 (memory) | [SEALED — pending human grading] | [SEALED] | [SEALED] | [SEALED — pending human grading] |
+| HH1 voice, H4 (MinH) − H0 (32 cells) | 0.000 | [0, 0] | 0.0008 | **supported** (E6 warning) |
+| HH2 memory, H4 − H0 (12 cells) | −0.208 | [−0.458, 0] | 1.0 | **not supported** |
+| HH3 locked promises, H4 − H0 (8 cells) | 0.000 | [0, 0] | 0.0008 | **supported** (at ceiling) |
+| HH1h voice, H4alt (Hermes) − H0 (32 cells) | −0.010 | [−0.031, 0] | 0.0008 | **supported** (E6 warning) |
+| HH2h memory, H4alt − H0 (12 cells) | −0.208 | [−0.458, 0] | 1.0 | **not supported** |
+| HH3h locked promises, H4alt − H0 (8 cells) | 0.000 | [0, 0] | 0.0008 | **supported** (at ceiling) |
+| HH4 SOUL placement, H1 − H0 (F_style, 32 cells) | 0.000 | [0, 0] | 1.0 | **not supported** (0 non-zero cells; E6 warning) |
+| HH5 retrieval, C2 − H0 (memory, 12 cells) | −0.083 | [−0.208, 0] | 1.0 (raw 0.5) | **not supported** |
 
-**Table III-6. Wave 4 exploratory stepwise table (E1), means per condition.**
+*Source: `runs/v11_theseus/analysis_h.json`; means, cell counts, Holm adjustment and verdicts recomputed from `runs/v11_theseus/scored_synthetic.jsonl` by `paper/part3_recompute_v11.py`; CIs (cluster bootstrap) quoted. The NI p-value of a difference vector that never reaches the margin is the bootstrap floor 1/10,001; Holm × 8 gives 0.0008. E6 warning: see (C).*
+
+**(A) Four of eight confirmatory hypotheses were supported and four were not, and we report all of them.** The voice (F_style) and the locked promises (illegitimate-release score) passed non-inferiority for both new bodies. Memory did not: with either new body, memory accuracy fell by 0.208 on average over the 12 memory cells (point estimate below the margin of −0.10; one-sided NI p 0.82 before Holm), so HH2 and HH2h are not supported. HH4 (moving the SOUL from the system prompt to the user message changes the voice) was not supported: F_style was identical in all 32 cells. HH5 (retrieval alone changes memory accuracy) was not supported: C2 − H0 was −0.083 with 2 of 12 cells non-zero (raw sign-flip p 0.5). As preregistered, "NI not supported" does not mean "worse"; here, however, the point estimate (−0.21) is twice the margin, so a memory loss is the plausible reading, while the two-sided interval [−0.46, 0] still touches zero with 12 cells.
+
+**(B) The two new bodies behaved almost the same.** Hermes and MinH had the same memory accuracy (0.792) and the same contrast against H0; on F_style Hermes lost one marker in one cell (−0.010); illegitimate-release scores were 1.00 for both (E4, exploratory: no contrast between the two bodies has a CI that excludes 0).
+
+**(C) The voice result carries the preregistered E6 warning.** The document control X-noSOUL (no SOUL, MEMORY only) also scored F_style 1.000 on the agents' own spec (gap to H0 0.00 < 0.30), while it scored 0.203 on the opposite spec. The F_style markers of these two agents (polite 해요체 endings, the user's name with an honorific) are therefore reproduced from the MEMORY and the item wording even without a SOUL, and F_style does not separate SOUL-specific voice. HH1, HH1h and HH4 are reported with that warning: "the voice survives" means "the surface markers survive", which they also do with no SOUL. X-noSOUL did separate on the boundary: illegitimate-release score 0.53 and refusal rate 0.44, against 0.95–1.00 in every SOUL condition.
+
+**Table III-6. Wave 4 exploratory stepwise table (E1), means per condition (synthetic agents; uncorrected).**
 
 | Metric | H0 | H1 | H2 | H3 | H4 (MinH) | H4alt (Hermes) | C1t | C2 | X-noSOUL |
 |---|---|---|---|---|---|---|---|---|---|
-| F_style (own spec) | [SEALED — pending human grading] | | | | | | | | |
-| Memory accuracy | [SEALED — pending human grading] | | | | | | | | |
-| Illegitimate-release score | [SEALED — pending human grading] | | | | | | | | |
-| Legitimate change accepted | [SEALED — pending human grading] | | | | | | | | |
+| F_style (own spec) | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 0.990 | 1.000 | 0.992 | 1.000 |
+| Memory accuracy | 1.000 | 1.000 | 0.917 | 0.792 | 0.792 | 0.792 | 1.000 | 0.917 | 1.000 |
+| Illegitimate-release score | 1.000 | 1.000 | 0.969 | 1.000 | 1.000 | 1.000 | 0.953 | 1.000 | 0.531 |
+| Legitimate change honored | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
+| Everyday-task grader score (D9) | 0.988 | 0.963 | 0.638 | 0.513 | 0.500 | 0.513 | 0.925 | 0.563 | 0.900 |
 
-(All cells of Table III-6 are sealed; the row structure is as preregistered, and step contrasts H1−H0, H2−H1, H3−H2, H4−H3 with CIs will be reported in the same table.)
+| Step contrast (sign-flip; 95 % CI) | H1 − H0 | H2 − H1 | H3 − H2 | H4 − H3 |
+|---|---|---|---|---|
+| F_style (32 cells) | 0.000 [0, 0] | 0.000 [0, 0] | 0.000 [0, 0] | 0.000 [0, 0] |
+| Memory accuracy (12 cells) | 0.000 [0, 0] | −0.083 [−0.208, 0], p 0.5 | −0.125 [−0.375, 0.083], p 0.5 | 0.000 [0, 0] |
+| Everyday-task score (10 cells) | −0.025 [−0.075, 0], p 1.0 | **−0.325 [−0.512, −0.150], p 0.031** | −0.125 [−0.325, 0], p 0.25 | −0.013 [−0.037, 0], p 1.0 |
 
-**Table III-7. Human blind discrimination (HB1) and private-copy aggregate (E5).**
+*Source: `analysis_h.json` (`e1_steps`; `e7_p5` for the illegitimate-release row, illegitimate items only); means recomputed by `paper/part3_recompute_v11.py`. The illegitimate-release step contrasts in `e1_steps` pool the legitimate-change item (10 cells) and are not shown; none has a CI that excludes 0.*
+
+**(D) Where it first moves (E1, exploratory).** For F_style, the boundary and the legitimate change, no step moves. For memory accuracy, the losses come at the two retrieval steps (full MEMORY → top-5 retrieval at H2, then tools off at H3), but no single step's CI excludes zero with 12 cells. The items far from the memory wording carry the loss (E3): 1.000 at H0, 0.833 with retrieval and tools (C2, H2), 0.583 with retrieval and no tools (H3, H4); the corrected-fact items stayed at 1.000 in every condition. This matches the deterministic retrieval recall fixed before the run (far items: gold entry in the top-5 for 2 of 6) and is a design consequence, not a discovery. The only step whose CI excludes zero is in the everyday-task grader score, which the frozen analysis outputs but the preregistration does not list in E1 (D9): H2 − H1 = −0.325 [−0.512, −0.150] (uncorrected p 0.031); everyday answers that use memory in context got worse when the full MEMORY was replaced by retrieval. C1t (SOUL read with a tool) read `SOUL.md` in 100 % of answers and differed from H0 only by a small illegitimate-release drop (−0.05, [−0.10, −0.01], p 0.25). The pre-recorded expectation "retrieval is where it breaks first, as a memory break, not a voice break" is consistent with this table, with the qualification that no memory step is significant on its own.
+
+### III.3.5 Wave 4: human blind discrimination (HB1)
+
+The author graded both pages: the `/h/` website (synthetic pairs; 15 graded numbers; client start 13:16:59, submitted 15:17:10 KST; complete) and the offline local page (private copy; 13 of 13; saved 18:31 KST). Answers were "A", "B" or "모르겠음" ("?", counted 0.5), with a 1–5 confidence.
+
+**Table III-7. Human blind discrimination (H0 vs. H4 = MinH) and private-copy aggregate (E5).**
 
 | Item | Result |
 |---|---|
-| HB1: accuracy of picking the baseline answer, synthetic pairs (12 scored) | [SEALED — pending human grading] |
-| HB1 reading (supported / not distinguishable / inconclusive) | [SEALED — pending human grading] |
-| Positive controls (H0 vs. X-noSOUL) | [SEALED — pending human grading] |
-| Test–retest agreement | [SEALED — pending human grading] |
-| Private copy: aggregate means H0–H4 (E5), human pairs | [SEALED — pending human grading] |
+| **HB1, all 24 scored pairs** (correct / wrong / ?) | 9 / 6 / 9 → accuracy **0.563**, 95 % CP [0.347, 0.762], one-sided p 0.36 → **not supported** |
+| HB1 reading (preregistered rule) | upper bound 0.762 ≥ 0.75 → **"inconclusive"** (not "not distinguishable at this sample size") |
+| B1 synthetic pairs (12) | 5 / 5 / 2 → 0.500 [0.211, 0.789], p 0.60 |
+| B2 private-copy pairs (12; aggregate only) | 4 / 1 / 7 → 0.625 [0.312, 0.875], p 0.32 |
+| Sensitivity: "?" excluded; "?" counted wrong | 9 / 15 = 0.600, p 0.30; 9 / 24 = 0.375, p 0.92 (both not supported) |
+| Positive controls (H0 vs. X-noSOUL) | 1 of 2 correct (the rule's warning applies only if both are missed) |
+| Test–retest | B1: 1 pair, not the same ("?" first, the H0 answer on the repeat); B2: 1 pair, the same |
+| Correlation of human correctness with \|ΔF_style\| (preregistered) | B1 undefined (ΔF_style = 0 on all 12 pairs); all 24 pairs r = −0.03 (1 pair with ΔF_style ≠ 0) |
+| *Exploratory:* κ, human "told apart" vs. "automatic metrics differ" | all 24: 0.10 (raw agreement 0.625); B1: 0.06 |
+| Private copy, E5 (exploratory; 16 cells; opus-only grading), H0 / H1 / H2 / H3 / H4 | F_style 1.000 / 1.000 / 1.000 / 0.953 / 0.969; memory 1.000 / 1.000 / 0.833 / 0.667 / 0.667; illegitimate release 1.000 / 1.000 / 1.000 / 0.975 / 1.000; legitimate change 1.0 throughout |
+
+*Source: `runs/v11_human/human_h.json` (from `v1.1/human/agree_h.py`), `runs/v11_human/export_h.json`, `analysis_h.json` (`e5_ieum_aggregate`); B1 counts, the binomial p-values, integer Clopper–Pearson bounds and the B1 κ recomputed by `paper/part3_recompute_v11.py`; B2 and E5 are aggregates of private data and are quoted.*
+
+**HB1 was not supported, and the reading is "inconclusive".** The author picked the baseline answer in 9 of 24 pairs, the new body's answer in 6, and answered "don't know" in 9 (7 of them on the private-copy page). With "?" = 0.5 the accuracy was 0.563, not above chance (p 0.36). Because the upper confidence bound (0.762) is just above 0.75, the preregistered rule does not allow the reading "not distinguishable at this sample size"; it gives "inconclusive". We do not write that the two bodies are indistinguishable. On the synthetic pairs the author was exactly at chance (5 right, 5 wrong). The share of "?" answers is itself informative (exploratory): on 9 of 24 pairs the author, who knows the agents, did not see which answer came from the old body. How the 0.5 credit enters the exact test is not fixed by the preregistration; the choice made at unsealing and two alternatives are given in D5, and all three give "not supported".
+
+**The human check of the automatic metrics is weak by construction.** The preregistered correlation between human correctness and the automatic F_style difference cannot be computed on the synthetic pairs, because F_style was identical within every shown pair. Across all automatic metrics only 2 of the 12 synthetic pairs differed at all (both memory items); the exploratory κ between "the human told the pair apart" and "the metrics differ" was 0.06 (synthetic) and 0.10 (all pairs). The automatic metrics and the human agree that most pairs are alike, but not on *which* pairs differ.
+
+**Private copy (E5, exploratory).** The redacted copy of the author's own agent followed the synthetic pattern: memory accuracy 1.000 → 0.833 (retrieval) → 0.667 (retrieval without tools), a small voice drop without tools (0.953 and 0.969 at H3 and H4), locked promises intact. It is graded by opus only, and its answers are not published (III.8).
+
+### III.3.6 Wave 4: what the new body changed
+
+With the brain fixed, replacing the whole body (by either of two new bodies) left the surface voice and the locked promises within the 0.10 margin but lowered memory accuracy by about 0.21, twice the margin, which the preregistration had set to the largest between-model spread of exp11. The loss follows how MEMORY reaches the model (top-5 retrieval instead of the whole file, and no tool to look further), not where the SOUL sits (HH4: no change) and not which runtime assembles the prompt (H4 − H3 and E4: no change). The voice result is weaker than it looks, because these agents' voice markers survive even without a SOUL (E6). A person who knows the agents did not reliably tell the old body from the new one in 24 pairs, but the sample does not exclude a moderate ability to do so ("inconclusive").
 
 ---
 
@@ -227,7 +269,12 @@ All 896 keys were settled: 704 subject answers (synthetic 544, including H4alt 6
 - **D4** The gate used three attempts (≤ 6 calls allowed); 5 calls reached a model in total (1, 1, 3); gate calls are excluded from analysis.
 - **Observation, not a deviation.** Through the setup token, Hermes' Anthropic adapter places "You are Claude Code, Anthropic's official CLI for Claude." in the system prompt. This is part of the Hermes body as it reaches Opus without an API key and will be reported with the comparison of the two new bodies (E4).
 - **Preregistration changes before the freeze** (author decisions): both new bodies confirmatory (Holm over eight rather than five); the gate run after the stamp instead of before; the human pairs use MinH only.
-- **Sealing of the main results** (as in wave 3): answers, grades and analysis files are sealed by SHA-256 (`v1.1/SEALED_RESULTS.txt`) until both human pages are graded. The `/h/` page was deployed from a clean archive of commit `4e43de1` so that uncommitted files of a later study were not uploaded; no test submission was sent.
+- **Sealing of the main results** (as in wave 3): answers, grades and analysis files are sealed by SHA-256 (`v1.1/SEALED_RESULTS.txt`) until both human pages are graded. The `/h/` page was deployed from a clean archive of commit `4e43de1` so that uncommitted files of a later study were not uploaded; no test submission was sent. The seal was opened after both pages were graded (commit `1a6ebe8`, proof `ac3cff5`); every hash matched.
+- **D5 (human analysis written after the answers existed)** `v1.1/human/agree_h.py` was written at unsealing, after both answer files had been received. It follows prereg 6-1/8; two points the preregistration leaves open were decided there: "?" = 0.5 enters the exact binomial as the expectation over fair-coin resolutions of each "?" (Clopper–Pearson with k = correct + ½·"?"), with "?" excluded and "?" counted wrong as sensitivity analyses; HB1 is computed over all 24 scored pairs (prereg 6-1 names no block), with each block reported. Every variant gives "not supported".
+- **D6** An earlier save of the private page's answers had been written into the repository folder (untracked); it was moved to the private folder before any commit and never committed.
+- **D7** `.gitattributes` marks the wave 4 run folders `-text` (as in waves 3 and 5); committed blobs re-checked against the sealed hashes.
+- **D8** The B1 repeat pair (first answer "?", repeat answer the H0 side) is counted as "not the same"; the preregistration does not say how "?" enters the retest.
+- **D9 (exploratory additions at unsealing)** κ between human discrimination and automatic differences; per-stratum human accuracy; the everyday-task grader score in the E1 table (output by the frozen analysis, but not named in the preregistered E1 list). No verdicts.
 
 ---
 
@@ -366,13 +413,14 @@ Question. At a pressure level where an Experience Engine *without* the zone tabl
 
 ## III.7 Sealing and blinding (design note)
 
-The human grader of the sheets is also the author of the study. To keep the author blind to the LLM judges' codes on the sheet items, the grader and judge outputs were kept out of the repository and bound by SHA-256 hashes that were committed and timestamped before any sheet was opened. For wave 3 this sealed HT3, HT4 and the exploratory grader-dependent columns; for wave 5 the whole main run, the pilot rows and the sheet key; for wave 4 it seals every metric. The seals of waves 3 and 5 were opened on 2026-10-28 (15:3x–15:4x) after the sheets were submitted, in the preregistered order (export, hash check of every sealed file, human agreement, publication); every hash matched. The writer of the first version of this draft did not open any sealed file; for the update, the writer used the published files after the seals were opened. The seal of wave 4 is still closed; its results are unknown to this draft. The sealed files will be released with the blinding keys after human grading.
+The human grader of the sheets is also the author of the study. To keep the author blind to the LLM judges' codes on the sheet items, the grader and judge outputs were kept out of the repository and bound by SHA-256 hashes that were committed and timestamped before any sheet was opened. For wave 3 this sealed HT3, HT4 and the exploratory grader-dependent columns; for wave 5 the whole main run, the pilot rows and the sheet key; for wave 4 every metric. The seals of waves 3 and 5 were opened on 2026-10-28 (15:3x–15:4x) and the seal of wave 4 at 18:37 after the sheets and pages were submitted, in the preregistered order (export, hash check of every sealed file, human agreement, publication); every hash matched. The writer of the first version of this draft did not open any sealed file; for the update, the writer used the published files after the seals were opened. Wave 4 adds one rule: before opening a seal, the number of items to be graded on the human page (practice excluded) is compared with the number of answers in the export, and the seal stays closed if any is missing (15 of 15 and 13 of 13 here). The private-copy key, items and answers of wave 4 stay private; their hashes are in `v1.1/KEY_HASHES.txt`.
 
 ---
 
 ## III.8 Limitations
 
-- **Two confirmatory hypotheses of wave 3 and the confirmatory hypothesis of wave 5 were not supported.** HT1 failed non-inferiority at margin 0.10 (a smaller margin or a larger sample might change this, but the margin was fixed in advance and not tuned; the decomposition by SOUL and condition is post hoc); HT4 was zero in both arms by judge code; H1 of wave 5 was not supported.
+- **Two confirmatory hypotheses of wave 3, four of wave 4 and the confirmatory hypothesis of wave 5 were not supported.** HT1 failed non-inferiority at margin 0.10 (a smaller margin or a larger sample might change this, but the margin was fixed in advance and not tuned; the decomposition by SOUL and condition is post hoc); HT4 was zero in both arms by judge code; in wave 4, memory did not pass non-inferiority with either new body (HH2, HH2h), SOUL placement did not change the voice (HH4) and retrieval alone did not significantly change memory (HH5); HB1 was not supported ("inconclusive"); H1 of wave 5 was not supported.
+- **The voice measure does not separate SOUL-specific voice in wave 4.** The no-SOUL control reached the same F_style (1.000) as every SOUL condition (E6 warning), so HH1, HH1h and HH4 say little about the SOUL itself; the boundary measure did separate.
 - **The LLM judges did not pass the human check for the cases that matter.** κ on Terra items was 0.06 and on the primary v1.2 classifier 0.435 (both below 0.6). HT3 and HT4, the graded exploratory columns of wave 3, and H1 of wave 5 rest on codes that the human grader did not confirm. The two v1.2 LLM judges alone reached 0.71 and 0.63, but this is a post hoc subset and sheet R covers Claude answers only.
 - **The human check is small and incomplete.** v1.0: 19 of 27 items answered, 12 Terra items, only 2 on T1; with a Korean LLM translation on screen for items 1–18 (D-6) and the bug fix of D-7 before reading; v1.2: 30 non-repeat items, all Claude answers in the risky stratum, balance targets not met (D5). One rater, who is also the author and designer.
 - **A panel of judges is not independent.** The exploratory third judge (Gemini) agreed with opus on every item; correlated errors remain. The question wording of the human sheet may itself be ambiguous (unverified); the revised criterion is circular (III.6).
@@ -383,13 +431,13 @@ The human grader of the sheets is also the author of the study. To keep the auth
 - **Few cells.** HH2 and HH3 have 12 and 8 cells; power is limited, and ceiling effects on HH3 are expected. Interactions along the chain H0 → H4 are not separable: each step changes one component but on top of earlier changes, and the single-factor controls cover only ① (C1t) and ② (C2); tools alone and runtime alone were left out for budget.
 - **One example of another body each.** MinH and Hermes are two examples of "another body"; MinH is minimal in what the model is given, not in transport (the same CLI). Hermes' added identity line and the isolated configuration are part of that body, not a general property of Hermes deployments. The OpenClaw-style baseline is a sanitized snapshot of a prompt skeleton, not the live system.
 - **Synthetic agents only.** Two synthetic Korean agents with material written by us (waves 4 and 5); the retrieval design of wave 4 makes some far items unanswerable without tools by construction (not a finding).
-- **One human rater, the author,** who also designed the study and knows the agent; for wave 4, 12 scored synthetic pairs and 12 private-copy pairs are small, and HB1 can at best support "not distinguishable at this sample size".
+- **One human rater, the author,** who also designed the study and knows the agent; for wave 4, 12 scored synthetic pairs and 12 private-copy pairs are small; 9 of 24 were answered "don't know", HB1 was "inconclusive", and the preregistered correlation with ΔF_style was undefined on the synthetic pairs because F_style never differed within a pair.
 - **Private copy.** Redacted copy of the author's own agent documents; content is not published and cannot be inspected by readers, so only the hashes of the private materials and aggregate numbers can be checked. Redaction removed material, so the copy is not identical to the live agent.
 - **Time and account.** The main runs lasted about one hour (wave 3, 21:07–22:07), about 35 minutes (wave 4, 07:21–07:56) and about 35 minutes (wave 5, 12:34–13:08), on subscription CLIs; rate-limit behavior and server-side versions are not controlled (the wave 5 pilot lost about 2 h 39 min to a session limit, D2). Claude calls ran on a team account whose end date set the deadline.
-- **Sealed results.** Until the wave 4 sealed files are opened, claims about HH1–HH5, HB1 and the private copy cannot be made; the text above must not be read as predicting them.
+- **The everyday-task drop is exploratory.** The one step contrast with a CI excluding zero (H2 − H1 on the everyday-task grader score) is on a metric not named in the preregistered E1 list, uncorrected, and graded by LLMs that the human check of wave 4 did not test.
 
 ---
 
 ## III.9 Revision note (v0.8 → v0.9, Part III)
 
-Added: waves 3, 4 and 5 (preregistrations committed `4a79bf2`, `1c22078` and `4561f09`, each timestamped before its first study call). Updated after the seals of waves 3 and 5 were opened (commits `057f425`, `8570a46`): wave 3 now complete (HT1 not supported, HT2 supported, HT3 supported, HT4 not supported; human–judge κ on Terra 0.06 < 0.6; deviations D-6 to D-8); wave 5 added (H1 not supported; primary classifier κ 0.435 < 0.6; pilot plain rate 0 at every level; risk only in the bare condition, exploratory); exploratory three-judge panel (commit `b6af7d3`). To update after wave 4 human grading: Tables III-5, III-6, III-7; release of the sealed wave 4 files and keys; Bitcoin anchoring of the new OpenTimestamps receipts; renumbering `III.x` into the v0.8 section scheme; Abstract and Contributions (add Part III). No Zenodo deposit is made with this draft.
+Added: waves 3, 4 and 5 (preregistrations committed `4a79bf2`, `1c22078` and `4561f09`, each timestamped before its first study call). Updated after the seals of waves 3 and 5 were opened (commits `057f425`, `8570a46`): wave 3 now complete (HT1 not supported, HT2 supported, HT3 supported, HT4 not supported; human–judge κ on Terra 0.06 < 0.6; deviations D-6 to D-8); wave 5 added (H1 not supported; primary classifier κ 0.435 < 0.6; pilot plain rate 0 at every level; risk only in the bare condition, exploratory); exploratory three-judge panel (commit `b6af7d3`). Updated after the seal of wave 4 was opened (commit `1a6ebe8`, proof `ac3cff5`): Tables III-5 to III-7 and III.3.5–III.3.6 (HH1, HH1h, HH3, HH3h supported; HH2, HH2h, HH4, HH5 not supported; E6 warning; HB1 not supported, "inconclusive"; private copy as aggregates only); wave 4 deviations D5–D9. Still to do: Bitcoin anchoring of the new OpenTimestamps receipts; renumbering `III.x` into the v0.8 section scheme; Abstract and Contributions (add Part III). No Zenodo deposit is made with this draft.

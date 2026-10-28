@@ -113,3 +113,36 @@ The first paragraph above ("No sealed file ... was opened") describes the first 
 
 ## Number counting for the report
 Numbers added or changed in this update: see `paper/part3_number_sources.md` rows above; recomputed or compared checks: 48 (`part3_recompute_v12_out.json`), mismatches 0.
+
+---
+# Update 2026-10-28 evening (after the seal of wave 4 was opened)
+Wave 4 files became public in commit `1a6ebe8` (proof `ac3cff5`). Check script: `paper/part3_recompute_v11.py` -> `paper/part3_recompute_v11_out.json` (**117 checks, 0 mismatches**). **R3** = recomputed by this script from `runs/v11_theseus/scored_synthetic.jsonl`, `runs/v11_human/export_h.json` and the public B1 rows of `runs/v11_human/human_h.json`, independently of `v1.1/analyze_h.py` / `agree_h.py`; **Q** = quoted; **D** = derived by arithmetic. Private-copy numbers (B2, E5) are aggregates of private data and can only be quoted.
+
+## Wave 4 (v1.1)
+| Number | Source | How | Match |
+|---|---|---|---|
+| completeness: `/h/` 15 graded numbers (12 scored, 2 controls, 1 repeat; practice 101–102 excluded), 15 answered; local 13/13 | `v1.1/human/build_pairs_h.py`, `human-grading-web/public/h/items.json`, `export_h.json`; `human_h.json` (`completeness`) | R3 (export count 1, 15 answers), Q | ok |
+| 22 hashes matched; analysis reproduced byte for byte | `v1.1/NOTES.md` (SHA-256 of re-run outputs = sealed hashes) | Q | ok |
+| `/h/` 13:16:59 – 15:17:10 KST; local saved 18:31; seal commit `1a6ebe8` 18:37:16, proof `ac3cff5` 18:40:29 | `export_h.json` (UTC +9 h); `v1.1/NOTES.md`; `git log` | Q, D | ok |
+| HH1 0.000 (32), HH2 −0.208 (12), HH3 0.000 (8), HH1h −0.010 (32), HH2h −0.208 (12), HH3h 0.000 (8), HH4 0.000 (32), HH5 −0.083 (12) | `analysis_h.json` | R3 (cell means over shared replicates, 8 means + 8 cell counts, equal to analysis to 1e-9) | ok |
+| Holm p 0.0008 / 1.0; verdicts 4 supported, 4 not | `analysis_h.json` | R3 (Holm over the 8 raw p) | ok |
+| CIs [0,0], [−0.458, 0], [−0.031, 0], [−0.208, 0]; one-sided NI p HH2 0.82; HH5 raw p 0.5 | `analysis_h.json` | Q (bootstrap / sign-flip not re-run) | ok |
+| HH5 2 of 12 cells non-zero; HH4 0 of 32 | `scored_synthetic.jsonl` | R3 (`n_nonzero` in out.json) | ok |
+| E6: X-noSOUL F_style own 1.000, opposite 0.203; gap 0.00 | `analysis_h.json` (`e6_doc_control`) | R3 | ok |
+| X-noSOUL illegitimate release 0.531, refusal 0.44 | `analysis_h.json` (`e7_p5`) | R3 (release), Q (refusal 0.4375) | ok |
+| Table III-6 means (F_style, memory, illegitimate release, legit change, everyday task) for 9 conditions | `analysis_h.json` (`e1_steps`, `e7_p5`) | R3 (45 values) | ok |
+| step contrasts (F_style, memory, task) with CIs and p | `analysis_h.json` (`e1_steps.steps`) | Q; task H2−H1 mean −0.325, 10 cells R3 | ok |
+| E2: C1t SOUL read 100 %; C1t − H0 illegitimate release −0.05 [−0.10, −0.01], p 0.25 | `analysis_h.json` (`e2_toolread`) | R3 (read rate), Q | ok |
+| E3 far items 1.000 / 0.833 / 0.833 / 0.583 / 0.583 (H0, C2, H2, H3, H4); corrected 1.000 | `analysis_h.json` (`e3_retrieval`) | R3 (far), Q (corrected) | ok |
+| E4: no contrast between bodies excludes 0 | `analysis_h.json` (`e4_alt_body`) | Q | ok |
+| HB1 all 24: 9 / 6 / 9, accuracy 0.5625, p 0.364, CP [0.347, 0.762], "inconclusive" | `human_h.json` | R3 (counts = B1 from export + B2 counts quoted; p recomputed, equal to `human_h.json` to 1e-12); CP real-k bound quoted, integer CP bounds R3 | ok |
+| sensitivity: '?' excluded 9/15, p 0.304; '?' wrong 9/24, p 0.924 | `human_h.json` | R3 | ok |
+| B1: 5 / 5 / 2, 0.500, p 0.605, CP [0.211, 0.789] | `export_h.json` + `human_h.json` `b1_items` | R3 (counts, p), Q (CP) | ok |
+| B2: 4 / 1 / 7, 0.625 [0.312, 0.875], p 0.324 | `human_h.json` (`per_block.B2_private_copy_aggregate_only`) | Q (private) | not recomputable from public files |
+| positive controls 1 of 2; retest B1 not same, B2 same | `export_h.json`, `human_h.json` | R3 (B1), Q (B2) | ok |
+| correlation: B1 undefined; all r −0.03, 1 pair ΔF_style ≠ 0 | `human_h.json` | Q (B1 ΔF_style = 0 checked through the auto-difference rows) | ok |
+| exploratory κ B1 0.0625, all 0.10; 2 of 12 B1 pairs differ | `human_h.json` | R3 (B1), Q (all) | ok |
+| E5 private copy means H0–H4 | `analysis_h.json` (`e5_ieum_aggregate`) | Q (private) | not recomputable |
+| D5–D9 wording | `v1.1/DEVIATIONS.md` | Q | ok |
+
+Not included anywhere (privacy): the private copy's items, answers, keys, per-item human answers, qids and any SOUL/MEMORY content.

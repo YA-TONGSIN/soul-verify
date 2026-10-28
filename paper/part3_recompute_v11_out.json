@@ -1,0 +1,823 @@
+{
+ "confirmatory": {
+  "HH1": {
+   "mean": 0.0,
+   "n_cells": 32,
+   "n_nonzero": 0,
+   "holm_p": 0.0007999200079992001,
+   "verdict": "supported"
+  },
+  "HH2": {
+   "mean": -0.20833333333333334,
+   "n_cells": 12,
+   "n_nonzero": 3,
+   "holm_p": 1.0,
+   "verdict": "not supported"
+  },
+  "HH3": {
+   "mean": 0.0,
+   "n_cells": 8,
+   "n_nonzero": 0,
+   "holm_p": 0.0007999200079992001,
+   "verdict": "supported"
+  },
+  "HH1h": {
+   "mean": -0.010416666666666668,
+   "n_cells": 32,
+   "n_nonzero": 1,
+   "holm_p": 0.0007999200079992001,
+   "verdict": "supported"
+  },
+  "HH2h": {
+   "mean": -0.20833333333333334,
+   "n_cells": 12,
+   "n_nonzero": 3,
+   "holm_p": 1.0,
+   "verdict": "not supported"
+  },
+  "HH3h": {
+   "mean": 0.0,
+   "n_cells": 8,
+   "n_nonzero": 0,
+   "holm_p": 0.0007999200079992001,
+   "verdict": "supported"
+  },
+  "HH4": {
+   "mean": 0.0,
+   "n_cells": 32,
+   "n_nonzero": 0,
+   "holm_p": 1.0,
+   "verdict": "not supported"
+  },
+  "HH5": {
+   "mean": -0.08333333333333333,
+   "n_cells": 12,
+   "n_nonzero": 2,
+   "holm_p": 1.0,
+   "verdict": "not supported"
+  }
+ },
+ "e1_means": {
+  "F_style": {
+   "H0": 1.0,
+   "H1": 1.0,
+   "H2": 1.0,
+   "H3": 1.0,
+   "H4": 1.0,
+   "H4alt": 0.9895833333333334,
+   "C1t": 1.0,
+   "C2": 0.9921875,
+   "XnoSOUL": 1.0
+  },
+  "mem_acc": {
+   "H0": 1.0,
+   "H1": 1.0,
+   "H2": 0.9166666666666666,
+   "H3": 0.7916666666666666,
+   "H4": 0.7916666666666666,
+   "H4alt": 0.7916666666666666,
+   "C1t": 1.0,
+   "C2": 0.9166666666666666,
+   "XnoSOUL": 1.0
+  },
+  "release_illegit": {
+   "H0": 1.0,
+   "H1": 1.0,
+   "H2": 0.96875,
+   "H3": 1.0,
+   "H4": 1.0,
+   "H4alt": 1.0,
+   "C1t": 0.953125,
+   "C2": 1.0,
+   "XnoSOUL": 0.53125
+  },
+  "change_honored": {
+   "H0": 1.0,
+   "H1": 1.0,
+   "H2": 1.0,
+   "H3": 1.0,
+   "H4": 1.0,
+   "H4alt": 1.0,
+   "C1t": 1.0,
+   "C2": 1.0,
+   "XnoSOUL": 1.0
+  },
+  "task": {
+   "H0": 0.9875,
+   "H1": 0.9625,
+   "H2": 0.6375,
+   "H3": 0.5125,
+   "H4": 0.5,
+   "H4alt": 0.5125,
+   "C1t": 0.925,
+   "C2": 0.5625,
+   "XnoSOUL": 0.9
+  }
+ },
+ "checks": [
+  {
+   "name": "HH1.mean",
+   "got": 0.0,
+   "want": 0.0,
+   "ok": true
+  },
+  {
+   "name": "HH1.n_cells",
+   "got": 32,
+   "want": 32,
+   "ok": true
+  },
+  {
+   "name": "HH1.mean=analysis",
+   "got": 0.0,
+   "want": 0.0,
+   "ok": true
+  },
+  {
+   "name": "HH2.mean",
+   "got": -0.20833333333333334,
+   "want": -0.2083,
+   "ok": true
+  },
+  {
+   "name": "HH2.n_cells",
+   "got": 12,
+   "want": 12,
+   "ok": true
+  },
+  {
+   "name": "HH2.mean=analysis",
+   "got": -0.20833333333333334,
+   "want": -0.20833333333333334,
+   "ok": true
+  },
+  {
+   "name": "HH3.mean",
+   "got": 0.0,
+   "want": 0.0,
+   "ok": true
+  },
+  {
+   "name": "HH3.n_cells",
+   "got": 8,
+   "want": 8,
+   "ok": true
+  },
+  {
+   "name": "HH3.mean=analysis",
+   "got": 0.0,
+   "want": 0.0,
+   "ok": true
+  },
+  {
+   "name": "HH1h.mean",
+   "got": -0.010416666666666668,
+   "want": -0.0104,
+   "ok": true
+  },
+  {
+   "name": "HH1h.n_cells",
+   "got": 32,
+   "want": 32,
+   "ok": true
+  },
+  {
+   "name": "HH1h.mean=analysis",
+   "got": -0.010416666666666668,
+   "want": -0.010416666666666668,
+   "ok": true
+  },
+  {
+   "name": "HH2h.mean",
+   "got": -0.20833333333333334,
+   "want": -0.2083,
+   "ok": true
+  },
+  {
+   "name": "HH2h.n_cells",
+   "got": 12,
+   "want": 12,
+   "ok": true
+  },
+  {
+   "name": "HH2h.mean=analysis",
+   "got": -0.20833333333333334,
+   "want": -0.20833333333333334,
+   "ok": true
+  },
+  {
+   "name": "HH3h.mean",
+   "got": 0.0,
+   "want": 0.0,
+   "ok": true
+  },
+  {
+   "name": "HH3h.n_cells",
+   "got": 8,
+   "want": 8,
+   "ok": true
+  },
+  {
+   "name": "HH3h.mean=analysis",
+   "got": 0.0,
+   "want": 0.0,
+   "ok": true
+  },
+  {
+   "name": "HH4.mean",
+   "got": 0.0,
+   "want": 0.0,
+   "ok": true
+  },
+  {
+   "name": "HH4.n_cells",
+   "got": 32,
+   "want": 32,
+   "ok": true
+  },
+  {
+   "name": "HH4.mean=analysis",
+   "got": 0.0,
+   "want": 0.0,
+   "ok": true
+  },
+  {
+   "name": "HH5.mean",
+   "got": -0.08333333333333333,
+   "want": -0.0833,
+   "ok": true
+  },
+  {
+   "name": "HH5.n_cells",
+   "got": 12,
+   "want": 12,
+   "ok": true
+  },
+  {
+   "name": "HH5.mean=analysis",
+   "got": -0.08333333333333333,
+   "want": -0.08333333333333333,
+   "ok": true
+  },
+  {
+   "name": "HH1.holm_p",
+   "got": 0.0007999200079992001,
+   "want": 0.0007999200079992001,
+   "ok": true
+  },
+  {
+   "name": "HH2.holm_p",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "HH3.holm_p",
+   "got": 0.0007999200079992001,
+   "want": 0.0007999200079992001,
+   "ok": true
+  },
+  {
+   "name": "HH4.holm_p",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "HH5.holm_p",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "HH1h.holm_p",
+   "got": 0.0007999200079992001,
+   "want": 0.0007999200079992001,
+   "ok": true
+  },
+  {
+   "name": "HH2h.holm_p",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "HH3h.holm_p",
+   "got": 0.0007999200079992001,
+   "want": 0.0007999200079992001,
+   "ok": true
+  },
+  {
+   "name": "HH.supported_count",
+   "got": 4,
+   "want": 4,
+   "ok": true
+  },
+  {
+   "name": "HH1.verdict",
+   "got": "supported",
+   "want": "supported",
+   "ok": true
+  },
+  {
+   "name": "HH2.verdict",
+   "got": "not supported",
+   "want": "not supported",
+   "ok": true
+  },
+  {
+   "name": "HH3.verdict",
+   "got": "supported",
+   "want": "supported",
+   "ok": true
+  },
+  {
+   "name": "HH4.verdict",
+   "got": "not supported",
+   "want": "not supported",
+   "ok": true
+  },
+  {
+   "name": "HH5.verdict",
+   "got": "not supported",
+   "want": "not supported",
+   "ok": true
+  },
+  {
+   "name": "HH1h.verdict",
+   "got": "supported",
+   "want": "supported",
+   "ok": true
+  },
+  {
+   "name": "HH2h.verdict",
+   "got": "not supported",
+   "want": "not supported",
+   "ok": true
+  },
+  {
+   "name": "HH3h.verdict",
+   "got": "supported",
+   "want": "supported",
+   "ok": true
+  },
+  {
+   "name": "E1.F_style.H0",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.F_style.H1",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.F_style.H2",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.F_style.H3",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.F_style.H4",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.F_style.H4alt",
+   "got": 0.9895833333333334,
+   "want": 0.9896,
+   "ok": true
+  },
+  {
+   "name": "E1.F_style.C1t",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.F_style.C2",
+   "got": 0.9921875,
+   "want": 0.9922,
+   "ok": true
+  },
+  {
+   "name": "E1.F_style.XnoSOUL",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.mem_acc.H0",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.mem_acc.H1",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.mem_acc.H2",
+   "got": 0.9166666666666666,
+   "want": 0.9167,
+   "ok": true
+  },
+  {
+   "name": "E1.mem_acc.H3",
+   "got": 0.7916666666666666,
+   "want": 0.7917,
+   "ok": true
+  },
+  {
+   "name": "E1.mem_acc.H4",
+   "got": 0.7916666666666666,
+   "want": 0.7917,
+   "ok": true
+  },
+  {
+   "name": "E1.mem_acc.H4alt",
+   "got": 0.7916666666666666,
+   "want": 0.7917,
+   "ok": true
+  },
+  {
+   "name": "E1.mem_acc.C1t",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.mem_acc.C2",
+   "got": 0.9166666666666666,
+   "want": 0.9167,
+   "ok": true
+  },
+  {
+   "name": "E1.mem_acc.XnoSOUL",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.release_illegit.H0",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.release_illegit.H1",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.release_illegit.H2",
+   "got": 0.96875,
+   "want": 0.9688,
+   "ok": true
+  },
+  {
+   "name": "E1.release_illegit.H3",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.release_illegit.H4",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.release_illegit.H4alt",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.release_illegit.C1t",
+   "got": 0.953125,
+   "want": 0.9531,
+   "ok": true
+  },
+  {
+   "name": "E1.release_illegit.C2",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.release_illegit.XnoSOUL",
+   "got": 0.53125,
+   "want": 0.5313,
+   "ok": true
+  },
+  {
+   "name": "E1.change_honored.H0",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.change_honored.H1",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.change_honored.H2",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.change_honored.H3",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.change_honored.H4",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.change_honored.H4alt",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.change_honored.C1t",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.change_honored.C2",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.change_honored.XnoSOUL",
+   "got": 1.0,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "E1.task.H0",
+   "got": 0.9875,
+   "want": 0.9875,
+   "ok": true
+  },
+  {
+   "name": "E1.task.H1",
+   "got": 0.9625,
+   "want": 0.9625,
+   "ok": true
+  },
+  {
+   "name": "E1.task.H2",
+   "got": 0.6375,
+   "want": 0.6375,
+   "ok": true
+  },
+  {
+   "name": "E1.task.H3",
+   "got": 0.5125,
+   "want": 0.5125,
+   "ok": true
+  },
+  {
+   "name": "E1.task.H4",
+   "got": 0.5,
+   "want": 0.5,
+   "ok": true
+  },
+  {
+   "name": "E1.task.H4alt",
+   "got": 0.5125,
+   "want": 0.5125,
+   "ok": true
+  },
+  {
+   "name": "E1.task.C1t",
+   "got": 0.925,
+   "want": 0.925,
+   "ok": true
+  },
+  {
+   "name": "E1.task.C2",
+   "got": 0.5625,
+   "want": 0.5625,
+   "ok": true
+  },
+  {
+   "name": "E1.task.XnoSOUL",
+   "got": 0.9,
+   "want": 0.9,
+   "ok": true
+  },
+  {
+   "name": "E6.XnoSOUL_F_style_own",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E6.XnoSOUL_F_style_opposite",
+   "got": 0.203125,
+   "want": 0.2031,
+   "ok": true
+  },
+  {
+   "name": "E2.C1t_soul_read",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.far.H0",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.far.C2",
+   "got": 0.8333333333333334,
+   "want": 0.8333,
+   "ok": true
+  },
+  {
+   "name": "E3.far.H2",
+   "got": 0.8333333333333334,
+   "want": 0.8333,
+   "ok": true
+  },
+  {
+   "name": "E3.far.H3",
+   "got": 0.5833333333333334,
+   "want": 0.5833,
+   "ok": true
+  },
+  {
+   "name": "E3.far.H4",
+   "got": 0.5833333333333334,
+   "want": 0.5833,
+   "ok": true
+  },
+  {
+   "name": "E1.task.H2-H1",
+   "got": -0.325,
+   "want": -0.325,
+   "ok": true
+  },
+  {
+   "name": "E1.task.H2-H1.n",
+   "got": 10,
+   "want": 10,
+   "ok": true
+  },
+  {
+   "name": "n_synthetic_answers",
+   "got": 544,
+   "want": 544,
+   "ok": true
+  },
+  {
+   "name": "export.count",
+   "got": 1,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "export.answers",
+   "got": 15,
+   "want": 15,
+   "ok": true
+  },
+  {
+   "name": "B1.correct",
+   "got": 5,
+   "want": 5,
+   "ok": true
+  },
+  {
+   "name": "B1.wrong",
+   "got": 5,
+   "want": 5,
+   "ok": true
+  },
+  {
+   "name": "B1.unknown",
+   "got": 2,
+   "want": 2,
+   "ok": true
+  },
+  {
+   "name": "B1.accuracy",
+   "got": 0.5,
+   "want": 0.5,
+   "ok": true
+  },
+  {
+   "name": "HB1.n",
+   "got": 24,
+   "want": 24,
+   "ok": true
+  },
+  {
+   "name": "HB1.accuracy",
+   "got": 0.5625,
+   "want": 0.5625,
+   "ok": true
+  },
+  {
+   "name": "HB1.p",
+   "got": 0.3641662404406816,
+   "want": 0.3642,
+   "ok": true
+  },
+  {
+   "name": "HB1.p=human_h",
+   "got": 0.3641662404406816,
+   "want": 0.3641662404406816,
+   "ok": true
+  },
+  {
+   "name": "HB1.p_unknown_excluded",
+   "got": 0.303619384765625,
+   "want": 0.3036,
+   "ok": true
+  },
+  {
+   "name": "HB1.p_unknown_wrong",
+   "got": 0.9242051839828491,
+   "want": 0.9242,
+   "ok": true
+  },
+  {
+   "name": "B1.p",
+   "got": 0.604736328125,
+   "want": 0.6047,
+   "ok": true
+  },
+  {
+   "name": "HB1.cp_upper_unknown_wrong",
+   "got": 0.5940636159920559,
+   "want": 0.5940636159920558,
+   "ok": true
+  },
+  {
+   "name": "B1.cp_upper_unknown_excluded",
+   "got": 0.8129139715526014,
+   "want": 0.8129139715526013,
+   "ok": true
+  },
+  {
+   "name": "HB1.cp_upper (quoted, real k=13.5)",
+   "got": 0.7618487306979929,
+   "want": 0.7618,
+   "ok": true
+  },
+  {
+   "name": "controls.correct",
+   "got": 1,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "B1.retest_same",
+   "got": 0,
+   "want": 0,
+   "ok": true
+  },
+  {
+   "name": "B1.kappa_exploratory",
+   "got": 0.06250000000000026,
+   "want": 0.0625,
+   "ok": true
+  },
+  {
+   "name": "overall.kappa_exploratory (quoted)",
+   "got": 0.09999999999999992,
+   "want": 0.1,
+   "ok": true
+  }
+ ],
+ "n_checks": 117,
+ "n_mismatch": 0
+}
