@@ -33,7 +33,7 @@ abstract: >-
   and data are CC BY 4.0 (see LICENSE-DOCS).
 preferred-citation:
   type: article
-  title: "SOUL VERIFY: Measuring Document-Based Behavioral Carry-Over Across Model Swaps with Document Controls and Two Preregistered Replications"
+  title: "Does an Agent's Identity Document Survive a New Model or Harness? Eight Preregistered Studies"
   authors:
     - family-names: Shin
       given-names: Wunjong

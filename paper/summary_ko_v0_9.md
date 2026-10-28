@@ -1,5 +1,7 @@
 # SOUL VERIFY v0.9 한국어 요약
 
+**제목.** 에이전트의 정체성 문서는 새 모델이나 하네스에서도 살아남는가? 사전등록 연구 8편 (영문: *Does an Agent's Identity Document Survive a New Model or Harness? Eight Preregistered Studies*)
+
 영어 원고 `paper/draft_v0_9.md`(1–4부 통합본)의 요약입니다. 1·2부의 전체 한국어 번역은 v0.8 판(`paper/summary_ko_v0_8.md`)에 있고, 결과는 바뀌지 않았습니다. 이 판은 Zenodo에 올리지 않았습니다.
 
 ## 초록(요약 번역)

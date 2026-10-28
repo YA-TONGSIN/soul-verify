@@ -1,4 +1,4 @@
-# SOUL VERIFY: Behavioral Carry-Over of an Agent's Identity Documents Across Model and Harness Changes, and Checking Changes to the Documents, in Eight Preregistered Studies
+# Does an Agent's Identity Document Survive a New Model or Harness? Eight Preregistered Studies
 
 **Workshop version of preprint v0.9.1 (2026-10-28).** The long version (technical report, all tables, deviations, and sources) is `paper/draft_v0_9_1.md`; section numbers in brackets (e.g. [§7.4]) point to it.
 
