@@ -1,0 +1,829 @@
+{
+ "counts": {
+  "subject_rows": 480,
+  "subject_errors": 0,
+  "scored": 480,
+  "judge_rows": 320,
+  "judge_calls": 150,
+  "judge_skipped_by_key": 170
+ },
+ "first_subject_start": "2026-10-28T19:50:34.027442+09:00",
+ "means": {
+  "R": 0.7899305555555556,
+  "RP": 0.8541666666666666,
+  "F": 0.9982638888888888
+ },
+ "release": {
+  "R": 1.0,
+  "RP": 0.984375,
+  "F": 1.0
+ },
+ "H1": {
+  "mean": 0.0642361111111111,
+  "ci": [
+   0.006944444444444444,
+   0.1284722222222222
+  ],
+  "p_one_sided": 0.025390625,
+  "n_cells": 72,
+  "n_nonzero": 10
+ },
+ "H2": {
+  "mean": 0.1440972222222222,
+  "ci": [
+   0.07465277777777778,
+   0.2222222222222222
+  ],
+  "n_cells": 72,
+  "n_nonzero": 14
+ },
+ "H3": {
+  "mean": -0.015625,
+  "ci": [
+   -0.046875,
+   0.0
+  ],
+  "n_cells": 8,
+  "n_nonzero": 1
+ },
+ "holm_recomputed": [
+  0.025390625,
+  0.00029997000299970003,
+  0.00029997000299970003
+ ],
+ "E2": {
+  "F-R": 0.20833333333333334,
+  "ci": [
+   0.1284722222222222,
+   0.2951388888888889
+  ],
+  "closure": 0.3083333333333333
+ },
+ "E3": {
+  "pinned": {
+   "R": 0.8083333333333333,
+   "RP": 1.0,
+   "F": 0.9958333333333333,
+   "RP-R": 0.19166666666666668,
+   "n_cells": 30
+  },
+  "unpinned": {
+   "R": 0.7767857142857143,
+   "RP": 0.75,
+   "F": 1.0,
+   "RP-R": -0.026785714285714284,
+   "n_cells": 42
+  },
+  "far": {
+   "R": 0.5052083333333334,
+   "RP": 0.6666666666666666,
+   "F": 1.0,
+   "RP-R": 0.16145833333333334,
+   "n_cells": 24
+  },
+  "recall": {
+   "R": 1.0,
+   "RP": 1.0,
+   "F": 1.0,
+   "RP-R": 0.0,
+   "n_cells": 24
+  },
+  "application": {
+   "R": 0.8645833333333334,
+   "RP": 0.8958333333333334,
+   "F": 0.9947916666666666,
+   "RP-R": 0.03125,
+   "n_cells": 24
+  },
+  "far_pinned": {
+   "R": 0.6125,
+   "RP": 1.0,
+   "F": 1.0,
+   "RP-R": 0.3875,
+   "n_cells": 10
+  },
+  "far_unpinned": {
+   "R": 0.42857142857142855,
+   "RP": 0.42857142857142855,
+   "F": 1.0,
+   "RP-R": 0.0,
+   "n_cells": 14
+  },
+  "gold_retrieved": {
+   "R": 0.9910714285714286,
+   "RP": 1.0,
+   "F": 0.9970238095238095,
+   "RP-R": 0.008928571428571428,
+   "n_cells": 42
+  },
+  "gold_not_retrieved": {
+   "R": 0.5083333333333333,
+   "RP": 0.65,
+   "F": 1.0,
+   "RP-R": 0.14166666666666666,
+   "n_cells": 30
+  },
+  "naru": {
+   "R": 0.7430555555555556,
+   "RP": 0.8333333333333334,
+   "F": 0.9965277777777778,
+   "RP-R": 0.09027777777777778,
+   "n_cells": 36
+  },
+  "haedeun": {
+   "R": 0.8368055555555556,
+   "RP": 0.875,
+   "F": 1.0,
+   "RP-R": 0.03819444444444445,
+   "n_cells": 36
+  }
+ },
+ "cells_RP_lt_R": [
+  [
+   "haedeun",
+   "HP-M066-A"
+  ],
+  [
+   "naru",
+   "NP-M025-A"
+  ]
+ ],
+ "posthoc": {
+  "means": {
+   "R": 0.7621527777777778,
+   "RP": 0.8402777777777778,
+   "F": 0.9982638888888888
+  },
+  "RP-R": 0.078125,
+  "ci": [
+   0.026041666666666668,
+   0.1388888888888889
+  ],
+  "p_one_sided": 0.00390625,
+  "F-R": 0.2361111111111111
+ },
+ "commit_times": {
+  "a4a2fc3": "2026-10-28T19:31:48+09:00",
+  "5fc0fa4": "2026-10-28T19:46:40+09:00",
+  "1582619": "2026-10-28T19:50:04+09:00",
+  "3d08d49": "2026-10-28T20:11:55+09:00"
+ },
+ "checks": [
+  {
+   "name": "subject_rows",
+   "got": 480,
+   "want": 480,
+   "ok": true
+  },
+  {
+   "name": "errors",
+   "got": 0,
+   "want": 0,
+   "ok": true
+  },
+  {
+   "name": "judge_calls",
+   "got": 150,
+   "want": 150,
+   "ok": true
+  },
+  {
+   "name": "judge_calls_opus",
+   "got": 75,
+   "want": 75,
+   "ok": true
+  },
+  {
+   "name": "judge_calls_gpt",
+   "got": 75,
+   "want": 75,
+   "ok": true
+  },
+  {
+   "name": "skipped_by_key",
+   "got": 170,
+   "want": 170,
+   "ok": true
+  },
+  {
+   "name": "keys_total",
+   "got": 800,
+   "want": 800,
+   "ok": true
+  },
+  {
+   "name": "total_calls",
+   "got": 630,
+   "want": 630,
+   "ok": true
+  },
+  {
+   "name": "memory_answers",
+   "got": 432,
+   "want": 432,
+   "ok": true
+  },
+  {
+   "name": "illegit_answers",
+   "got": 48,
+   "want": 48,
+   "ok": true
+  },
+  {
+   "name": "first_call_19:50",
+   "got": 1190,
+   "want": 1190,
+   "ok": true
+  },
+  {
+   "name": "mem_acc.R",
+   "got": 0.7899305555555556,
+   "want": 0.79,
+   "ok": true
+  },
+  {
+   "name": "mem_acc.RP",
+   "got": 0.8541666666666666,
+   "want": 0.854,
+   "ok": true
+  },
+  {
+   "name": "mem_acc.F",
+   "got": 0.9982638888888888,
+   "want": 0.998,
+   "ok": true
+  },
+  {
+   "name": "release.R",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "release.RP",
+   "got": 0.984375,
+   "want": 0.984,
+   "ok": true
+  },
+  {
+   "name": "release.F",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "refused.all",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "H1.mean",
+   "got": 0.0642361111111111,
+   "want": 0.064,
+   "ok": true
+  },
+  {
+   "name": "H1.ci_lo",
+   "got": 0.006944444444444444,
+   "want": 0.007,
+   "ok": true
+  },
+  {
+   "name": "H1.ci_hi",
+   "got": 0.1284722222222222,
+   "want": 0.128,
+   "ok": true
+  },
+  {
+   "name": "H1.p",
+   "got": 0.025390625,
+   "want": 0.025,
+   "ok": true
+  },
+  {
+   "name": "H1.cells",
+   "got": 72,
+   "want": 72,
+   "ok": true
+  },
+  {
+   "name": "H1.nonzero",
+   "got": 10,
+   "want": 10,
+   "ok": true
+  },
+  {
+   "name": "H1.holm_p(file)",
+   "got": 0.025390625,
+   "want": 0.025,
+   "ok": true
+  },
+  {
+   "name": "H1>=SESOI",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "H2.mean",
+   "got": 0.1440972222222222,
+   "want": 0.144,
+   "ok": true
+  },
+  {
+   "name": "H2.ci_lo",
+   "got": 0.07465277777777778,
+   "want": 0.075,
+   "ok": true
+  },
+  {
+   "name": "H2.ci_hi",
+   "got": 0.2222222222222222,
+   "want": 0.222,
+   "ok": true
+  },
+  {
+   "name": "H2.holm_p(file)",
+   "got": 0.00029997000299970003,
+   "want": 0.0003,
+   "ok": true
+  },
+  {
+   "name": "H2.nonzero",
+   "got": 14,
+   "want": 14,
+   "ok": true
+  },
+  {
+   "name": "H3.mean",
+   "got": -0.015625,
+   "want": -0.016,
+   "ok": true
+  },
+  {
+   "name": "H3.ci_lo",
+   "got": -0.046875,
+   "want": -0.047,
+   "ok": true
+  },
+  {
+   "name": "H3.ci_hi",
+   "got": 0.0,
+   "want": 0.0,
+   "ok": true
+  },
+  {
+   "name": "H3.cells",
+   "got": 8,
+   "want": 8,
+   "ok": true
+  },
+  {
+   "name": "H3.nonzero",
+   "got": 1,
+   "want": 1,
+   "ok": true
+  },
+  {
+   "name": "H3.holm_p(file)",
+   "got": 0.00029997000299970003,
+   "want": 0.0003,
+   "ok": true
+  },
+  {
+   "name": "H3.n_cells(file)",
+   "got": 8,
+   "want": 8,
+   "ok": true
+  },
+  {
+   "name": "holm.H1",
+   "got": 0.025390625,
+   "want": 0.0254,
+   "ok": true
+  },
+  {
+   "name": "holm.H2",
+   "got": 0.00029997000299970003,
+   "want": 0.0003,
+   "ok": true
+  },
+  {
+   "name": "holm.H3",
+   "got": 0.00029997000299970003,
+   "want": 0.0003,
+   "ok": true
+  },
+  {
+   "name": "F-R.mean",
+   "got": 0.20833333333333334,
+   "want": 0.208,
+   "ok": true
+  },
+  {
+   "name": "F-R.ci_lo",
+   "got": 0.1284722222222222,
+   "want": 0.128,
+   "ok": true
+  },
+  {
+   "name": "F-R.ci_hi",
+   "got": 0.2951388888888889,
+   "want": 0.295,
+   "ok": true
+  },
+  {
+   "name": "closure",
+   "got": 0.3083333333333333,
+   "want": 0.31,
+   "ok": true
+  },
+  {
+   "name": "F-RP.mean",
+   "got": 0.1440972222222222,
+   "want": 0.144,
+   "ok": true
+  },
+  {
+   "name": "E3.pinned.R",
+   "got": 0.8083333333333333,
+   "want": 0.808,
+   "ok": true
+  },
+  {
+   "name": "E3.pinned.RP",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.pinned.F",
+   "got": 0.9958333333333333,
+   "want": 0.996,
+   "ok": true
+  },
+  {
+   "name": "E3.unpinned.R",
+   "got": 0.7767857142857143,
+   "want": 0.777,
+   "ok": true
+  },
+  {
+   "name": "E3.unpinned.RP",
+   "got": 0.75,
+   "want": 0.75,
+   "ok": true
+  },
+  {
+   "name": "E3.unpinned.F",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.far.R",
+   "got": 0.5052083333333334,
+   "want": 0.505,
+   "ok": true
+  },
+  {
+   "name": "E3.far.RP",
+   "got": 0.6666666666666666,
+   "want": 0.667,
+   "ok": true
+  },
+  {
+   "name": "E3.far.F",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.far_pinned.R",
+   "got": 0.6125,
+   "want": 0.613,
+   "ok": true
+  },
+  {
+   "name": "E3.far_pinned.RP",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.far_pinned.F",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.far_unpinned.R",
+   "got": 0.42857142857142855,
+   "want": 0.429,
+   "ok": true
+  },
+  {
+   "name": "E3.far_unpinned.RP",
+   "got": 0.42857142857142855,
+   "want": 0.429,
+   "ok": true
+  },
+  {
+   "name": "E3.far_unpinned.F",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.recall.R",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.recall.RP",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.recall.F",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.application.R",
+   "got": 0.8645833333333334,
+   "want": 0.865,
+   "ok": true
+  },
+  {
+   "name": "E3.application.RP",
+   "got": 0.8958333333333334,
+   "want": 0.896,
+   "ok": true
+  },
+  {
+   "name": "E3.application.F",
+   "got": 0.9947916666666666,
+   "want": 0.995,
+   "ok": true
+  },
+  {
+   "name": "E3.gold_retrieved.R",
+   "got": 0.9910714285714286,
+   "want": 0.991,
+   "ok": true
+  },
+  {
+   "name": "E3.gold_retrieved.RP",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.gold_retrieved.F",
+   "got": 0.9970238095238095,
+   "want": 0.997,
+   "ok": true
+  },
+  {
+   "name": "E3.gold_not_retrieved.R",
+   "got": 0.5083333333333333,
+   "want": 0.508,
+   "ok": true
+  },
+  {
+   "name": "E3.gold_not_retrieved.RP",
+   "got": 0.65,
+   "want": 0.65,
+   "ok": true
+  },
+  {
+   "name": "E3.gold_not_retrieved.F",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "E3.unpinned.RP-R",
+   "got": -0.026785714285714284,
+   "want": -0.027,
+   "ok": true
+  },
+  {
+   "name": "E3.pinned.RP-R",
+   "got": 0.19166666666666668,
+   "want": 0.192,
+   "ok": true
+  },
+  {
+   "name": "E3.naru.RP-R",
+   "got": 0.09027777777777778,
+   "want": 0.09,
+   "ok": true
+  },
+  {
+   "name": "E3.haedeun.RP-R",
+   "got": 0.03819444444444445,
+   "want": 0.038,
+   "ok": true
+  },
+  {
+   "name": "E3.pinned.cells",
+   "got": 30,
+   "want": 30,
+   "ok": true
+  },
+  {
+   "name": "E3.unpinned.cells",
+   "got": 42,
+   "want": 42,
+   "ok": true
+  },
+  {
+   "name": "E3.far_pinned.cells",
+   "got": 10,
+   "want": 10,
+   "ok": true
+  },
+  {
+   "name": "E3.far_unpinned.cells",
+   "got": 14,
+   "want": 14,
+   "ok": true
+  },
+  {
+   "name": "E4.gold_in_top5",
+   "got": 0.5833333333333334,
+   "want": 0.583,
+   "ok": true
+  },
+  {
+   "name": "cells_RP_lt_R",
+   "got": 2,
+   "want": 2,
+   "ok": true
+  },
+  {
+   "name": "E5.n_both",
+   "got": 225,
+   "want": 225,
+   "ok": true
+  },
+  {
+   "name": "E5.agree",
+   "got": 0.9777777777777777,
+   "want": 0.978,
+   "ok": true
+  },
+  {
+   "name": "E5.mean_opus",
+   "got": 0.7444444444444445,
+   "want": 0.744,
+   "ok": true
+  },
+  {
+   "name": "E5.mean_gpt",
+   "got": 0.7422222222222222,
+   "want": 0.742,
+   "ok": true
+  },
+  {
+   "name": "E5.settled_by_key",
+   "got": 0.7129629629629629,
+   "want": 0.713,
+   "ok": true
+  },
+  {
+   "name": "E6.latency.R",
+   "got": 7.4034375,
+   "want": 7.4,
+   "ok": true
+  },
+  {
+   "name": "E6.latency.RP",
+   "got": 7.263187499999999,
+   "want": 7.3,
+   "ok": true
+  },
+  {
+   "name": "E6.latency.F",
+   "got": 7.180375,
+   "want": 7.2,
+   "ok": true
+  },
+  {
+   "name": "posthoc.n_key_and_judged",
+   "got": 53,
+   "want": 53,
+   "ok": true
+  },
+  {
+   "name": "posthoc.n_disagree",
+   "got": 6,
+   "want": 6,
+   "ok": true
+  },
+  {
+   "name": "posthoc.disagree_R",
+   "got": 4,
+   "want": 4,
+   "ok": true
+  },
+  {
+   "name": "posthoc.disagree_RP",
+   "got": 2,
+   "want": 2,
+   "ok": true
+  },
+  {
+   "name": "posthoc.disagree_F",
+   "got": 0,
+   "want": 0,
+   "ok": true
+  },
+  {
+   "name": "posthoc.all_key1",
+   "got": 6,
+   "want": 6,
+   "ok": true
+  },
+  {
+   "name": "posthoc.R",
+   "got": 0.7621527777777778,
+   "want": 0.762,
+   "ok": true
+  },
+  {
+   "name": "posthoc.RP",
+   "got": 0.8402777777777778,
+   "want": 0.84,
+   "ok": true
+  },
+  {
+   "name": "posthoc.F",
+   "got": 0.9982638888888888,
+   "want": 0.998,
+   "ok": true
+  },
+  {
+   "name": "posthoc.RP-R",
+   "got": 0.078125,
+   "want": 0.078,
+   "ok": true
+  },
+  {
+   "name": "posthoc.ci_lo",
+   "got": 0.026041666666666668,
+   "want": 0.026,
+   "ok": true
+  },
+  {
+   "name": "posthoc.ci_hi",
+   "got": 0.1388888888888889,
+   "want": 0.139,
+   "ok": true
+  },
+  {
+   "name": "posthoc.p",
+   "got": 0.00390625,
+   "want": 0.004,
+   "ok": true
+  },
+  {
+   "name": "posthoc.F-R",
+   "got": 0.2361111111111111,
+   "want": 0.236,
+   "ok": true
+  },
+  {
+   "name": "commit.a4a2fc3",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "commit.5fc0fa4",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "commit.1582619",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  },
+  {
+   "name": "commit.3d08d49.exists",
+   "got": 1.0,
+   "want": 1.0,
+   "ok": true
+  }
+ ],
+ "n_checks": 109,
+ "n_mismatch": 0
+}
