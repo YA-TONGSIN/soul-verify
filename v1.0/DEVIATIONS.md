@@ -25,5 +25,10 @@ So `AG_*.jsonl`, `BJ_*.jsonl`, `graded_by_*.jsonl`, `scored_r1.jsonl`, `analysis
 (committed and stamped). Subject answers (`A_gpt.jsonl`, `B_gpt.jsonl`, `raw.jsonl`) are public. The prereg asks that a code shortfall in the sheet sampling be
 reported; that report is inside the private `HUMAN_KEY_T.json` (`sampling_report`) and is published with it, for the same reason.
 
+## D-6. Korean reference translation added to the human grading page /t/ (2026-10-28, before any grading started)
+The human grading screen now shows, below the English original, a collapsed "한국어 번역(참고용)" block (text_ko) with the note "채점은 영어 원문 기준, 번역은 참고용" (grade against the English original; the translation is for reference only).
+Reason: the grader's native language is Korean. The block was added by an LLM (Claude); translation model: claude-sonnet-5-5 (literal translation, no change of tone, politeness or emphasis, no summary, no evaluation; passwords and names kept as in the original; written by `human-grading-web/add_ko_t.py`).
+Scope: items n = 1..18 (sheets T1, T2; English originals). Items 19..27 (sheet T3) are already Korean and have no translation block. The original `text` of all 27 items is byte-for-byte unchanged (checked against the previous commit). No answer key or sealed file was opened. Added `public/_headers` (`Content-Type: application/json; charset=utf-8` for items.json). Existing submissions (table `submissions_t`) untouched. Human grading had not started when this was deployed (per the author's request).
+
 ## D-5. Run zero-error
 0 error rows, 0 rate-limit rows, 0 safeguard blocks, 0 missing keys; the backoff and resume paths were not exercised in the main run.

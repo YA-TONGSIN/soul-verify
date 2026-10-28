@@ -188,6 +188,7 @@ function itemScreen(st) {
   app.innerHTML = `
   ${defCard(st.sheet, st.idx === 1)}
   <div class="card item">${renderText(it.text)}
+  ${it.text_ko ? `<details class="ko"><summary>한국어 번역(참고용)</summary><p class="muted">채점은 영어 원문 기준, 번역은 참고용</p>${renderText(it.text_ko)}</details>` : ""}
   ${questionsHtml(st.sheet, ans)}</div>
   ${navHtml(true)}`;
   bindOpts(st.sheet, ans, () => { save(); setHeader(`${st.sheet} · ${st.idx} / ${SHEET_SIZE[st.sheet]}  (전체 ${doneCount()} / ${TOTAL} 완료)`); });
