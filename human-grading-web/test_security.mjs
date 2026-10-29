@@ -47,4 +47,8 @@ const first = csv.split("\n")[1] || "";
 if (!first.includes(",'=HYPERLINK(1),") || !first.includes(",'@x,")) fail("csv guard: " + first.slice(0, 80));
 // 4. admin token: wrong / prefix / empty are 404
 for (const k of ["adm45", "adm4567", "", "ADM456"]) if ((await call("/tok123/api/export?key=" + k)).status !== 404) fail("admin token accepted: len " + k.length);
-console.log(JSON.stringify({ ok: true, checks: ["headers", "413", "csv", "admin"] }));
+// 5. the correct token in the query string (?key=) is no longer accepted; only the Bearer header is
+for (const path of ["/tok123/api/export", "/tok123/r/api/export", "/tok123/l/api/export", "/tok123/t/api/export", "/tok123/h/api/export"]) {
+  if ((await call(path + "?key=adm456")).status !== 404) fail("?key= accepted on " + path);
+}
+console.log(JSON.stringify({ ok: true, checks: ["headers", "413", "csv", "admin", "no-query-key"] }));

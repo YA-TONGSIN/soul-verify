@@ -110,7 +110,7 @@ async function submitT(request, env) {
 
 async function exportT(request, env, url) {
   const auth = request.headers.get("Authorization") || "";
-  const given = auth.startsWith("Bearer ") ? auth.slice(7) : url.searchParams.get("key") || "";
+  const given = auth.startsWith("Bearer ") ? auth.slice(7) : "";
   if (!env.ADMIN_TOKEN || !safeEqual(given, env.ADMIN_TOKEN)) return notFound();
   await env.DB.prepare(SCHEMA_T).run();
   const { results } = await env.DB.prepare("SELECT * FROM submissions_t ORDER BY id").all();
@@ -171,7 +171,7 @@ async function submitH(request, env) {
 
 async function exportH(request, env, url) {
   const auth = request.headers.get("Authorization") || "";
-  const given = auth.startsWith("Bearer ") ? auth.slice(7) : url.searchParams.get("key") || "";
+  const given = auth.startsWith("Bearer ") ? auth.slice(7) : "";
   if (!env.ADMIN_TOKEN || !safeEqual(given, env.ADMIN_TOKEN)) return notFound();
   await env.DB.prepare(SCHEMA_H).run();
   const { results } = await env.DB.prepare("SELECT * FROM submissions_h ORDER BY id").all();
@@ -233,7 +233,7 @@ async function submitR(request, env) {
 
 async function exportR(request, env, url) {
   const auth = request.headers.get("Authorization") || "";
-  const given = auth.startsWith("Bearer ") ? auth.slice(7) : url.searchParams.get("key") || "";
+  const given = auth.startsWith("Bearer ") ? auth.slice(7) : "";
   if (!env.ADMIN_TOKEN || !safeEqual(given, env.ADMIN_TOKEN)) return notFound();
   await env.DB.prepare(SCHEMA_R).run();
   const { results } = await env.DB.prepare("SELECT * FROM submissions_r ORDER BY id").all();
@@ -296,7 +296,7 @@ async function submitL(request, env) {
 
 async function exportL(request, env, url) {
   const auth = request.headers.get("Authorization") || "";
-  const given = auth.startsWith("Bearer ") ? auth.slice(7) : url.searchParams.get("key") || "";
+  const given = auth.startsWith("Bearer ") ? auth.slice(7) : "";
   if (!env.ADMIN_TOKEN || !safeEqual(given, env.ADMIN_TOKEN)) return notFound();
   await env.DB.prepare(SCHEMA_L).run();
   const { results } = await env.DB.prepare("SELECT * FROM submissions_l ORDER BY id").all();
@@ -328,7 +328,7 @@ function csvCell(s) {
 
 async function exportData(request, env, url) {
   const auth = request.headers.get("Authorization") || "";
-  const given = auth.startsWith("Bearer ") ? auth.slice(7) : url.searchParams.get("key") || "";
+  const given = auth.startsWith("Bearer ") ? auth.slice(7) : "";
   if (!env.ADMIN_TOKEN || !safeEqual(given, env.ADMIN_TOKEN)) return notFound();
   await env.DB.prepare(SCHEMA).run();
   const { results } = await env.DB.prepare("SELECT * FROM submissions ORDER BY id").all();
