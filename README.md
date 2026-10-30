@@ -24,6 +24,7 @@
 - `runs/<id>/` — 실험 결과: `raw.jsonl`(응답), `graded.jsonl`(점수·근거), `report.json`/`report.html`
 - `paper/` — 논문: 최신 `draft_v0_7_1.md` / `SOUL_VERIFY_v0.7.1.pdf`(영어 본문), `summary_ko_v0_7_1.md`(한국어 요약), 이전 판 `draft_v0*.md`(기록 보존용 — 머리의 "private/draft" 표시는 당시 상태이며 최신판이 아님), 심사 의견 `reviews/`, 재분석 `reanalysis/`, arXiv 제출용 LaTeX `arxiv/`
 - `proofs/` — 커밋 시점 증명(OpenTimestamps). `stamp.py` 도장, `upgrade.py` 블록 확정 후 업그레이드
+- `identity-formation/` — 새 파트: 정체성 형성 실험(1단계: 설계 우선권 기록)
 
 ## 실행
 ```
