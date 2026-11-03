@@ -16,7 +16,7 @@ are licensed under the Creative Commons Attribution 4.0 International License
   - README.md and other Markdown documentation
 
 Source code (src/, tests/, and *.py / *.ps1 scripts anywhere in the repository)
-is licensed under the MIT License (see LICENSE).
+is licensed under the Apache License 2.0 (see LICENSE; releases published earlier under MIT remain MIT).
 
 EXCEPTIONS - third-party material keeps its own license:
   - external_souls/   SOUL.md files written by other people, redistributed

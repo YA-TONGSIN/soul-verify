@@ -7,7 +7,7 @@ authors:
     given-names: Wunjong
     affiliation: "Independent researcher"
 repository-code: "https://github.com/YA-TONGSIN/soul-verify"
-license: MIT
+license: Apache-2.0
 version: "0.9.2"
 date-released: "2026-10-29"
 doi: "10.5281/zenodo.23653775"
@@ -35,7 +35,7 @@ abstract: >-
   A small harness and data set for measuring which behaviors specified in an
   agent's identity document (SOUL) and memory file (MEMORY) carry over when the
   underlying language model is replaced, with same-model controls, document
-  controls, and two preregistered replications. Code is MIT; paper, documents,
+  controls, and two preregistered replications. Code is Apache-2.0; paper, documents,
   and data are CC BY 4.0 (see LICENSE-DOCS).
 preferred-citation:
   type: article

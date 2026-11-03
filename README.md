@@ -65,7 +65,8 @@ Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이
 - "세계 최초" 같은 검증되지 않은 주장은 하지 않습니다.
 
 ## 라이선스
-- **코드** (`src/`, `tests/`, 각 폴더의 `*.py`·`*.ps1` 스크립트): MIT — [LICENSE](LICENSE)
+- **코드** (`src/`, `tests/`, 각 폴더의 `*.py`·`*.ps1` 스크립트): Apache License 2.0 — [LICENSE](LICENSE), [NOTICE](NOTICE). 특허 출원 중(한국 출원 10-2026-0214884).
+  - 이미 공개된 이전 버전(MIT로 공개한 것)은 그대로 MIT입니다.
 - **논문·문서·데이터** (`paper/`, `runs/`, `v0.1/`…`v0.7/`의 합성 SOUL·MEMORY·문항·사전등록, `research/`, `proofs/`, 이 README 등): CC BY 4.0 — [LICENSE-DOCS](LICENSE-DOCS)
 - **예외 — 다른 사람이 쓴 문서는 각자 원 라이선스를 따릅니다.**
   - `external_souls/` — 다른 사람이 자기 에이전트용으로 쓴 SOUL.md 원본(바이트 그대로). 각 폴더의 `LICENSE.txt`(모두 MIT, 저작권 표시 유지)와 `SOURCE.md`(저장소·커밋·SHA-256) 참고.
@@ -78,4 +79,4 @@ Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이
 저장소의 모든 텍스트 파일은 BOM 없는 UTF-8입니다. Windows PowerShell 5.1에서 `Get-Content`를 `-Encoding utf8` 없이 쓰면 한글이 깨져 보이지만(예: `v0.3/samples/MEMORY.md`), 파일 자체는 정상입니다(2026-10-26 엄격 UTF-8 디코딩으로 확인). 이 파일들의 해시는 OpenTimestamps 증명에 들어 있으므로 다시 저장하지 않습니다.
 
 ## English summary
-SOUL VERIFY measures which behaviors specified in an agent's identity document (SOUL) and memory file (MEMORY) carry over when the underlying LLM is swapped, against same-model controls and document controls (no SOUL, opposite SOUL, swapped MEMORY), with two preregistered replications (exp10, exp11). Paper: `paper/draft_v0_7_1.md` / `paper/SOUL_VERIFY_v0.7.1.pdf`. It makes **no claim about consciousness or personal identity** of models; it is a measurement tool for behavioral continuity of a written specification. Code: MIT. Paper, documents, and data: CC BY 4.0. Third-party SOULs keep their own (MIT) licenses.
+SOUL VERIFY measures which behaviors specified in an agent's identity document (SOUL) and memory file (MEMORY) carry over when the underlying LLM is swapped, against same-model controls and document controls (no SOUL, opposite SOUL, swapped MEMORY), with two preregistered replications (exp10, exp11). Paper: `paper/draft_v0_7_1.md` / `paper/SOUL_VERIFY_v0.7.1.pdf`. It makes **no claim about consciousness or personal identity** of models; it is a measurement tool for behavioral continuity of a written specification. Code: Apache-2.0 (patent pending; earlier releases already published under MIT remain MIT). Paper, documents, and data: CC BY 4.0. Third-party SOULs keep their own (MIT) licenses.
