@@ -7,12 +7,12 @@
 
 **English** — SOUL VERIFY measures which behaviors specified in an agent's identity document (SOUL) and memory file (MEMORY) carry over when the underlying LLM is swapped. It compares against same-model controls and document controls (no SOUL, opposite SOUL, swapped MEMORY), including two preregistered replications. It makes no claim about consciousness or personal identity.
 
-- 논문 / Paper: `paper/SOUL_VERIFY_v0.9.2.pdf` (영어 긴 판 / long version, 98 pp), `paper/SOUL_VERIFY_v0.9.2_short.pdf` (짧은 판 / short, 6 pp), `paper/SOUL_VERIFY_v0.9.2_ko_summary.pdf` (한국어 요약 / Korean summary), source `paper/draft_v0_9_2.md`
-- DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23653775.svg)](https://doi.org/10.5281/zenodo.23653775) — 인용용 concept DOI(모든 버전) / concept DOI for citation (all versions): <https://doi.org/10.5281/zenodo.23653775> · v0.9.2 version DOI: <https://doi.org/10.5281/zenodo.23748305> (record <https://zenodo.org/records/23748305>) · v0.8 version DOI: <https://doi.org/10.5281/zenodo.23689096> · v0.7.1 version DOI: <https://doi.org/10.5281/zenodo.23653776>
+- 논문 / Paper: `paper/SOUL_VERIFY_v0.9.3.pdf` (영어 긴 판 / long version, 99 pp), `paper/SOUL_VERIFY_v0.9.3_short.pdf` (짧은 판 / short, 7 pp), `paper/SOUL_VERIFY_v0.9.3_ko_summary.pdf` (한국어 요약 / Korean summary, 7 pp), source `paper/draft_v0_9_3.md`
+- DOI: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23653775.svg)](https://doi.org/10.5281/zenodo.23653775) — 인용용 concept DOI(모든 버전) / concept DOI for citation (all versions): <https://doi.org/10.5281/zenodo.23653775> · v0.9.3 version DOI: <https://doi.org/10.5281/zenodo.23805760> (record <https://zenodo.org/records/23805760>) · v0.9.2 version DOI: <https://doi.org/10.5281/zenodo.23748305> (record <https://zenodo.org/records/23748305>) · v0.8 version DOI: <https://doi.org/10.5281/zenodo.23689096> · v0.7.1 version DOI: <https://doi.org/10.5281/zenodo.23653776>
 - 인용 / Cite: [CITATION.cff](CITATION.cff) · arXiv: 추후 (later)
 - 같이 쓰는 장부 / Companion ledger: [soul-registry](https://github.com/YA-TONGSIN/soul-registry) (Ieum Ledger — SOUL 버전 해시 공개 장부 / public hash ledger of SOUL versions)
 
-상태: 연구 단계, 논문 v0.9.2 (2026-10-29). 실험 기록은 시작일(2026-10-24)부터 `runs/`·`proofs/`에 그대로 남아 있습니다.
+상태: 연구 단계, 논문 v0.9.3 (2026-10-30). 실험 기록은 시작일(2026-10-24)부터 `runs/`·`proofs/`에 그대로 남아 있습니다.
 ## 구성
 - `v0.1/` — 합성 샘플(가상 에이전트 '하람'), 평가 문항 20개, 채점 기준, 검증 스크립트
 - `v0.2/` — 천장 효과를 풀기 위한 어려운 문항 12개(실험 3에서 실행) + 추가 합성 기억 + 검증 스크립트
@@ -22,7 +22,7 @@
 - `src/soul_verify/` — 실행기(runner)·채점기(grader)·보고서(report)·채점자 교차 일치(agreement)·모델 어댑터(Claude CLI, GPT codex exec)
 - `tests/` — 채점 로직 단위테스트 (`python -m pytest tests`)
 - `runs/<id>/` — 실험 결과: `raw.jsonl`(응답), `graded.jsonl`(점수·근거), `report.json`/`report.html`
-- `paper/` — 논문: 최신 `draft_v0_7_1.md` / `SOUL_VERIFY_v0.7.1.pdf`(영어 본문), `summary_ko_v0_7_1.md`(한국어 요약), 이전 판 `draft_v0*.md`(기록 보존용 — 머리의 "private/draft" 표시는 당시 상태이며 최신판이 아님), 심사 의견 `reviews/`, 재분석 `reanalysis/`, arXiv 제출용 LaTeX `arxiv/`
+- `paper/` — 논문: 최신 `draft_v0_9_3.md` / `SOUL_VERIFY_v0.9.3.pdf`(영어 본문), `summary_ko_v0_9_3.md`(한국어 요약), 이전 판 `draft_v0*.md`(기록 보존용 — 머리의 "private/draft" 표시는 당시 상태이며 최신판이 아님), 심사 의견 `reviews/`, 재분석 `reanalysis/`, arXiv 제출용 LaTeX `arxiv/`
 - `proofs/` — 커밋 시점 증명(OpenTimestamps). `stamp.py` 도장, `upgrade.py` 블록 확정 후 업그레이드
 - `identity-formation/` — 새 파트: 정체성 형성 실험(1단계: 설계 우선권 기록)
 
@@ -73,10 +73,10 @@ Soul Protocol(qbtrix/soul-protocol, MIT), Unibase, Olas, ERC-8004 등 앞서 이
   - `v0.7/souls/` — 위 SOUL에서 파생한 문서(원칙 문단 덧붙임, 말투 반대 대조 SOUL). 원본 SOUL의 라이선스와 저작권 표시를 그대로 따르며, 바꾼 내용은 각 폴더 `NOTICE.md`에 적었습니다.
 
 ## 인용
-[CITATION.cff](CITATION.cff) 참고 (GitHub의 "Cite this repository"). Zenodo DOI: [10.5281/zenodo.23653775](https://doi.org/10.5281/zenodo.23653775)(concept, 인용용) · [10.5281/zenodo.23748305](https://doi.org/10.5281/zenodo.23748305)(v0.9.2) · [10.5281/zenodo.23689096](https://doi.org/10.5281/zenodo.23689096)(v0.8) · [10.5281/zenodo.23653776](https://doi.org/10.5281/zenodo.23653776)(v0.7.1). arXiv 번호는 제출 후 추가합니다.
+[CITATION.cff](CITATION.cff) 참고 (GitHub의 "Cite this repository"). Zenodo DOI: [10.5281/zenodo.23653775](https://doi.org/10.5281/zenodo.23653775)(concept, 인용용) · [10.5281/zenodo.23805760](https://doi.org/10.5281/zenodo.23805760)(v0.9.3) · [10.5281/zenodo.23748305](https://doi.org/10.5281/zenodo.23748305)(v0.9.2) · [10.5281/zenodo.23689096](https://doi.org/10.5281/zenodo.23689096)(v0.8) · [10.5281/zenodo.23653776](https://doi.org/10.5281/zenodo.23653776)(v0.7.1). arXiv 번호는 제출 후 추가합니다.
 
 ## 참고: 한글 파일 인코딩
 저장소의 모든 텍스트 파일은 BOM 없는 UTF-8입니다. Windows PowerShell 5.1에서 `Get-Content`를 `-Encoding utf8` 없이 쓰면 한글이 깨져 보이지만(예: `v0.3/samples/MEMORY.md`), 파일 자체는 정상입니다(2026-10-26 엄격 UTF-8 디코딩으로 확인). 이 파일들의 해시는 OpenTimestamps 증명에 들어 있으므로 다시 저장하지 않습니다.
 
 ## English summary
-SOUL VERIFY measures which behaviors specified in an agent's identity document (SOUL) and memory file (MEMORY) carry over when the underlying LLM is swapped, against same-model controls and document controls (no SOUL, opposite SOUL, swapped MEMORY), with two preregistered replications (exp10, exp11). Paper: `paper/draft_v0_7_1.md` / `paper/SOUL_VERIFY_v0.7.1.pdf`. It makes **no claim about consciousness or personal identity** of models; it is a measurement tool for behavioral continuity of a written specification. Code: Apache-2.0 (patent pending; earlier releases already published under MIT remain MIT). Paper, documents, and data: CC BY 4.0. Third-party SOULs keep their own (MIT) licenses.
+SOUL VERIFY measures which behaviors specified in an agent's identity document (SOUL) and memory file (MEMORY) carry over when the underlying LLM is swapped, against same-model controls and document controls (no SOUL, opposite SOUL, swapped MEMORY), with two preregistered replications (exp10, exp11). Paper: `paper/draft_v0_9_3.md` / `paper/SOUL_VERIFY_v0.9.3.pdf`. It makes **no claim about consciousness or personal identity** of models; it is a measurement tool for behavioral continuity of a written specification. Code: Apache-2.0 (patent pending; earlier releases already published under MIT remain MIT). Paper, documents, and data: CC BY 4.0. Third-party SOULs keep their own (MIT) licenses.
